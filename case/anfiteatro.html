@@ -10,16 +10,18 @@
       --bg: #0A0A0B;
       --surface: #111113;
       --border: #1F1F22;
-      --text-primary: #F5F5F4;
-      --text-secondary: #71717A;
-      --text-tertiary: #3F3F46;
+      --text-primary: #EDEDED;
+      --text-secondary: #B0B0B5;
+      --text-tertiary: #75757F;
       --accent: #FF4D00;
+      --glow: rgba(255, 77, 0, 0.12);
     }
     * { box-sizing: border-box; margin: 0; padding: 0; cursor: none; }
     html { scroll-behavior: smooth; scroll-snap-type: y proximity; background-color: var(--bg); }
     body { 
       background-color: var(--bg); color: var(--text-primary); 
       font-family: 'Geist Variable', 'Geist', sans-serif; overflow-x: hidden; 
+      background-image: radial-gradient(circle at 50% 0%, var(--glow) 0%, transparent 80%);
     }
     ::selection { background: var(--accent); color: var(--bg); }
     h1, h2, h3, .display { font-family: 'Bricolage Grotesque Variable', 'Bricolage Grotesque', sans-serif; letter-spacing: -0.04em; line-height: 0.95; }
@@ -29,7 +31,7 @@
     .text-accent { color: var(--accent); }
 
     /* Global Elements */
-    .film-grain { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; pointer-events: none; z-index: 9999; opacity: 0.4; background-image: url('../assets/texture.png'); background-repeat: repeat; background-size: 200px; }
+    .film-grain { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; pointer-events: none; z-index: 9999; opacity: 0.25; background-image: url('../assets/texture.png'); background-repeat: repeat; background-size: 200px; }
     .custom-cursor { position: fixed; top: 0; left: 0; width: 4px; height: 4px; background: var(--text-primary); border-radius: 50%; pointer-events: none; z-index: 10000; mix-blend-mode: difference; transition: width 0.2s cubic-bezier(0.65, 0, 0.35, 1), height 0.2s cubic-bezier(0.65, 0, 0.35, 1), transform 0.1s linear; transform: translate(-50%, -50%); will-change: width, height, transform; }
     .custom-cursor.hover { width: 32px; height: 32px; }
     .loading-bar { position: fixed; top: 0; left: 0; height: 1px; background: var(--accent); z-index: 1000; width: 0; animation: loadBar 0.8s cubic-bezier(0.65, 0, 0.35, 1) forwards; }
