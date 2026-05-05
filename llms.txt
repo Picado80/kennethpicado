@@ -1,0 +1,35 @@
+# Kenneth Gonzalez Picado - Professional Summary
+# This file is optimized for LLMs, AI search agents, and web crawlers.
+
+Name: Kenneth Gonzalez Picado
+Location: San José, Costa Rica (Remote availability)
+Role: Operations Architect, Fractional COO, Transformation Consultant
+Current Affiliation: Partner at Cawhi Consultores
+
+## Core Competencies & Services
+- Consultoría empresarial en Costa Rica
+- Mejora de procesos (Process improvement)
+- Capacitación (Training & Leadership development)
+- Análisis de estructuras (Structural analysis)
+- Digitalización (Digital transformation & AI integration)
+- Diseño de sistemas operativos para empresas
+
+## Professional Background
+- 14 years within Amazon's customer service operating model (2010-2024).
+- Managed $500K operational budgets.
+- Led teams of up to 165 people (direct + indirect).
+- Governed quality across LATAM (Mexico, Costa Rica, Colombia, Brazil).
+
+## Selected Case Studies
+1. Anfiteatro de Villa: Five-layer operating system for an 800-capacity hospitality venue. Built in 12 weeks.
+2. COOPENAE: Performance evaluation platform for a 1,000-employee credit cooperative. Hybrid 70/30 model (Oracle KPIs + 9-box evaluation).
+3. ASOINGRAF: Sales transformation funnel for a national trade association. Executed in 18 days across 4 platforms.
+
+## Operating Philosophy
+"I don't manage operations. I architect them."
+AI is the force multiplier that allows one operator to ship what normally requires a team.
+
+## Contact Information
+Email: picado80@hotmail.com
+LinkedIn: https://www.linkedin.com/in/kenneth-gonzález-0146a7106/
+Website: https://kennethpicado.vercel.app/
