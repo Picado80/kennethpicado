@@ -7,12 +7,12 @@
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Geist+Mono:wght@100..900&family=Geist:wght@100..900&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #0A0A0B; --surface: #111113; --border: #1F1F22;
-      --text-primary: #EDEDED;
-      --text-secondary: #B0B0B5;
-      --text-tertiary: #75757F;
+      --bg: #111112; --surface: #1C1C1E; --border: #2C2C2E;
+      --text-primary: #F5F5F7;
+      --text-secondary: #A1A1A6;
+      --text-tertiary: #6E6E73;
       --accent: #7C9885; /* Coopenae green */
-      --glow: rgba(124, 152, 133, 0.15);
+      --glow: rgba(124, 152, 133, 0.2);
     }
     * { box-sizing: border-box; margin: 0; padding: 0; cursor: none; }
     html { scroll-behavior: smooth; scroll-snap-type: y proximity; background-color: var(--bg); }
@@ -24,7 +24,7 @@
     .text-tertiary { color: var(--text-tertiary); }
     .text-accent { color: var(--accent); }
 
-    .film-grain { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; pointer-events: none; z-index: 9999; opacity: 0.25; background-image: url('../assets/texture.png'); background-repeat: repeat; background-size: 200px; }
+    .film-grain { display: none; }
     .custom-cursor { position: fixed; top: 0; left: 0; width: 4px; height: 4px; background: var(--text-primary); border-radius: 50%; pointer-events: none; z-index: 10000; mix-blend-mode: difference; transition: width 0.2s cubic-bezier(0.65, 0, 0.35, 1), height 0.2s cubic-bezier(0.65, 0, 0.35, 1), transform 0.1s linear; transform: translate(-50%, -50%); will-change: width, height, transform; }
     .custom-cursor.hover { width: 32px; height: 32px; }
     .loading-bar { position: fixed; top: 0; left: 0; height: 1px; background: var(--accent); z-index: 1000; width: 0; animation: loadBar 0.8s cubic-bezier(0.65, 0, 0.35, 1) forwards; }
@@ -78,6 +78,9 @@
     .footer-nav > :last-child { text-align: right; }
 
     @media (max-width: 768px) {
+      .viewport { padding-top: 140px; height: auto; justify-content: flex-start; }
+      .hero-title { margin-top: 0 !important; font-size: clamp(36px, 8vw, 60px); }
+      .metric-strip { margin-top: 4rem; }
       .two-col, .diagram-container { grid-template-columns: 1fr; }
       .metric-strip { grid-template-columns: 1fr; }
       .footer-nav { grid-template-columns: 1fr; gap: 2rem; text-align: center; }

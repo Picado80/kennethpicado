@@ -10,14 +10,14 @@
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Geist+Mono:wght@100..900&family=Geist:wght@100..900&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #0A0A0B;
-      --surface: #111113;
-      --border: #1F1F22;
-      --text-primary: #EDEDED;
-      --text-secondary: #B0B0B5;
-      --text-tertiary: #75757F;
+      --bg: #111112;
+      --surface: #1C1C1E;
+      --border: #2C2C2E;
+      --text-primary: #F5F5F7;
+      --text-secondary: #A1A1A6;
+      --text-tertiary: #6E6E73;
       --accent: #FF4D00;
-      --glow: rgba(255, 77, 0, 0.12);
+      --glow: rgba(255, 77, 0, 0.15);
     }
     * { box-sizing: border-box; margin: 0; padding: 0; cursor: none; }
     html { scroll-behavior: smooth; scroll-snap-type: y proximity; background-color: var(--bg); }
@@ -41,13 +41,7 @@
     .text-accent { color: var(--accent); }
     .uppercase { text-transform: uppercase; }
 
-    .film-grain {
-      position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
-      pointer-events: none; z-index: 9999; opacity: 0.25;
-      background-image: url('assets/texture.png');
-      background-repeat: repeat;
-      background-size: 200px;
-    }
+    .film-grain { display: none; }
     .custom-cursor {
       position: fixed; top: 0; left: 0; width: 4px; height: 4px;
       background: var(--text-primary); border-radius: 50%;
@@ -116,6 +110,9 @@
     .footer-bottom { background: var(--surface); padding: 2rem 5vw; display: flex; justify-content: space-between; font-size: 11px; letter-spacing: 0.15em; color: var(--text-tertiary); margin-left: -5vw; margin-right: -5vw; }
 
     @media (max-width: 768px) {
+      .viewport { padding-top: 140px; height: auto; justify-content: flex-start; }
+      .hero-statement { margin-top: 0 !important; font-size: clamp(40px, 10vw, 80px); }
+      .metrics-grid { margin-top: 4rem; }
       .metrics-grid { grid-template-columns: 1fr; gap: 2rem; }
       .metric-item-1, .metric-item-2, .metric-item-3, .metric-item-4 { justify-self: start; transform: none; padding-left: 0; }
       .case-row { grid-template-columns: 1fr; gap: 1rem; padding: 2rem 1rem; }
