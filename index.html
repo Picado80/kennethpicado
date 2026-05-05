@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kenneth Picado | Operations Architect</title>
+  <meta name="description" content="Operating systems for organizations that don't have Amazon's resources.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Geist+Mono:wght@100..900&family=Geist:wght@100..900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0A0A0B;
+      --surface: #111113;
+      --border: #1F1F22;
+      --text-primary: #F5F5F4;
+      --text-secondary: #71717A;
+      --text-tertiary: #3F3F46;
+      --accent: #FF4D00;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; cursor: none; }
+    html { scroll-behavior: smooth; scroll-snap-type: y proximity; background-color: var(--bg); }
+    body { 
+      background-color: var(--bg); 
+      color: var(--text-primary); 
+      font-family: 'Geist Variable', 'Geist', sans-serif; 
+      overflow-x: hidden; 
+      position: relative;
+    }
+    ::selection { background: var(--accent); color: var(--bg); }
+    h1, h2, h3, .display { 
+      font-family: 'Bricolage Grotesque Variable', 'Bricolage Grotesque', sans-serif; 
+      letter-spacing: -0.04em; 
+      line-height: 0.95; 
+    }
+    .mono { font-family: 'Geist Mono Variable', 'Geist Mono', monospace; }
+    .text-secondary { color: var(--text-secondary); }
+    .text-tertiary { color: var(--text-tertiary); }
+    .text-accent { color: var(--accent); }
+    .uppercase { text-transform: uppercase; }
+
+    .film-grain {
+      position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+      pointer-events: none; z-index: 9999; opacity: 0.4;
+      background-image: url('assets/texture.png');
+      background-repeat: repeat;
+      background-size: 200px;
+    }
+    .custom-cursor {
+      position: fixed; top: 0; left: 0; width: 4px; height: 4px;
+      background: var(--text-primary); border-radius: 50%;
+      pointer-events: none; z-index: 10000;
+      mix-blend-mode: difference;
+      transition: width 0.2s cubic-bezier(0.65, 0, 0.35, 1), height 0.2s cubic-bezier(0.65, 0, 0.35, 1), transform 0.1s linear;
+      transform: translate(-50%, -50%);
+      will-change: width, height, transform;
+    }
+    .custom-cursor.hover { width: 32px; height: 32px; }
+    .loading-bar {
+      position: fixed; top: 0; left: 0; height: 1px; background: var(--accent);
+      z-index: 1000; width: 0;
+      animation: loadBar 0.8s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+    }
+    @keyframes loadBar { to { width: 100%; opacity: 0; } }
+
+    a, button, [tabindex] { transition: opacity 0.2s; outline: none; text-decoration: none; color: inherit; }
+    a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+    @media (prefers-reduced-motion: reduce) {
+      *, ::before, ::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+    }
+
+    .reveal { opacity: 0; transform: translateY(20px); will-change: opacity, transform; transition: opacity 0.6s cubic-bezier(0.65, 0, 0.35, 1), transform 0.6s cubic-bezier(0.65, 0, 0.35, 1); }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    .viewport { min-height: 100vh; padding: 6vw; display: flex; flex-direction: column; position: relative; scroll-snap-align: start; }
+    .nav-top { display: flex; justify-content: space-between; font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; z-index: 100; }
+    
+    .hero-statement { font-weight: 400; font-size: clamp(48px, 8vw, 140px); margin-top: auto; margin-bottom: 2rem; max-width: 90%; }
+    .hero-statement i { font-weight: 300; font-style: italic; }
+    .hero-signature { font-size: 11px; letter-spacing: 0.15em; border-top: 1px solid var(--border); padding-top: 1.5rem; display: inline-block; }
+    .scroll-indicator { font-size: 11px; letter-spacing: 0.15em; display: flex; align-items: center; gap: 1rem; margin-top: 3rem; margin-bottom: 1rem; }
+    .scroll-line { width: 1px; height: 32px; background: var(--text-tertiary); overflow: hidden; position: relative; }
+    .scroll-line::after { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 50%; background: var(--text-primary); animation: scrollPulse 2s cubic-bezier(0.65, 0, 0.35, 1) infinite; }
+    @keyframes scrollPulse { 0% { transform: translateY(-100%); } 100% { transform: translateY(200%); } }
+    
+    .metrics-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; margin-top: auto; align-items: end; }
+    .metric-huge { font-size: clamp(120px, 18vw, 280px); font-weight: 200; letter-spacing: -0.06em; line-height: 0.8; }
+    .metric-medium { font-size: clamp(80px, 12vw, 180px); font-weight: 200; letter-spacing: -0.06em; line-height: 0.8; }
+    .metric-caption { font-size: 13px; letter-spacing: 0.1em; color: var(--text-primary); margin-top: 2.5rem; }
+    .metric-item-1 { justify-self: start; }
+    .metric-item-2 { justify-self: end; transform: translateY(20%); }
+    .metric-item-3 { justify-self: start; padding-left: 10vw; }
+    .metric-item-4 { justify-self: end; }
+    
+    .method-content { max-width: 720px; margin: auto; font-size: clamp(20px, 2.4vw, 32px); line-height: 1.5; font-weight: 400; }
+    .method-content p { margin-bottom: 2rem; }
+    
+    .case-list { margin-top: auto; display: flex; flex-direction: column; width: 100%; }
+    .case-row { display: grid; grid-template-columns: 80px 120px 1fr auto auto; align-items: center; gap: 2rem; padding: 2rem 0; border-bottom: 1px solid var(--border); transition: all 0.2s cubic-bezier(0.65, 0, 0.35, 1); text-decoration: none; color: inherit; }
+    .case-row:first-child { border-top: 1px solid var(--border); }
+    .case-row:hover { background: var(--surface); padding-left: 1rem; padding-right: 1rem; }
+    .case-row:hover .case-title { transform: translateX(8px); }
+    .case-row:hover::after { content: '→'; font-family: 'Geist Mono', monospace; margin-left: 1rem; color: var(--accent); }
+    .case-num { font-size: 80px; font-weight: 200; color: var(--text-tertiary); line-height: 0.8; }
+    .case-tag { font-size: 11px; letter-spacing: 0.15em; color: var(--text-secondary); }
+    .case-title { font-weight: 500; font-size: clamp(28px, 4vw, 56px); transition: transform 0.2s cubic-bezier(0.65, 0, 0.35, 1); }
+    
+    .footer { min-height: 50vh; display: flex; flex-direction: column; justify-content: space-between; padding-bottom: 0; }
+    .footer-top { display: flex; justify-content: space-between; align-items: flex-end; padding-bottom: 4rem; }
+    .footer-statement { max-width: 400px; font-size: 14px; color: var(--text-secondary); }
+    .footer-links { display: flex; flex-direction: column; gap: 0.5rem; text-align: right; }
+    .footer-links a { font-size: 14px; text-decoration: none; color: var(--text-primary); transition: color 0.2s; }
+    .footer-links a:hover { color: var(--accent); }
+    .footer-bottom { background: var(--surface); padding: 2rem 5vw; display: flex; justify-content: space-between; font-size: 11px; letter-spacing: 0.15em; color: var(--text-tertiary); margin-left: -5vw; margin-right: -5vw; }
+
+    @media (max-width: 768px) {
+      .metrics-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .metric-item-1, .metric-item-2, .metric-item-3, .metric-item-4 { justify-self: start; transform: none; padding-left: 0; }
+      .case-row { grid-template-columns: 1fr; gap: 1rem; padding: 2rem 1rem; }
+      .case-num { font-size: 48px; }
+      .footer-top { flex-direction: column; gap: 2rem; align-items: flex-start; }
+      .footer-links { text-align: left; }
+      .footer-bottom { flex-direction: column; gap: 1rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="film-grain"></div>
+  <div class="custom-cursor"></div>
+  <div class="loading-bar"></div>
+
+  <main>
+    <section class="viewport" id="hero">
+      <nav class="nav-top">
+        <div class="mono interactive">KP / 2026 <span style="display:inline-block;width:6px;height:6px;background:var(--accent);border-radius:50%;margin-left:4px;animation:pulse 2s infinite;"></span></div>
+        <div class="mono" style="display:flex;gap:2rem;">
+          <a href="#work" class="interactive">WORK</a>
+          <a href="#about" class="interactive">ABOUT</a>
+          <a href="#contact" class="interactive">CONTACT</a>
+        </div>
+      </nav>
+      
+      <h1 class="display hero-statement reveal" style="transition-delay: 0.1s">
+        Operating systems for organizations that don't have <i>Amazon's resources.</i>
+      </h1>
+      
+      <div class="reveal" style="transition-delay: 1.2s">
+        <div class="mono hero-signature uppercase">KENNETH GONZALEZ PICADO / OPERATIONS ARCHITECT / SAN JOSÉ → REMOTE</div>
+      </div>
+      
+      <div class="scroll-indicator mono reveal" style="transition-delay: 1.4s">
+        SCROLL <div class="scroll-line"></div>
+      </div>
+    </section>
+
+    <section class="viewport" id="metrics">
+      <div class="mono text-secondary uppercase" style="font-size: 11px; letter-spacing: 0.15em;">[01] — THE NUMBERS</div>
+      <div class="metrics-grid">
+        <div class="metric-item-1 reveal">
+          <div class="display metric-huge counter" data-target="500" data-prefix="$" data-suffix="K">$0K</div>
+          <div class="mono metric-caption">OPERATIONAL BUDGET / AMAZON</div>
+        </div>
+        <div class="metric-item-2 reveal" style="transition-delay: 0.2s">
+          <div class="display metric-medium counter" data-target="165">0</div>
+          <div class="mono metric-caption">TEAM AT PEAK / DIRECT + INDIRECT</div>
+        </div>
+        <div class="metric-item-3 reveal" style="transition-delay: 0.4s">
+          <div class="display metric-medium counter" data-target="4">0</div>
+          <div class="mono metric-caption">LATAM COUNTRIES / MEX · CRC · COL · BRA</div>
+        </div>
+        <div class="metric-item-4 reveal" style="transition-delay: 0.6s">
+          <div class="display metric-huge counter" data-target="14" data-suffix="yrs">0yrs</div>
+          <div class="mono metric-caption">AMAZON OPERATING MODEL / 2010—2024</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="viewport" id="about">
+      <div class="mono text-secondary uppercase" style="font-size: 11px; letter-spacing: 0.15em;">[02] — THE METHOD</div>
+      <div class="method-content">
+        <p class="reveal">I don't manage operations. I <span class="text-accent">architect</span> them.</p>
+        <p class="reveal" style="transition-delay: 0.2s">After fourteen years inside Amazon's customer service operating model — leading one hundred and sixty-five people, owning a half-million-dollar budget, governing quality across four countries — I became a Partner at Cawhi Consultores. For the past two years, I have been helping companies develop through process architecture, structural controls, and measurement using technological tools.</p>
+        <p class="reveal" style="transition-delay: 0.4s">AI is the <span class="text-accent">force multiplier</span> that lets <span class="text-accent">one operator</span> ship what normally requires a team.</p>
+      </div>
+    </section>
+
+    <section class="viewport" id="work">
+      <div class="mono text-secondary uppercase" style="font-size: 11px; letter-spacing: 0.15em;">[03] — SELECTED ENGAGEMENTS</div>
+      <div class="case-list">
+        <a href="case/anfiteatro.html" class="case-row reveal interactive">
+          <div class="case-num display">01</div>
+          <div class="case-tag mono uppercase">HOSPITALITY</div>
+          <div class="case-title display">Five-Layer Operating System</div>
+          <div class="text-secondary">Anfiteatro de Villa</div>
+          <div class="mono text-accent" style="font-size: 14px;">800-CAPACITY VENUE</div>
+        </a>
+        <a href="case/coopenae.html" class="case-row reveal interactive" style="transition-delay: 0.1s">
+          <div class="case-num display">02</div>
+          <div class="case-tag mono uppercase">FINANCIAL SERVICES</div>
+          <div class="case-title display">Performance Evaluation Platform</div>
+          <div class="text-secondary">COOPENAE</div>
+          <div class="mono text-accent" style="font-size: 14px;">1,000+ EMPLOYEES</div>
+        </a>
+        <a href="case/asoingraf.html" class="case-row reveal interactive" style="transition-delay: 0.2s">
+          <div class="case-num display">03</div>
+          <div class="case-tag mono uppercase">TRADE ASSOCIATION</div>
+          <div class="case-title display">Sales Transformation Funnel</div>
+          <div class="text-secondary">ASOINGRAF</div>
+          <div class="mono text-accent" style="font-size: 14px;">NATIONAL REACH</div>
+        </a>
+      </div>
+    </section>
+
+    <footer class="viewport footer" id="contact">
+      <div style="flex-grow: 1;"></div>
+      <div class="footer-top">
+        <div class="mono footer-statement">Available for fractional COO, transformation, and senior consulting engagements. 5 AM – 7 PM Central Time.</div>
+        <div class="footer-links mono">
+          <a href="mailto:picado80@hotmail.com" class="interactive">EMAIL → mailto:picado80@hotmail.com</a>
+          <a href="https://linkedin.com/in/" target="_blank" class="interactive">LINKEDIN →</a>
+          <a href="/assets/Kenneth_Picado_Resume_2026.pdf" target="_blank" class="interactive">DOWNLOAD CV →</a>
+        </div>
+      </div>
+      <div class="footer-bottom mono uppercase">
+        <div>© 2026 KENNETH GONZALEZ PICADO</div>
+        <div>BUILT IN COSTA RICA</div>
+        <div>POWERED BY CLAUDE & DISCIPLINE</div>
+      </div>
+    </footer>
+  </main>
+  
+  <script>
+    // Custom Cursor
+    const cursor = document.querySelector('.custom-cursor');
+    document.addEventListener('mousemove', (e) => {
+      cursor.style.transform = `translate(calc(${e.clientX}px - 50%), calc(${e.clientY}px - 50%))`;
+    });
+    document.querySelectorAll('a, button, .interactive').forEach(el => {
+      el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
+      el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
+    });
+
+    // Intersection Observer for animations
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          if (entry.target.dataset.animateOnce !== 'false') {
+            observer.unobserve(entry.target);
+          }
+        }
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // Counter Animation
+    const animateValue = (obj, start, end, duration, prefix='', suffix='') => {
+      let startTimestamp = null;
+      const step = (timestamp) => {
+        if (!startTimestamp) startTimestamp = timestamp;
+        const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+        const current = Math.floor(progress * (end - start) + start);
+        obj.innerHTML = `${prefix}${current}${suffix}`;
+        if (progress < 1) {
+          window.requestAnimationFrame(step);
+        } else {
+          obj.innerHTML = `${prefix}${end}${suffix}`;
+        }
+      };
+      window.requestAnimationFrame(step);
+    };
+
+    const counterObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const target = parseInt(entry.target.dataset.target);
+          const prefix = entry.target.dataset.prefix || '';
+          const suffix = entry.target.dataset.suffix || '';
+          
+          if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            animateValue(entry.target, 0, target, 1200, prefix, suffix);
+          } else {
+            entry.target.innerHTML = `${prefix}${target}${suffix}`;
+          }
+          counterObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.5 });
+    
+    document.querySelectorAll('.counter').forEach(el => counterObserver.observe(el));
+  </script>
+</body>
+</html>

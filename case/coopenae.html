@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>COOPENAE Case Study | Kenneth Picado</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Geist+Mono:wght@100..900&family=Geist:wght@100..900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0A0A0B; --surface: #111113; --border: #1F1F22;
+      --text-primary: #F5F5F4; --text-secondary: #71717A; --text-tertiary: #3F3F46;
+      --accent: #7C9885; /* Coopenae green */
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; cursor: none; }
+    html { scroll-behavior: smooth; scroll-snap-type: y proximity; background-color: var(--bg); }
+    body { background-color: var(--bg); color: var(--text-primary); font-family: 'Geist Variable', 'Geist', sans-serif; overflow-x: hidden; }
+    ::selection { background: var(--accent); color: var(--bg); }
+    h1, h2, h3, .display { font-family: 'Bricolage Grotesque Variable', 'Bricolage Grotesque', sans-serif; letter-spacing: -0.04em; line-height: 0.95; }
+    .mono { font-family: 'Geist Mono Variable', 'Geist Mono', monospace; }
+    .text-secondary { color: var(--text-secondary); }
+    .text-tertiary { color: var(--text-tertiary); }
+    .text-accent { color: var(--accent); }
+
+    .film-grain { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; pointer-events: none; z-index: 9999; opacity: 0.4; background-image: url('../assets/texture.png'); background-repeat: repeat; background-size: 200px; }
+    .custom-cursor { position: fixed; top: 0; left: 0; width: 4px; height: 4px; background: var(--text-primary); border-radius: 50%; pointer-events: none; z-index: 10000; mix-blend-mode: difference; transition: width 0.2s cubic-bezier(0.65, 0, 0.35, 1), height 0.2s cubic-bezier(0.65, 0, 0.35, 1), transform 0.1s linear; transform: translate(-50%, -50%); will-change: width, height, transform; }
+    .custom-cursor.hover { width: 32px; height: 32px; }
+    .loading-bar { position: fixed; top: 0; left: 0; height: 1px; background: var(--accent); z-index: 1000; width: 0; animation: loadBar 0.8s cubic-bezier(0.65, 0, 0.35, 1) forwards; }
+    @keyframes loadBar { to { width: 100%; opacity: 0; } }
+
+    a, button, [tabindex] { transition: opacity 0.2s; outline: none; text-decoration: none; color: inherit; }
+    a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+    @media (prefers-reduced-motion: reduce) { *, ::before, ::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; } }
+
+    .reveal { opacity: 0; transform: translateY(20px); will-change: opacity, transform; transition: opacity 0.6s cubic-bezier(0.65, 0, 0.35, 1), transform 0.6s cubic-bezier(0.65, 0, 0.35, 1); }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .viewport { min-height: 100vh; padding: 6vw; display: flex; flex-direction: column; position: relative; scroll-snap-align: start; }
+
+    .top-nav { position: sticky; top: 0; left: 0; width: 100%; display: flex; justify-content: space-between; padding: 1.5rem 5vw; border-bottom: 1px solid var(--border); background: rgba(10, 10, 11, 0.8); backdrop-filter: blur(20px); z-index: 100; font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; }
+    .hero-title { font-size: clamp(48px, 7vw, 120px); font-weight: 400; margin-top: auto; margin-bottom: 2rem; max-width: 95%; }
+    .hero-subtitle { font-size: clamp(16px, 1.6vw, 22px); color: var(--text-secondary); max-width: 600px; line-height: 1.5; margin-bottom: 4rem; }
+    .metric-strip { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; border-top: 1px solid var(--border); padding-top: 2rem; margin-top: auto; }
+    .metric-box-label { font-size: 11px; color: var(--text-secondary); letter-spacing: 0.15em; margin-bottom: 0.5rem; }
+    .metric-box-val { font-size: clamp(24px, 3vw, 40px); font-weight: 300; }
+
+    .section-label { font-size: 11px; letter-spacing: 0.15em; color: var(--text-secondary); margin-bottom: 4rem; text-transform: uppercase; }
+    .two-col { display: grid; grid-template-columns: 5fr 7fr; gap: 4rem; }
+    .challenge-text { font-size: clamp(18px, 1.8vw, 24px); line-height: 1.5; }
+
+    /* 70/30 diagram */
+    .diagram-container { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; margin-top: 4rem; position: relative; }
+    .bar-chart { width: 100%; height: 120px; display: flex; position: relative; overflow: hidden; border: 1px solid var(--border); }
+    .bar-70 { width: 0; background: var(--accent); transition: width 1s cubic-bezier(0.65, 0, 0.35, 1); }
+    .bar-70.visible { width: 70%; }
+    .bar-30 { width: 30%; background: var(--text-tertiary); border-left: 1px solid var(--border); }
+    .bar-labels { display: flex; justify-content: space-between; margin-top: 1rem; font-size: 12px; }
+
+    /* 9-box grid */
+    .nine-box { display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: repeat(3, 100px); gap: 2px; background: var(--border); border: 1px solid var(--border); }
+    .nine-cell { background: var(--bg); display: flex; flex-direction: column; justify-content: flex-end; padding: 1rem; position: relative; opacity: 0; transform: scale(0.95); transition: all 0.6s cubic-bezier(0.65, 0, 0.35, 1); }
+    .nine-cell.visible { opacity: 1; transform: scale(1); }
+    .nine-cell:hover { background: var(--surface); }
+    .nine-cell-label { font-size: 10px; color: var(--text-secondary); }
+    .cell-dot { width: 4px; height: 4px; background: var(--accent); border-radius: 50%; position: absolute; top: 1rem; right: 1rem; opacity: 0; }
+    .nine-cell:hover .cell-dot { opacity: 1; }
+    .axis-labels { display: flex; justify-content: space-between; font-size: 10px; margin-top: 1rem; color: var(--text-secondary); }
+
+    .tooltip { position: fixed; background: var(--surface); border: 1px solid var(--border); padding: 1rem; font-family: 'Geist Mono', monospace; font-size: 12px; pointer-events: none; opacity: 0; transition: opacity 0.2s; z-index: 100; transform: translate(-50%, -120%); white-space: pre; }
+    .terminal-list { background: var(--surface); padding: 4rem; border: 1px solid var(--border); font-size: 14px; line-height: 2; margin-top: 2rem; }
+    .terminal-line { opacity: 0; }
+    .terminal-line.visible { opacity: 1; }
+    .check { color: var(--accent); text-shadow: 0 0 8px rgba(124, 152, 133, 0.4); margin-right: 1rem; }
+    .outcome-statement { text-align: center; font-size: clamp(40px, 6vw, 96px); font-weight: 300; max-width: 1000px; margin: auto; }
+    .footer-nav { display: grid; grid-template-columns: 1fr auto 1fr; padding: 4rem 5vw; border-top: 1px solid var(--border); font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; }
+    .footer-nav a:hover { color: var(--accent); }
+    .footer-nav > :last-child { text-align: right; }
+
+    @media (max-width: 768px) {
+      .two-col, .diagram-container { grid-template-columns: 1fr; }
+      .metric-strip { grid-template-columns: 1fr; }
+      .footer-nav { grid-template-columns: 1fr; gap: 2rem; text-align: center; }
+      .footer-nav > :last-child { text-align: center; }
+      .terminal-list { padding: 2rem; font-size: 12px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="film-grain"></div>
+  <div class="custom-cursor"></div>
+  <div class="loading-bar"></div>
+  <div class="tooltip mono"></div>
+
+  <nav class="top-nav mono">
+    <a href="../index.html" class="interactive">KP</a>
+    <span class="text-secondary">INDEX / CASE 02 / COOPENAE</span>
+    <div>
+      <a href="anfiteatro.html" class="interactive">← PREVIOUS · ANFITEATRO</a> / 
+      <a href="asoingraf.html" class="interactive">NEXT → ASOINGRAF</a>
+    </div>
+  </nav>
+
+  <main>
+    <section class="viewport">
+      <div class="mono section-label" style="margin-bottom:auto;">CASE 02 — FINANCIAL SERVICES</div>
+      <h1 class="display hero-title reveal">Performance evaluation platform for a 1,000-employee credit cooperative.</h1>
+      <p class="hero-subtitle reveal" style="transition-delay: 0.2s">How a hybrid 70/30 model — Oracle KPIs plus 9-box human evaluation — was sold via interactive mockup, then architected for engineering handoff.</p>
+      
+      <div class="metric-strip reveal" style="transition-delay: 0.4s">
+        <div><div class="mono metric-box-label">EMPLOYEES</div><div class="display metric-box-val">1,000+</div></div>
+        <div><div class="mono metric-box-label">EVALUATION SPLIT</div><div class="display metric-box-val">70/30</div></div>
+        <div><div class="mono metric-box-label">DEPARTMENTS PILOTED</div><div class="display metric-box-val">3</div></div>
+        <div><div class="mono metric-box-label">OUTCOME TIERS</div><div class="display metric-box-val">5</div></div>
+      </div>
+    </section>
+
+    <section class="viewport" style="min-height:50vh;">
+      <div class="two-col">
+        <div class="mono section-label">[01] / THE CHALLENGE</div>
+        <div class="challenge-text reveal">
+          A credit cooperative with a thousand employees, evaluating performance with disconnected spreadsheets and gut feel. Oracle had the KPI data. The leadership team had the values and the potential assessments. Nothing connected the two. Performance reviews ended; nothing happened next. No <span class="text-accent">succession pipeline</span>. No development plans. No exits triggered. <span class="text-accent">Data without consequences</span>.
+        </div>
+      </div>
+    </section>
+
+    <section class="viewport">
+      <div class="mono section-label">[02] / THE SYSTEM</div>
+      <h2 class="display reveal" style="font-size:clamp(32px, 4vw, 56px);">Seventy percent machine. Thirty percent human. One score.</h2>
+      
+      <div class="diagram-container">
+        <!-- 70/30 Bar -->
+        <div class="reveal">
+          <div class="bar-labels mono text-secondary" style="margin-top:0; margin-bottom:1rem;">
+            <span>ORACLE HRIS / KPIs (70%)</span>
+            <span>9-BOX (30%)</span>
+          </div>
+          <div class="bar-chart">
+            <div class="bar-70"></div>
+            <div class="bar-30"></div>
+          </div>
+          <div class="mono text-secondary" style="font-size:10px; margin-top:1rem; line-height:1.5;">
+            Productivity · Quality · Attendance · Tenure · Goal Attainment
+          </div>
+        </div>
+
+        <!-- 9-Box Grid -->
+        <div class="mono">
+          <div class="nine-box">
+            <div class="nine-cell" style="transition-delay:0.8s" data-tooltip="Trigger: Development Plan, Monitor">
+              <div class="cell-dot"></div><div class="nine-cell-label">ENIGMA</div>
+            </div>
+            <div class="nine-cell" style="transition-delay:0.9s" data-tooltip="Trigger: Stretch Assignment, Coaching">
+              <div class="cell-dot"></div><div class="nine-cell-label">GROWTH EMPLOYEE</div>
+            </div>
+            <div class="nine-cell" style="transition-delay:1.0s; background:rgba(124,152,133,0.1)" data-tooltip="Trigger: Succession Planning, Stretch Assignment">
+              <div class="cell-dot"></div><div class="nine-cell-label text-accent">STAR</div>
+            </div>
+            
+            <div class="nine-cell" style="transition-delay:0.5s" data-tooltip="Trigger: Role Realignment, Coaching">
+              <div class="cell-dot"></div><div class="nine-cell-label">DILEMMA</div>
+            </div>
+            <div class="nine-cell" style="transition-delay:0.6s" data-tooltip="Trigger: Retain, Develop Core Skills">
+              <div class="cell-dot"></div><div class="nine-cell-label">CORE PLAYER</div>
+            </div>
+            <div class="nine-cell" style="transition-delay:0.7s" data-tooltip="Trigger: Reward, Broaden Scope">
+              <div class="cell-dot"></div><div class="nine-cell-label">HIGH IMPACT</div>
+            </div>
+            
+            <div class="nine-cell" style="transition-delay:0.2s" data-tooltip="Trigger: Performance Improvement Plan, Action Plan">
+              <div class="cell-dot"></div><div class="nine-cell-label">RISK</div>
+            </div>
+            <div class="nine-cell" style="transition-delay:0.3s" data-tooltip="Trigger: Maintain, Focus on Consistency">
+              <div class="cell-dot"></div><div class="nine-cell-label">EFFECTIVE</div>
+            </div>
+            <div class="nine-cell" style="transition-delay:0.4s" data-tooltip="Trigger: Recognize, Sustain Performance">
+              <div class="cell-dot"></div><div class="nine-cell-label">SOLID PRO</div>
+            </div>
+          </div>
+          <div class="axis-labels">
+            <span>← VALUES (X) →</span>
+            <span>POTENTIAL (Y)</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="viewport">
+      <div class="mono section-label">[03] / WHAT WAS SHIPPED</div>
+      <div class="terminal-list mono text-secondary">
+        <div class="terminal-line typewriter" data-text="Interactive executive mockup — sold the engagement before any code was written" data-delay="0"></div>
+        <div class="terminal-line typewriter" data-text="9-box talent grid framework — values × potential evaluation rubric" data-delay="1500"></div>
+        <div class="terminal-line typewriter" data-text="Auto-trigger logic — Succession Planning, Skill-Building, PIP based on tier" data-delay="3000"></div>
+        <div class="terminal-line typewriter" data-text="3-phase implementation roadmap — pilot, scale, full org rollout" data-delay="4500"></div>
+        <div class="terminal-line typewriter" data-text="Engineering handoff documentation — for technical lead Martín" data-delay="6000"></div>
+        <div class="terminal-line typewriter" data-text="Department pilot definitions — Member Services, Lending & Credit, Digital Payments" data-delay="7500"></div>
+        <div class="terminal-line typewriter" data-text="Tier-based action library — recommended actions per quadrant" data-delay="9000"></div>
+      </div>
+    </section>
+
+    <section class="viewport" style="min-height:50vh; justify-content:center;">
+      <div class="mono section-label" style="text-align:center;">[04] / THE OUTCOME</div>
+      <div class="display outcome-statement reveal">
+        Performance evaluation became a system that <span class="text-accent">triggered actions</span>. Not a spreadsheet that <span class="text-accent">triggered nothing</span>.
+      </div>
+      <div class="mono text-secondary" style="text-align:center; font-size:11px; margin-top:2rem; letter-spacing:0.15em;">
+        — SHIPPED Q1 2025 / KENNETH PICADO
+      </div>
+    </section>
+
+    <footer class="footer-nav mono text-secondary">
+      <a href="../index.html" class="interactive">← INDEX</a>
+      <span>↑ CASE 02 / COOPENAE</span>
+      <a href="asoingraf.html" class="interactive">NEXT → ASOINGRAF</a>
+    </footer>
+  </main>
+  
+  <script>
+    const cursor = document.querySelector('.custom-cursor');
+    document.addEventListener('mousemove', (e) => { cursor.style.transform = `translate(calc(${e.clientX}px - 50%), calc(${e.clientY}px - 50%))`; });
+    document.querySelectorAll('a, button, .interactive, .nine-cell').forEach(el => {
+      el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
+      el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
+    });
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          if (entry.target.classList.contains('typewriter')) typeWriter(entry.target);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.2 });
+    document.querySelectorAll('.reveal, .bar-70, .nine-cell, .typewriter').forEach(el => observer.observe(el));
+
+    function typeWriter(el) {
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) { el.style.opacity = 1; return; }
+      const text = el.getAttribute('data-text');
+      el.innerHTML = '<span class="check">[✓]</span>';
+      el.style.opacity = 1;
+      let i = 0;
+      function type() { if (i < text.length) { el.innerHTML += text.charAt(i); i++; setTimeout(type, 30); } }
+      setTimeout(type, parseInt(el.getAttribute('data-delay') || 0));
+    }
+    
+    const tooltip = document.querySelector('.tooltip');
+    document.querySelectorAll('.nine-cell').forEach(cell => {
+      cell.addEventListener('mousemove', (e) => {
+        tooltip.style.opacity = 1; tooltip.style.left = e.clientX + 'px'; tooltip.style.top = e.clientY + 'px';
+        tooltip.textContent = cell.getAttribute('data-tooltip');
+      });
+      cell.addEventListener('mouseleave', () => { tooltip.style.opacity = 0; });
+    });
+  </script>
+</body>
+</html>
