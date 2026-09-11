@@ -4,7 +4,7 @@
 Name: Kenneth Gonzalez Picado
 Location: San José, Costa Rica (Remote availability)
 Role: Operations Architect, Fractional COO, Transformation Consultant
-Current Affiliation: Partner at Cawhi Consultores
+Current Affiliation: Founder at Semi; Co-Founder at Cawhi Consultores
 
 ## Core Competencies & Services
 - Consultoría empresarial en Costa Rica
@@ -20,10 +20,16 @@ Current Affiliation: Partner at Cawhi Consultores
 - Led teams of up to 165 people (direct + indirect).
 - Governed quality across LATAM (Mexico, Costa Rica, Colombia, Brazil).
 
+## Current Venture
+Semi (https://trysemi.com) - Founder, 2026.
+AI operations software for SMBs, service companies and enterprises in Costa Rica and Central America.
+One system for the commercial operation (contacts, deals, quotes, tasks, inbox, collections and dashboard) with three AI features: customer service that always answers, one-click quotes, and automatic follow-up and collections. What the AI does not understand is routed to a person instead of guessed.
+Built with Next.js, Supabase and Claude Code: 108 database migrations, 139 API endpoints and 108 test files. Pre-launch.
+
 ## Selected Case Studies
 1. Anfiteatro de Villa: Five-layer operating system for an 800-capacity hospitality venue. Built in 12 weeks.
-2. COOPENAE: Performance evaluation platform for a 1,000-employee credit cooperative. Hybrid 70/30 model (Oracle KPIs + 9-box evaluation).
-3. ASOINGRAF: Sales transformation funnel for a national trade association. Executed in 18 days across 4 platforms.
+2. Financial services company: Performance evaluation platform for 1,000 employees. Hybrid 70/30 model (Oracle KPIs + 9-box evaluation).
+3. Trade association: Sales transformation funnel for a national trade association. Executed in 18 days across 4 platforms.
 
 ## Operating Philosophy
 "I don't manage operations. I architect them."

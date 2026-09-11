@@ -1,301 +1,627 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kenneth Picado | Consultoría, Mejora de Procesos y Digitalización en Costa Rica</title>
-  <meta name="description" content="Kenneth Picado - Operations Architect. Servicios de consultoría en Costa Rica: mejora de procesos, capacitación, análisis de estructuras y digitalización para empresas.">
-  <meta name="keywords" content="consultoría Costa Rica, mejora de procesos, capacitación, análisis de estructuras, digitalización, operaciones, Kenneth Picado, Cawhi Consultores">
-  <meta name="author" content="Kenneth Gonzalez Picado">
-  <meta property="og:title" content="Kenneth Picado | Consultoría Empresarial en Costa Rica">
-  <meta property="og:description" content="Servicios de consultoría: mejora de procesos, capacitación, análisis de estructuras y digitalización.">
-  <meta property="og:type" content="website">
-  <link rel="icon" href="assets/favicon.png" type="image/png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Geist+Mono:wght@100..900&family=Geist:wght@100..900&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --bg: #111112;
-      --surface: #1C1C1E;
-      --border: #2C2C2E;
-      --text-primary: #F5F5F7;
-      --text-secondary: #A1A1A6;
-      --text-tertiary: #6E6E73;
-      --accent: #FF4D00;
-      --glow: rgba(255, 77, 0, 0.15);
-    }
-    * { box-sizing: border-box; margin: 0; padding: 0; cursor: none; }
-    html { scroll-behavior: smooth; scroll-snap-type: y proximity; background-color: var(--bg); }
-    body { 
-      background-color: var(--bg); 
-      color: var(--text-primary); 
-      font-family: 'Geist Variable', 'Geist', sans-serif; 
-      overflow-x: hidden; 
-      position: relative;
-      background-image: radial-gradient(circle at 50% 0%, var(--glow) 0%, transparent 80%);
-    }
-    ::selection { background: var(--accent); color: var(--bg); }
-    h1, h2, h3, .display { 
-      font-family: 'Bricolage Grotesque Variable', 'Bricolage Grotesque', sans-serif; 
-      letter-spacing: -0.04em; 
-      line-height: 0.95; 
-    }
-    .mono { font-family: 'Geist Mono Variable', 'Geist Mono', monospace; }
-    .text-secondary { color: var(--text-secondary); }
-    .text-tertiary { color: var(--text-tertiary); }
-    .text-accent { color: var(--accent); }
-    .uppercase { text-transform: uppercase; }
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kenneth Picado | Consultoría, Mejora de Procesos y Digitalización en Costa Rica</title>
+<meta name="description" content="Kenneth Picado - Operations Architect. Servicios de consultoría en Costa Rica: mejora de procesos, capacitación, análisis de estructuras y digitalización.">
+<meta property="og:title" content="Kenneth Picado | Consultoría Empresarial en Costa Rica">
+<meta property="og:description" content="Servicios de consultoría: mejora de procesos, capacitación, análisis de estructuras y digitalización.">
+<meta property="og:type" content="website">
+<link rel="icon" href="assets/favicon.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700&text=SEMI&display=swap" rel="stylesheet">
+<style>
+:root{
+  --vellum:#E8E6DE; --vellum-fold:#C3C2B4; --graphite:#23262A;
+  --ink:#27418C; --ink-soft:rgba(39,65,140,.42); --redline:#B22B3F;
+  --measure:64ch; --gutter:clamp(1.25rem,5vw,5rem);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;color:var(--graphite);
+  background:
+    radial-gradient(58% 42% at 18% 12%, rgba(39,65,140,.085), transparent 68%),
+    radial-gradient(52% 38% at 88% 62%, rgba(185,144,72,.10), transparent 70%),
+    radial-gradient(64% 46% at 46% 104%, rgba(178,43,63,.055), transparent 68%),
+    linear-gradient(173deg, #F2F0E9 0%, #E8E6DE 44%, #DEDBCF 100%);
+  background-attachment:fixed;
+  font-family:"Archivo",system-ui,sans-serif;font-variation-settings:"wdth" 100;
+  font-size:clamp(1rem,.55vw + .9rem,1.125rem);line-height:1.55;
+  -webkit-font-smoothing:antialiased;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
+  background-image:linear-gradient(var(--vellum-fold) 1px,transparent 1px),
+                   linear-gradient(90deg,var(--vellum-fold) 1px,transparent 1px);
+  background-size:56px 56px;opacity:.26;
+  mask-image:radial-gradient(ellipse 120% 80% at 50% 40%,#000 30%,transparent 78%)}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--redline);outline-offset:3px}
+.wrap{max-width:1440px;margin:0 auto;padding-inline:var(--gutter);position:relative;z-index:1}
+.anno{font-variation-settings:"wdth" 68,"wght" 500;font-size:.78rem;letter-spacing:.06em;
+  color:var(--ink);display:inline-flex;align-items:center;gap:.5rem}
+.anno::before{content:"";width:1.75rem;height:1px;background:var(--ink);flex:none}
 
-    .film-grain { display: none; }
-    .custom-cursor {
-      position: fixed; top: 0; left: 0; width: 4px; height: 4px;
-      background: var(--text-primary); border-radius: 50%;
-      pointer-events: none; z-index: 10000;
-      mix-blend-mode: difference;
-      transition: width 0.2s cubic-bezier(0.65, 0, 0.35, 1), height 0.2s cubic-bezier(0.65, 0, 0.35, 1), transform 0.1s linear;
-      transform: translate(-50%, -50%);
-      will-change: width, height, transform;
-    }
-    .custom-cursor.hover { width: 32px; height: 32px; }
-    .loading-bar {
-      position: fixed; top: 0; left: 0; height: 1px; background: var(--accent);
-      z-index: 1000; width: 0;
-      animation: loadBar 0.8s cubic-bezier(0.65, 0, 0.35, 1) forwards;
-    }
-    @keyframes loadBar { to { width: 100%; opacity: 0; } }
+.masthead{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;justify-content:space-between;
+  align-items:center;padding:1.1rem var(--gutter);
+  font-variation-settings:"wdth" 68,"wght" 500;font-size:.78rem;letter-spacing:.06em;
+  background:color-mix(in oklab,var(--vellum) 86%,transparent);backdrop-filter:blur(6px)}
+.masthead nav{display:flex;gap:1.6rem}
+.masthead a{text-decoration:none;padding-bottom:2px;border-bottom:1px solid transparent}
+.masthead a:hover{border-bottom-color:var(--redline)}
 
-    a, button, [tabindex] { transition: opacity 0.2s; outline: none; text-decoration: none; color: inherit; }
-    a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
-    @media (prefers-reduced-motion: reduce) {
-      *, ::before, ::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
-    }
+/* ---------- 3D stage ---------- */
+.rig{position:relative}
+.stage{position:sticky;top:0;height:100svh;z-index:1;pointer-events:none;overflow:hidden}
+.stage::before{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:
+    radial-gradient(46% 40% at 68% 46%, rgba(201,158,86,calc(.09 + var(--heat,0) * .13)), transparent 72%),
+    radial-gradient(38% 34% at 40% 30%, rgba(39,65,140,calc(.10 - var(--heat,0) * .04)), transparent 70%);
+  transition:none;
+}
+.stage canvas{display:block;width:100%;height:100%;position:relative;z-index:1}
+.callout{
+  position:absolute;z-index:2;transform:translate(-50%,-50%);
+  font-variation-settings:"wdth" 62,"wght" 500;font-size:.66rem;letter-spacing:.07em;
+  color:var(--ink);white-space:nowrap;opacity:0;
+  padding-left:1.4rem;
+}
+.callout::before{content:"";position:absolute;left:0;top:50%;width:1rem;height:1px;background:var(--ink)}
+.callout::after{content:"";position:absolute;left:0;top:50%;width:4px;height:4px;margin:-2px 0 0 -2px;
+  border-radius:50%;background:var(--redline)}
+.callout[data-side="left"]{padding:0 1.4rem 0 0}
+.callout[data-side="left"]::before{left:auto;right:0}
+.callout[data-side="left"]::after{left:auto;right:0;margin:-2px -2px 0 0}
 
-    .reveal { opacity: 0; transform: translateY(20px); will-change: opacity, transform; transition: opacity 0.6s cubic-bezier(0.65, 0, 0.35, 1), transform 0.6s cubic-bezier(0.65, 0, 0.35, 1); }
-    .reveal.visible { opacity: 1; transform: translateY(0); }
+/* ---------- page ---------- */
+.panel{position:relative;z-index:2;min-height:100svh;display:flex;align-items:center;padding-block:8vh}
+.panel-inner{max-width:min(52ch,100%)}
+.panel h2{font-variation-settings:"wdth" 118,"wght" 600;font-size:clamp(1.8rem,3.4vw,3rem);
+  line-height:1.04;letter-spacing:-.022em;margin:.9rem 0 1rem;text-wrap:balance}
+.panel p{max-width:var(--measure)}
+.opening{position:relative;z-index:3;min-height:100svh;display:flex;align-items:center;padding-block:16vh 8vh}
+.opening h1{font-variation-settings:"wdth" 122,"wght" 600;font-size:clamp(2.1rem,5vw,4.5rem);
+  line-height:1;letter-spacing:-.035em;margin:1.1rem 0 0;max-width:15ch;text-wrap:balance}
+.opening h1 em{font-style:italic;font-variation-settings:"wdth" 88,"wght" 500}
+.byline{margin-top:2.2rem;padding-top:1rem;border-top:1px solid var(--vellum-fold);max-width:44ch;
+  font-variation-settings:"wdth" 72,"wght" 450;font-size:.84rem;letter-spacing:.03em}
+.rise{opacity:0;transform:translateY(14px);animation:rise .9s cubic-bezier(.22,1,.36,1) forwards}
+.rise:nth-child(1){animation-delay:.05s}.rise:nth-child(2){animation-delay:.16s}.rise:nth-child(3){animation-delay:.3s}
+@keyframes rise{to{opacity:1;transform:none}}
 
-    .viewport { min-height: 100vh; padding: 6vw; display: flex; flex-direction: column; position: relative; scroll-snap-align: start; }
-    .nav-top { display: flex; justify-content: space-between; font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; z-index: 100; }
-    
-    .hero-statement { font-weight: 400; font-size: clamp(48px, 8vw, 140px); margin-top: auto; margin-bottom: 2rem; max-width: 90%; }
-    .hero-statement i { font-weight: 300; font-style: italic; }
-    .hero-signature { font-size: 11px; letter-spacing: 0.15em; border-top: 1px solid var(--border); padding-top: 1.5rem; display: inline-block; }
-    .scroll-indicator { font-size: 11px; letter-spacing: 0.15em; display: flex; align-items: center; gap: 1rem; margin-top: 3rem; margin-bottom: 1rem; }
-    .scroll-line { width: 1px; height: 32px; background: var(--text-tertiary); overflow: hidden; position: relative; }
-    .scroll-line::after { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 50%; background: var(--text-primary); animation: scrollPulse 2s cubic-bezier(0.65, 0, 0.35, 1) infinite; }
-    @keyframes scrollPulse { 0% { transform: translateY(-100%); } 100% { transform: translateY(200%); } }
-    
-    .metrics-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; margin-top: auto; align-items: end; }
-    .metric-huge { font-size: clamp(120px, 18vw, 280px); font-weight: 200; letter-spacing: -0.06em; line-height: 0.8; }
-    .metric-medium { font-size: clamp(80px, 12vw, 180px); font-weight: 200; letter-spacing: -0.06em; line-height: 0.8; }
-    .metric-caption { font-size: 13px; letter-spacing: 0.1em; color: var(--text-primary); margin-top: 2.5rem; }
-    .metric-item-1 { justify-self: start; }
-    .metric-item-2 { justify-self: end; transform: translateY(20%); }
-    .metric-item-3 { justify-self: start; padding-left: 10vw; }
-    .metric-item-4 { justify-self: end; }
-    
-    .method-content { max-width: 720px; margin: auto; font-size: clamp(20px, 2.4vw, 32px); line-height: 1.5; font-weight: 400; }
-    .method-content p { margin-bottom: 2rem; }
-    
-    .case-list { margin-top: auto; display: flex; flex-direction: column; width: 100%; }
-    .case-row { display: grid; grid-template-columns: 80px 120px 1fr auto auto; align-items: center; gap: 2rem; padding: 2rem 0; border-bottom: 1px solid var(--border); transition: all 0.2s cubic-bezier(0.65, 0, 0.35, 1); text-decoration: none; color: inherit; }
-    .case-row:first-child { border-top: 1px solid var(--border); }
-    .case-row:hover { background: var(--surface); padding-left: 1rem; padding-right: 1rem; }
-    .case-row:hover .case-title { transform: translateX(8px); }
-    .case-row:hover::after { content: '→'; font-family: 'Geist Mono', monospace; margin-left: 1rem; color: var(--accent); }
-    .case-num { font-size: 80px; font-weight: 200; color: var(--text-tertiary); line-height: 0.8; }
-    .case-tag { font-size: 11px; letter-spacing: 0.15em; color: var(--text-secondary); }
-    .case-title { font-weight: 500; font-size: clamp(28px, 4vw, 56px); transition: transform 0.2s cubic-bezier(0.65, 0, 0.35, 1); }
-    
-    .footer { min-height: 50vh; display: flex; flex-direction: column; justify-content: space-between; padding-bottom: 0; }
-    .footer-top { display: flex; justify-content: space-between; align-items: flex-end; padding-bottom: 4rem; }
-    .footer-statement { max-width: 400px; font-size: 14px; color: var(--text-secondary); }
-    .footer-links { display: flex; flex-direction: column; gap: 0.5rem; text-align: right; }
-    .footer-links a { font-size: 14px; text-decoration: none; color: var(--text-primary); transition: color 0.2s; }
-    .footer-links a:hover { color: var(--accent); }
-    .footer-bottom { background: var(--surface); padding: 2rem 5vw; display: flex; justify-content: space-between; font-size: 11px; letter-spacing: 0.15em; color: var(--text-tertiary); margin-left: -5vw; margin-right: -5vw; }
+.ledger{display:grid;gap:1px;background:var(--vellum-fold);border:1px solid var(--vellum-fold);
+  grid-template-columns:repeat(2,1fr);margin-top:2.4rem}
+.ledger div{background:var(--vellum);padding:1.5rem 1.25rem}
+.ledger dt{text-wrap:nowrap;font-variation-settings:"wdth" 112,"wght" 600;
+  font-size:clamp(1.9rem,3.6vw,2.9rem);line-height:1;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.ledger dd{margin:.55rem 0 0;font-variation-settings:"wdth" 66,"wght" 450;font-size:.76rem;
+  letter-spacing:.05em;line-height:1.4;color:color-mix(in oklab,var(--graphite) 68%,var(--vellum))}
 
-    @media (max-width: 768px) {
-      .viewport { padding-top: 140px; height: auto; justify-content: flex-start; }
-      .hero-statement { margin-top: 0 !important; font-size: clamp(40px, 10vw, 80px); }
-      .metrics-grid { margin-top: 4rem; }
-      .metrics-grid { grid-template-columns: 1fr; gap: 2rem; }
-      .metric-item-1, .metric-item-2, .metric-item-3, .metric-item-4 { justify-self: start; transform: none; padding-left: 0; }
-      .case-row { grid-template-columns: 1fr; gap: 1rem; padding: 2rem 1rem; }
-      .case-num { font-size: 48px; }
-      .footer-top { flex-direction: column; gap: 2rem; align-items: flex-start; }
-      .footer-links { text-align: left; }
-      .footer-bottom { flex-direction: column; gap: 1rem; }
-      .nav-top, .footer-bottom, .case-tag, .metric-caption, .hero-signature { font-size: 13px !important; }
-      .mono.text-secondary.uppercase { font-size: 13px !important; }
-    }
-  </style>
+.engagements{position:relative;z-index:2;padding-block:12vh}
+.case{display:grid;grid-template-columns:3.5rem 1fr auto;gap:1.5rem;align-items:baseline;
+  padding:2.2rem 0;border-top:1px solid var(--vellum-fold);text-decoration:none}
+.engagements .case:last-of-type{border-bottom:1px solid var(--vellum-fold)}
+.case-n{font-variation-settings:"wdth" 62,"wght" 500;font-size:.78rem;color:var(--ink);font-variant-numeric:tabular-nums}
+.case h3{margin:0;font-variation-settings:"wdth" 108,"wght" 550;font-size:clamp(1.25rem,2.4vw,1.9rem);
+  letter-spacing:-.02em;line-height:1.1}
+.case .who{margin:.4rem 0 0;font-variation-settings:"wdth" 70,"wght" 450;font-size:.82rem;
+  letter-spacing:.03em;color:color-mix(in oklab,var(--graphite) 66%,var(--vellum))}
+.case .scale{font-variation-settings:"wdth" 62,"wght" 450;font-size:.74rem;letter-spacing:.05em;
+  text-align:right;color:color-mix(in oklab,var(--graphite) 60%,var(--vellum))}
+.case:hover h3{color:var(--ink)}
+.case:hover{background:linear-gradient(90deg,rgba(39,65,140,.05),transparent 70%)}
+
+.closing{position:relative;z-index:2;padding-block:14vh 4vh}
+.closing p{font-variation-settings:"wdth" 108,"wght" 500;font-size:clamp(1.35rem,2.8vw,2.1rem);
+  line-height:1.22;letter-spacing:-.02em;max-width:26ch;margin:1rem 0 2.6rem}
+.links{display:flex;flex-wrap:wrap;gap:.6rem 2rem;font-variation-settings:"wdth" 72,"wght" 500;
+  font-size:.86rem;letter-spacing:.03em}
+.links a{text-decoration:none;border-bottom:1px solid var(--vellum-fold);padding-bottom:2px}
+.links a:hover{border-bottom-color:var(--redline);color:var(--redline)}
+footer{position:relative;z-index:2;display:flex;flex-wrap:wrap;gap:.5rem 2rem;justify-content:space-between;
+  padding:2.5rem 0 3rem;margin-top:6vh;border-top:1px solid var(--vellum-fold);
+  font-variation-settings:"wdth" 64,"wght" 450;font-size:.72rem;letter-spacing:.05em;
+  color:color-mix(in oklab,var(--graphite) 58%,var(--vellum))}
+
+/* ---------- Semi: the venture ---------- */
+.venture{position:relative;z-index:2;padding-block:12vh 2vh}
+.venture-head{display:flex;flex-wrap:wrap;align-items:center;gap:.75rem 1.5rem;margin-top:1.6rem}
+.semi-logo{display:inline-flex;align-items:center;gap:.55rem;color:var(--graphite)}
+.semi-logo svg{width:2.1rem;height:1.45rem;flex:none}
+.semi-logo span{font-family:"Bricolage Grotesque","Archivo",system-ui,sans-serif;font-weight:700;
+  font-size:2.1rem;line-height:1;letter-spacing:-.02em;font-variation-settings:normal}
+.venture-meta{font-variation-settings:"wdth" 66,"wght" 500;font-size:.76rem;letter-spacing:.06em;color:var(--ink)}
+.venture h2{font-variation-settings:"wdth" 118,"wght" 600;font-size:clamp(1.8rem,3.4vw,3rem);
+  line-height:1.04;letter-spacing:-.022em;margin:1.2rem 0 1rem;max-width:22ch;text-wrap:balance}
+.venture p{max-width:var(--measure)}
+.venture .ledger{grid-template-columns:repeat(3,1fr)}
+.venture-foot{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;
+  gap:.75rem 2rem;margin-top:1.6rem}
+.venture-foot p{margin:0;font-variation-settings:"wdth" 72,"wght" 450;font-size:.84rem;letter-spacing:.03em;
+  color:color-mix(in oklab,var(--graphite) 68%,var(--vellum))}
+.venture-link{font-variation-settings:"wdth" 72,"wght" 600;font-size:.9rem;letter-spacing:.03em;
+  text-decoration:none;color:var(--ink);border-bottom:1px solid var(--ink-soft);padding-bottom:2px;white-space:nowrap}
+.venture-link:hover{color:var(--redline);border-bottom-color:var(--redline)}
+@media (min-width:760px){ .ledger{grid-template-columns:repeat(4,1fr)} }
+@media (min-width:960px){
+  .panel{padding-right:52%}
+  #scale{padding-right:34%}
+  #scale .panel-inner{max-width:min(66ch,100%)}
+  .opening{padding-right:44%}
+}
+@media (max-width:959px){ .stage{opacity:.5} .callout{display:none} }
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .rise{animation:none;opacity:1;transform:none}
+}
+</style>
 </head>
 <body>
-  <div class="film-grain"></div>
-  <div class="custom-cursor"></div>
-  <div class="loading-bar"></div>
 
-  <main>
-    <section class="viewport" id="hero">
-      <nav class="nav-top">
-        <div class="mono interactive">KP / 2026 <span style="display:inline-block;width:6px;height:6px;background:var(--accent);border-radius:50%;margin-left:4px;animation:pulse 2s infinite;"></span></div>
-        <div class="mono" style="display:flex;gap:2rem;">
-          <a href="#work" class="interactive">WORK</a>
-          <a href="#about" class="interactive">ABOUT</a>
-          <a href="#contact" class="interactive">CONTACT</a>
-        </div>
-      </nav>
-      
-      <h1 class="display hero-statement reveal" style="transition-delay: 0.1s">
-        Operating systems for organizations that don't have <i>Amazon's resources.</i>
-      </h1>
-      
-      <div class="reveal" style="transition-delay: 1.2s">
-        <div class="mono hero-signature uppercase">KENNETH GONZALEZ PICADO / OPERATIONS ARCHITECT / SAN JOSÉ → REMOTE</div>
-      </div>
-      
-      <div class="scroll-indicator mono reveal" style="transition-delay: 1.4s">
-        SCROLL <div class="scroll-line"></div>
+<header class="masthead">
+  <span>Kenneth Gonzalez Picado</span>
+  <nav><a href="#method">Method</a><a href="#scale">Scale</a><a href="#semi">Semi</a><a href="#work">Work</a><a href="#contact">Contact</a></nav>
+</header>
+
+<main>
+
+  <section class="opening wrap">
+    <div>
+      <span class="anno rise">Operations architect · San José, Costa Rica</span>
+      <h1 class="rise">Operating systems for organizations that don't have <em>Amazon's resources.</em></h1>
+      <p class="byline rise">Fourteen years inside Amazon's LATAM operating model. Now building the same caliber of systems for everyone else.</p>
+    </div>
+  </section>
+
+  <div class="rig" id="rig">
+    <div class="stage" id="stage" aria-hidden="true"></div>
+
+    <section class="panel wrap" id="method">
+      <div class="panel-inner">
+        <span class="anno">The method</span>
+        <h2>I don't manage operations. I architect them.</h2>
+        <p>Most operations fail the same way: the standard lives in someone's head, nobody measures it, and by the time anyone notices, the damage is already booked.</p>
+        <p>A system fixes that by making every stage answerable to the one behind it. Intake, compression, combustion, drive, exhaust — each part sized for the load the next one puts on it.</p>
       </div>
     </section>
 
-    <section class="viewport" id="metrics">
-      <div class="mono text-secondary uppercase" style="font-size: 11px; letter-spacing: 0.15em;">[01] — THE NUMBERS</div>
-      <div class="metrics-grid">
-        <div class="metric-item-1 reveal">
-          <div class="display metric-huge counter" data-target="500" data-prefix="$" data-suffix="K">$0K</div>
-          <div class="mono metric-caption">OPERATIONAL BUDGET / AMAZON</div>
-        </div>
-        <div class="metric-item-2 reveal" style="transition-delay: 0.2s">
-          <div class="display metric-medium counter" data-target="165">0</div>
-          <div class="mono metric-caption">TEAM AT PEAK / DIRECT + INDIRECT</div>
-        </div>
-        <div class="metric-item-3 reveal" style="transition-delay: 0.4s">
-          <div class="display metric-medium counter" data-target="4">0</div>
-          <div class="mono metric-caption">LATAM COUNTRIES / MEX · CRC · COL · BRA</div>
-        </div>
-        <div class="metric-item-4 reveal" style="transition-delay: 0.6s">
-          <div class="display metric-huge counter" data-target="14" data-suffix="yrs">0yrs</div>
-          <div class="mono metric-caption">AMAZON OPERATING MODEL / 2010—2024</div>
-        </div>
+    <section class="panel wrap" id="scale">
+      <div class="panel-inner">
+        <span class="anno">The scale it was learned at</span>
+        <h2>Built inside an operation that never stopped running.</h2>
+        <dl class="ledger" id="ledger">
+          <div><dt data-to="500" data-prefix="$" data-suffix="K">$500K</dt><dd>Operational budget owned at Amazon</dd></div>
+          <div><dt data-to="165">165</dt><dd>People at peak, direct and indirect</dd></div>
+          <div><dt data-to="4">4</dt><dd>Countries governed: Mexico, Costa Rica, Colombia, Brazil</dd></div>
+          <div><dt data-to="14" data-suffix=" yrs">14 yrs</dt><dd>Inside the Amazon operating model, 2010 to 2024</dd></div>
+        </dl>
       </div>
     </section>
 
-    <section class="viewport" id="about">
-      <div class="mono text-secondary uppercase" style="font-size: 11px; letter-spacing: 0.15em;">[02] — THE METHOD</div>
-      <div class="method-content">
-        <p class="reveal">I don't manage operations. I <span class="text-accent">architect</span> them.</p>
-        <p class="reveal" style="transition-delay: 0.2s">After fourteen years inside Amazon's customer service operating model — leading one hundred and sixty-five people, owning a half-million-dollar budget, governing quality across four countries — I became a Partner at Cawhi Consultores. For the past two years, I have been building the same caliber of systems for organizations that don't have Amazon's resources.</p>
-        <p class="reveal" style="transition-delay: 0.4s">AI is the <span class="text-accent">force multiplier</span> that lets <span class="text-accent">one operator</span> ship what normally requires a team.</p>
+    <section class="panel wrap" id="loop">
+      <div class="panel-inner">
+        <span class="anno">Once it runs</span>
+        <h2>The point is that it keeps working after I leave.</h2>
+        <p>A system that needs me to stay is not a system, it is a dependency. Every part has to be serviceable by the people who stay behind.</p>
+        <p>AI is the force multiplier that lets one operator ship what normally takes a team of five.</p>
       </div>
     </section>
+  </div>
 
-    <section class="viewport" id="work">
-      <div class="mono text-secondary uppercase" style="font-size: 11px; letter-spacing: 0.15em;">[03] — SELECTED ENGAGEMENTS</div>
-      <div class="case-list">
-        <a href="case/anfiteatro.html" class="case-row reveal interactive">
-          <div class="case-num display">01</div>
-          <div class="case-tag mono uppercase">HOSPITALITY</div>
-          <div class="case-title display">Five-Layer Operating System</div>
-          <div class="text-secondary">Anfiteatro de Villa</div>
-          <div class="mono text-accent" style="font-size: 14px;">800-CAPACITY VENUE</div>
-        </a>
-        <a href="case/coopenae.html" class="case-row reveal interactive" style="transition-delay: 0.1s">
-          <div class="case-num display">02</div>
-          <div class="case-tag mono uppercase">FINANCIAL SERVICES</div>
-          <div class="case-title display">Performance Evaluation Platform</div>
-          <div class="text-secondary">COOPENAE</div>
-          <div class="mono text-accent" style="font-size: 14px;">1,000+ EMPLOYEES</div>
-        </a>
-        <a href="case/asoingraf.html" class="case-row reveal interactive" style="transition-delay: 0.2s">
-          <div class="case-num display">03</div>
-          <div class="case-tag mono uppercase">TRADE ASSOCIATION</div>
-          <div class="case-title display">Sales Transformation Funnel</div>
-          <div class="text-secondary">ASOINGRAF</div>
-          <div class="mono text-accent" style="font-size: 14px;">NATIONAL REACH</div>
-        </a>
-      </div>
-    </section>
+  <section class="venture wrap" id="semi">
+    <span class="anno">Now building</span>
+    <div class="venture-head">
+      <span class="semi-logo" role="img" aria-label="Semi">
+        <svg viewBox="4 10 26 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 13 H 23 V 20 C 23 24, 21 26, 18 26 H 12 C 9 26, 7 24, 7 20 Z"/><line x1="8.4" y1="15" x2="21.6" y2="15"/><path d="M23 15 C 27 15, 27 22, 23 22"/></svg>
+        <span aria-hidden="true">SEMI</span>
+      </span>
+      <span class="venture-meta">Founder · 2026 · Pre-launch</span>
+    </div>
+    <h2>The same operating discipline, shipped as software.</h2>
+    <p>AI operations software for SMBs, service companies and enterprises in Costa Rica and Central America. One system for contacts, deals, quotes, tasks, collections and a dashboard, with AI that answers customers, drafts quotes in one click and follows up on every payment.</p>
+    <dl class="ledger">
+      <div><dt data-to="108">108</dt><dd>Database migrations</dd></div>
+      <div><dt data-to="139">139</dt><dd>API endpoints</dd></div>
+      <div><dt data-to="108">108</dt><dd>Test files</dd></div>
+    </dl>
+    <div class="venture-foot">
+      <p>Product, design, AI-assisted development and hands-on rollout with each client. Build figures as of September 2026.</p>
+      <a class="venture-link" href="https://trysemi.com" rel="noopener">trysemi.com →</a>
+    </div>
+  </section>
 
-    <footer class="viewport footer" id="contact">
-      <div style="flex-grow: 1;"></div>
-      <div class="footer-top">
-        <div class="mono footer-statement">Available for fractional COO, transformation, and senior consulting engagements. 5 AM – 7 PM Central Time.</div>
-        <div class="footer-links mono">
-          <a href="https://www.linkedin.com/in/kenneth-gonz%C3%A1lez-0146a7106/" target="_blank" class="interactive">LINKEDIN →</a>
-          <a href="assets/Kenneth_Picado_Resume_2026.pdf" target="_blank" class="interactive">RESUME (PDF) →</a>
-          <a href="assets/Kenneth_Picado_Portfolio_2026.pdf" target="_blank" class="interactive">PORTFOLIO (PDF) →</a>
-          <a href="mailto:picado80@hotmail.com" class="interactive">picado80@hotmail.com →</a>
-        </div>
-      </div>
-      <div class="footer-bottom mono uppercase">
-        <div>© 2026 KENNETH GONZALEZ PICADO</div>
-        <div>BUILT IN COSTA RICA</div>
-        <div>POWERED BY CLAUDE & DISCIPLINE</div>
-      </div>
-    </footer>
-  </main>
-  
-  <script>
-    // Custom Cursor
-    const cursor = document.querySelector('.custom-cursor');
-    document.addEventListener('mousemove', (e) => {
-      cursor.style.transform = `translate(calc(${e.clientX}px - 50%), calc(${e.clientY}px - 50%))`;
-    });
-    document.querySelectorAll('a, button, .interactive').forEach(el => {
-      el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
-      el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
-    });
+  <section class="engagements wrap" id="work">
+    <span class="anno">Selected engagements</span>
+    <a class="case" href="/case/anfiteatro.html">
+      <span class="case-n">01</span>
+      <span><h3>Five-layer operating system</h3><p class="who">Anfiteatro de Villa · Hospitality</p></span>
+      <span class="scale">800-capacity venue</span>
+    </a>
+    <a class="case" href="/case/coopenae.html">
+      <span class="case-n">02</span>
+      <span><h3>Performance evaluation platform</h3><p class="who">Financial services company</p></span>
+      <span class="scale">1,000+ employees</span>
+    </a>
+    <a class="case" href="/case/asoingraf.html">
+      <span class="case-n">03</span>
+      <span><h3>Sales transformation funnel</h3><p class="who">Trade association</p></span>
+      <span class="scale">National reach</span>
+    </a>
+  </section>
 
-    // Intersection Observer for animations
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          if (entry.target.dataset.animateOnce !== 'false') {
-            observer.unobserve(entry.target);
-          }
-        }
+  <section class="closing wrap" id="contact">
+    <span class="anno">Working hours 5:00 AM – 7:00 PM Central</span>
+    <p>Available for fractional COO, transformation, and senior consulting work.</p>
+    <div class="links">
+      <a href="mailto:picado80@hotmail.com">picado80@hotmail.com</a>
+      <a href="https://www.linkedin.com/in/kenneth-gonz%C3%A1lez-0146a7106/">LinkedIn</a>
+      <a href="/assets/Kenneth_Picado_Resume_2026.pdf">Resume, PDF</a>
+      <a href="/assets/Kenneth_Picado_Portfolio_2026.pdf">Portfolio, PDF</a>
+    </div>
+  </section>
+
+  <footer class="wrap">
+    <span>© 2026 Kenneth Gonzalez Picado</span>
+    <span>Built in Costa Rica</span>
+  </footer>
+
+</main>
+
+<script>
+/* counters: the final values live in the HTML, so they read right without JS or if the 3D CDN fails;
+   when a ledger scrolls into view it counts up from zero */
+(function(){
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches || !('IntersectionObserver' in window)) return;
+  var clamp = function(n){ return n < 0 ? 0 : n > 1 ? 1 : n; };
+  document.querySelectorAll('.ledger').forEach(function(ledger){
+    var io = new IntersectionObserver(function(es){
+      es.forEach(function(e){
+        if (!e.isIntersecting) return;
+        io.disconnect();
+        ledger.querySelectorAll('dt[data-to]').forEach(function(dt){
+          var to = parseFloat(dt.dataset.to), pre = dt.dataset.prefix || '', suf = dt.dataset.suffix || '';
+          var t0 = performance.now();
+          (function step(now){
+            var k = clamp((now - t0) / 1100);
+            dt.textContent = pre + Math.round(to * (1 - Math.pow(1 - k, 3))) + suf;
+            if (k < 1) requestAnimationFrame(step);
+          })(t0);
+        });
       });
-    }, { threshold: 0.1 });
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    }, { threshold: 0.35 });
+    io.observe(ledger);
+  });
+})();
+</script>
+<script type="importmap">
+{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js"}}
+</script>
+<script type="module">
+import * as THREE from "three";
 
-    // Counter Animation
-    const animateValue = (obj, start, end, duration, prefix='', suffix='') => {
-      let startTimestamp = null;
-      const step = (timestamp) => {
-        if (!startTimestamp) startTimestamp = timestamp;
-        const progress = Math.min((timestamp - startTimestamp) / duration, 1);
-        const current = Math.floor(progress * (end - start) + start);
-        obj.innerHTML = `${prefix}${current}${suffix}`;
-        if (progress < 1) {
-          window.requestAnimationFrame(step);
-        } else {
-          obj.innerHTML = `${prefix}${end}${suffix}`;
-        }
-      };
-      window.requestAnimationFrame(step);
-    };
+const stage = document.getElementById('stage');
+const rig   = document.getElementById('rig');
+const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    const counterObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const target = parseInt(entry.target.dataset.target);
-          const prefix = entry.target.dataset.prefix || '';
-          const suffix = entry.target.dataset.suffix || '';
-          
-          if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-            animateValue(entry.target, 0, target, 1200, prefix, suffix);
-          } else {
-            entry.target.innerHTML = `${prefix}${target}${suffix}`;
-          }
-          counterObserver.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.5 });
-    
-    document.querySelectorAll('.counter').forEach(el => counterObserver.observe(el));
-  </script>
+const renderer = new THREE.WebGLRenderer({ antialias:true, alpha:true });
+renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+renderer.toneMapping = THREE.ACESFilmicToneMapping;
+renderer.toneMappingExposure = 1.12;
+stage.appendChild(renderer.domElement);
+
+const scene  = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(34, 1, 0.1, 200);
+
+function studioEnv(){
+  const c = document.createElement('canvas'); c.width = 512; c.height = 256;
+  const g = c.getContext('2d');
+  const grd = g.createLinearGradient(0, 0, 0, 256);
+  grd.addColorStop(0, '#ffffff'); grd.addColorStop(0.42, '#d3d7dd');
+  grd.addColorStop(0.56, '#7e848d'); grd.addColorStop(1, '#34373c');
+  g.fillStyle = grd; g.fillRect(0, 0, 512, 256);
+  g.fillStyle = 'rgba(255,255,255,0.96)';
+  g.fillRect(36, 26, 150, 58); g.fillRect(304, 16, 128, 44); g.fillRect(196, 112, 96, 26);
+  g.fillStyle = 'rgba(255,238,214,0.45)'; g.fillRect(444, 96, 48, 26);
+  const tex = new THREE.CanvasTexture(c);
+  tex.mapping = THREE.EquirectangularReflectionMapping;
+  const pm = new THREE.PMREMGenerator(renderer);
+  const t = pm.fromEquirectangular(tex).texture;
+  pm.dispose(); tex.dispose();
+  return t;
+}
+scene.environment = studioEnv();
+
+scene.add(new THREE.HemisphereLight(0xffffff, 0x8f8d80, 1.1));
+const key = new THREE.DirectionalLight(0xffffff, 2.1); key.position.set(6, 8, 9); scene.add(key);
+const fill = new THREE.DirectionalLight(0xdfe6ff, 0.9); fill.position.set(-8, 2, 4); scene.add(fill);
+const rim = new THREE.DirectionalLight(0xffe9cd, 1.25); rim.position.set(-3, -5, -8); scene.add(rim);
+const cool = new THREE.DirectionalLight(0xc9d8ff, 0.45); cool.position.set(5, -2, 7); scene.add(cool);
+
+/* ---------- materials ---------- */
+const M = {
+  titanium: new THREE.MeshStandardMaterial({ color:0xb9bcc2, metalness:1, roughness:0.28 }),
+  nickel:   new THREE.MeshStandardMaterial({ color:0x9aa0a8, metalness:1, roughness:0.18 }),
+  steel:    new THREE.MeshStandardMaterial({ color:0x71767d, metalness:1, roughness:0.35 }),
+  brass:    new THREE.MeshStandardMaterial({ color:0xb99048, metalness:1, roughness:0.32 }),
+  hot:      new THREE.MeshStandardMaterial({ color:0x8d7a5e, metalness:1, roughness:0.44 }),
+  cowl:     new THREE.MeshStandardMaterial({ color:0xd8dade, metalness:0.55, roughness:0.3,
+              side:THREE.DoubleSide }),
+  dark:     new THREE.MeshStandardMaterial({ color:0x2b2e33, metalness:0.7, roughness:0.5 }),
+  red:      new THREE.MeshStandardMaterial({ color:0xb22b3f, metalness:0.4, roughness:0.5 }),
+};
+
+const engine = new THREE.Group();
+scene.add(engine);
+
+const parts = [];
+/** register a part with its exploded offset and its slot in the assembly order */
+function addPart(obj, restZ, exp, order, spin){
+  obj.position.set(0, 0, restZ);
+  obj.userData = { restZ, exp:new THREE.Vector3(...exp).multiplyScalar(0.8), order, spin:spin||0 };
+  engine.add(obj); parts.push(obj);
+  return obj;
+}
+
+/* ---------- builders ---------- */
+function ring(rOut, rIn, len, mat){
+  const g = new THREE.CylinderGeometry(rOut, rOut, len, 64, 1, true);
+  const m = new THREE.Mesh(g, mat); m.rotation.x = Math.PI/2;
+  const grp = new THREE.Group(); grp.add(m);
+  if(rIn){
+    const gi = new THREE.CylinderGeometry(rIn, rIn, len, 48, 1, true);
+    const mi = new THREE.Mesh(gi, mat); mi.rotation.x = Math.PI/2; grp.add(mi);
+  }
+  return grp;
+}
+
+/** a bladed disc: hub + instanced blades, the core repeated element of the engine */
+function stageDisc({ hubR, rIn, rOut, count, chord, thick, twist, mat, bladeMat, hubLen }){
+  const grp = new THREE.Group();
+  const hub = new THREE.Mesh(new THREE.CylinderGeometry(hubR, hubR, hubLen||0.16, 48), mat);
+  hub.rotation.x = Math.PI/2; grp.add(hub);
+
+  const disc = new THREE.Mesh(new THREE.TorusGeometry(rIn, 0.035, 10, 64), mat);
+  grp.add(disc);
+
+  const bg = new THREE.BoxGeometry(thick, rOut - rIn, chord);
+  bg.translate(0, (rOut - rIn)/2, 0);
+  const inst = new THREE.InstancedMesh(bg, bladeMat||mat, count);
+  const dummy = new THREE.Object3D();
+  for(let i=0;i<count;i++){
+    const a = (i/count) * Math.PI * 2;
+    dummy.position.set(Math.cos(a)*rIn, Math.sin(a)*rIn, 0);
+    dummy.rotation.set(0, 0, a - Math.PI/2);
+    dummy.rotateY(twist);
+    dummy.updateMatrix();
+    inst.setMatrixAt(i, dummy.matrix);
+  }
+  grp.add(inst);
+  return grp;
+}
+
+/* ---------- 1. inlet cowl, split in two halves ---------- */
+const inletGrp = new THREE.Group();
+[0, Math.PI].forEach((rot, i) => {
+  const lip = new THREE.Mesh(
+    new THREE.CylinderGeometry(2.05, 1.92, 1.05, 48, 1, true, rot, Math.PI), M.cowl);
+  lip.rotation.x = Math.PI/2;
+  const cap = new THREE.Mesh(new THREE.TorusGeometry(1.98, 0.075, 8, 48, Math.PI), M.cowl);
+  cap.position.z = -0.52; cap.rotation.z = rot;
+  const h = new THREE.Group(); h.add(lip, cap);
+  h.userData.half = i; inletGrp.add(h);
+});
+addPart(inletGrp, -3.5, [0, 2.8, -2.6], 0);
+
+/* ---------- 2. fan ---------- */
+const fan = new THREE.Group();
+const spinner = new THREE.Mesh(new THREE.ConeGeometry(0.42, 1.0, 40), M.titanium);
+spinner.rotation.x = -Math.PI/2; spinner.position.z = -0.62; fan.add(spinner);
+fan.add(stageDisc({ hubR:0.42, rIn:0.46, rOut:1.82, count:22, chord:0.5, thick:0.055,
+                    twist:0.62, mat:M.titanium, hubLen:0.42 }));
+addPart(fan, -2.85, [0, 0, -4.6], 1, 1.0);
+
+/* ---------- 3. fan case ---------- */
+addPart(ring(1.95, 1.86, 1.5, M.cowl), -2.85, [0, -2.9, -1.6], 2);
+
+/* ---------- 4. LP compressor, four stages ---------- */
+const lpc = new THREE.Group();
+for(let i=0;i<4;i++){
+  const s = stageDisc({ hubR:0.4, rIn:0.44, rOut:1.02 - i*0.05, count:34, chord:0.2,
+                        thick:0.03, twist:0.45, mat:M.titanium, hubLen:0.3 });
+  s.position.z = i*0.34; lpc.add(s);
+}
+addPart(lpc, -1.55, [0, 1.7, -1.2], 3, 1.0);
+
+/* ---------- 5. HP compressor, six stages ---------- */
+const hpc = new THREE.Group();
+for(let i=0;i<6;i++){
+  const s = stageDisc({ hubR:0.34, rIn:0.38, rOut:0.8 - i*0.045, count:44, chord:0.14,
+                        thick:0.024, twist:0.4, mat:M.nickel, hubLen:0.24 });
+  s.position.z = i*0.26; hpc.add(s);
+}
+addPart(hpc, 0.1, [0, -1.9, -0.4], 4, 2.4);
+
+/* ---------- 6. combustor, with injectors ---------- */
+const comb = new THREE.Group();
+const prof = [];
+for(let i=0;i<=24;i++){
+  const t = i/24, x = 0.52 + Math.sin(t*Math.PI)*0.34;
+  prof.push(new THREE.Vector2(x, -0.75 + t*1.5));
+}
+const chamber = new THREE.Mesh(new THREE.LatheGeometry(prof, 64), M.brass);
+chamber.rotation.x = Math.PI/2; comb.add(chamber);
+const injG = new THREE.CylinderGeometry(0.035, 0.035, 0.34, 10);
+const inj = new THREE.InstancedMesh(injG, M.steel, 14);
+const d = new THREE.Object3D();
+for(let i=0;i<14;i++){
+  const a = (i/14)*Math.PI*2;
+  d.position.set(Math.cos(a)*0.84, Math.sin(a)*0.84, -0.56);
+  d.rotation.set(Math.PI/2, 0, 0); d.updateMatrix(); inj.setMatrixAt(i, d.matrix);
+}
+comb.add(inj);
+addPart(comb, 2.0, [0, 2.2, 0.6], 5);
+
+/* ---------- 7. HP turbine ---------- */
+const hpt = stageDisc({ hubR:0.36, rIn:0.42, rOut:0.92, count:48, chord:0.22,
+                        thick:0.032, twist:-0.5, mat:M.hot, hubLen:0.3 });
+addPart(hpt, 3.0, [0, -2.2, 1.0], 6, 2.4);
+
+/* ---------- 8. LP turbine, three stages ---------- */
+const lpt = new THREE.Group();
+for(let i=0;i<3;i++){
+  const s = stageDisc({ hubR:0.38, rIn:0.46, rOut:1.06 + i*0.07, count:52, chord:0.24,
+                        thick:0.034, twist:-0.46, mat:M.hot, hubLen:0.32 });
+  s.position.z = i*0.4; lpt.add(s);
+}
+addPart(lpt, 3.75, [0, 1.9, 1.8], 7, 1.0);
+
+/* ---------- 9. main shaft ---------- */
+const shaft = new THREE.Group();
+const sh = new THREE.Mesh(new THREE.CylinderGeometry(0.17, 0.17, 6.4, 28), M.steel);
+sh.rotation.x = Math.PI/2; shaft.add(sh);
+[-2.4, -0.6, 1.4, 2.9].forEach(z => {
+  const c = new THREE.Mesh(new THREE.CylinderGeometry(0.24, 0.24, 0.22, 28), M.nickel);
+  c.rotation.x = Math.PI/2; c.position.z = z; shaft.add(c);
+});
+addPart(shaft, 0.45, [0, -1.2, 3.4], 8, 1.6);
+
+/* ---------- 10. bearing housings ---------- */
+[[-2.35, 0.36],[-0.55, 0.32],[1.45, 0.3],[2.95, 0.3]].forEach((b, i) => {
+  const g = new THREE.Group();
+  g.add(new THREE.Mesh(new THREE.TorusGeometry(b[1], 0.075, 12, 40), M.steel));
+  g.add(new THREE.Mesh(new THREE.TorusGeometry(b[1]-0.1, 0.045, 10, 32), M.nickel));
+  addPart(g, b[0], [(i%2?1:-1)*2.6, -1.4 - i*0.25, 0], 9);
+});
+
+/* ---------- 11. exhaust nozzle + tail cone ---------- */
+const noz = new THREE.Group();
+noz.add(ring(1.18, 1.08, 1.3, M.cowl).children[0].parent ? ring(1.18, 1.08, 1.3, M.cowl) : new THREE.Group());
+const tail = new THREE.Mesh(new THREE.ConeGeometry(0.52, 1.5, 36), M.hot);
+tail.rotation.x = Math.PI/2; tail.position.z = 0.5; noz.add(tail);
+addPart(noz, 5.3, [0, 0, 4.4], 10);
+
+/* ---------- 12. accessory gearbox + FADEC ---------- */
+const acc = new THREE.Group();
+const box = new THREE.Mesh(new THREE.BoxGeometry(1.15, 0.62, 0.78), M.steel);
+acc.add(box);
+[-0.4, 0, 0.4].forEach(x => {
+  const p = new THREE.Mesh(new THREE.CylinderGeometry(0.14, 0.14, 0.5, 20), M.nickel);
+  p.rotation.z = Math.PI/2; p.position.set(x, -0.44, 0); acc.add(p);
+});
+acc.position.y = -1.9;
+addPart(acc, -0.4, [0, -2.4, -1.6], 11);
+
+const fadec = new THREE.Group();
+fadec.add(new THREE.Mesh(new THREE.BoxGeometry(0.9, 0.58, 0.24), M.dark));
+fadec.add(new THREE.Mesh(new THREE.BoxGeometry(0.2, 0.1, 0.3), M.red));
+fadec.position.set(1.55, 1.55, 0);
+addPart(fadec, 1.2, [2.6, 2.0, 0], 12);
+
+/* ---------- 13. rear cowl halves ---------- */
+const rearGrp = new THREE.Group();
+[0, Math.PI].forEach(rot => {
+  const c = new THREE.Mesh(new THREE.CylinderGeometry(1.62, 1.28, 3.4, 48, 1, true, rot, Math.PI), M.cowl);
+  c.rotation.x = Math.PI/2; rearGrp.add(c);
+});
+addPart(rearGrp, 3.3, [0, -3.4, 2.4], 12.5);
+
+/* ---------- 14. core cowl: the last part in, it seals the engine ---------- */
+const coreCowl = new THREE.Group();
+[0, Math.PI].forEach(rot => {
+  const c = new THREE.Mesh(
+    new THREE.CylinderGeometry(1.3, 1.12, 3.9, 48, 1, true, rot, Math.PI), M.cowl);
+  c.rotation.x = Math.PI/2; coreCowl.add(c);
+});
+addPart(coreCowl, -0.2, [0, 3.6, 0], 13);
+
+/* ---------- callouts ---------- */
+const CALLOUTS = [
+  { part: fan,   text: '01 · Intake',     side:'right' },
+  { part: hpc,   text: '02 · Compression', side:'left'  },
+  { part: comb,  text: '03 · Combustion',  side:'right' },
+  { part: shaft, text: '04 · Drive shaft', side:'left'  },
+  { part: lpt,   text: '05 · Turbine',     side:'right' },
+];
+CALLOUTS.forEach(c => {
+  const el = document.createElement('span');
+  el.className = 'callout'; el.dataset.side = c.side; el.textContent = c.text;
+  stage.appendChild(el); c.el = el; c.dy = (CALLOUTS.indexOf(c) - 2) * 26;
+});
+
+/* ---------- layout ---------- */
+function layout(){
+  const w = stage.clientWidth, h = stage.clientHeight;
+  renderer.setSize(w, h, false);
+  camera.aspect = w / h;
+  const wide = w >= 960;
+  engine.position.x = wide ? 3.1 : 0;
+  camera.updateProjectionMatrix();
+}
+addEventListener('resize', layout); layout();
+
+/* ---------- choreography ---------- */
+const clamp = n => n < 0 ? 0 : n > 1 ? 1 : n;
+const ease  = t => 1 - Math.pow(1 - t, 3);
+const ORDERS = 14;
+let p = 0, spinPhase = 0;
+
+function progress(){
+  const r = rig.getBoundingClientRect(), travel = r.height - innerHeight;
+  return travel > 0 ? clamp(-r.top / travel) : 0;
+}
+
+const v = new THREE.Vector3();
+function render(t){
+  requestAnimationFrame(render);
+  p = reduce ? 1 : progress();
+
+  // camera swings around the engine as the assembly closes
+  const wide = stage.clientWidth >= 960;
+  engine.position.x = wide ? 3.1 : 0;
+  const ang = -1.28 + p * 0.42;
+  const radius = 26 - p * 4.5;
+  camera.position.set(Math.sin(ang) * radius, 5.2 - p * 2.4, Math.cos(ang) * radius);
+  camera.lookAt(engine.position.x * 0.55, 0, 0);
+
+  engine.rotation.y = -0.18 + p * 0.22;
+  engine.rotation.x = 0.1 - p * 0.06;
+
+  spinPhase += 0.016 * (0.15 + p * p * 1.5);
+  stage.style.setProperty('--heat', clamp((p - 0.22) / 0.45).toFixed(3));
+
+  parts.forEach(o => {
+    const u = o.userData;
+    const a = u.order / ORDERS * 0.55;            // staggered arrival
+    const k = ease(clamp((p - a) / 0.42));
+    o.position.set(u.exp.x * (1 - k), u.exp.y * (1 - k), u.restZ + u.exp.z * (1 - k));
+    if(u.spin) o.rotation.z = spinPhase * u.spin;
+    o.traverse(c => { if(c.material) c.material.transparent = false; });
+  });
+
+  // inlet cowl halves swing apart while exploded
+  inletGrp.children.forEach((h, i) => {
+    const open = 1 - ease(clamp((p - 0.0) / 0.42));
+    h.position.x = (i ? -1 : 1) * open * 1.9;
+    h.rotation.z = (i ? -1 : 1) * open * 0.5;
+  });
+
+  // callouts track their part in screen space, then retire once assembled
+  const fade = 1 - clamp((p - 0.42) / 0.16);
+  CALLOUTS.forEach(c => {
+    c.part.getWorldPosition(v); v.project(camera);
+    const x = (v.x * 0.5 + 0.5) * stage.clientWidth;
+    const y = (-v.y * 0.5 + 0.5) * stage.clientHeight;
+    c.el.style.left = x + 'px'; c.el.style.top = (y + c.dy) + 'px';
+    c.el.style.opacity = (fade * clamp(p / 0.12)).toFixed(3);
+  });
+
+  renderer.render(scene, camera);
+}
+requestAnimationFrame(render);
+
+
+</script>
 </body>
 </html>
