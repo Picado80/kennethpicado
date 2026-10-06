@@ -107,6 +107,8 @@ marca/
 ├── LLAVES.md            ← dónde van HeyGen y ElevenLabs (respuesta corta adentro)
 ├── CANON.md             ← tesis, audiencia, voz, límites, qué es real y qué es IA
 ├── FORMATOS.md          ← los 4 formatos y el orden de lanzamiento
+├── CICLO.md             ← el ciclo autónomo: radar → análisis → producción → publicación → medición
+├── encargos/            ← trabajo para los ejecutores de TORRE (E001 radar)
 ├── ideas.md             ← banco de ideas con puntaje
 ├── config/estudio.json  ← IDs de avatar y de voces (no son secretos)
 ├── scripts/             ← verificar-llaves.ps1 (prueba las llaves) · probar-voz.ps1 (frase de prueba con tu clon)

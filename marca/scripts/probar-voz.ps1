@@ -8,10 +8,12 @@
 # Uso (desde la raiz de kennethpicado):
 #   powershell -ExecutionPolicy Bypass -File marca\scripts\probar-voz.ps1
 #   powershell -ExecutionPolicy Bypass -File marca\scripts\probar-voz.ps1 -VozId abc123
+#   powershell -ExecutionPolicy Bypass -File marca\scripts\probar-voz.ps1 -Modelo eleven_multilingual_v2
 #
 # ASCII puro a proposito (ver verificar-llaves.ps1): los acentos del texto van como \uXXXX.
 param(
   [string]$VozId = "",
+  [string]$Modelo = "eleven_v4",
   [string]$TorreDir = $(if ($env:TORRE_DIR) { $env:TORRE_DIR } else { Join-Path $env:USERPROFILE "torre" })
 )
 
@@ -56,7 +58,7 @@ if (-not $VozId) {
 Write-Host "  voz      : $VozId" -ForegroundColor DarkGray
 
 # 2. Generar el audio (frase del gancho del guion 001)
-$cuerpo = '{"text":"Uno de mis empleados se calific\u00f3 su propio examen. Y no hizo nada malo. Tengo una oficina donde los empleados son inteligencias artificiales.","model_id":"eleven_multilingual_v2"}'
+$cuerpo = '{"text":"Uno de mis empleados se calific\u00f3 su propio examen. Y no hizo nada malo. Tengo una oficina donde los empleados son inteligencias artificiales.","model_id":"' + $Modelo + '"}'
 $archivo = Join-Path $salidas ("prueba-voz-" + (Get-Date -Format "yyyyMMdd-HHmmss") + ".mp3")
 try {
   Invoke-RestMethod -Method Post -Uri "https://api.elevenlabs.io/v1/text-to-speech/$($VozId)?output_format=mp3_44100_128" `
