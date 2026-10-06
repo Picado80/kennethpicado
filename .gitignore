@@ -18,3 +18,4 @@ marca/salidas/
 __pycache__/
 .pytest_cache/
 *.pyc
+marca/radar/salidas/

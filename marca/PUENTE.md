@@ -9,7 +9,7 @@
 - **Rama de trabajo:** `claude/personal-brand-video-strategy-j90cvq` · PR [Picado80/kennethpicado#1](https://github.com/Picado80/kennethpicado/pull/1) (borrador).
 - **Bookkeeping de TORRE:** PR [Picado80/torre#45](https://github.com/Picado80/torre/pull/45) (llaves, índice #95, ledger, evento).
 - **Llaves:** `HEYGEN_API_KEY` y `ELEVENLABS_MARCA_API_KEY` en `C:\Users\Picado\torre\.env`, las dos **verificadas** (`marca\scripts\verificar-llaves.ps1`). Plan de ElevenLabs: Starter.
-- **Rama vieja para borrar:** `minimax/E001-radar-de-virales`, local y remota. Está vacía: el radar lo hizo Claude.
+- **Rama vieja para borrar:** `minimax/E001-radar-de-virales`, solo la local (la remota ya se borró). Está vacía: el radar lo hizo Claude.
 
 ## Qué funciona
 
@@ -21,10 +21,9 @@
 
 ## Lo primero que hace la próxima sesión (sin pedirle nada a Kenneth)
 
-1. `git pull` en la rama de trabajo. Borrar `minimax/E001-radar-de-virales` (local y remota).
+1. `git pull` en la rama de trabajo. Borrar la rama local `minimax/E001-radar-de-virales` (la remota ya se borró).
 2. Correr `probar-voz.ps1`. Si dice que no hay clon instantáneo, listar las voces (`verificar-llaves.ps1` las muestra con ID) y probar con `-VozId`. Darle a Kenneth el mp3 para escuchar. Si suena a él, guardar el ID en `config\estudio.json` (`elevenlabs.voz_kenneth`).
 3. `python -m pip install -U yt-dlp` y correr el radar. Si TikTok bloquea: `--cookies-from-browser chrome`. Pasarle a Kenneth la tabla de `semanas\AAAA-SNN-radar.md`.
-4. Registrar en TORRE el radar en el índice (#96) y el evento `excepcion` (regla: «no teclear, despachar»; causal: Kenneth lo pidió y el despacho se cortó dos veces).
 
 ## Lo que espera una decisión de Kenneth
 
