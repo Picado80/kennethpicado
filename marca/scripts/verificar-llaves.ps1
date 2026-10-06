@@ -88,20 +88,29 @@ if (-not $hg) {
   $fallos++
 } else {
   Write-Host "  llave    : encontrada (largo $($hg.Length), termina en ...$(Get-Cola $hg))" -ForegroundColor DarkGray
-  $h = @{ "X-Api-Key" = $hg; "Accept" = "application/json" }
+  # API v3 (la v2 se apaga el 2026-10-31). Va la llave en los dos headers que
+  # usa HeyGen; el que sobre se ignora.
+  $h = @{ "X-Api-Key" = $hg; "Authorization" = "Bearer $hg"; "Accept" = "application/json" }
 
-  $q = Invoke-Lectura "https://api.heygen.com/v2/user/remaining_quota" $h $hg
+  $q = Invoke-Lectura "https://api.heygen.com/v3/users/me" $h $hg
   if ($q.Ok) {
-    Write-Host "  cuota    : OK (remaining_quota = $($q.Datos.data.remaining_quota))" -ForegroundColor Green
-  } else { Write-Falla "cuota" $q; $fallos++ }
+    $archivo = Join-Path $salidas "heygen-cuenta.json"
+    $q.Datos | ConvertTo-Json -Depth 8 | Set-Content -Path $archivo -Encoding UTF8
+    Write-Host "  cuenta   : OK (detalle en $archivo)" -ForegroundColor Green
+  } else { Write-Falla "cuenta" $q; $fallos++ }
 
-  $a = Invoke-Lectura "https://api.heygen.com/v2/avatars" $h $hg
+  $a = Invoke-Lectura "https://api.heygen.com/v3/avatars" $h $hg
   if ($a.Ok) {
-    $av = @($a.Datos.data.avatars | Where-Object { $_ })
-    $tp = @($a.Datos.data.talking_photos | Where-Object { $_ })
+    # La forma de la respuesta puede variar: se cuentan las listas que aparezcan
+    $d = $a.Datos
+    if ($d.data) { $d = $d.data }
+    $lista = $null
+    foreach ($campo in @("avatars", "items", "results")) { if ($d.$campo) { $lista = @($d.$campo); break } }
+    if (-not $lista -and $d -is [array]) { $lista = @($d) }
+    $cuantos = if ($lista) { "$($lista.Count) avatares" } else { "respuesta recibida" }
     $archivo = Join-Path $salidas "heygen-avatares.json"
     $a.Datos | ConvertTo-Json -Depth 8 | Set-Content -Path $archivo -Encoding UTF8
-    Write-Host "  avatares : OK ($($av.Count) avatares, $($tp.Count) fotos parlantes)" -ForegroundColor Green
+    Write-Host "  avatares : OK ($cuantos)" -ForegroundColor Green
     Write-Host "             lista completa en $archivo" -ForegroundColor DarkGray
   } else { Write-Falla "avatares" $a; $fallos++ }
 }
