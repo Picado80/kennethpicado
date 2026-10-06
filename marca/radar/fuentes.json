@@ -1,0 +1,10 @@
+{
+  "_nota": "Cuentas sin @. Hashtags sin #. urls: videos sueltos para sumar a mano. Kenneth ajusta esta lista.",
+  "cuentas": [],
+  "hashtags": ["emprendimientocostarica", "pymes", "inteligenciaartificial"],
+  "urls": [],
+  "dias": 7,
+  "min_vistas": 20000,
+  "top": 15,
+  "por_fuente": 30
+}

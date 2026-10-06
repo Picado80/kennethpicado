@@ -1,0 +1,27 @@
+{
+  "_nota": "Llaves creativas, no secretas. Las llaves secretas (HEYGEN_API_KEY, ELEVENLABS_MARCA_API_KEY) viven en C:\\Users\\Picado\\torre\\.env. Ver marca/LLAVES.md.",
+  "render": {
+    "ancho": 1080,
+    "alto": 1920,
+    "relacion": "9:16",
+    "duracion_max_s": 45,
+    "idioma": "es-CR"
+  },
+  "heygen": {
+    "avatar_id": "",
+    "avatar_tipo": "gemelo digital (Kenneth)",
+    "fondo": ""
+  },
+  "elevenlabs": {
+    "voz_kenneth": "",
+    "elenco": {
+      "claude": "",
+      "codex": "",
+      "minimax": "",
+      "kimi": "",
+      "deepseek": "",
+      "grok": "",
+      "antigravity": ""
+    }
+  }
+}

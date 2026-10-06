@@ -1,0 +1,95 @@
+{
+ "_type": "playlist",
+ "id": "demo",
+ "entries": [
+  {
+   "id": "1",
+   "webpage_url": "https://www.tiktok.com/@demo/video/1",
+   "uploader": "demo",
+   "channel": "DEMO",
+   "timestamp": 1791244800,
+   "view_count": 120000,
+   "like_count": 12000,
+   "comment_count": 1200,
+   "repost_count": 6000,
+   "save_count": 3000,
+   "duration": 31,
+   "description": "Mi jefe se calificó solo #liderazgo #ia",
+   "subtitles": {}
+  },
+  {
+   "id": "2",
+   "webpage_url": "https://www.tiktok.com/@demo/video/2",
+   "uploader": "demo",
+   "channel": "DEMO",
+   "timestamp": 1791158400,
+   "view_count": 90000,
+   "like_count": 9000,
+   "comment_count": 900,
+   "repost_count": 900,
+   "save_count": 400,
+   "duration": 32,
+   "description": "Tres cosas que tu negocio necesita mañana",
+   "subtitles": {}
+  },
+  {
+   "id": "3",
+   "webpage_url": "https://www.tiktok.com/@demo/video/3",
+   "uploader": "demo",
+   "channel": "DEMO",
+   "timestamp": 1790467200,
+   "view_count": 500000,
+   "like_count": 50000,
+   "comment_count": 5000,
+   "repost_count": 50000,
+   "save_count": 9000,
+   "duration": 33,
+   "description": "Viejo: fuera de la semana",
+   "subtitles": {}
+  },
+  {
+   "id": "4",
+   "webpage_url": "https://www.tiktok.com/@demo/video/4",
+   "uploader": "demo",
+   "channel": "DEMO",
+   "timestamp": 1791072000,
+   "view_count": 5000,
+   "like_count": 500,
+   "comment_count": 50,
+   "repost_count": 2000,
+   "save_count": 10,
+   "duration": 34,
+   "description": "Pocas vistas: no pasa el mínimo",
+   "subtitles": {}
+  },
+  {
+   "id": "5",
+   "webpage_url": "https://www.tiktok.com/@demo/video/5",
+   "uploader": "demo",
+   "channel": "DEMO",
+   "timestamp": 1791244800,
+   "view_count": 300000,
+   "like_count": 30000,
+   "comment_count": 3000,
+   "repost_count": 6000,
+   "save_count": 1500,
+   "duration": 35,
+   "description": "Le di a la IA 100 dólares",
+   "subtitles": {
+    "es": [
+     {
+      "ext": "vtt",
+      "url": "https://x/sub.vtt"
+     }
+    ],
+    "en": [
+     {
+      "ext": "vtt",
+      "url": "https://x/en.vtt"
+     }
+    ]
+   }
+  },
+  null
+ ]
+}

@@ -1,0 +1,21 @@
+# Llaves: nunca en este repo (es público). Viven en C:\Users\Picado\torre\.env
+.env
+.env.*
+!.env.example
+
+# Video y audio pesado de la marca: va a Drive, no a git
+marca/**/*.mp4
+marca/**/*.mov
+marca/**/*.webm
+marca/**/*.wav
+marca/**/*.mp3
+marca/**/*.m4a
+
+# Salidas locales de los scripts (listas de avatares y voces)
+marca/salidas/
+
+# Basura de Python y pytest (el radar)
+__pycache__/
+.pytest_cache/
+*.pyc
+marca/radar/salidas/
