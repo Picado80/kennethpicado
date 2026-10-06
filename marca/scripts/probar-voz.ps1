@@ -48,7 +48,8 @@ if (-not $VozId) {
   $voces = @((Invoke-RestMethod -Method Get -Uri "https://api.elevenlabs.io/v1/voices" -Headers $h -TimeoutSec 30).voices)
   $clones = @($voces | Where-Object { $_.category -eq "cloned" })
   if ($clones.Count -eq 0) {
-    Write-Host "Todavia no hay ninguna voz clonada en la cuenta. Si se esta creando, espera unos minutos y volve a correr." -ForegroundColor Yellow
+    Write-Host "No hay ningun clon instantaneo en la cuenta." -ForegroundColor Yellow
+    Write-Host "Si tu clon es profesional, se entrena por horas: cuando este listo, copia su ID en ElevenLabs (Voces > tu clon) y corre con -VozId <id>." -ForegroundColor Yellow
     exit 1
   }
   foreach ($c in $clones) { Write-Host ("  clon: {0,-30} {1}" -f $c.name, $c.voice_id) -ForegroundColor DarkGray }
