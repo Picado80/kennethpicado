@@ -109,6 +109,7 @@ marca/
 ├── FORMATOS.md          ← los 4 formatos y el orden de lanzamiento
 ├── ideas.md             ← banco de ideas con puntaje
 ├── config/estudio.json  ← IDs de avatar y de voces (no son secretos)
+├── scripts/             ← verificar-llaves.ps1 (prueba HeyGen y ElevenLabs sin mostrar las llaves)
 ├── plantillas/          ← guion.md · semana.md
 ├── guiones/             ← un archivo por video (001, 002, …)
 ├── semanas/             ← una revisión y un plan por semana

@@ -10,3 +10,6 @@ marca/**/*.webm
 marca/**/*.wav
 marca/**/*.mp3
 marca/**/*.m4a
+
+# Salidas locales de los scripts (listas de avatares y voces)
+marca/salidas/

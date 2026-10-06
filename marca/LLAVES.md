@@ -37,11 +37,19 @@ HEYGEN_API_KEY=
 > Revisá si tu plan de HeyGen trae créditos de API. Históricamente el API se cobra aparte
 > del plan web: puede que la llave funcione y aun así no te deje generar nada.
 
-**Cómo se comprueba sin imprimir la llave:** cuando esté pegada armamos un script corto que
-lee `torre/.env`, le pregunta a HeyGen cuánta cuota te queda y qué avatares tenés, y muestra
-solo el estado y los últimos 4 caracteres de la llave (la misma regla de `verificar.ps1`).
-Ese script corre en tu máquina: desde este entorno en la nube, el proxy bloquea
-`api.heygen.com` (lo probé y devuelve 403).
+**Cómo se comprueba sin imprimir la llave** (las dos, HeyGen y ElevenLabs):
+
+```powershell
+cd C:\Users\Picado\kennethpicado
+powershell -ExecutionPolicy Bypass -File marca\scripts\verificar-llaves.ps1
+```
+
+[`scripts/verificar-llaves.ps1`](scripts/verificar-llaves.ps1) busca solo esas dos llaves con
+el mismo buscador de TORRE (`Get-ProveedorKey`), hace lecturas que no gastan créditos (cuota y
+avatares en HeyGen; plan y voces en ElevenLabs), avisa si la llave de la marca es la misma que la
+de Semi y de cada llave muestra solo el largo y los últimos 4 caracteres. Las listas completas
+de avatares y voces quedan en `marca/salidas/`, que git ignora. Corre en tu máquina: desde el
+entorno en la nube, el proxy bloquea `api.heygen.com` y `api.elevenlabs.io`.
 
 ---
 
