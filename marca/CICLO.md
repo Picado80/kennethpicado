@@ -23,7 +23,7 @@ LinkedIn y para mostrarle a empresas.
 
 | # | Etapa | Qué hace | Con qué | Estado | Encargo |
 |---|---|---|---|---|---|
-| 1 | **Radar** | Cada lunes trae los videos más compartidos de la semana en una lista de cuentas y hashtags, con su texto | Apify (actor de TikTok) | falta la lista de cuentas y la llave `APIFY_API_TOKEN` | [`E001`](encargos/E001-radar-de-virales.md) |
+| 1 | **Radar** | Cada lunes trae los videos más compartidos de la semana en una lista de cuentas, con su texto | yt-dlp (gratis, sin llave). Apify queda para después, si hace falta escala | falta la lista de cuentas | [`E001`](encargos/E001-radar-de-virales.md) |
 | 2 | **Análisis** | Las 7 preguntas del playbook; elige los formatos que se repiten y suma 5 ideas puntuadas a `ideas.md` | Claude, en sesión | listo (playbook + `ideas.md`) | — |
 | 3 | **Producción** | Guion → tu voz (ElevenLabs, `eleven_v4`) → video (gemelo de HeyGen con ese audio, o grabación real) → edición | ElevenLabs + HeyGen + CapCut | falta el clon y el gemelo | E002 (después del clon) |
 | 4 | **Publicación** | Sube a TikTok con caption y etiqueta de IA, a la hora del plan | Postiz (`DIRECT_POST`) | falta cuenta de Postiz con TikTok conectado y `POSTIZ_API_KEY` | E003 |
