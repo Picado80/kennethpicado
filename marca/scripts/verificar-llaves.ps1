@@ -32,6 +32,15 @@ if (-not (Test-Path $proveedores)) {
 . $proveedores
 New-Item -ItemType Directory -Force -Path $salidas | Out-Null
 
+# Una llave nunca tiene espacios: si los tiene, quedo texto pegado despues en la linea del .env
+function Test-Pegado([string]$Llave, [string]$Nombre) {
+  if ($Llave -match "\s") {
+    Write-Host "  aviso    : la llave tiene espacios. En torre\.env la linea $Nombre= debe terminar donde termina la llave" -ForegroundColor Yellow
+    return $true
+  }
+  return $false
+}
+
 function Get-Cola([string]$Llave) {
   return $Llave.Substring([Math]::Max(0, $Llave.Length - 4))
 }
@@ -88,6 +97,7 @@ if (-not $hg) {
   $fallos++
 } else {
   Write-Host "  llave    : encontrada (largo $($hg.Length), termina en ...$(Get-Cola $hg))" -ForegroundColor DarkGray
+  if (Test-Pegado $hg "HEYGEN_API_KEY") { $fallos++ }
   # API v3 (la v2 se apaga el 2026-10-31). Va la llave en los dos headers que
   # usa HeyGen; el que sobre se ignora.
   $h = @{ "X-Api-Key" = $hg; "Authorization" = "Bearer $hg"; "Accept" = "application/json" }
@@ -124,6 +134,7 @@ if (-not $el) {
   $fallos++
 } else {
   Write-Host "  llave    : encontrada (largo $($el.Length), termina en ...$(Get-Cola $el))" -ForegroundColor DarkGray
+  if (Test-Pegado $el "ELEVENLABS_MARCA_API_KEY") { $fallos++ }
 
   # La de la marca tiene que ser otra llave que la del producto Semi (ver marca/LLAVES.md).
   $semi = Get-ProveedorKey -Proveedor @{ KeyFile = ".elevenlabs_key"; KeyEnv = "ELEVENLABS_API_KEY" }
