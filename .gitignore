@@ -13,3 +13,8 @@ marca/**/*.m4a
 
 # Salidas locales de los scripts (listas de avatares y voces)
 marca/salidas/
+
+# Basura de Python y pytest (el radar)
+__pycache__/
+.pytest_cache/
+*.pyc
