@@ -102,5 +102,30 @@ def test_correr_ytdlp_convierte_null_en_error_legible(monkeypatch):
         assert "Unable to download webpage: 403" in str(e)
 
 
+def test_correr_ytdlp_marca_extractor_roto_como_falla(monkeypatch):
+    # El extractor de hashtags de TikTok devuelve un dict valido pero vacio y avisa en stderr.
+    class R:
+        returncode = 0
+        stdout = '{"entries": [null], "playlist_count": 0, "extractor": "tiktok:tag"}\n'
+        stderr = ("WARNING: The program functionality for this site has been marked as broken\n"
+                  "ERROR: No working app info is available\n")
+
+    monkeypatch.setattr(radar.subprocess, "run", lambda *a, **k: R())
+    try:
+        radar.correr_ytdlp(["yt-dlp"], "https://www.tiktok.com/tag/pymes", 5, None)
+        assert False, "tenia que fallar"
+    except RuntimeError as e:
+        assert "No working app info" in str(e)
+
+
+def test_correr_ytdlp_cuenta_vacia_sin_error_no_falla(monkeypatch):
+    # Una cuenta real que de verdad no tiene videos (stderr limpio) no es una falla.
+    class R:
+        returncode, stdout, stderr = 0, '{"entries": []}\n', ""
+
+    monkeypatch.setattr(radar.subprocess, "run", lambda *a, **k: R())
+    assert radar.correr_ytdlp(["yt-dlp"], "https://www.tiktok.com/@x", 5, None) == []
+
+
 def test_main_sin_fuentes_sale_con_2(tmp_path):
     assert radar.main(["--fuentes", str(tmp_path / "no-existe.json")]) == 2
