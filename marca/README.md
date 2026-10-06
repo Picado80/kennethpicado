@@ -35,6 +35,7 @@ Cada etapa tiene entrada, salida y una condición para pasar a la siguiente (igu
   - Trabajo con clientes, siempre **anónimo** («un anfiteatro de 800 personas», nunca el nombre).
   - Comentarios y preguntas del público (después de la semana 2, la fuente principal).
   - Virales ajenos: transcribilos con ClipStep y analizalos con las 7 preguntas de `viral-content-machine/VIRAL_CONTENT_PLAYBOOK.md` §4. Se copia el mecanismo, nunca el contenido.
+- **El radar (cada lunes):** `python marca\radar\radar.py` deja en `semanas/AAAA-SNN-radar.md` los videos más compartidos de la semana de las cuentas y hashtags de [`radar/fuentes.json`](radar/fuentes.json). Usa yt-dlp (gratis, sin llave; se instala con `python -m pip install -U yt-dlp`). Si TikTok bloquea, se agrega `--cookies-from-browser chrome`.
 - **Salida:** una fila en [`ideas.md`](ideas.md) con su puntaje.
 - **Condición para pasar:** **15/20 o más** (Universal · Verdad · Tensión · Puente, de 1 a 5 cada uno).
 
@@ -108,7 +109,9 @@ marca/
 ├── CANON.md             ← tesis, audiencia, voz, límites, qué es real y qué es IA
 ├── FORMATOS.md          ← los 4 formatos y el orden de lanzamiento
 ├── CICLO.md             ← el ciclo autónomo: radar → análisis → producción → publicación → medición
-├── encargos/            ← trabajo para los ejecutores de TORRE (E001 radar)
+├── encargos/            ← trabajo para los ejecutores de TORRE (E001 radar, ya hecho)
+├── radar/               ← radar.py, fuentes.json y sus pruebas
+├── PUENTE.md            ← dónde quedó todo y qué sigue (para la próxima sesión)
 ├── ideas.md             ← banco de ideas con puntaje
 ├── config/estudio.json  ← IDs de avatar y de voces (no son secretos)
 ├── scripts/             ← verificar-llaves.ps1 (prueba las llaves) · probar-voz.ps1 (frase de prueba con tu clon)

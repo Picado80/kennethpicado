@@ -9,6 +9,7 @@
 | Escrito por | claude-code |
 | Fecha | 2026-10-06 (v2: fuente yt-dlp en vez de Apify) |
 | Modo sugerido | seguro |
+| **Estado** | **Hecho por claude-code el 2026-10-06** (excepción: Kenneth lo pidió y el despacho a MiniMax se cortó dos veces). 11 pruebas en verde. |
 
 ## Objetivo
 
