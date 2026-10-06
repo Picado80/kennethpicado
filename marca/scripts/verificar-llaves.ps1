@@ -49,6 +49,16 @@ function Invoke-Lectura([string]$Uri, [hashtable]$Headers, [string]$Llave) {
     if ($_.ErrorDetails -and $_.ErrorDetails.Message) { $detalle = $_.ErrorDetails.Message }
     if (-not $detalle) { $detalle = $_.Exception.Message }
     if ($Llave) { $detalle = $detalle.Replace($Llave, "***") }
+    # Si el servidor manda JSON con error/aviso (HeyGen avisa ahi que endpoint usar), se muestra completo
+    try {
+      $j = $detalle | ConvertFrom-Json
+      $partes = @()
+      if ($j.error.message) { $partes += "error: $($j.error.message)" }
+      if ($j.warning.message) { $partes += "aviso: $($j.warning.message)" }
+      if ($partes.Count -gt 0) {
+        return @{ Ok = $false; Codigo = $codigo; Datos = $null; Detalle = ($partes -join " | ") }
+      }
+    } catch { }
     $detalle = ($detalle -replace "\s+", " ").Trim()
     if ($detalle.Length -gt 220) { $detalle = $detalle.Substring(0, 220) + "..." }
     return @{ Ok = $false; Codigo = $codigo; Datos = $null; Detalle = $detalle }
@@ -58,7 +68,11 @@ function Invoke-Lectura([string]$Uri, [hashtable]$Headers, [string]$Llave) {
 function Write-Falla([string]$Que, [hashtable]$R) {
   $http = if ($R.Codigo) { "HTTP $($R.Codigo)" } else { "sin respuesta" }
   Write-Host ("  {0,-9}: FALLA ({1}) {2}" -f $Que, $http, $R.Detalle) -ForegroundColor Red
-  if ($R.Codigo -eq 401) { Write-Host "             401 = la llave no sirve: revisa que este completa, sin espacios ni comillas" -ForegroundColor Yellow }
+  if ($R.Detalle -match "Legacy") {
+    Write-Host "             HeyGen dice que esta ruta es vieja: el aviso de arriba dice cual usar" -ForegroundColor Yellow
+  } elseif ($R.Codigo -eq 401) {
+    Write-Host "             401 = la llave no sirve: revisa que este completa, sin espacios ni comillas" -ForegroundColor Yellow
+  }
 }
 
 $fallos = 0
