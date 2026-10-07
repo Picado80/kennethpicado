@@ -178,7 +178,15 @@ def correr_ytdlp(base: list[str], url: str, por_fuente: int, cookies: str | None
     if not isinstance(datos, dict):
         raise RuntimeError(ultima)
     entradas = datos.get("entries") if "entries" in datos else [datos]
-    return [e for e in (entradas or []) if e]
+    videos = [e for e in (entradas or []) if e]
+    # Un extractor roto (hoy el de hashtags de TikTok) devuelve un dict valido pero
+    # sin videos, con la causa en stderr. Eso es una falla, no un "ok 0 videos".
+    if not videos and "entries" in datos:
+        roto = ("marked as broken", "no working app info", "unable to extract",
+                "unable to download", "error:")
+        if any(m in r.stderr.lower() for m in roto):
+            raise RuntimeError(ultima)
+    return videos
 
 
 def bajar_transcripcion(info: dict) -> str:
