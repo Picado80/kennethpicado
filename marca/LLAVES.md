@@ -91,13 +91,15 @@ subiendo a mano por los sonidos nativos.
 ```
 # Buffer (marca personal) — programar IG, YouTube y LinkedIn (plan Free). Persona: personal.
 # publish.buffer.com → Settings → Developers/API. La usan los scripts de kennethpicado/marca.
-# No va a Vercel: el sitio no la usa. Docs: developers.buffer.com (confirmar endpoint y header ahi).
+# No va a Vercel: el sitio no la usa. API: POST https://api.buffer.com (GraphQL), Authorization: Bearer.
 BUFFER_API_KEY=
 ```
 
-**Cómo se comprueba sin imprimir la llave:** una llamada de solo lectura que liste los canales
-conectados (según `developers.buffer.com`), mostrando solo el largo y los últimos 4 caracteres de
-la llave. Queda pendiente hasta que Kenneth pegue la llave en `torre/.env`.
+**Cómo se comprueba sin imprimir la llave:** `marca\scripts\buffer-canales.ps1` lista las
+organizaciones y los canales conectados, y de la llave muestra solo el largo y los últimos 4
+caracteres. La API es `POST https://api.buffer.com` (GraphQL, `Authorization: Bearer`), según
+`developers.buffer.com` (quick start y referencia de `channels`). `publish.buffer.com/graphql` no
+es la API: ahí salió el 400 del 7-oct.
 
 > La ficha de TORRE (`torre/.env.example` + fila en `torre/protocolo/LLAVES.md`) la agrega la
 > sesión de la nube.

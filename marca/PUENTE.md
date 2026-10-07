@@ -52,7 +52,7 @@ C:\Users\Picado\
 │       ├── medicion\registro.csv
 │       ├── encargos\         E001-radar-de-virales.md (hecho)
 │       ├── radar\            radar.py, fuentes.json, test_radar.py (13 pruebas), fixtures\
-│       └── scripts\          verificar-llaves.ps1, probar-voz.ps1
+│       └── scripts\          verificar-llaves.ps1, probar-voz.ps1, buffer-canales.ps1
 ├── torre\                    repo Picado80/torre: el sistema TORRE
 │   ├── .env                  TODAS las llaves (HEYGEN, ELEVENLABS_MARCA, BUFFER, …)
 │   ├── .env.example          fichas de cada llave
@@ -80,8 +80,8 @@ C:\Users\Picado\
 | PR | Qué | Estado |
 |---|---|---|
 | Picado80/kennethpicado#1 | Toda la carpeta `marca/` | **mergeado** en main |
-| Picado80/kennethpicado#2 (`claude/marca-voz-y-radar`) | Radar honesto, 4 cuentas, Buffer en lugar de Postiz, ficha de Buffer en LLAVES.md, primera tabla del radar | **borrador abierto**, sin conflictos |
-| PR del puente (`claude/personal-brand-video-strategy-j90cvq`, base `claude/marca-voz-y-radar`) | Este PUENTE.md | borrador abierto: mergear **antes** que el #2 |
+| Picado80/kennethpicado#2 (`claude/marca-voz-y-radar`) | Radar honesto (`9910b22`) | **mergeado** en main el 6-oct a las 18:05. El commit `25845c6` (4 cuentas, Buffer en lugar de Postiz, ficha de Buffer, primera tabla del radar) se hizo 7 minutos después y **quedó fuera de main** |
+| Picado80/kennethpicado#3 (`claude/personal-brand-video-strategy-j90cvq`) | Este PUENTE.md + `25845c6` + script de Buffer | borrador abierto. Su base es `claude/marca-voz-y-radar` (ya mergeada): **hay que pasarla a `main`** para que `25845c6` llegue a main. Espera el sí de Kenneth |
 | Picado80/torre#45 | Fichas de HeyGen y ElevenLabs, verificador #95, radar #96 | **mergeado** |
 | Picado80/torre#46 (`bookkeeping/20261007-buffer-marca`) | Ficha de `BUFFER_API_KEY`, ledger del 07-oct, evento `decision` | **borrador abierto**, CI verde |
 
@@ -91,7 +91,7 @@ C:\Users\Picado\
 |---|---|
 | `HEYGEN_API_KEY` | verificada (largo 54). La API v3 responde: 20 avatares. La v2 se apaga el 2026-10-31 |
 | `ELEVENLABS_MARCA_API_KEY` | verificada (largo 51). Aparte de la `ELEVENLABS_API_KEY` de Semi: **nunca pisar esa**. La API dice plan **creator** (0 de 186.000 caracteres usados) |
-| `BUFFER_API_KEY` | guardada por Kenneth el 7-oct (largo 43). Buffer la acepta (400, no 401). **Falta listar los canales**: el guardia de la sesión de la PC lo frenó porque el pedido venía de otra sesión. Hace falta que Kenneth lo pida en esa sesión |
+| `BUFFER_API_KEY` | guardada por Kenneth el 7-oct (largo 43). El 400 de antes fue por el endpoint equivocado (ver Publicación), no prueba que la llave sirva. **Falta listar los canales** con `scripts\buffer-canales.ps1` (listo, sin correr): espera el «sí» de Kenneth escrito por él en la sesión de la PC |
 
 ### Voz
 
@@ -121,7 +121,7 @@ C:\Users\Picado\
   - 3 canales: Instagram (cuenta profesional), YouTube y LinkedIn.
   - 10 publicaciones programadas por canal a la vez.
   - API con 250 llamadas al día y 3.000 al mes. **No trae MCP**, así que el conector de claude.ai no sirve: se usa la API desde la PC.
-  - La sesión de la PC probó `https://publish.buffer.com/graphql` con `Authorization: Bearer` y le dio 400. **Confirmar el endpoint y la consulta en developers.buffer.com** antes de escribir el script.
+  - **Endpoint confirmado en developers.buffer.com:** `POST https://api.buffer.com` (GraphQL) con `Authorization: Bearer`. Primero `account { organizations { id } }`, después `channels(input: { organizationId })`. `publish.buffer.com/graphql`, el que dio 400, no es la API.
 - **TikTok se sube a mano** desde el celular los primeros 30 videos, por los sonidos en tendencia.
 - **Medición de TikTok:** Composio free (lista los videos con vistas, likes, comentarios y
   compartidos) cuando haya videos publicados. La retención sigue saliendo solo de TikTok Studio.
@@ -200,8 +200,8 @@ Personal», pero duplicaría las llaves fuera de `torre\.env`. **Decisión: la m
    son personas que le hablen de IA a dueños de negocio en español, no fábricas de contenido.
 4. **El Episodio 0** («$100 y 30 días»): sí o no.
 5. **El gemelo de HeyGen:** grabar 2 minutos a cámara y el consentimiento.
-6. **Mergear los PRs, en orden:** el del puente → Picado80/kennethpicado#2 → Picado80/torre#46.
-   Claude puede hacerlo desde la PC si Kenneth lo pide.
+6. **Los PRs:** pasar la base de Picado80/kennethpicado#3 a `main` y mergearlo; después
+   Picado80/torre#46. Claude puede hacerlo desde la PC si Kenneth lo pide.
 7. **El gasto:** confirmar los planes reales. La API de ElevenLabs dice **creator**, no Starter; el
    plan de HeyGen no está confirmado; Buffer, yt-dlp y Composio cuestan $0. Que no pase de $100 al mes.
 
