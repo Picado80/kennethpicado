@@ -42,6 +42,7 @@ C:\Users\Picado\
 │       ├── CICLO.md          el ciclo autónomo + alternativas (radar y publicación)
 │       ├── CANON.md          tesis, voz, límites, qué es real y qué es IA
 │       ├── FORMATOS.md       4 formatos + orden de lanzamiento
+│       ├── VENTA.md          los 17 términos de psicología de venta, fuera de TikTok
 │       ├── LLAVES.md         fichas de las llaves (dónde van, cómo se prueban)
 │       ├── PUENTE.md         este archivo
 │       ├── ideas.md          banco de ideas con puntaje U/V/T/P
@@ -204,6 +205,8 @@ Personal», pero duplicaría las llaves fuera de `torre\.env`. **Decisión: la m
    Picado80/torre#46. Claude puede hacerlo desde la PC si Kenneth lo pide.
 7. **El gasto:** confirmar los planes reales. La API de ElevenLabs dice **creator**, no Starter; el
    plan de HeyGen no está confirmado; Buffer, yt-dlp y Composio cuestan $0. Que no pase de $100 al mes.
+8. **El sitio en inglés:** la bio de TikTok manda a `kennethpicado.vercel.app`, que está en inglés,
+   y el público del video es tico. ¿Una página en español para ese tráfico? (`VENTA.md` §Lo que falta).
 
 ## 8. Siguientes encargos (en orden)
 

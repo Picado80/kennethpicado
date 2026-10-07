@@ -64,7 +64,8 @@ Prueba de fuego: **¿lo entiende tu tía sin preguntarte nada?**
 ## Límites (nunca)
 
 1. **Nunca se vende en el video.** Ni «agendá», ni precios, ni demos. Semi aparece como «lo
-   que construyo», no como oferta, y como mucho en 1 de cada 10 videos.
+   que construyo», no como oferta, y como mucho en 1 de cada 10 videos. Lo que pasa después del
+   video (LinkedIn, la conversación, la llamada y la propuesta) está en `VENTA.md`.
 2. **Nunca nombres de clientes ni de personas** sin permiso por escrito. «Un anfiteatro de
    800 personas», «una cooperativa de mil empleados».
 3. **Nunca una pantalla con llaves, correos, datos de clientes ni conversaciones.** Toda
