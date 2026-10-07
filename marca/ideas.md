@@ -16,10 +16,10 @@ Los puntajes de abajo son mi primera lectura. **Corregilos vos**: sos el que sab
 | # | Idea | Fuente real | U | V | T | P | Total | Estado |
 |---|---|---|---|---|---|---|---|---|
 | O1 | **Mi empleado se calificó su propio examen**: la IA que escribió su propio reporte; al día siguiente había dos versiones de lo que pasó | `torre/MAESTRO.md` §Ejecutores (incidente E002, 17-ago) | 5 | 5 | 5 | 4 | **19** | guion `001` |
-| O2 | **Le prohibí trabajar a mi mejor empleado**: Claude no teclea; piensa y revisa | `torre/CLAUDE.md` §Política de ejecución | 5 | 5 | 5 | 5 | **20** | — |
+| O2 | **Le prohibí trabajar a mi mejor empleado**: Claude no teclea; piensa y revisa | `torre/CLAUDE.md` §Política de ejecución | 5 | 5 | 5 | 5 | **20** | guion `003` |
 | O3 | **Despedí a una IA**: el carril de pago por uso se apagó porque ya pagabas un plan («que se usen los tokens del plan») | `torre/router/CAPACIDADES.md` (17-ago) | 5 | 5 | 4 | 4 | **18** | — |
 | O4 | **Mis empleados llevan bitácora: 1.438 entradas**: lo que no se escribe no pasó | `torre/protocolo/eventos.jsonl` | 4 | 5 | 3 | 5 | **17** | — |
-| O5 | **La llave vencida que nadie reportó**: un empleado dejó de responder y nadie avisó | `torre/protocolo/LLAVES.md` (Kimi, 401) | 4 | 5 | 4 | 4 | **17** | — |
+| O5 | **La oficina me avisó tres veces**: a un empleado se le venció la tarjeta para entrar; la oficina avisó y el que no hizo nada fui yo (no es que «nadie avisó») | `torre/router/CAPACIDADES.md` (Kimi, `401` del 17-ago al 4-sep) | 4 | 5 | 4 | 4 | **17** | guion `005` |
 | O6 | **Cuando el gerente se queda sin horas, ¿quién manda?**: el plan de sucesión de la oficina | `torre/router/EJECUTORES.md` §5 | 4 | 5 | 3 | 5 | **17** | — |
 | O7 | **Contraté a un practicante gratis**: Antigravity hace lo visual y cubre a los demás | `torre/router/RUTEO.md` | 5 | 5 | 3 | 3 | **16** | — |
 | O8 | **Nada se hace dos veces**: el índice que obliga a buscar antes de construir | `torre/protocolo/INDICE-CODIGO.md` | 4 | 5 | 3 | 5 | **17** | — |
@@ -29,11 +29,11 @@ Los puntajes de abajo son mi primera lectura. **Corregilos vos**: sos el que sab
 | # | Idea | Fuente real | U | V | T | P | Total | Estado |
 |---|---|---|---|---|---|---|---|---|
 | A1 | **Si tu negocio no sobrevive a tus vacaciones, no tenés negocio, tenés un trabajo** | portafolio («un sistema que me necesita es una dependencia») | 5 | 5 | 5 | 5 | **20** | guion `002` |
-| A2 | **350 entrevistas me enseñaron a no contratar al que te cae bien** (Bar Raiser) | CV: 350+ entrevistas | 5 | 5 | 4 | 5 | **19** | — |
+| A2 | **350 entrevistas me enseñaron a no contratar al que te cae bien** (Bar Raiser) | CV: 350+ entrevistas | 5 | 5 | 4 | 5 | **19** | toca *equipos*, que es de Cawhi (`CANON.md`, límite 7): hablarlo con Bernal antes |
 | A3 | **La reunión de los lunes de 15 minutos** que ordena cualquier negocio | caso del anfiteatro: revisión de los lunes | 4 | 5 | 3 | 5 | **17** | — |
 | A4 | **Escribí el titular del día en que ya lo lograste** (working backwards, método NORTE) | skill `norte-builder` | 4 | 5 | 3 | 5 | **17** | — |
 | A5 | **Una evaluación que no dispara nada no sirve**: cada resultado tiene que tener una consecuencia | caso de la cooperativa (9-box) | 4 | 5 | 4 | 5 | **18** | — |
-| A6 | **Un anfiteatro para 800 personas trabajaba al 25%** | caso del anfiteatro (anónimo) | 5 | 5 | 5 | 5 | **20** | — |
+| A6 | **Un anfiteatro para 800 personas trabajaba al 25%** | caso del anfiteatro (anónimo) | 5 | 5 | 5 | 5 | **20** | guion `004` |
 
 ## Formato: Sistema de la semana
 
