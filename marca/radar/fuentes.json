@@ -1,7 +1,7 @@
 {
-  "_nota": "Cuentas sin @. Hashtags sin #. urls: videos sueltos para sumar a mano. Kenneth ajusta esta lista.",
-  "cuentas": [],
-  "hashtags": ["emprendimientocostarica", "pymes", "inteligenciaartificial"],
+  "_nota": "Cuentas sin @. Kenneth ajusta esta lista: tacha las que no sirvan, agrega las suyas. Verificadas con yt-dlp el 6-oct-2026 (existen y las lee el radar). yt-dlp NO devuelve n.o de seguidores, asi que ese filtro no se pudo comprobar a maquina. Los HASHTAGS estan vacios a proposito: el extractor de hashtags de TikTok esta roto en yt-dlp (devuelve 0). Candidatas que yt-dlp hoy no logra leer (probar mas adelante): iafacil.es, automatiza_tu_vida, ia_productividad, techconpaula, prompt_master. Reales pero inactivas (anos sin publicar): marketingconia, iaparatodos, ia_facil.",
+  "cuentas": ["dotcsv", "javadex", "iaempresa", "ia_hipster"],
+  "hashtags": [],
   "urls": [],
   "dias": 7,
   "min_vistas": 20000,

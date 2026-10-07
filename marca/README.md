@@ -61,7 +61,7 @@ Cada etapa tiene entrada, salida y una condición para pasar a la siguiente (igu
 ### 4 · Posteo
 
 - **Cuenta personal de creador en TikTok, no cuenta de empresa.** Las cuentas de empresa solo tienen la biblioteca de música comercial; perdés los sonidos en tendencia.
-- **Los primeros 30 videos se suben a mano desde el celular**, para aprender la herramienta y usar texto y sonidos nativos. Cuando el formato esté estable, se programan con Postiz.
+- **Los primeros 30 videos se suben a mano desde el celular**, para aprender la herramienta y usar texto y sonidos nativos. TikTok se mantiene a mano por los sonidos en tendencia; IG, YouTube y LinkedIn se programan con **Buffer Free** ($0, 3 canales; ver `CICLO.md` §Alternativas para publicar). Postiz quedó descartado por precio.
 - Caption con el skill `social-copy-generator` (TikTok): gancho + 3 a 5 hashtags.
 - **Si hay HeyGen o ElevenLabs en el video, se activa la etiqueta «contenido generado por IA».** Sin excepción.
 - **La primera hora después de publicar:** responder cada comentario. Fijar el comentario que abre conversación.
