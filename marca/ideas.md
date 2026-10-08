@@ -34,6 +34,8 @@ Los puntajes de abajo son mi primera lectura. **Corregilos vos**: sos el que sab
 | A4 | **Escribí el titular del día en que ya lo lograste** (working backwards, método NORTE) | skill `norte-builder` | 4 | 5 | 3 | 5 | **17** | — |
 | A5 | **Una evaluación que no dispara nada no sirve**: cada resultado tiene que tener una consecuencia | caso de la cooperativa (9-box) | 4 | 5 | 4 | 5 | **18** | — |
 | A6 | **Un anfiteatro para 800 personas trabajaba al 25%** | caso del anfiteatro (anónimo) | 5 | 5 | 5 | 5 | **20** | guion `004` |
+| A7 | **«No es lo mismo decirlo así… que decirlo así»** (carrusel de 5 fotos, $0): ficha de IA → «que decirlo así…» → la escena del anfiteatro cerrando caja → «La IA no se vende. Se vende el viernes a las 5.» | `CANON.md` §La escena + caso del anfiteatro (anónimo) | 5 | 5 | 4 | 5 | **19** | — · fotos hechas con código, como el formato dividido; entra por Buffer a Instagram y en modo foto a TikTok |
+| A8 | **«Mandame cómo describís tu negocio y te lo paso a escena»**: en los comentarios, los dueños dejan su frase y Kenneth responde con video a las mejores. Cada comentario es un dueño hablando con él | sale de A7 | 5 | 4 | 4 | 5 | **18** | ⚠️ reescribir anuncios es *ventas*, terreno de Cawhi (`CANON.md`, límite 7): hablarlo con Bernal antes |
 
 ## Formato: Sistema de la semana
 

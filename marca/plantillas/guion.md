@@ -44,6 +44,7 @@ Gancho + 3 a 5 hashtags. Sacarlo con el skill `social-copy-generator`.
 
 - [ ] El gancho se entiende **sin sonido** (texto en pantalla en los primeros 3 s)
 - [ ] Cero jerga: pasó el glosario de `CANON.md`
+- [ ] Cada beneficio es una **escena** que se puede filmar (alguien, un lugar, una hora), no una ficha técnica, y el después pasó de verdad (`CANON.md` §La escena)
 - [ ] Ningún nombre de cliente o persona; ninguna llave, correo ni dato en pantalla (revisado cuadro por cuadro)
 - [ ] Todo número tiene fuente en la tabla de arriba
 - [ ] Ninguna venta: ni precios, ni «agendá», ni pitch de Semi
