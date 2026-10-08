@@ -92,7 +92,7 @@ C:\Users\Picado\
 |---|---|
 | `HEYGEN_API_KEY` | verificada (largo 54). La API v3 responde: 20 avatares. La v2 se apaga el 2026-10-31 |
 | `ELEVENLABS_MARCA_API_KEY` | verificada (largo 51). Aparte de la `ELEVENLABS_API_KEY` de Semi: **nunca pisar esa**. La API dice plan **creator** (0 de 186.000 caracteres usados) |
-| `BUFFER_API_KEY` | **verificada el 7-oct** con `scripts\buffer-canales.ps1` (largo 43): la cuenta responde, 1 organización. **Conectados:** Instagram profesional y TikTok (@picado80). **Falta YouTube**: Kenneth crea el canal y lo conecta |
+| `BUFFER_API_KEY` | **verificada el 7-oct** con `scripts\buffer-canales.ps1` (largo 43): la cuenta responde, 1 organización. **Conectados:** Instagram profesional y TikTok (@picado80). YouTube **no es prioridad** (Kenneth, 7-oct): lo crea cuando pueda. Hoy importan Instagram y TikTok |
 
 ### Voz
 
@@ -196,9 +196,10 @@ Personal», pero duplicaría las llaves fuera de `torre\.env`. **Decisión: la m
 
 ## 7. Lo que espera una decisión de Kenneth
 
-1. ~~La voz del mp3~~: confirmada el 7-oct. **Nueva:** ¿gemelo + voz clonada desde el video 1, o cara
-   real hasta el video 15 como dice `CANON.md`?
-2. ~~Verificar Buffer~~: hecho el 7-oct. Instagram y TikTok conectados; **falta crear y conectar YouTube**. LinkedIn, después.
+1. ~~La voz del mp3~~: confirmada el 7-oct. ~~¿Gemelo o cara real?~~ **Decidido el 7-oct: cara real
+   del video 1 al 15**, como dice `CANON.md`. Kenneth graba.
+2. ~~Verificar Buffer~~: hecho el 7-oct. Instagram y TikTok conectados, que es lo que importa hoy. YouTube cuando Kenneth pueda; LinkedIn, después.
+   **No volver a preguntarle por las voces de los personajes:** se diseñan en ElevenLabs al editar *La Oficina* (su voz no se toca).
 3. **Las cuentas de referencia del radar:** tachar o sumar sobre las 4 de `fuentes.json`. Lo ideal
    son personas que le hablen de IA a dueños de negocio en español, no fábricas de contenido.
 4. **El Episodio 0** («$100 y 30 días»): sí o no.
