@@ -14,7 +14,7 @@
 #   powershell -ExecutionPolicy Bypass -File marca\scripts\buffer-canales.ps1 -TorreDir D:\otra\torre
 #
 # Guarda la respuesta en marca\salidas\buffer-canales.json (ignorada por git).
-# Sale con el numero de fallas (0 = Instagram, YouTube y LinkedIn conectados).
+# Sale con el numero de fallas (0 = Instagram, TikTok y YouTube conectados).
 #
 # ASCII puro a proposito: PowerShell 5.1 lee .ps1 sin BOM como cp1252 y un
 # acento o un guion largo rompe el archivo entero (ver nota en proveedores.ps1).
@@ -26,8 +26,8 @@ $ErrorActionPreference = "Stop"
 [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
 
 $Api = "https://api.buffer.com"
-# Los 3 canales del plan Free que decidio Kenneth (CICLO.md, LLAVES.md)
-$Esperados = @("instagram", "youtube", "linkedin")
+# Los 3 canales del plan Free que decidio Kenneth el 7-oct (CICLO.md). LinkedIn, despues.
+$Esperados = @("instagram", "tiktok", "youtube")
 
 # marca\scripts\buffer-canales.ps1 -> marca\salidas (ignorada por git)
 $salidas = Join-Path (Split-Path -Parent (Split-Path -Parent $PSCommandPath)) "salidas"
@@ -141,7 +141,7 @@ Write-Host "             detalle en $archivo" -ForegroundColor DarkGray
 
 Write-Host ""
 if ($fallos -eq 0) {
-  Write-Host "Todo verde: Instagram, YouTube y LinkedIn listos para E003. La llave no se mostro." -ForegroundColor Green
+  Write-Host "Todo verde: Instagram, TikTok y YouTube listos para E003. La llave no se mostro." -ForegroundColor Green
 } else {
   Write-Host "$fallos punto(s) para revisar. La llave no se mostro en pantalla." -ForegroundColor Red
 }

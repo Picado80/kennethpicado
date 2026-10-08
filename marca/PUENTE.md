@@ -92,7 +92,7 @@ C:\Users\Picado\
 |---|---|
 | `HEYGEN_API_KEY` | verificada (largo 54). La API v3 responde: 20 avatares. La v2 se apaga el 2026-10-31 |
 | `ELEVENLABS_MARCA_API_KEY` | verificada (largo 51). Aparte de la `ELEVENLABS_API_KEY` de Semi: **nunca pisar esa**. La API dice plan **creator** (0 de 186.000 caracteres usados) |
-| `BUFFER_API_KEY` | **verificada el 7-oct** con `scripts\buffer-canales.ps1` (largo 43): la cuenta responde, 1 organización, **0 canales conectados**. Falta que Kenneth conecte Instagram (profesional), YouTube y LinkedIn en Buffer |
+| `BUFFER_API_KEY` | **verificada el 7-oct** con `scripts\buffer-canales.ps1` (largo 43): la cuenta responde, 1 organización. **Conectados:** Instagram profesional y TikTok (@picado80). **Falta YouTube**: Kenneth crea el canal y lo conecta |
 
 ### Voz
 
@@ -121,7 +121,7 @@ C:\Users\Picado\
 ### Publicación (decidido el 7-oct)
 
 - **Buffer Free, $0:**
-  - 3 canales: Instagram (cuenta profesional), YouTube y LinkedIn.
+  - 3 canales: Instagram (cuenta profesional), TikTok y YouTube. LinkedIn después (decisión del 7-oct).
   - 10 publicaciones programadas por canal a la vez.
   - API con 250 llamadas al día y 3.000 al mes. **No trae MCP**, así que el conector de claude.ai no sirve: se usa la API desde la PC.
   - **Endpoint confirmado en developers.buffer.com:** `POST https://api.buffer.com` (GraphQL) con `Authorization: Bearer`. Primero `account { organizations { id } }`, después `channels(input: { organizationId })`. `publish.buffer.com/graphql`, el que dio 400, no es la API.
@@ -198,7 +198,7 @@ Personal», pero duplicaría las llaves fuera de `torre\.env`. **Decisión: la m
 
 1. ~~La voz del mp3~~: confirmada el 7-oct. **Nueva:** ¿gemelo + voz clonada desde el video 1, o cara
    real hasta el video 15 como dice `CANON.md`?
-2. ~~Verificar Buffer~~: hecho el 7-oct. **Falta conectar** Instagram (profesional), YouTube y LinkedIn en Buffer.
+2. ~~Verificar Buffer~~: hecho el 7-oct. Instagram y TikTok conectados; **falta crear y conectar YouTube**. LinkedIn, después.
 3. **Las cuentas de referencia del radar:** tachar o sumar sobre las 4 de `fuentes.json`. Lo ideal
    son personas que le hablen de IA a dueños de negocio en español, no fábricas de contenido.
 4. **El Episodio 0** («$100 y 30 días»): sí o no.
@@ -219,7 +219,7 @@ Personal», pero duplicaría las llaves fuera de `torre\.env`. **Decisión: la m
   - Sale un mp4 en `marca\salidas\`.
   - Se despacha a un ejecutor según `router\RUTEO.md`. Claude audita el diff.
 - **E003 · Publicación:**
-  - Script que programe en Buffer (IG Reels, YouTube Shorts, LinkedIn) con caption y etiqueta de IA, **solo con la aprobación de Kenneth**.
+  - Script que programe en Buffer (IG Reels, TikTok, YouTube Shorts) con caption y etiqueta de IA, **solo con la aprobación de Kenneth**.
   - TikTok se sigue subiendo a mano.
 - **E004 · Medición:**
   - Números al `medicion\registro.csv` a las 48 h y a los 7 días.

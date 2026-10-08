@@ -81,15 +81,15 @@ Semi? Si es la cuenta de `trysemi.com`, tu clon debería vivir en tu cuenta pers
 
 ---
 
-## Buffer: publicar en IG, YouTube y LinkedIn (plan Free)
+## Buffer: publicar en IG, TikTok y YouTube (plan Free)
 
 Herramienta elegida para la etapa 4 (`CICLO.md` §Alternativas para publicar). Postiz quedó
-descartado por precio. El plan Free da **3 canales** (Instagram + YouTube + LinkedIn), 10 posts
-programados por canal y **1 llave de API** (3.000 llamadas/mes, **sin MCP**). TikTok se sigue
-subiendo a mano por los sonidos nativos.
+descartado por precio. El plan Free da **3 canales** (desde el 7-oct: Instagram + TikTok + YouTube; LinkedIn después),
+10 posts programados por canal y **1 llave de API** (3.000 llamadas/mes, **sin MCP**). Lo que lleve
+sonido en tendencia se sube a TikTok a mano.
 
 ```
-# Buffer (marca personal) — programar IG, YouTube y LinkedIn (plan Free). Persona: personal.
+# Buffer (marca personal) — programar IG, TikTok y YouTube (plan Free). Persona: personal.
 # publish.buffer.com → Settings → Developers/API. La usan los scripts de kennethpicado/marca.
 # No va a Vercel: el sitio no la usa. API: POST https://api.buffer.com (GraphQL), Authorization: Bearer.
 BUFFER_API_KEY=
