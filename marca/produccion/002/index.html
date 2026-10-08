@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="es" data-resolution="portrait">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <script src="assets/vendor/gsap.min.js"></script>
+    <style>
+      @font-face { font-family: "Inter"; font-weight: 600; src: url("assets/fonts/inter-latin-600-normal.woff2") format("woff2"); }
+      @font-face { font-family: "Inter"; font-weight: 800; src: url("assets/fonts/inter-latin-800-normal.woff2") format("woff2"); }
+      @font-face { font-family: "Inter"; font-weight: 900; src: url("assets/fonts/inter-latin-900-normal.woff2") format("woff2"); }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { margin: 0; width: 1080px; height: 1920px; overflow: hidden; background: #111317; }
+      #root { position: relative; width: 100%; height: 100%; overflow: hidden; font-family: "Inter", sans-serif; color: #fff; }
+      .clip { position: absolute; inset: 0; width: 100%; height: 100%; }
+      video.clip { object-fit: cover; }
+      /* escenas de graficos */
+      .esc { background: #111317; display: flex; flex-direction: column; justify-content: center; align-items: flex-start; padding: 0 90px; }
+      .esc.papel { background: #F4EFE6; color: #16181D; }
+      .t-xl { font-weight: 900; font-size: 128px; line-height: 1.02; letter-spacing: -0.04em; }
+      .t-l { font-weight: 800; font-size: 92px; line-height: 1.06; letter-spacing: -0.03em; }
+      .t-m { font-weight: 800; font-size: 64px; line-height: 1.12; letter-spacing: -0.02em; }
+      .acento { color: #F5B700; }
+      .linea { display: block; margin-top: 34px; }
+      .pregunta { display: block; margin-top: 46px; padding-left: 34px; border-left: 14px solid #F5B700; }
+      .tres { font-weight: 900; font-size: 520px; line-height: 0.85; color: #F5B700; letter-spacing: -0.06em; }
+      /* tarjetas sobre video */
+      .tarjeta { position: absolute; left: 70px; right: 70px; top: 300px; background: rgba(17,19,23,0.88); border-radius: 36px; padding: 44px 50px; }
+      .tarjeta .num { font-weight: 900; font-size: 84px; color: #F5B700; line-height: 1; }
+      .tarjeta .tt { font-weight: 800; font-size: 66px; line-height: 1.1; margin-top: 18px; }
+      .tarjeta .st { font-weight: 600; font-size: 44px; line-height: 1.2; margin-top: 16px; color: #C9CCD3; }
+      .chip { position: absolute; left: 70px; top: 300px; background: #F5B700; color: #16181D; font-weight: 900; font-size: 64px; line-height: 1.05; padding: 26px 40px; border-radius: 28px; max-width: 900px; }
+      .gancho { position: absolute; left: 70px; right: 70px; top: 250px; font-weight: 900; font-size: 80px; line-height: 1.05; letter-spacing: -0.03em; background: rgba(17,19,23,0.86); border-radius: 36px; padding: 40px 48px; }
+      /* subtitulos */
+      .cap { position: absolute; left: 60px; right: 60px; top: 1200px; text-align: center; font-weight: 900; font-size: 76px; line-height: 1.1; letter-spacing: -0.02em; opacity: 0;
+             -webkit-text-stroke: 10px #000; paint-order: stroke fill; text-shadow: 0 8px 24px rgba(0,0,0,0.6); }
+      .cap span { color: #fff; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="50.16" data-width="1080" data-height="1920">
+
+      <!-- Kenneth (gemelo, Avatar IV) -->
+      <video id="av1" class="clip" src="assets/av1.mp4" muted playsinline data-start="0" data-duration="5.3" data-track-index="0"></video>
+      <video id="av2" class="clip" src="assets/av2.mp4" muted playsinline data-start="10.3" data-duration="9.6" data-track-index="0"></video>
+      <video id="av3" class="clip" src="assets/av3.mp4" muted playsinline data-start="36.9" data-duration="13.26" data-track-index="0"></video>
+
+      <!-- B-roll -->
+      <video id="br1" class="clip" src="assets/broll-hoja.mp4" muted playsinline data-start="26.4" data-duration="5.3" data-track-index="1"></video>
+      <video id="br2" class="clip" src="assets/broll-conteo.mp4" muted playsinline data-start="31.7" data-duration="5.2" data-track-index="1"></video>
+
+      <!-- Escena 1: nadie era indispensable -->
+      <div id="e1" class="clip esc" data-start="5.3" data-duration="5.0" data-track-index="2">
+        <div class="t-l" id="e1a">¿Por qué no se apagaba?</div>
+        <div class="t-xl linea" id="e1b">Nadie era <span class="acento">indispensable.</span></div>
+        <div class="t-l linea acento" id="e1c">Ni el jefe.</div>
+      </div>
+
+      <!-- Escena 2: el estandar vive en tu cabeza -->
+      <div id="e2" class="clip esc papel" data-start="19.9" data-duration="4.8" data-track-index="2">
+        <div class="t-m pregunta" id="e2a">¿Cuánto arroz lleva el casado?</div>
+        <div class="t-m pregunta" id="e2b">¿A quién se le fía?</div>
+        <div class="t-m pregunta" id="e2c">¿Qué pasa si no llega el proveedor?</div>
+      </div>
+
+      <!-- Escena 3: tres cosas -->
+      <div id="e3" class="clip esc" data-start="24.7" data-duration="1.7" data-track-index="2">
+        <div class="tres" id="e3a">3</div>
+        <div class="t-l" id="e3b">cosas para <span class="acento">mañana</span></div>
+      </div>
+
+      <!-- Tarjetas sobre el B-roll -->
+      <div id="k1" class="clip" data-start="26.4" data-duration="5.3" data-track-index="3">
+        <div class="tarjeta" id="k1a"><div class="num">1</div><div class="tt">Escribí lo que solo vos sabés</div><div class="st">En una hoja, pegada en la cocina.</div></div>
+      </div>
+      <div id="k2" class="clip" data-start="31.7" data-duration="5.2" data-track-index="3">
+        <div class="tarjeta" id="k2a"><div class="num">2</div><div class="tt">Un solo número, todos los días</div><div class="st">Cuántos platos salieron.</div></div>
+      </div>
+
+      <!-- Textos sobre Kenneth -->
+      <div id="o1" class="clip" data-start="0" data-duration="5.3" data-track-index="3">
+        <div class="gancho" id="o1a">14 años en una operación que <span class="acento">nunca se apagó</span></div>
+      </div>
+      <div id="o2" class="clip" data-start="14.1" data-duration="1.8" data-track-index="3">
+        <div class="chip" id="o2a">Un trabajo con local</div>
+      </div>
+      <div id="o3" class="clip" data-start="17.9" data-duration="2.0" data-track-index="3">
+        <div class="chip" id="o3a">El estándar vive en tu cabeza</div>
+      </div>
+      <div id="o4" class="clip" data-start="37.0" data-duration="4.0" data-track-index="3">
+        <div class="tarjeta" id="o4a"><div class="num">3</div><div class="tt">15 minutos los lunes</div><div class="st">Para ver ese número con tu gente.</div></div>
+      </div>
+      <div id="o5" class="clip" data-start="44.8" data-duration="1.4" data-track-index="3">
+        <div class="chip" id="o5a">Es una dependencia.</div>
+      </div>
+      <div id="o6" class="clip" data-start="46.3" data-duration="3.86" data-track-index="3">
+        <div class="chip" id="o6a">Guardalo · Mandáselo a quien sí</div>
+      </div>
+
+      <!-- Subtitulos -->
+      <div class="cap" id="cap0"><span id="cap0w0">Trabajé</span> <span id="cap0w1">catorce</span> <span id="cap0w2">años</span></div>
+      <div class="cap" id="cap1"><span id="cap1w0">en</span> <span id="cap1w1">una</span> <span id="cap1w2">operación</span></div>
+      <div class="cap" id="cap2"><span id="cap2w0">de</span> <span id="cap2w1">Amazon</span> <span id="cap2w2">que</span></div>
+      <div class="cap" id="cap3"><span id="cap3w0">nunca</span> <span id="cap3w1">se</span> <span id="cap3w2">apagó,</span></div>
+      <div class="cap" id="cap4"><span id="cap4w0">ni</span> <span id="cap4w1">un</span> <span id="cap4w2">día.</span></div>
+      <div class="cap" id="cap5"><span id="cap5w0">Si</span> <span id="cap5w1">tu</span> <span id="cap5w2">soda</span></div>
+      <div class="cap" id="cap6"><span id="cap6w0">cierra</span> <span id="cap6w1">el</span> <span id="cap6w2">día</span></div>
+      <div class="cap" id="cap7"><span id="cap7w0">que</span> <span id="cap7w1">vos</span> <span id="cap7w2">te</span></div>
+      <div class="cap" id="cap8"><span id="cap8w0">enfermas,</span></div>
+      <div class="cap" id="cap9"><span id="cap9w0">no</span> <span id="cap9w1">tenés</span> <span id="cap9w2">un</span></div>
+      <div class="cap" id="cap10"><span id="cap10w0">negocio,</span></div>
+      <div class="cap" id="cap11"><span id="cap11w0">tenés</span> <span id="cap11w1">un</span> <span id="cap11w2">trabajo</span></div>
+      <div class="cap" id="cap12"><span id="cap12w0">con</span> <span id="cap12w1">local.</span></div>
+      <div class="cap" id="cap13"><span id="cap13w0">Y</span> <span id="cap13w1">casi</span> <span id="cap13w2">siempre</span></div>
+      <div class="cap" id="cap14"><span id="cap14w0">es</span> <span id="cap14w1">por</span> <span id="cap14w2">lo</span></div>
+      <div class="cap" id="cap15"><span id="cap15w0">mismo:</span></div>
+      <div class="cap" id="cap16"><span id="cap16w0">el</span> <span id="cap16w1">estándar</span> <span id="cap16w2">vive</span></div>
+      <div class="cap" id="cap17"><span id="cap17w0">en</span> <span id="cap17w1">tu</span> <span id="cap17w2">cabeza.</span></div>
+      <div class="cap" id="cap18"><span id="cap18w0">Uno:</span></div>
+      <div class="cap" id="cap19"><span id="cap19w0">escribí</span> <span id="cap19w1">las</span> <span id="cap19w2">tres</span></div>
+      <div class="cap" id="cap20"><span id="cap20w0">cosas</span> <span id="cap20w1">que</span> <span id="cap20w2">solo</span></div>
+      <div class="cap" id="cap21"><span id="cap21w0">vos</span> <span id="cap21w1">sabés</span> <span id="cap21w2">en</span></div>
+      <div class="cap" id="cap22"><span id="cap22w0">una</span> <span id="cap22w1">hoja</span> <span id="cap22w2">pegada</span></div>
+      <div class="cap" id="cap23"><span id="cap23w0">en</span> <span id="cap23w1">la</span> <span id="cap23w2">cocina.</span></div>
+      <div class="cap" id="cap24"><span id="cap24w0">Dos:</span></div>
+      <div class="cap" id="cap25"><span id="cap25w0">un</span> <span id="cap25w1">solo</span> <span id="cap25w2">número</span></div>
+      <div class="cap" id="cap26"><span id="cap26w0">que</span> <span id="cap26w1">veas</span> <span id="cap26w2">todos</span></div>
+      <div class="cap" id="cap27"><span id="cap27w0">los</span> <span id="cap27w1">días.</span></div>
+      <div class="cap" id="cap28"><span id="cap28w0">Cuántos</span> <span id="cap28w1">platos</span> <span id="cap28w2">salieron,</span></div>
+      <div class="cap" id="cap29"><span id="cap29w0">por</span> <span id="cap29w1">ejemplo.</span></div>
+      <div class="cap" id="cap30"><span id="cap30w0">Tres:</span></div>
+      <div class="cap" id="cap31"><span id="cap31w0">quince</span> <span id="cap31w1">minutos</span> <span id="cap31w2">los</span></div>
+      <div class="cap" id="cap32"><span id="cap32w0">lunes</span> <span id="cap32w1">para</span> <span id="cap32w2">ver</span></div>
+      <div class="cap" id="cap33"><span id="cap33w0">ese</span> <span id="cap33w1">número</span> <span id="cap33w2">con</span></div>
+      <div class="cap" id="cap34"><span id="cap34w0">tu</span> <span id="cap34w1">gente.</span></div>
+      <div class="cap" id="cap35"><span id="cap35w0">Un</span> <span id="cap35w1">negocio</span> <span id="cap35w2">que</span></div>
+      <div class="cap" id="cap36"><span id="cap36w0">te</span> <span id="cap36w1">necesita</span> <span id="cap36w2">todos</span></div>
+      <div class="cap" id="cap37"><span id="cap37w0">los</span> <span id="cap37w1">días</span> <span id="cap37w2">no</span></div>
+      <div class="cap" id="cap38"><span id="cap38w0">es</span> <span id="cap38w1">un</span> <span id="cap38w2">negocio,</span></div>
+      <div class="cap" id="cap39"><span id="cap39w0">es</span> <span id="cap39w1">una</span> <span id="cap39w2">dependencia.</span></div>
+      <div class="cap" id="cap40"><span id="cap40w0">Si</span> <span id="cap40w1">tenés</span> <span id="cap40w2">uno,</span></div>
+      <div class="cap" id="cap41"><span id="cap41w0">guardá</span> <span id="cap41w1">este</span> <span id="cap41w2">video.</span></div>
+      <div class="cap" id="cap42"><span id="cap42w0">Si</span> <span id="cap42w1">no,</span></div>
+      <div class="cap" id="cap43"><span id="cap43w0">mandáselo</span> <span id="cap43w1">a</span> <span id="cap43w2">quien</span></div>
+      <div class="cap" id="cap44"><span id="cap44w0">sí.</span></div>
+
+      <!-- Audio -->
+      <audio id="voz" src="assets/voz.mp3" data-start="0" data-duration="50.16" data-volume="1"></audio>
+      <audio id="sfx1" src="assets/sfx-whoosh.mp3" data-start="5.15" data-duration="0.8" data-volume="0.45"></audio>
+      <audio id="sfx2" src="assets/sfx-hit.mp3" data-start="9.35" data-duration="1.2" data-volume="0.5"></audio>
+      <audio id="sfx3" src="assets/sfx-whoosh.mp3" data-start="10.15" data-duration="0.8" data-volume="0.35"></audio>
+      <audio id="sfx4" src="assets/sfx-pop.mp3" data-start="14.1" data-duration="0.5" data-volume="0.5"></audio>
+      <audio id="sfx5" src="assets/sfx-pop.mp3" data-start="17.9" data-duration="0.5" data-volume="0.5"></audio>
+      <audio id="sfx6" src="assets/sfx-pop.mp3" data-start="20.2" data-duration="0.5" data-volume="0.45"></audio>
+      <audio id="sfx7" src="assets/sfx-pop.mp3" data-start="21.7" data-duration="0.5" data-volume="0.45"></audio>
+      <audio id="sfx8" src="assets/sfx-pop.mp3" data-start="22.95" data-duration="0.5" data-volume="0.45"></audio>
+      <audio id="sfx9" src="assets/sfx-hit.mp3" data-start="24.85" data-duration="1.2" data-volume="0.55"></audio>
+      <audio id="sfx10" src="assets/sfx-marker.mp3" data-start="26.6" data-duration="1.0" data-volume="0.5"></audio>
+      <audio id="sfx11" src="assets/sfx-marker.mp3" data-start="31.9" data-duration="1.0" data-volume="0.5"></audio>
+      <audio id="sfx12" src="assets/sfx-marker.mp3" data-start="37.1" data-duration="1.0" data-volume="0.5"></audio>
+      <audio id="sfx13" src="assets/sfx-hit.mp3" data-start="44.75" data-duration="1.2" data-volume="0.5"></audio>
+      <audio id="sfx14" src="assets/sfx-pop.mp3" data-start="46.3" data-duration="0.5" data-volume="0.5"></audio>
+    </div>
+    <script>
+      const CAPS = [{"s": 0.08, "e": 1.44, "w": [["Trabajé", 0.08], ["catorce", 0.5], ["años", 1.16]]}, {"s": 1.44, "e": 2.16, "w": [["en", 1.44], ["una", 1.58], ["operación", 1.7]]}, {"s": 2.16, "e": 3.06, "w": [["de", 2.16], ["Amazon", 2.28], ["que", 2.8]]}, {"s": 3.06, "e": 4.36, "w": [["nunca", 3.06], ["se", 3.46], ["apagó,", 3.56]]}, {"s": 4.36, "e": 5.3, "w": [["ni", 4.36], ["un", 4.58], ["día.", 4.76]]}, {"s": 10.5, "e": 11.12, "w": [["Si", 10.5], ["tu", 10.66], ["soda", 10.8]]}, {"s": 11.12, "e": 11.74, "w": [["cierra", 11.12], ["el", 11.42], ["día", 11.54]]}, {"s": 11.74, "e": 12.08, "w": [["que", 11.74], ["vos", 11.86], ["te", 12.02]]}, {"s": 12.08, "e": 12.86, "w": [["enfermas,", 12.08]]}, {"s": 12.86, "e": 13.36, "w": [["no", 12.86], ["tenés", 13.0], ["un", 13.26]]}, {"s": 13.36, "e": 14.18, "w": [["negocio,", 13.36]]}, {"s": 14.18, "e": 15.02, "w": [["tenés", 14.18], ["un", 14.42], ["trabajo", 14.56]]}, {"s": 15.02, "e": 16.02, "w": [["con", 15.02], ["local.", 15.18]]}, {"s": 16.02, "e": 16.78, "w": [["Y", 16.02], ["casi", 16.14], ["siempre", 16.42]]}, {"s": 16.78, "e": 17.22, "w": [["es", 16.78], ["por", 16.94], ["lo", 17.08]]}, {"s": 17.22, "e": 17.96, "w": [["mismo:", 17.22]]}, {"s": 17.96, "e": 19.08, "w": [["el", 17.96], ["estándar", 18.06], ["vive", 18.86]]}, {"s": 19.08, "e": 19.9, "w": [["en", 19.08], ["tu", 19.2], ["cabeza.", 19.34]]}, {"s": 26.66, "e": 27.26, "w": [["Uno:", 26.66]]}, {"s": 27.26, "e": 28.24, "w": [["escribí", 27.26], ["las", 27.66], ["tres", 27.94]]}, {"s": 28.24, "e": 29.08, "w": [["cosas", 28.24], ["que", 28.58], ["solo", 28.74]]}, {"s": 29.08, "e": 30.1, "w": [["vos", 29.08], ["sabés", 29.32], ["en", 29.98]]}, {"s": 30.1, "e": 30.86, "w": [["una", 30.1], ["hoja", 30.28], ["pegada", 30.58]]}, {"s": 30.86, "e": 31.94, "w": [["en", 30.86], ["la", 30.94], ["cocina.", 31.06]]}, {"s": 31.94, "e": 32.62, "w": [["Dos:", 31.94]]}, {"s": 32.62, "e": 33.44, "w": [["un", 32.62], ["solo", 32.82], ["número", 33.08]]}, {"s": 33.44, "e": 34.28, "w": [["que", 33.44], ["veas", 33.56], ["todos", 34.0]]}, {"s": 34.28, "e": 35.16, "w": [["los", 34.28], ["días.", 34.48]]}, {"s": 35.16, "e": 36.18, "w": [["Cuántos", 35.16], ["platos", 35.48], ["salieron,", 35.76]]}, {"s": 36.18, "e": 36.9, "w": [["por", 36.18], ["ejemplo.", 36.3]]}, {"s": 37.04, "e": 37.7, "w": [["Tres:", 37.04]]}, {"s": 37.7, "e": 38.64, "w": [["quince", 37.7], ["minutos", 38.04], ["los", 38.46]]}, {"s": 38.64, "e": 39.58, "w": [["lunes", 38.64], ["para", 39.04], ["ver", 39.26]]}, {"s": 39.58, "e": 40.32, "w": [["ese", 39.58], ["número", 39.84], ["con", 40.16]]}, {"s": 40.32, "e": 41.16, "w": [["tu", 40.32], ["gente.", 40.44]]}, {"s": 41.16, "e": 41.82, "w": [["Un", 41.16], ["negocio", 41.28], ["que", 41.7]]}, {"s": 41.82, "e": 42.84, "w": [["te", 41.82], ["necesita", 41.92], ["todos", 42.56]]}, {"s": 42.84, "e": 43.82, "w": [["los", 42.84], ["días", 43.04], ["no", 43.62]]}, {"s": 43.82, "e": 44.84, "w": [["es", 43.82], ["un", 43.98], ["negocio,", 44.08]]}, {"s": 44.84, "e": 46.26, "w": [["es", 44.84], ["una", 44.98], ["dependencia.", 45.14]]}, {"s": 46.26, "e": 47.14, "w": [["Si", 46.26], ["tenés", 46.38], ["uno,", 46.72]]}, {"s": 47.14, "e": 48.42, "w": [["guardá", 47.14], ["este", 47.44], ["video.", 47.68]]}, {"s": 48.42, "e": 49.06, "w": [["Si", 48.42], ["no,", 48.58]]}, {"s": 49.06, "e": 49.8, "w": [["mandáselo", 49.06], ["a", 49.5], ["quien", 49.58]]}, {"s": 49.8, "e": 50.16, "w": [["sí.", 49.8]]}];
+      const tl = gsap.timeline({ paused: true });
+      const ease = "power3.out";
+
+      // Kenneth: zooms lentos y cortes de encuadre para que no se vea quieto
+      tl.fromTo("#av1", { scale: 1.0 }, { scale: 1.08, duration: 2.6, ease: "none" }, 0);
+      tl.fromTo("#av1", { scale: 1.16 }, { scale: 1.2, duration: 2.7, ease: "none", immediateRender: false }, 2.6);
+      tl.fromTo("#av2", { scale: 1.0 }, { scale: 1.06, duration: 2.5, ease: "none" }, 10.3);
+      tl.fromTo("#av2", { scale: 1.18 }, { scale: 1.22, duration: 2.3, ease: "none", immediateRender: false }, 12.8);
+      tl.fromTo("#av2", { scale: 1.04 }, { scale: 1.1, duration: 4.8, ease: "none", immediateRender: false }, 15.1);
+      tl.fromTo("#av3", { scale: 1.0 }, { scale: 1.05, duration: 4.0, ease: "none" }, 36.9);
+      tl.fromTo("#av3", { scale: 1.12 }, { scale: 1.16, duration: 2.7, ease: "none", immediateRender: false }, 40.9);
+      tl.fromTo("#av3", { scale: 1.22 }, { scale: 1.26, duration: 2.7, ease: "none", immediateRender: false }, 43.6);
+      tl.fromTo("#av3", { scale: 1.04 }, { scale: 1.1, duration: 3.86, ease: "none", immediateRender: false }, 46.3);
+      // B-roll: Ken Burns
+      tl.fromTo("#br1", { scale: 1.06 }, { scale: 1.16, duration: 5.3, ease: "none" }, 26.4);
+      tl.fromTo("#br2", { scale: 1.16 }, { scale: 1.06, duration: 5.2, ease: "none" }, 31.7);
+
+      // Escena 1
+      tl.fromTo("#e1a", { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.45, ease }, 5.45);
+      tl.fromTo("#e1b", { opacity: 0, y: 60 }, { opacity: 1, y: 0, duration: 0.5, ease }, 7.1);
+      tl.fromTo("#e1c", { opacity: 0, scale: 0.8 }, { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(2)" }, 9.38);
+      // Escena 2
+      tl.fromTo("#e2a", { opacity: 0, x: -60 }, { opacity: 1, x: 0, duration: 0.4, ease }, 20.2);
+      tl.fromTo("#e2b", { opacity: 0, x: -60 }, { opacity: 1, x: 0, duration: 0.4, ease }, 21.7);
+      tl.fromTo("#e2c", { opacity: 0, x: -60 }, { opacity: 1, x: 0, duration: 0.4, ease }, 22.95);
+      // Escena 3
+      tl.fromTo("#e3a", { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: 0.4, ease: "back.out(1.8)" }, 24.85);
+      tl.fromTo("#e3b", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.35, ease }, 25.2);
+      // Tarjetas y textos
+      tl.fromTo("#k1a", { opacity: 0, y: -40 }, { opacity: 1, y: 0, duration: 0.4, ease }, 26.55);
+      tl.fromTo("#k2a", { opacity: 0, y: -40 }, { opacity: 1, y: 0, duration: 0.4, ease }, 31.85);
+      tl.fromTo("#o1a", { opacity: 0, y: -30 }, { opacity: 1, y: 0, duration: 0.45, ease }, 0.15);
+      tl.fromTo("#o2a", { opacity: 0, scale: 0.85 }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(2)" }, 14.1);
+      tl.fromTo("#o3a", { opacity: 0, scale: 0.85 }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(2)" }, 17.9);
+      tl.fromTo("#o4a", { opacity: 0, y: -40 }, { opacity: 1, y: 0, duration: 0.4, ease }, 37.05);
+      tl.fromTo("#o5a", { opacity: 0, scale: 0.85 }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(2)" }, 44.8);
+      tl.fromTo("#o6a", { opacity: 0, scale: 0.85 }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(2)" }, 46.3);
+
+      // Subtitulos: el grupo aparece y desaparece; la palabra que suena, en amarillo
+      CAPS.forEach((c, i) => {
+        tl.set("#cap" + i, { opacity: 1 }, c.s);
+        tl.set("#cap" + i, { opacity: 0 }, c.e);
+        c.w.forEach((w, j) => {
+          tl.set("#cap" + i + "w" + j, { color: "#F5B700" }, w[1]);
+          if (j + 1 < c.w.length) tl.set("#cap" + i + "w" + j, { color: "#ffffff" }, c.w[j + 1][1]);
+        });
+      });
+
+      window.__timelines["main"] = tl;
+      tl.seek(0);
+    </script>
+  </body>
+</html>

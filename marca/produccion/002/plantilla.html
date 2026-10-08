@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="es" data-resolution="portrait">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <script src="assets/vendor/gsap.min.js"></script>
+    <style>
+      @font-face { font-family: "Inter"; font-weight: 600; src: url("assets/fonts/inter-latin-600-normal.woff2") format("woff2"); }
+      @font-face { font-family: "Inter"; font-weight: 800; src: url("assets/fonts/inter-latin-800-normal.woff2") format("woff2"); }
+      @font-face { font-family: "Inter"; font-weight: 900; src: url("assets/fonts/inter-latin-900-normal.woff2") format("woff2"); }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { margin: 0; width: 1080px; height: 1920px; overflow: hidden; background: #111317; }
+      #root { position: relative; width: 100%; height: 100%; overflow: hidden; font-family: "Inter", sans-serif; color: #fff; }
+      .clip { position: absolute; inset: 0; width: 100%; height: 100%; }
+      video.clip { object-fit: cover; }
+      /* escenas de graficos */
+      .esc { background: #111317; display: flex; flex-direction: column; justify-content: center; align-items: flex-start; padding: 0 90px; }
+      .esc.papel { background: #F4EFE6; color: #16181D; }
+      .t-xl { font-weight: 900; font-size: 128px; line-height: 1.02; letter-spacing: -0.04em; }
+      .t-l { font-weight: 800; font-size: 92px; line-height: 1.06; letter-spacing: -0.03em; }
+      .t-m { font-weight: 800; font-size: 64px; line-height: 1.12; letter-spacing: -0.02em; }
+      .acento { color: #F5B700; }
+      .linea { display: block; margin-top: 34px; }
+      .pregunta { display: block; margin-top: 46px; padding-left: 34px; border-left: 14px solid #F5B700; }
+      .tres { font-weight: 900; font-size: 520px; line-height: 0.85; color: #F5B700; letter-spacing: -0.06em; }
+      /* tarjetas sobre video */
+      .tarjeta { position: absolute; left: 70px; right: 70px; top: 300px; background: rgba(17,19,23,0.88); border-radius: 36px; padding: 44px 50px; }
+      .tarjeta .num { font-weight: 900; font-size: 84px; color: #F5B700; line-height: 1; }
+      .tarjeta .tt { font-weight: 800; font-size: 66px; line-height: 1.1; margin-top: 18px; }
+      .tarjeta .st { font-weight: 600; font-size: 44px; line-height: 1.2; margin-top: 16px; color: #C9CCD3; }
+      .chip { position: absolute; left: 70px; top: 300px; background: #F5B700; color: #16181D; font-weight: 900; font-size: 64px; line-height: 1.05; padding: 26px 40px; border-radius: 28px; max-width: 900px; }
+      .gancho { position: absolute; left: 70px; right: 70px; top: 250px; font-weight: 900; font-size: 80px; line-height: 1.05; letter-spacing: -0.03em; background: rgba(17,19,23,0.86); border-radius: 36px; padding: 40px 48px; }
+      /* subtitulos */
+      .cap { position: absolute; left: 60px; right: 60px; top: 1200px; text-align: center; font-weight: 900; font-size: 76px; line-height: 1.1; letter-spacing: -0.02em; opacity: 0;
+             -webkit-text-stroke: 10px #000; paint-order: stroke fill; text-shadow: 0 8px 24px rgba(0,0,0,0.6); }
+      .cap span { color: #fff; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="50.16" data-width="1080" data-height="1920">
+
+      <!-- Kenneth (gemelo, Avatar IV) -->
+      <video id="av1" class="clip" src="assets/av1.mp4" muted playsinline data-start="0" data-duration="5.3" data-track-index="0"></video>
+      <video id="av2" class="clip" src="assets/av2.mp4" muted playsinline data-start="10.3" data-duration="9.6" data-track-index="0"></video>
+      <video id="av3" class="clip" src="assets/av3.mp4" muted playsinline data-start="36.9" data-duration="13.26" data-track-index="0"></video>
+
+      <!-- B-roll -->
+      <video id="br1" class="clip" src="assets/broll-hoja.mp4" muted playsinline data-start="26.4" data-duration="5.3" data-track-index="1"></video>
+      <video id="br2" class="clip" src="assets/broll-conteo.mp4" muted playsinline data-start="31.7" data-duration="5.2" data-track-index="1"></video>
+
+      <!-- Escena 1: nadie era indispensable -->
+      <div id="e1" class="clip esc" data-start="5.3" data-duration="5.0" data-track-index="2">
+        <div class="t-l" id="e1a">¿Por qué no se apagaba?</div>
+        <div class="t-xl linea" id="e1b">Nadie era <span class="acento">indispensable.</span></div>
+        <div class="t-l linea acento" id="e1c">Ni el jefe.</div>
+      </div>
+
+      <!-- Escena 2: el estandar vive en tu cabeza -->
+      <div id="e2" class="clip esc papel" data-start="19.9" data-duration="4.8" data-track-index="2">
+        <div class="t-m pregunta" id="e2a">¿Cuánto arroz lleva el casado?</div>
+        <div class="t-m pregunta" id="e2b">¿A quién se le fía?</div>
+        <div class="t-m pregunta" id="e2c">¿Qué pasa si no llega el proveedor?</div>
+      </div>
+
+      <!-- Escena 3: tres cosas -->
+      <div id="e3" class="clip esc" data-start="24.7" data-duration="1.7" data-track-index="2">
+        <div class="tres" id="e3a">3</div>
+        <div class="t-l" id="e3b">cosas para <span class="acento">mañana</span></div>
+      </div>
+
+      <!-- Tarjetas sobre el B-roll -->
+      <div id="k1" class="clip" data-start="26.4" data-duration="5.3" data-track-index="3">
+        <div class="tarjeta" id="k1a"><div class="num">1</div><div class="tt">Escribí lo que solo vos sabés</div><div class="st">En una hoja, pegada en la cocina.</div></div>
+      </div>
+      <div id="k2" class="clip" data-start="31.7" data-duration="5.2" data-track-index="3">
+        <div class="tarjeta" id="k2a"><div class="num">2</div><div class="tt">Un solo número, todos los días</div><div class="st">Cuántos platos salieron.</div></div>
+      </div>
+
+      <!-- Textos sobre Kenneth -->
+      <div id="o1" class="clip" data-start="0" data-duration="5.3" data-track-index="3">
+        <div class="gancho" id="o1a">14 años en una operación que <span class="acento">nunca se apagó</span></div>
+      </div>
+      <div id="o2" class="clip" data-start="14.1" data-duration="1.8" data-track-index="3">
+        <div class="chip" id="o2a">Un trabajo con local</div>
+      </div>
+      <div id="o3" class="clip" data-start="17.9" data-duration="2.0" data-track-index="3">
+        <div class="chip" id="o3a">El estándar vive en tu cabeza</div>
+      </div>
+      <div id="o4" class="clip" data-start="37.0" data-duration="4.0" data-track-index="3">
+        <div class="tarjeta" id="o4a"><div class="num">3</div><div class="tt">15 minutos los lunes</div><div class="st">Para ver ese número con tu gente.</div></div>
+      </div>
+      <div id="o5" class="clip" data-start="44.8" data-duration="1.4" data-track-index="3">
+        <div class="chip" id="o5a">Es una dependencia.</div>
+      </div>
+      <div id="o6" class="clip" data-start="46.3" data-duration="3.86" data-track-index="3">
+        <div class="chip" id="o6a">Guardalo · Mandáselo a quien sí</div>
+      </div>
+
+      <!-- Subtitulos -->
+%%CAPS_HTML%%
+
+      <!-- Audio -->
+      <audio id="voz" src="assets/voz.mp3" data-start="0" data-duration="50.16" data-volume="1"></audio>
+      <audio id="sfx1" src="assets/sfx-whoosh.mp3" data-start="5.15" data-duration="0.8" data-volume="0.45"></audio>
+      <audio id="sfx2" src="assets/sfx-hit.mp3" data-start="9.35" data-duration="1.2" data-volume="0.5"></audio>
+      <audio id="sfx3" src="assets/sfx-whoosh.mp3" data-start="10.15" data-duration="0.8" data-volume="0.35"></audio>
+      <audio id="sfx4" src="assets/sfx-pop.mp3" data-start="14.1" data-duration="0.5" data-volume="0.5"></audio>
+      <audio id="sfx5" src="assets/sfx-pop.mp3" data-start="17.9" data-duration="0.5" data-volume="0.5"></audio>
+      <audio id="sfx6" src="assets/sfx-pop.mp3" data-start="20.2" data-duration="0.5" data-volume="0.45"></audio>
+      <audio id="sfx7" src="assets/sfx-pop.mp3" data-start="21.7" data-duration="0.5" data-volume="0.45"></audio>
+      <audio id="sfx8" src="assets/sfx-pop.mp3" data-start="22.95" data-duration="0.5" data-volume="0.45"></audio>
+      <audio id="sfx9" src="assets/sfx-hit.mp3" data-start="24.85" data-duration="1.2" data-volume="0.55"></audio>
+      <audio id="sfx10" src="assets/sfx-marker.mp3" data-start="26.6" data-duration="1.0" data-volume="0.5"></audio>
+      <audio id="sfx11" src="assets/sfx-marker.mp3" data-start="31.9" data-duration="1.0" data-volume="0.5"></audio>
+      <audio id="sfx12" src="assets/sfx-marker.mp3" data-start="37.1" data-duration="1.0" data-volume="0.5"></audio>
+      <audio id="sfx13" src="assets/sfx-hit.mp3" data-start="44.75" data-duration="1.2" data-volume="0.5"></audio>
+      <audio id="sfx14" src="assets/sfx-pop.mp3" data-start="46.3" data-duration="0.5" data-volume="0.5"></audio>
+    </div>
+    <script>
+      const CAPS = %%CAPS_JS%%;
+      const tl = gsap.timeline({ paused: true });
+      const ease = "power3.out";
+
+      // Kenneth: zooms lentos y cortes de encuadre para que no se vea quieto
+      tl.fromTo("#av1", { scale: 1.0 }, { scale: 1.08, duration: 2.6, ease: "none" }, 0);
+      tl.fromTo("#av1", { scale: 1.16 }, { scale: 1.2, duration: 2.7, ease: "none", immediateRender: false }, 2.6);
+      tl.fromTo("#av2", { scale: 1.0 }, { scale: 1.06, duration: 2.5, ease: "none" }, 10.3);
+      tl.fromTo("#av2", { scale: 1.18 }, { scale: 1.22, duration: 2.3, ease: "none", immediateRender: false }, 12.8);
+      tl.fromTo("#av2", { scale: 1.04 }, { scale: 1.1, duration: 4.8, ease: "none", immediateRender: false }, 15.1);
+      tl.fromTo("#av3", { scale: 1.0 }, { scale: 1.05, duration: 4.0, ease: "none" }, 36.9);
+      tl.fromTo("#av3", { scale: 1.12 }, { scale: 1.16, duration: 2.7, ease: "none", immediateRender: false }, 40.9);
+      tl.fromTo("#av3", { scale: 1.22 }, { scale: 1.26, duration: 2.7, ease: "none", immediateRender: false }, 43.6);
+      tl.fromTo("#av3", { scale: 1.04 }, { scale: 1.1, duration: 3.86, ease: "none", immediateRender: false }, 46.3);
+      // B-roll: Ken Burns
+      tl.fromTo("#br1", { scale: 1.06 }, { scale: 1.16, duration: 5.3, ease: "none" }, 26.4);
+      tl.fromTo("#br2", { scale: 1.16 }, { scale: 1.06, duration: 5.2, ease: "none" }, 31.7);
+
+      // Escena 1
+      tl.fromTo("#e1a", { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.45, ease }, 5.45);
+      tl.fromTo("#e1b", { opacity: 0, y: 60 }, { opacity: 1, y: 0, duration: 0.5, ease }, 7.1);
+      tl.fromTo("#e1c", { opacity: 0, scale: 0.8 }, { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(2)" }, 9.38);
+      // Escena 2
+      tl.fromTo("#e2a", { opacity: 0, x: -60 }, { opacity: 1, x: 0, duration: 0.4, ease }, 20.2);
+      tl.fromTo("#e2b", { opacity: 0, x: -60 }, { opacity: 1, x: 0, duration: 0.4, ease }, 21.7);
+      tl.fromTo("#e2c", { opacity: 0, x: -60 }, { opacity: 1, x: 0, duration: 0.4, ease }, 22.95);
+      // Escena 3
+      tl.fromTo("#e3a", { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: 0.4, ease: "back.out(1.8)" }, 24.85);
+      tl.fromTo("#e3b", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.35, ease }, 25.2);
+      // Tarjetas y textos
+      tl.fromTo("#k1a", { opacity: 0, y: -40 }, { opacity: 1, y: 0, duration: 0.4, ease }, 26.55);
+      tl.fromTo("#k2a", { opacity: 0, y: -40 }, { opacity: 1, y: 0, duration: 0.4, ease }, 31.85);
+      tl.fromTo("#o1a", { opacity: 0, y: -30 }, { opacity: 1, y: 0, duration: 0.45, ease }, 0.15);
+      tl.fromTo("#o2a", { opacity: 0, scale: 0.85 }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(2)" }, 14.1);
+      tl.fromTo("#o3a", { opacity: 0, scale: 0.85 }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(2)" }, 17.9);
+      tl.fromTo("#o4a", { opacity: 0, y: -40 }, { opacity: 1, y: 0, duration: 0.4, ease }, 37.05);
+      tl.fromTo("#o5a", { opacity: 0, scale: 0.85 }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(2)" }, 44.8);
+      tl.fromTo("#o6a", { opacity: 0, scale: 0.85 }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(2)" }, 46.3);
+
+      // Subtitulos: el grupo aparece y desaparece; la palabra que suena, en amarillo
+      CAPS.forEach((c, i) => {
+        tl.set("#cap" + i, { opacity: 1 }, c.s);
+        tl.set("#cap" + i, { opacity: 0 }, c.e);
+        c.w.forEach((w, j) => {
+          tl.set("#cap" + i + "w" + j, { color: "#F5B700" }, w[1]);
+          if (j + 1 < c.w.length) tl.set("#cap" + i + "w" + j, { color: "#ffffff" }, c.w[j + 1][1]);
+        });
+      });
+
+      window.__timelines["main"] = tl;
+      tl.seek(0);
+    </script>
+  </body>
+</html>

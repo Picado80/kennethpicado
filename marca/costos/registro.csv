@@ -1,0 +1,10 @@
+fecha,video,tipo,pieza,proveedor,detalle,cantidad,unidad,tarifa_usd,costo_usd,medido
+2026-10-08,002,prueba,gemelo Avatar IV,HeyGen API,50 s seguidos sin cortes,50.13,s,0.0805,4.03,saldo 6.00 -> 1.97
+2026-10-08,002,prueba,gemelo Avatar V,HeyGen API,10 s con motion_prompt,10.17,s,0.12,1.20,saldo 1.97 -> 0.77
+2026-10-08,002,prueba,gemelo Avatar III,HeyGen API,50 s seguidos (no le gustó a Kenneth),50.13,s,0.01,0.52,saldo 0.77 -> 0.25
+2026-10-08,002,produccion,voz clonada,ElevenLabs,792 caracteres con eleven_v4,792,caracteres,0,0,plan fijo de $22 al mes
+2026-10-08,002,produccion,transcripción (tiempos),ElevenLabs,scribe_v1 sobre 50 s,50,s,0,0,plan fijo de $22 al mes
+2026-10-08,002,produccion,efectos de sonido,ElevenLabs,4 efectos (whoosh pop marcador golpe),4,efectos,0,0,plan fijo de $22 al mes
+2026-10-08,002,produccion,gráficos y montaje,HyperFrames,render local en la PC,1,video,0,0,código abierto
+2026-10-08,002,produccion,gemelo Avatar IV,HeyGen API,3 partes: 5.3 + 9.6 + 13.2 s (motion_prompt rechazado),28.1,s,0.0805,2.26,saldo 5.25 -> 2.88 junto con las tomas (2.37)
+2026-10-08,002,produccion,tomas de relleno,HeyGen Video,2 tomas de 5 s en 768p; 3 intentos fallidos no se cobraron,10,s,0.015,0.11,resto del 2.37 medido

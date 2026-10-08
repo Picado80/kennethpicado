@@ -1,2 +1,5 @@
 # La carpeta de marca es interna: no se publica en kennethpicado.vercel.app
 marca/
+
+# Agentes de Claude: internos, tampoco se publican
+.claude/
