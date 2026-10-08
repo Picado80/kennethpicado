@@ -61,6 +61,43 @@ debería poder terminar en «mandáselo a tu jefe» sin que suene forzado.
 
 Prueba de fuego: **¿lo entiende tu tía sin preguntarte nada?**
 
+## Se cuenta la escena, no la ficha técnica
+
+> Referencia: carrusel de @elcursales que Kenneth pasó el 8-oct-2026. Lámina 2, la ficha:
+> *«Aires acondicionados Inverter. 12.000 BTU. Bajo consumo.»* Lámina 4, la escena: *«Anoche
+> volviste a sacar una pierna de la sábana buscando el lado frío. Con nuestros aires, no pasa eso.»*
+> Tenía 3.212 me gusta y 1.934 envíos: casi 6 de cada 10 que le dieron me gusta también lo mandaron. Es el
+> «mandáselo a tu jefe» funcionando.
+
+**Nadie compra BTU, ni agentes de IA.** Compran la noche en que duermen bien y el viernes en
+que salen a las 5. Lo que se cuenta es **cómo se siente, cómo se disfruta y cómo se ve el
+resultado**, no qué es ni cómo funciona.
+
+| Ficha (no) | Escena (sí) |
+|---|---|
+| «Automaticé el cierre de caja con IA» | «Son las 5:10 y ya vas saliendo. La caja cuadró sin vos.» |
+| «Un agente que contesta el WhatsApp» | «El domingo dejaste el celular en la mesa y ningún cliente se quedó sin respuesta.» |
+| «Un sistema de inventario» | «El sábado nadie te llamó para preguntar si quedaba.» |
+| «Tengo siete IAs trabajando para mí» | «Me fui a dormir con el problema. Amanecí con la solución y una bitácora de quién hizo qué.» |
+
+Los de la tabla son ejemplos de forma: la hora y el caso que se dicen en un video salen de la fuente real (límite 4).
+
+**Cómo se escribe:**
+1. **El momento exacto del dolor:** cuándo («anoche», «el martes a las 9 p. m.»), qué hace el
+   cuerpo y qué siente. Ni una palabra técnica. Esta parte puede ser universal.
+2. **El después, en una línea. Tiene que haber pasado de verdad** (límites 4 y 5): un caso
+   real, anónimo, o algo de TORRE. Lo de la referencia, «con nuestros aires, no pasa eso», es
+   una promesa. Kenneth dice «en ese negocio dejó de pasar», nunca «a vos no te va a pasar».
+3. **La ficha va al final, chiquita, o no va.** Si alguien pregunta «¿y eso cómo se hace?» en
+   los comentarios, funcionó.
+
+**Prueba de fuego:** ¿la frase se puede filmar? Si no se ve una escena (alguien, un lugar, una
+hora), es ficha y se reescribe.
+
+**Ojo con Cawhi (límite 7):** el ejemplo es de aires acondicionados, que es el terreno de Cawhi.
+Ese carrusel, tal cual, sirve para la cuenta de Cawhi: pasárselo a Bernal. Lo que es de Kenneth
+es la regla aplicada a operar con IA.
+
 ## Límites (nunca)
 
 1. **Nunca se vende en el video.** Ni «agendá», ni precios, ni demos. Semi aparece como «lo
