@@ -26,7 +26,7 @@ LinkedIn y para mostrarle a empresas.
 | 1 | **Radar** | Cada lunes trae los videos más compartidos de la semana en una lista de cuentas, con su texto | yt-dlp (gratis, sin llave) | **hecho** (`radar/radar.py`); 4 cuentas verificadas en `fuentes.json` para que taches. Los hashtags están rotos en yt-dlp | [`E001`](encargos/E001-radar-de-virales.md) |
 | 2 | **Análisis** | Las 7 preguntas del playbook; elige los formatos que se repiten y suma 5 ideas puntuadas a `ideas.md` | Claude, en sesión | listo (playbook + `ideas.md`) | — |
 | 3 | **Producción** | Guion → tu voz (ElevenLabs, `eleven_v4`) → video (gemelo de HeyGen con ese audio, o grabación real) → edición | ElevenLabs + HeyGen + CapCut | falta el clon y el gemelo | E002 (después del clon) |
-| 4 | **Publicación** | TikTok a mano (sonido y texto nativos); IG, YouTube y LinkedIn programados con caption y etiqueta de IA | TikTok nativo + **Buffer Free** | falta abrir Buffer y conectar las redes | E003 |
+| 4 | **Publicación** | IG, TikTok y YouTube programados en Buffer con caption y etiqueta de IA; lo que lleve sonido en tendencia, a TikTok a mano. LinkedIn después | **Buffer Free** + TikTok nativo | IG y TikTok conectados el 7-oct; falta crear y conectar YouTube | E003 |
 | 5 | **Medición** | A las 48 h y a los 7 días, números al registro; el lunes, el formato ganador se repite con otro gancho y el perdedor se mata | Postiz / TikTok Studio → `medicion/registro.csv` | plantilla lista | E004 |
 
 **Tope de gasto:** $100 al mes entre todas las herramientas. Cada gasto queda anotado en la revisión del lunes.
@@ -46,13 +46,13 @@ LinkedIn y para mostrarle a empresas.
 
 ## Alternativas para publicar
 
-Postiz quedó descartado por precio. La herramienta elegida es **Buffer Free** para IG, YouTube y LinkedIn; TikTok se sube a mano (sonido y texto nativos, como dice `README.md` §4).
+Postiz quedó descartado por precio. La herramienta elegida es **Buffer Free** con Instagram, TikTok y YouTube (decisión de Kenneth del 7-oct). LinkedIn entra más adelante, cuando la marca esté más armada. Lo que lleve sonido en tendencia se sube a TikTok a mano (`README.md` §4).
 
 | Opción | Costo | A favor | En contra |
 |---|---|---|---|
-| **Buffer Free** (elegida) | **$0** | 3 canales (IG + YouTube + LinkedIn), 10 posts programados por canal (se recargan), 1 llave de API (3.000 llamadas/mes) | **sin MCP**; TikTok no entra en los 3 gratis; tope de 10 programados por canal a la vez |
+| **Buffer Free** (elegida) | **$0** | 3 canales (hoy IG + TikTok + YouTube), 10 posts programados por canal (se recargan), 1 llave de API (3.000 llamadas/mes) | **sin MCP**; con TikTok adentro, LinkedIn no cabe; tope de 10 programados por canal a la vez |
 | **Publora** | $4–6 por red | barato por red, muchas plataformas | se paga por cada red |
 | **Buffer Essentials** | $6 por red (1–10) | posts programados ilimitados, analítica, API 7.500/mes | de pago; baja a $4/red con 11+ |
 | **Postiz** | $29/mes | `DIRECT_POST` a TikTok, autohospedable | caro para arrancar (descartado) |
 
-**Decisión:** Buffer Free para IG/YouTube/LinkedIn ($0); TikTok a mano. Si más adelante hace falta programar TikTok o pasar de 10 posts por red, se evalúa Buffer Essentials o Publora.
+**Decisión (7-oct):** Buffer Free con IG, TikTok y YouTube ($0); LinkedIn después. Para sumarlo hay que sacar una red o pasar a Buffer Essentials. Si más adelante hace falta pasar de 10 posts por red, se evalúa Buffer Essentials o Publora.
