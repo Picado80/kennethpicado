@@ -8,7 +8,7 @@ Si no corre igual cuando Kenneth está ocupado, no es un sistema: es una depende
 
 | Capa | Dónde vive |
 |---|---|
-| 1 · Políticas: qué somos y qué nunca hacemos | [`CANON.md`](CANON.md) · [`FORMATOS.md`](FORMATOS.md) |
+| 1 · Políticas: qué somos y qué nunca hacemos | [`CANON.md`](CANON.md) · [`FORMATOS.md`](FORMATOS.md) · [`VENTA.md`](VENTA.md) |
 | 2 · Métricas: qué se mide de cada video | [`medicion/registro.csv`](medicion/registro.csv) |
 | 3 · Auditorías: control de calidad antes de publicar | la lista de QA en [`plantillas/guion.md`](plantillas/guion.md) |
 | 4 · Tablero: cómo vamos | el registro + la revisión semanal |
@@ -61,7 +61,7 @@ Cada etapa tiene entrada, salida y una condición para pasar a la siguiente (igu
 ### 4 · Posteo
 
 - **Cuenta personal de creador en TikTok, no cuenta de empresa.** Las cuentas de empresa solo tienen la biblioteca de música comercial; perdés los sonidos en tendencia.
-- **Los primeros 30 videos se suben a mano desde el celular**, para aprender la herramienta y usar texto y sonidos nativos. Cuando el formato esté estable, se programan con Postiz.
+- **Los primeros 30 videos se suben a mano desde el celular**, para aprender la herramienta y usar texto y sonidos nativos. TikTok se mantiene a mano por los sonidos en tendencia; IG, YouTube y LinkedIn se programan con **Buffer Free** ($0, 3 canales; ver `CICLO.md` §Alternativas para publicar). Postiz quedó descartado por precio.
 - Caption con el skill `social-copy-generator` (TikTok): gancho + 3 a 5 hashtags.
 - **Si hay HeyGen o ElevenLabs en el video, se activa la etiqueta «contenido generado por IA».** Sin excepción.
 - **La primera hora después de publicar:** responder cada comentario. Fijar el comentario que abre conversación.
@@ -71,7 +71,7 @@ Cada etapa tiene entrada, salida y una condición para pasar a la siguiente (igu
 
 - **A las 48 horas y a los 7 días:** copiar los números de TikTok Analytics a [`medicion/registro.csv`](medicion/registro.csv), una fila por corte (`corte` = `48h` o `7d`).
 - **Lunes, 20 minutos:** revisión con [`plantillas/semana.md`](plantillas/semana.md). Sale **una sola decisión**.
-- **La métrica que manda:** `conversaciones con empresas por mes`. Una conversación cuenta cuando alguien que dirige o decide en un negocio te escribe por DM, correo o LinkedIn por algo que vio. Las vistas son el medio.
+- **La métrica que manda:** `conversaciones con empresas por mes`. Una conversación cuenta cuando alguien que dirige o decide en un negocio te escribe por DM, correo o LinkedIn por algo que vio. Las vistas son el medio. Qué hacer cuando escriben: [`VENTA.md`](VENTA.md).
 
 ---
 
@@ -108,6 +108,7 @@ marca/
 ├── LLAVES.md            ← dónde van HeyGen y ElevenLabs (respuesta corta adentro)
 ├── CANON.md             ← tesis, audiencia, voz, límites, qué es real y qué es IA
 ├── FORMATOS.md          ← los 4 formatos y el orden de lanzamiento
+├── VENTA.md             ← la psicología de venta fuera de TikTok: LinkedIn, conversación, llamada, propuesta
 ├── CICLO.md             ← el ciclo autónomo: radar → análisis → producción → publicación → medición
 ├── encargos/            ← trabajo para los ejecutores de TORRE (E001 radar, ya hecho)
 ├── radar/               ← radar.py, fuentes.json y sus pruebas

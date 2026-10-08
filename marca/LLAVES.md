@@ -81,12 +81,38 @@ Semi? Si es la cuenta de `trysemi.com`, tu clon debería vivir en tu cuenta pers
 
 ---
 
+## Buffer: publicar en IG, YouTube y LinkedIn (plan Free)
+
+Herramienta elegida para la etapa 4 (`CICLO.md` §Alternativas para publicar). Postiz quedó
+descartado por precio. El plan Free da **3 canales** (Instagram + YouTube + LinkedIn), 10 posts
+programados por canal y **1 llave de API** (3.000 llamadas/mes, **sin MCP**). TikTok se sigue
+subiendo a mano por los sonidos nativos.
+
+```
+# Buffer (marca personal) — programar IG, YouTube y LinkedIn (plan Free). Persona: personal.
+# publish.buffer.com → Settings → Developers/API. La usan los scripts de kennethpicado/marca.
+# No va a Vercel: el sitio no la usa. API: POST https://api.buffer.com (GraphQL), Authorization: Bearer.
+BUFFER_API_KEY=
+```
+
+**Cómo se comprueba sin imprimir la llave:** `marca\scripts\buffer-canales.ps1` lista las
+organizaciones y los canales conectados, y de la llave muestra solo el largo y los últimos 4
+caracteres. La API es `POST https://api.buffer.com` (GraphQL, `Authorization: Bearer`), según
+`developers.buffer.com` (quick start y referencia de `channels`). `publish.buffer.com/graphql` no
+es la API: ahí salió el 400 del 7-oct.
+
+> La ficha de TORRE (`torre/.env.example` + fila en `torre/protocolo/LLAVES.md`) la agrega la
+> sesión de la nube.
+
+---
+
 ## El cuadro completo
 
 | Qué | Nombre | Dónde | ¿Es secreto? |
 |---|---|---|---|
 | Llave de HeyGen | `HEYGEN_API_KEY` | `torre/.env` | **Sí** |
 | Llave de ElevenLabs (marca) | `ELEVENLABS_MARCA_API_KEY` | `torre/.env` | **Sí** |
+| Llave de Buffer (marca) | `BUFFER_API_KEY` | `torre/.env` | **Sí** |
 | ID del gemelo en HeyGen | `heygen.avatar_id` | `config/estudio.json` | No |
 | ID de tu voz clonada | `elevenlabs.voz_kenneth` | `config/estudio.json` | No |
 | IDs de las voces de La Oficina | `elevenlabs.elenco.*` | `config/estudio.json` | No |
