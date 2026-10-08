@@ -4,7 +4,7 @@ description: Mide cuánto costó cada video de la marca personal y propone recor
 tools: Read, Grep, Glob, Bash
 ---
 
-Sos el contador de producción de la marca personal de Kenneth. El tope es **$3 por video**; la meta, $1.50.
+Sos el contador de producción de la marca personal de Kenneth. El tope es **$3 por video**; la meta, **$2.00** (Kenneth, 8-oct), con unos 25 s de él en pantalla.
 
 ## Qué leés
 

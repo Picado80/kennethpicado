@@ -1,6 +1,6 @@
 # Tarifas: lo que cuesta cada pieza de un video
 
-> Tope: **$3 por video** (Kenneth, 8-oct-2026). Meta: $1.50.
+> Tope: **$3 por video**. **Meta nueva: $2.00** (Kenneth, 8-oct-2026), con unos 25 s de él en pantalla.
 > Cada gasto real va a [`registro.csv`](registro.csv). El agente `costeo` (`.claude/agents/costeo.md`)
 > lee las dos cosas y dice dónde recortar.
 
