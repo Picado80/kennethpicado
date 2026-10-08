@@ -40,9 +40,7 @@ economía del comportamiento (Kahneman, Tversky y Thaler).
 ## 1 · Antes de que te escriban: LinkedIn, el perfil y el sitio
 
 - **Primado (3).** El video deja una idea puesta: «saber dirigir». Lo que la persona ve después
-  del clic (perfil, sitio, primer post) tiene que seguir con esa misma idea y en el mismo idioma.
-  **Hoy no pasa:** la bio de TikTok manda a `kennethpicado.vercel.app`, que está en inglés. Ver
-  §Lo que falta.
+  del clic (perfil, primer post) tiene que seguir con esa misma idea y en el mismo idioma.
 - **Encuadre (2).** En LinkedIn no sos «el experto en IA»: sos el operador que dirige con IA. El
   mismo trabajo, contado como operaciones, le habla a quien paga: *«Un anfiteatro de 800 personas
   cerraba la caja en [tiempo real]. Ahora la cierra en [tiempo real].»*
@@ -124,9 +122,6 @@ vender, y se queda como está.
 
 ## Lo que falta
 
-- **El sitio está en inglés** y la bio de TikTok manda ahí. El dueño tico que viene del video cae
-  en otro idioma y se pierde lo que el video preparó (§1). Decisión de Kenneth: una página en
-  español para ese tráfico.
 - **Medir más allá de la conversación.** Hoy el registro llega hasta «me escribió». Para saber qué
   de esto funciona, cada conversación anota hasta dónde llegó (llamada, propuesta, sí o no) y por
   qué se cayó. Ese registro va fuera de este repo, que es público: en Drive, junto a los videos.

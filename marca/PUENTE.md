@@ -17,7 +17,13 @@
 **Tesis de la marca:** «No necesitás ser técnico para trabajar con IA. Necesitás saber dirigir.»
 
 - **Audiencia:** dueños y gerentes de negocios que **no** son técnicos, primero en Costa Rica.
-- **Plataformas:** TikTok primero. LinkedIn cuando haya 30 videos y 2 formatos validados.
+- **El orden (Kenneth, 7-oct):** darse a conocer en redes → vender **Semi** (el producto estrella) →
+  vender **RedTurn** → lo demás.
+- **Plataformas:** TikTok e Instagram primero. YouTube cuando Kenneth pueda; LinkedIn después.
+- **Kenneth no graba (7-oct):** los videos salen con su avatar de HeyGen («Kenneth GP») y su voz
+  clonada de ElevenLabs desde el video 1. Cambia la regla de `CANON.md` (cara real hasta el 15):
+  el video 002 va primero como prueba, y si Kenneth lo aprueba se ajusta el canon.
+- **El sitio `kennethpicado.vercel.app` no se toca:** es su portafolio y CV, no es parte de la marca.
 - **Meta:** **conversaciones con empresas por mes**, no vistas. Una conversación cuenta cuando
   alguien que dirige o decide en un negocio le escribe a Kenneth por algo que vio.
 - **Los 4 formatos** (`FORMATOS.md`):
@@ -196,8 +202,8 @@ Personal», pero duplicaría las llaves fuera de `torre\.env`. **Decisión: la m
 
 ## 7. Lo que espera una decisión de Kenneth
 
-1. ~~La voz del mp3~~: confirmada el 7-oct. ~~¿Gemelo o cara real?~~ **Decidido el 7-oct: cara real
-   del video 1 al 15**, como dice `CANON.md`. Kenneth graba.
+1. ~~La voz del mp3~~: confirmada el 7-oct. ~~¿Gemelo o cara real?~~ **Kenneth no graba** (7-oct): avatar
+   «Kenneth GP» + voz clonada desde el video 1. Primero el 002 como prueba; si lo aprueba, se ajusta `CANON.md`.
 2. ~~Verificar Buffer~~: hecho el 7-oct. Instagram y TikTok conectados, que es lo que importa hoy. YouTube cuando Kenneth pueda; LinkedIn, después.
    **No volver a preguntarle por las voces de los personajes:** se diseñan en ElevenLabs al editar *La Oficina* (su voz no se toca).
 3. **Las cuentas de referencia del radar:** tachar o sumar sobre las 4 de `fuentes.json`. Lo ideal
@@ -208,8 +214,6 @@ Personal», pero duplicaría las llaves fuera de `torre\.env`. **Decisión: la m
    `claude/marca-voz-y-radar`). Queda Picado80/torre#46.
 7. **El gasto:** confirmar los planes reales. La API de ElevenLabs dice **creator**, no Starter; el
    plan de HeyGen no está confirmado; Buffer, yt-dlp y Composio cuestan $0. Que no pase de $100 al mes.
-8. **El sitio en inglés:** la bio de TikTok manda a `kennethpicado.vercel.app`, que está en inglés,
-   y el público del video es tico. ¿Una página en español para ese tráfico? (`VENTA.md` §Lo que falta).
 
 ## 8. Siguientes encargos (en orden)
 

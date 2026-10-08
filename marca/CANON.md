@@ -116,4 +116,5 @@ una salió de un incidente real, y cada incidente es un episodio.
 > Operaciones de Amazon. Una oficina de IAs. Negocios de verdad.
 > No necesitás ser técnico. Necesitás saber dirigir. 🇨🇷
 
-Enlace: `kennethpicado.vercel.app` (el portafolio, no Semi). La persona primero; Semi se descubre.
+Enlace: por definir. `kennethpicado.vercel.app` es el portafolio y CV de Kenneth: no es parte de la
+marca y **no se toca** (Kenneth, 7-oct). La persona primero; Semi se descubre.
