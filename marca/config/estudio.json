@@ -8,12 +8,13 @@
     "idioma": "es-CR"
   },
   "heygen": {
-    "avatar_id": "",
+    "avatar_id": "464059781a764390825c4dffa4d777f7",
+    "avatar_nombre": "Kenneth GP (creado el 6-oct-2026, 11 looks)",
     "avatar_tipo": "gemelo digital (Kenneth)",
     "fondo": ""
   },
   "elevenlabs": {
-    "voz_kenneth": "",
+    "voz_kenneth": "jntdbfQTWPMmzXt1UxCu",
     "elenco": {
       "claude": "",
       "codex": "",

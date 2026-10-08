@@ -82,7 +82,7 @@ C:\Users\Picado\
 |---|---|---|
 | Picado80/kennethpicado#1 | Toda la carpeta `marca/` | **mergeado** en main |
 | Picado80/kennethpicado#2 (`claude/marca-voz-y-radar`) | Radar honesto (`9910b22`) | **mergeado** en main el 6-oct a las 18:05. El commit `25845c6` (4 cuentas, Buffer en lugar de Postiz, ficha de Buffer, primera tabla del radar) se hizo 7 minutos después y **quedó fuera de main** |
-| Picado80/kennethpicado#3 (`claude/personal-brand-video-strategy-j90cvq`) | Este PUENTE.md + `25845c6` + script de Buffer | borrador abierto. Su base es `claude/marca-voz-y-radar` (ya mergeada): **hay que pasarla a `main`** para que `25845c6` llegue a main. Espera el sí de Kenneth |
+| Picado80/kennethpicado#3 | Este PUENTE.md + `25845c6` | **mergeado el 7-oct en `claude/marca-voz-y-radar`, no en main.** Lo lleva a main el PR nuevo de `claude/personal-brand-video-strategy-j90cvq` (con VENTA.md, guiones 003-005 y el script de Buffer) |
 | Picado80/torre#45 | Fichas de HeyGen y ElevenLabs, verificador #95, radar #96 | **mergeado** |
 | Picado80/torre#46 (`bookkeeping/20261007-buffer-marca`) | Ficha de `BUFFER_API_KEY`, ledger del 07-oct, evento `decision` | **borrador abierto**, CI verde |
 
@@ -92,15 +92,17 @@ C:\Users\Picado\
 |---|---|
 | `HEYGEN_API_KEY` | verificada (largo 54). La API v3 responde: 20 avatares. La v2 se apaga el 2026-10-31 |
 | `ELEVENLABS_MARCA_API_KEY` | verificada (largo 51). Aparte de la `ELEVENLABS_API_KEY` de Semi: **nunca pisar esa**. La API dice plan **creator** (0 de 186.000 caracteres usados) |
-| `BUFFER_API_KEY` | guardada por Kenneth el 7-oct (largo 43). El 400 de antes fue por el endpoint equivocado (ver Publicación), no prueba que la llave sirva. **Falta listar los canales** con `scripts\buffer-canales.ps1` (listo, sin correr): espera el «sí» de Kenneth escrito por él en la sesión de la PC |
+| `BUFFER_API_KEY` | **verificada el 7-oct** con `scripts\buffer-canales.ps1` (largo 43): la cuenta responde, 1 organización, **0 canales conectados**. Falta que Kenneth conecte Instagram (profesional), YouTube y LinkedIn en Buffer |
 
 ### Voz
 
 - El clon de Kenneth es **profesional** (categoría `professional`, no `cloned`). Por eso
   `probar-voz.ps1` sin `-VozId` no lo encuentra.
 - Voz **«Picado»**, ID `jntdbfQTWPMmzXt1UxCu`. El mp3 de prueba quedó en `marca\salidas\prueba-voz-*.mp3` (no va a git).
-- **Falta que Kenneth confirme que suena a él.** Cuando confirme, ese ID va a `config\estudio.json`
-  → `elevenlabs.voz_kenneth`, que hoy está vacío.
+- **Kenneth confirmó el 7-oct que suena a él.** El ID está en `config\estudio.json` → `elevenlabs.voz_kenneth`.
+- **El gemelo ya existe:** avatar «Kenneth GP» en HeyGen (creado el 6-oct, 11 looks), en
+  `config\estudio.json` → `heygen.avatar_id`. Kenneth pregunta por qué grabar si ya hay gemelo y voz:
+  choca con `CANON.md` (cara real hasta el video 15). Decisión suya, §7.
 
 ### Radar
 
@@ -194,15 +196,15 @@ Personal», pero duplicaría las llaves fuera de `torre\.env`. **Decisión: la m
 
 ## 7. Lo que espera una decisión de Kenneth
 
-1. **¿La voz del mp3 suena a él?** Si sí, guardar `jntdbfQTWPMmzXt1UxCu` en `config\estudio.json`.
-2. **«Sí, verificá Buffer»**, dicho en la sesión de la PC, para listar los canales. Antes tiene
-   que haber conectado Instagram (profesional), YouTube y LinkedIn en Buffer.
+1. ~~La voz del mp3~~: confirmada el 7-oct. **Nueva:** ¿gemelo + voz clonada desde el video 1, o cara
+   real hasta el video 15 como dice `CANON.md`?
+2. ~~Verificar Buffer~~: hecho el 7-oct. **Falta conectar** Instagram (profesional), YouTube y LinkedIn en Buffer.
 3. **Las cuentas de referencia del radar:** tachar o sumar sobre las 4 de `fuentes.json`. Lo ideal
    son personas que le hablen de IA a dueños de negocio en español, no fábricas de contenido.
 4. **El Episodio 0** («$100 y 30 días»): sí o no.
 5. **El gemelo de HeyGen:** grabar 2 minutos a cámara y el consentimiento.
-6. **Los PRs:** pasar la base de Picado80/kennethpicado#3 a `main` y mergearlo; después
-   Picado80/torre#46. Claude puede hacerlo desde la PC si Kenneth lo pide.
+6. **Los PRs:** Kenneth autorizó el 7-oct subir y mergear a main lo de esta rama (el #3 ya entró a
+   `claude/marca-voz-y-radar`). Queda Picado80/torre#46.
 7. **El gasto:** confirmar los planes reales. La API de ElevenLabs dice **creator**, no Starter; el
    plan de HeyGen no está confirmado; Buffer, yt-dlp y Composio cuestan $0. Que no pase de $100 al mes.
 8. **El sitio en inglés:** la bio de TikTok manda a `kennethpicado.vercel.app`, que está en inglés,

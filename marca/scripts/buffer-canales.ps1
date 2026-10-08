@@ -109,7 +109,8 @@ if ($orgs.Count -eq 0) {
 $fallos = 0
 $todos = @()
 foreach ($org in $orgs) {
-  $c = Invoke-Buffer ("query { channels(input: { organizationId: ""{0}"" }) { id name displayName service descriptor isDisconnected isLocked } }" -f $org.id)
+  # Concatenado y no con -f: las llaves de GraphQL rompen el formato de PowerShell
+  $c = Invoke-Buffer ('query { channels(input: { organizationId: "' + $org.id + '" }) { id name displayName service descriptor isDisconnected isLocked } }')
   if (-not $c.Ok) { Write-Falla "canales" $c; $fallos++; continue }
   foreach ($canal in @($c.Datos.channels | Where-Object { $_ })) {
     $canal | Add-Member -NotePropertyName organizationId -NotePropertyValue $org.id -Force
