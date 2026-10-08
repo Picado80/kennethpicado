@@ -1,0 +1,79 @@
+      <!-- Animaciones de papel recortado (hechas con codigo, $0) -->
+      <div id="pa" class="clip" data-start="26.4" data-duration="5.3" data-track-index="1">
+        <svg id="pa-svg" viewBox="0 0 1080 1920" width="1080" height="1920">
+          <defs>
+            <filter id="pa-sombra" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="12" stdDeviation="10" flood-color="#3a2a14" flood-opacity="0.35"/></filter>
+            <filter id="pa-grano"><feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="2" seed="7"/><feColorMatrix type="saturate" values="0"/></filter>
+            <pattern id="pa-azulejo" width="135" height="135" patternUnits="userSpaceOnUse"><rect width="135" height="135" fill="#E9D8B6"/><rect x="4" y="4" width="127" height="127" rx="12" fill="#F4E7CC"/></pattern>
+          </defs>
+          <rect width="1080" height="1920" fill="url(#pa-azulejo)"/>
+          <g filter="url(#pa-sombra)">
+            <rect x="70" y="700" width="16" height="70" rx="6" fill="#6B4A2E"/>
+            <ellipse cx="78" cy="880" rx="46" ry="34" fill="#9FA7B0"/>
+            <rect x="72" y="760" width="12" height="110" rx="6" fill="#9FA7B0"/>
+            <rect x="160" y="700" width="16" height="60" rx="6" fill="#6B4A2E"/>
+            <rect x="140" y="750" width="56" height="150" rx="10" fill="#C76B43"/>
+          </g>
+          <g id="pa-hoja" filter="url(#pa-sombra)">
+            <rect x="300" y="720" width="480" height="640" rx="6" fill="#FFFDF7"/>
+            <path id="pa-l1" d="M360 840 C400 820 440 860 480 840 S560 820 600 845 S680 830 720 840" fill="none" stroke="#2D3340" stroke-width="10" stroke-linecap="round" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"/>
+            <path id="pa-l2" d="M360 950 C410 930 450 970 500 950 S590 930 640 955" fill="none" stroke="#2D3340" stroke-width="10" stroke-linecap="round" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"/>
+            <path id="pa-l3" d="M360 1060 C400 1040 450 1080 500 1060 S600 1040 700 1065" fill="none" stroke="#2D3340" stroke-width="10" stroke-linecap="round" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"/>
+            <path id="pa-l4" d="M360 1170 C420 1150 470 1190 540 1170" fill="none" stroke="#C0392B" stroke-width="10" stroke-linecap="round" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"/>
+            <rect id="pa-cinta1" x="290" y="700" width="140" height="48" rx="4" fill="#F5B700" opacity="0.85"/>
+            <rect id="pa-cinta2" x="650" y="700" width="140" height="48" rx="4" fill="#F5B700" opacity="0.85"/>
+          </g>
+          <g filter="url(#pa-sombra)">
+            <rect x="0" y="1560" width="1080" height="360" fill="#B5653A"/>
+            <rect x="0" y="1560" width="1080" height="34" fill="#8E4B29"/>
+            <rect x="700" y="1440" width="250" height="130" rx="24" fill="#2F3A4A"/>
+            <rect x="680" y="1430" width="290" height="30" rx="12" fill="#3E4B5E"/>
+          </g>
+          <path id="pa-vapor1" d="M760 1400 C740 1360 790 1330 765 1290" fill="none" stroke="#FFFFFF" stroke-width="12" stroke-linecap="round" opacity="0"/>
+          <path id="pa-vapor2" d="M840 1400 C820 1360 870 1330 845 1290" fill="none" stroke="#FFFFFF" stroke-width="12" stroke-linecap="round" opacity="0"/>
+          <rect width="1080" height="1920" filter="url(#pa-grano)" opacity="0.07"/>
+        </svg>
+      </div>
+      <div id="pb" class="clip" data-start="31.7" data-duration="5.2" data-track-index="1">
+        <svg id="pb-svg" viewBox="0 0 1080 1920" width="1080" height="1920">
+          <defs>
+            <filter id="pb-sombra" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="12" stdDeviation="10" flood-color="#3a2a14" flood-opacity="0.35"/></filter>
+            <filter id="pb-grano"><feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="2" seed="11"/><feColorMatrix type="saturate" values="0"/></filter>
+          </defs>
+          <rect width="1080" height="1920" fill="#C98B55"/>
+          <path d="M0 820 C300 800 700 850 1080 815 M0 1180 C350 1160 650 1210 1080 1170 M0 1600 C300 1580 760 1630 1080 1590" fill="none" stroke="#B37743" stroke-width="10"/>
+          <g filter="url(#pb-sombra)" transform="rotate(2 410 1110)">
+            <rect x="110" y="720" width="600" height="780" rx="10" fill="#FBF6EA"/>
+            <path d="M110 820 H710 M110 880 H710 M110 940 H710 M110 1000 H710 M110 1060 H710 M110 1120 H710 M110 1180 H710 M110 1240 H710 M110 1300 H710 M110 1360 H710 M110 1420 H710" stroke="#BFD3EA" stroke-width="3"/>
+            <path d="M200 720 V1500" stroke="#E7A2A2" stroke-width="4"/>
+            <g stroke="#2D3340" stroke-width="12" stroke-linecap="round" fill="none">
+              <path id="pb-m1" d="M270 930 V1080" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"/>
+              <path id="pb-m2" d="M310 930 V1080" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"/>
+              <path id="pb-m3" d="M350 930 V1080" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"/>
+              <path id="pb-m4" d="M390 930 V1080" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"/>
+              <path id="pb-m5" d="M245 1060 L415 950" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"/>
+              <path id="pb-m6" d="M480 930 V1080" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"/>
+              <path id="pb-m7" d="M520 930 V1080" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"/>
+              <path id="pb-m8" d="M560 930 V1080" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"/>
+              <path id="pb-m9" d="M600 930 V1080" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"/>
+              <path id="pb-m10" d="M455 1060 L625 950" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"/>
+              <path id="pb-m11" d="M270 1180 V1330" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"/>
+              <path id="pb-m12" d="M310 1180 V1330" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"/>
+            </g>
+          </g>
+          <g filter="url(#pb-sombra)">
+            <g id="pb-p1"><ellipse cx="880" cy="1480" rx="150" ry="40" fill="#FFFFFF"/><ellipse cx="880" cy="1472" rx="104" ry="24" fill="#EDEFF2"/></g>
+            <g id="pb-p2"><ellipse cx="880" cy="1440" rx="150" ry="40" fill="#FFFFFF"/><ellipse cx="880" cy="1432" rx="104" ry="24" fill="#EDEFF2"/></g>
+            <g id="pb-p3"><ellipse cx="880" cy="1400" rx="150" ry="40" fill="#FFFFFF"/><ellipse cx="880" cy="1392" rx="104" ry="24" fill="#EDEFF2"/></g>
+            <g id="pb-p4"><ellipse cx="880" cy="1360" rx="150" ry="40" fill="#FFFFFF"/><ellipse cx="880" cy="1352" rx="104" ry="24" fill="#EDEFF2"/></g>
+            <g id="pb-p5"><ellipse cx="880" cy="1320" rx="150" ry="40" fill="#FFFFFF"/><ellipse cx="880" cy="1312" rx="104" ry="24" fill="#EDEFF2"/></g>
+            <g id="pb-p6"><ellipse cx="880" cy="1280" rx="150" ry="40" fill="#FFFFFF"/><ellipse cx="880" cy="1272" rx="104" ry="24" fill="#EDEFF2"/></g>
+          </g>
+          <g id="pb-lapiz" filter="url(#pb-sombra)">
+            <polygon points="0,0 22,-30 300,-30 300,30 22,30" fill="#F5B700" transform="rotate(-35)"/>
+            <polygon points="0,0 22,-30 22,30" fill="#E8C9A0" transform="rotate(-35)"/>
+            <polygon points="0,0 8,-10 8,10" fill="#2D3340" transform="rotate(-35)"/>
+          </g>
+          <rect width="1080" height="1920" filter="url(#pb-grano)" opacity="0.07"/>
+        </svg>
+      </div>

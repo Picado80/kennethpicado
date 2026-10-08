@@ -109,6 +109,7 @@ marca/
 ├── CANON.md             ← tesis, audiencia, voz, límites, qué es real y qué es IA
 ├── FORMATOS.md          ← los 4 formatos y el orden de lanzamiento
 ├── VENTA.md             ← la psicología de venta fuera de TikTok: LinkedIn, conversación, llamada, propuesta
+├── FORMATO-DIVIDIDO.md  ← el formato de pantalla dividida (Kenneth abajo, animación arriba) y su costo
 ├── CICLO.md             ← el ciclo autónomo: radar → análisis → producción → publicación → medición
 ├── encargos/            ← trabajo para los ejecutores de TORRE (E001 radar, ya hecho)
 ├── radar/               ← radar.py, fuentes.json y sus pruebas
