@@ -11,6 +11,9 @@
     "avatar_id": "464059781a764390825c4dffa4d777f7",
     "avatar_nombre": "Kenneth GP (creado el 6-oct-2026, 11 looks)",
     "avatar_tipo": "gemelo digital (Kenneth)",
+    "look_gemelo_video": "78b3ba500a344b3aa41b2ac4e5b78fe2",
+    "motion_prompt": "Looks straight into the camera almost all the time. Every few sentences, a brief natural glance of about one second, slightly up, down or to one side as if thinking, and then right back to the camera. Never keeps talking while looking away. Small, subtle head nods and slight tilts that follow the speech. Calm and conversational.",
+    "motion_nota": "Pedido de Kenneth (8-oct): mirar a camara; vistazos de 1 s arriba, abajo o al lado y volver. La prueba de Avatar V del 8-oct miraba demasiado al lado.",
     "fondo": ""
   },
   "elevenlabs": {
