@@ -10,3 +10,5 @@ fecha,video,tipo,pieza,proveedor,detalle,cantidad,unidad,tarifa_usd,costo_usd,me
 2026-10-08,002,produccion,tomas de relleno,HeyGen Video,2 tomas de 5 s en 768p; 3 intentos fallidos no se cobraron,10,s,0.015,0.11,resto del 2.37 medido
 2026-10-08,002-v2,produccion,gemelo Avatar IV,HeyGen API,22.7 s en pantalla (reusa las partes del v1; Kenneth más atrás),22.71,s,0.0805,1.83,estimado por tarifa: no se volvió a generar
 2026-10-08,002-v2,produccion,tomas de relleno,HeyGen Video,las mismas 2 tomas de 5 s en 768p,10,s,0.015,0.15,estimado por tarifa: no se volvió a generar
+2026-10-08,002-v3,produccion,gemelo Avatar IV,HeyGen API,24.2 s en pantalla dividida (reusa las partes del v1),24.16,s,0.0805,1.94,estimado por tarifa: no se volvió a generar
+2026-10-08,002-v3,produccion,animaciones,HyperFrames,papel recortado y escenas en SVG hechas con código (reemplazan las tomas de HeyGen),1,video,0,0,código abierto
