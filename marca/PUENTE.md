@@ -215,6 +215,13 @@ Personal», pero duplicaría las llaves fuera de `torre\.env`. **Decisión: la m
 7. **El gasto:** confirmar los planes reales. La API de ElevenLabs dice **creator**, no Starter; el
    plan de HeyGen no está confirmado; Buffer, yt-dlp y Composio cuestan $0. Que no pase de $100 al mes.
 
+## 7b. La marca y SEMI (9-oct)
+
+- La marca personal va a quedar ligada a SEMI más adelante. Primero se trabaja la estrategia de SEMI y después se conectan.
+- **Anuncios en ChatGPT:** para SEMI, no para la marca. Hoy Costa Rica no puede comprar. Kenneth crea la cuenta en ads.openai.com para que le avisen.
+- **Que ChatGPT mencione a SEMI** (CRM, ERP, facturación, planillas, recursos humanos): el handoff con el diagnóstico de `trysemi.com` y los cambios está en `marca/salidas/HANDOFF-semi-seo-y-anuncios.md`. No va a git: es estrategia de SEMI y este repo es público. Kenneth se lo pasa a la sesión del sitio de SEMI.
+- **Directorio de plugins de OpenAI** (antes «apps»): el primer paso es que Kenneth verifique la organización en platform.openai.com.
+
 ## 8. Siguientes encargos (en orden)
 
 - **E002 · Producción** (cuando haya voz confirmada y gemelo):
