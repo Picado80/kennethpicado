@@ -111,6 +111,8 @@ marca/
 ├── VENTA.md             ← la psicología de venta fuera de TikTok: LinkedIn, conversación, llamada, propuesta
 ├── FORMATO-DIVIDIDO.md  ← el formato de pantalla dividida (Kenneth abajo, animación arriba) y su costo
 ├── ARRANQUE.md          ← el arranque gradual: de la cuenta personal a la marca, por fases
+├── ANUNCIOS.md          ← líneas de pago para SEMI: el gancho que segmenta en Meta, y ChatGPT
+├── HERRAMIENTAS.md      ← con qué se hace cada cosa, qué falta y las líneas de trabajo que salen de ahí
 ├── CICLO.md             ← el ciclo autónomo: radar → análisis → producción → publicación → medición
 ├── encargos/            ← trabajo para los ejecutores de TORRE (E001 radar, ya hecho)
 ├── radar/               ← radar.py, fuentes.json y sus pruebas
