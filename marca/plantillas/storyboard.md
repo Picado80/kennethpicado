@@ -9,7 +9,8 @@
 2. Se arma el borrador en HyperFrames con **una foto fija de Kenneth** donde va el gemelo: no se gasta nada.
 3. `python marca/scripts/storyboard.py produccion/NNN/tramos.json --video <borrador.mp4> --salida marca/salidas/guion-grafico-NNN`
    saca las páginas en PNG: cada tramo con sus cuadros y sus notas, como el guion gráfico de @justyn.ai.
-4. Kenneth las ve y corrige con una frase. **Recién ahí** se genera el gemelo y el video final.
+4. **Prueba de gancho:** los primeros 16 segundos del borrador, en 2 o 3 versiones, pasan por el Virality Predictor de Higgsfield ($0). Se queda el inicio con mejor puntaje de gancho. Ejemplo: `produccion/002/PRUEBA-GANCHO.md`.
+5. Kenneth ve el guion gráfico y corrige con una frase. **Recién ahí** se genera el gemelo y el video final.
 
 La tabla de abajo es la versión en texto, para cuando todavía no hay borrador.
 
