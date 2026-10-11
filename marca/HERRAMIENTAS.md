@@ -13,6 +13,7 @@
 | Ver videos | Video-Use ($0) | ffmpeg saca los cuadros y Claude los revisa | **Listo**. Video-Use sirve para otra cosa: ver abajo |
 | Bajar videos y datos | yt-dlp ($0) | yt-dlp (`radar/radar.py`) | **Listo**; los hashtags de TikTok siguen rotos |
 | Investigar transcripciones | Apify ($0) | yt-dlp, y las transcripciones que pasa Kenneth | Apify está bloqueado por una factura de $29 |
+| Predecir el gancho antes de publicar | — | Virality Predictor de Higgsfield, por el conector | **Probado el 11-oct**: $0, máximo 16 s por análisis. Es paso fijo antes de producir |
 | Tomas de relleno | Higgsfield ($10) | Animaciones con código ($0) y HeyGen Video ($0.015/s) | Kenneth ya tiene Higgsfield (200 créditos): **falta probarlo** |
 | Publicar | Plugkit ($0) | Buffer Free: Instagram y TikTok conectados | **Falta el script que programa** (encargo E003) |
 | Subtítulos y retoques | Edits de Instagram ($0) | Los subtítulos ya salen puestos en el video | No hace falta |
