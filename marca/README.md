@@ -50,6 +50,7 @@ Cada etapa tiene entrada, salida y una condición para pasar a la siguiente (igu
 | Paso | Quién / con qué | Salida |
 |---|---|---|
 | Guion | Claude saca el borrador con [`plantillas/guion.md`](plantillas/guion.md); Kenneth lo dice en voz alta y le pone su voz | `guiones/NNN-slug.md` |
+| Guion gráfico | Claude lo arma con [`plantillas/storyboard.md`](plantillas/storyboard.md) y el estilo de [`ESTILO.md`](ESTILO.md). **Kenneth lo aprueba antes de gastar en el gemelo** | `produccion/NNN/STORYBOARD.md` |
 | Grabación | Kenneth, celular vertical, **un bloque semanal** (5 videos, luz de mañana) | crudos → Drive |
 | Piezas con IA | ElevenLabs (voces de los personajes, voz clonada) · HeyGen (gemelo) — ver [`LLAVES.md`](LLAVES.md) | audios / clips → Drive |
 | Edición | Video Pipeline (preedición local, $0) → CapCut | final 1080×1920 → Drive |
@@ -109,6 +110,7 @@ marca/
 ├── CANON.md             ← tesis, audiencia, voz, límites, qué es real y qué es IA
 ├── FORMATOS.md          ← los 4 formatos y el orden de lanzamiento
 ├── VENTA.md             ← la psicología de venta fuera de TikTok: LinkedIn, conversación, llamada, propuesta
+├── ESTILO.md            ← el estilo «Editorial»: colores, letras, subtítulos, recursos y las frases que lo cambian
 ├── FORMATO-DIVIDIDO.md  ← el formato de pantalla dividida (Kenneth abajo, animación arriba) y su costo
 ├── ARRANQUE.md          ← el arranque gradual: de la cuenta personal a la marca, por fases
 ├── ANUNCIOS.md          ← líneas de pago para SEMI: el gancho que segmenta en Meta, y ChatGPT
