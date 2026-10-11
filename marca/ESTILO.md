@@ -37,7 +37,7 @@
 
 | Le sirve a él | Lo que hacemos nosotros |
 |---|---|
-| **Guion gráfico antes de renderizar**: ve qué piensa Claude y corrige con una frase | **Se agrega como paso fijo** (`plantillas/storyboard.md`): Kenneth lo aprueba antes de gastar en el gemelo |
+| **Guion gráfico antes de renderizar**: ve qué piensa Claude y corrige con una frase | **Se agrega como paso fijo**, con el mismo formato (`scripts/storyboard.py`, `plantillas/storyboard.md`): cada tramo con sus cuadros, la frase, qué pasa, énfasis, oro y sonido. Kenneth lo aprueba antes de gastar en el gemelo |
 | **Cambios con una frase** («más estético», «más oscuro», «subtítulos más grandes», «corte más apretado») | **Se agrega**: el estilo vive en variables (colores, letras, tamaño de subtítulos). Cambiarlas es una línea |
 | **Varias tomas reales** del mismo video | **Falta**: el gemelo tiene un solo encuadre. Ver «Lo que hace falta de Kenneth» |
 | **Título detrás de la cabeza** | **Se agrega**: recorte del fondo en la PC (`hyperframes remove-background`), $0 |
