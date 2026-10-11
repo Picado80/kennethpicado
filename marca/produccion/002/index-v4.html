@@ -1,0 +1,413 @@
+<!doctype html>
+<html lang="es" data-resolution="portrait">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <script src="assets/vendor/gsap.min.js"></script>
+    <style>
+      @font-face { font-family: "Instrument Serif"; font-weight: 400; font-style: normal; src: url("assets/fonts/instrument-serif-latin-400-normal.woff2") format("woff2"); }
+      @font-face { font-family: "Instrument Serif"; font-weight: 400; font-style: italic; src: url("assets/fonts/instrument-serif-latin-400-italic.woff2") format("woff2"); }
+      @font-face { font-family: "Archivo"; font-weight: 900; src: url("assets/fonts/archivo-latin-900-normal.woff2") format("woff2"); }
+      @font-face { font-family: "Archivo"; font-weight: 600; src: url("assets/fonts/archivo-latin-600-normal.woff2") format("woff2"); }
+      @font-face { font-family: "JetBrains Mono"; font-weight: 500; src: url("assets/fonts/jetbrains-mono-latin-500-normal.woff2") format("woff2"); }
+      :root { --tinta: #16233F; --vitela: #E8E6DE; --oro: #C9A45C; --grafito: #23262A; --rojo: #B22B3F; }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { margin: 0; width: 1080px; height: 1920px; overflow: hidden; background: #16233F; }
+      #root { position: relative; width: 100%; height: 100%; overflow: hidden; background: var(--tinta); color: var(--vitela); font-family: "Archivo", sans-serif; }
+      .clip { position: absolute; inset: 0; width: 100%; height: 100%; }
+      video.clip { object-fit: cover; }
+      .tinta { background: var(--tinta); }
+      .vitela { background: var(--vitela); color: var(--grafito); }
+      .serif { font-family: "Instrument Serif", serif; font-weight: 400; }
+      .cursiva { font-family: "Instrument Serif", serif; font-style: italic; font-weight: 400; }
+      .oro { color: var(--oro); }
+      .mono { font-family: "JetBrains Mono", monospace; font-weight: 500; text-transform: uppercase; letter-spacing: 0.22em; font-size: 26px; color: var(--vitela); opacity: 0.75; }
+      .golpe { font-family: "Archivo", sans-serif; font-weight: 900; letter-spacing: -0.02em; text-transform: uppercase; }
+      /* titular detras de la cabeza */
+      .titular { position: absolute; left: 0; right: 0; top: 150px; text-align: center; font-size: 330px; line-height: 1; letter-spacing: -0.02em; text-transform: uppercase; color: var(--tinta); }
+      .titular2 { position: absolute; left: 60px; right: 60px; top: 170px; text-align: center; font-size: 184px; line-height: 0.95; color: var(--tinta); }
+      .rojo { color: var(--rojo); }
+      .serie { position: absolute; left: 0; right: 0; top: 70px; text-align: center; color: var(--grafito); }
+      /* escenas a pantalla completa */
+      .esc { display: flex; flex-direction: column; justify-content: center; align-items: flex-start; padding: 0 84px; }
+      .xl { font-size: 190px; line-height: 0.92; letter-spacing: -0.02em; }
+      .l { font-size: 120px; line-height: 0.98; }
+      .m { font-size: 76px; line-height: 1.05; }
+      .banda { display: inline-block; background: var(--vitela); color: var(--tinta); font-size: 120px; line-height: 1; padding: 22px 34px 14px; margin-top: 60px; }
+      .sep { margin-top: 36px; }
+      /* pantalla dividida */
+      .abajo { position: absolute; left: 0; top: 960px; width: 1080px; height: 960px; overflow: hidden; }
+      video.avs.clip { inset: auto; left: 0; top: -160px; width: 1080px; height: 1920px; transform-origin: 50% 35%; }
+      .arriba-svg { position: absolute; left: 0; top: 0; }
+      .clip.mitad { inset: 0 0 auto 0; height: 960px; background: var(--tinta); display: flex; flex-direction: column; justify-content: center; align-items: flex-start; padding: 0 84px; }
+      .linea-oro { position: absolute; left: 0; top: 958px; width: 1080px; height: 4px; background: var(--oro); }
+      /* Kenneth mas atras (tarjeta) */
+      video.av.clip { inset: auto; left: 130px; top: 462px; width: 820px; height: 1458px; border-radius: 8px 8px 0 0; transform-origin: 50% 100%; }
+      /* portada de revista */
+      .marco { position: absolute; left: 48px; top: 48px; right: 48px; bottom: 48px; border: 3px solid var(--oro); }
+      .cabecera { position: absolute; left: 0; right: 0; top: 126px; text-align: center; font-size: 150px; line-height: 1; text-transform: uppercase; letter-spacing: -0.01em; }
+      .bajada { position: absolute; left: 0; right: 0; top: 286px; text-align: center; font-size: 74px; }
+      .numero { position: absolute; left: 0; right: 0; top: 76px; text-align: center; }
+      .barras { position: absolute; left: 84px; bottom: 96px; width: 150px; height: 84px; background: repeating-linear-gradient(90deg, #E8E6DE 0 5px, transparent 5px 9px, #E8E6DE 9px 11px, transparent 11px 17px, #E8E6DE 17px 23px, transparent 23px 26px); }
+      /* tarjetas flotantes */
+      .nota { position: absolute; left: 120px; width: 840px; background: var(--vitela); color: var(--grafito); padding: 44px 50px 50px; box-shadow: 0 30px 60px rgba(0,0,0,0.45); }
+      .nota .mono { color: var(--grafito); opacity: 0.6; }
+      .nota .q { font-family: "Instrument Serif", serif; font-style: italic; font-size: 84px; line-height: 1.02; margin-top: 18px; }
+      /* tarjeta sobre papel recortado */
+      .ficha { position: absolute; left: 60px; right: 60px; top: 150px; background: var(--tinta); padding: 40px 48px 46px; }
+      .ficha .t { font-family: "Instrument Serif", serif; font-size: 92px; line-height: 0.98; margin-top: 14px; }
+      .ficha .s { font-weight: 600; font-size: 40px; line-height: 1.2; margin-top: 16px; color: #B9BDC9; }
+      /* reloj */
+      .reloj { display: flex; gap: 22px; align-items: center; margin: 40px 0 46px; }
+      .reloj .d { background: var(--vitela); color: var(--tinta); font-family: "Instrument Serif", serif; font-size: 330px; line-height: 1; padding: 6px 36px 0; border-radius: 14px; }
+      .reloj .p { font-family: "Instrument Serif", serif; font-size: 260px; line-height: 1; color: var(--oro); }
+      /* cierre */
+      .etiqueta { position: absolute; left: 130px; right: 130px; top: 130px; background: var(--vitela); color: var(--tinta); font-family: "Archivo", sans-serif; font-weight: 900; font-size: 58px; line-height: 1.05; padding: 22px 30px 18px; }
+      .pildora { position: absolute; left: 130px; top: 300px; width: 820px; background: #FFFFFF; color: var(--grafito); border-radius: 22px; padding: 24px 30px; font-weight: 600; font-size: 44px; box-shadow: 0 20px 40px rgba(0,0,0,0.35); }
+      .pildora .mono { color: var(--grafito); font-size: 20px; opacity: 0.55; }
+      /* subtitulos */
+      .cap { position: absolute; left: 0; right: 0; text-align: center; opacity: 0; }
+      .cap .caja { display: inline-block; background: rgba(22,35,63,0.94); padding: 10px 26px 14px; font-family: "Instrument Serif", serif; font-size: 62px; line-height: 1.08; color: var(--vitela); }
+      .cap .caja span { opacity: 0.45; }
+      .capx { position: absolute; left: 40px; right: 40px; top: 1130px; text-align: center; font-family: "Instrument Serif", serif; font-size: 190px; line-height: 0.9; text-transform: uppercase; color: var(--vitela); text-shadow: 0 10px 40px rgba(0,0,0,0.55); }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="50.16" data-width="1080" data-height="1920">
+
+      <!-- 1 y 2 · Titular detras de la cabeza (0-5.3) -->
+      <div id="t1" class="clip vitela" data-start="0" data-duration="2.7" data-track-index="0">
+        <div class="mono serie" id="t1s">Amazon · 2010–2024</div>
+        <div class="serif titular" id="t1a">14 años</div>
+      </div>
+      <div id="t2" class="clip vitela" data-start="2.7" data-duration="2.6" data-track-index="0">
+        <div class="mono serie" id="t2s">N.º 002 · Amazon en la soda</div>
+        <div class="cursiva titular2" id="t2a">que <span class="rojo">nunca</span> se apagó.</div>
+      </div>
+      <video id="av1" class="clip" src="assets/av1-alfa.webm" muted playsinline data-start="0" data-duration="5.3" data-track-index="1"></video>
+
+      <!-- 4 y 5 · Pantalla dividida (10.3-16.0) -->
+      <div class="abajo">
+        <video id="av2a" class="clip avs" src="assets/av2.mp4" muted playsinline data-start="10.3" data-duration="5.7" data-track-index="1"></video>
+      </div>
+      <div id="s2" class="clip" data-start="10.3" data-duration="3.8" data-track-index="1">
+        <svg class="arriba-svg" viewBox="0 0 1080 960" width="1080" height="960">
+          <defs><filter id="s2-sombra" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="10" stdDeviation="8" flood-color="#3a2a14" flood-opacity="0.35"/></filter></defs>
+          <rect width="1080" height="960" fill="#F2D9A8"/>
+          <circle cx="900" cy="150" r="70" fill="#F5B700"/>
+          <g filter="url(#s2-sombra)">
+            <rect x="240" y="300" width="600" height="520" fill="#E9E1D2"/>
+            <path d="M200 300 L880 300 L840 210 L240 210 Z" fill="#C0392B"/>
+            <path d="M260 210 L330 210 L310 300 L230 300 Z M400 210 L470 210 L460 300 L380 300 Z M540 210 L610 210 L610 300 L530 300 Z M680 210 L750 210 L760 300 L680 300 Z" fill="#FFFFFF"/>
+            <rect x="300" y="420" width="180" height="400" fill="#7A4A2A"/>
+            <rect x="560" y="420" width="220" height="170" fill="#9CC3D5"/>
+            <rect x="400" y="110" width="280" height="90" rx="14" fill="#16181D"/><text x="540" y="175" text-anchor="middle" font-family="Inter" font-weight="900" font-size="56" fill="#F5B700">SODA</text>
+          </g>
+          <g id="s2-rotulo" filter="url(#s2-sombra)">
+            <rect x="300" y="470" width="180" height="90" rx="10" fill="#C0392B"/>
+            <text x="390" y="530" text-anchor="middle" font-family="Inter" font-weight="900" font-size="38" fill="#FFFFFF">CERRADO</text>
+          </g>
+          <g id="s2-termo" filter="url(#s2-sombra)">
+            <rect x="880" y="420" width="44" height="260" rx="22" fill="#FFFFFF"/>
+            <circle cx="902" cy="700" r="46" fill="#FFFFFF"/>
+            <rect id="s2-mercurio" x="892" y="440" width="20" height="240" rx="10" fill="#C0392B"/>
+            <circle cx="902" cy="700" r="34" fill="#C0392B"/>
+          </g>
+          <rect x="0" y="820" width="1080" height="140" fill="#B5653A"/>
+        </svg>
+      </div>
+
+
+      <div id="s3" class="clip mitad" data-start="14.1" data-duration="1.9" data-track-index="2">
+        <div class="serif m" id="s3a">No tenés un negocio.</div>
+        <div class="serif l sep" id="s3b">Tenés un <span class="cursiva oro">trabajo con local.</span></div>
+      </div>
+      <div id="lo" class="clip" data-start="10.3" data-duration="5.7" data-track-index="3"><div class="linea-oro"></div></div>
+
+      <!-- 6 · Portada de revista (16.0-19.9) -->
+      <video id="av2b" class="clip av" src="assets/av2.mp4" muted playsinline data-start="16.0" data-media-start="5.7" data-duration="3.9" data-track-index="1"></video>
+      <div id="rv" class="clip" data-start="16.0" data-duration="3.9" data-track-index="3">
+        <div class="marco" id="rv-m"></div>
+        <div class="mono numero" id="rv-n">N.º 002 · Octubre 2026 · Amazon en la soda</div>
+        <div class="serif cabecera" id="rv-c">El estándar</div>
+        <div class="cursiva bajada oro" id="rv-b">vive en tu cabeza.</div>
+        <div class="barras" id="rv-k"></div>
+      </div>
+
+      <!-- 12 · Kenneth a cuadro completo (40.9-44.75) y 14 · cierre (46.2-50.16) -->
+      <video id="av3a" class="clip" src="assets/av3.mp4" muted playsinline data-start="40.9" data-media-start="4.0" data-duration="3.85" data-track-index="1"></video>
+      <div id="cx" class="clip" data-start="43.55" data-duration="1.2" data-track-index="3">
+        <div class="capx" id="cx-a">no es un negocio</div>
+      </div>
+      <video id="av3b" class="clip av" src="assets/av3.mp4" muted playsinline data-start="46.2" data-media-start="9.3" data-duration="3.96" data-track-index="1"></video>
+      <div id="fin" class="clip" data-start="46.2" data-duration="3.96" data-track-index="3">
+        <div class="etiqueta" id="fin-e">Si tenés un negocio, guardalo.</div>
+        <div class="pildora" id="fin-p"><div class="mono">Enviar a</div><div id="fin-pt">Alguien que sí tiene uno</div></div>
+      </div>
+
+      <!-- 3 · Tipografia a pantalla completa (5.3-10.3) -->
+      <div id="e1" class="clip esc tinta" data-start="5.3" data-duration="5.0" data-track-index="2">
+        <div class="mono" id="e1a">¿Por qué no se apagaba?</div>
+        <div class="serif xl sep" id="e1b">Nadie era <span class="cursiva oro">indispensable.</span></div>
+        <div class="golpe banda" id="e1c">Ni el jefe.</div>
+      </div>
+
+      <!-- 7 · Tarjetas flotantes (19.9-24.7) -->
+      <div id="e2" class="clip tinta" data-start="19.9" data-duration="4.8" data-track-index="2">
+        <div class="nota" id="n1" style="top: 250px"><div class="mono">Solo usted lo sabe · 1</div><div class="q">¿Cuánto arroz lleva el casado?</div></div>
+        <div class="nota" id="n2" style="top: 700px"><div class="mono">Solo usted lo sabe · 2</div><div class="q">¿A quién se le fía?</div></div>
+        <div class="nota" id="n3" style="top: 1110px"><div class="mono">Solo usted lo sabe · 3</div><div class="q">¿Qué se hace si no llega el proveedor?</div></div>
+      </div>
+
+      <!-- 8 · Tres cosas (24.7-26.4) -->
+      <div id="e3" class="clip esc tinta" data-start="24.7" data-duration="1.7" data-track-index="2">
+        <div class="serif" id="e3a" style="font-size: 760px; line-height: 0.78">3</div>
+        <div class="cursiva l" id="e3b">cosas para <span class="oro">mañana.</span></div>
+      </div>
+
+      <!-- 9 y 10 · Papel recortado (26.4-36.9) -->
+      <!-- Animaciones de papel recortado (hechas con codigo, $0) -->
+      <div id="pa" class="clip" data-start="26.4" data-duration="5.3" data-track-index="1">
+        <svg id="pa-svg" viewBox="0 0 1080 1920" width="1080" height="1920">
+          <defs>
+            <filter id="pa-sombra" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="12" stdDeviation="10" flood-color="#3a2a14" flood-opacity="0.35"/></filter>
+            <filter id="pa-grano"><feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="2" seed="7"/><feColorMatrix type="saturate" values="0"/></filter>
+            <pattern id="pa-azulejo" width="135" height="135" patternUnits="userSpaceOnUse"><rect width="135" height="135" fill="#E9D8B6"/><rect x="4" y="4" width="127" height="127" rx="12" fill="#F4E7CC"/></pattern>
+          </defs>
+          <rect width="1080" height="1920" fill="url(#pa-azulejo)"/>
+          <g filter="url(#pa-sombra)">
+            <rect x="70" y="700" width="16" height="70" rx="6" fill="#6B4A2E"/>
+            <ellipse cx="78" cy="880" rx="46" ry="34" fill="#9FA7B0"/>
+            <rect x="72" y="760" width="12" height="110" rx="6" fill="#9FA7B0"/>
+            <rect x="160" y="700" width="16" height="60" rx="6" fill="#6B4A2E"/>
+            <rect x="140" y="750" width="56" height="150" rx="10" fill="#C76B43"/>
+          </g>
+          <g id="pa-hoja" filter="url(#pa-sombra)">
+            <rect x="300" y="720" width="480" height="640" rx="6" fill="#FFFDF7"/>
+            <path id="pa-l1" d="M360 840 C400 820 440 860 480 840 S560 820 600 845 S680 830 720 840" fill="none" stroke="#2D3340" stroke-width="10" stroke-linecap="round" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"/>
+            <path id="pa-l2" d="M360 950 C410 930 450 970 500 950 S590 930 640 955" fill="none" stroke="#2D3340" stroke-width="10" stroke-linecap="round" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"/>
+            <path id="pa-l3" d="M360 1060 C400 1040 450 1080 500 1060 S600 1040 700 1065" fill="none" stroke="#2D3340" stroke-width="10" stroke-linecap="round" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"/>
+            <path id="pa-l4" d="M360 1170 C420 1150 470 1190 540 1170" fill="none" stroke="#C0392B" stroke-width="10" stroke-linecap="round" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"/>
+            <rect id="pa-cinta1" x="290" y="700" width="140" height="48" rx="4" fill="#F5B700" opacity="0.85"/>
+            <rect id="pa-cinta2" x="650" y="700" width="140" height="48" rx="4" fill="#F5B700" opacity="0.85"/>
+          </g>
+          <g filter="url(#pa-sombra)">
+            <rect x="0" y="1560" width="1080" height="360" fill="#B5653A"/>
+            <rect x="0" y="1560" width="1080" height="34" fill="#8E4B29"/>
+            <rect x="700" y="1440" width="250" height="130" rx="24" fill="#2F3A4A"/>
+            <rect x="680" y="1430" width="290" height="30" rx="12" fill="#3E4B5E"/>
+          </g>
+          <path id="pa-vapor1" d="M760 1400 C740 1360 790 1330 765 1290" fill="none" stroke="#FFFFFF" stroke-width="12" stroke-linecap="round" opacity="0"/>
+          <path id="pa-vapor2" d="M840 1400 C820 1360 870 1330 845 1290" fill="none" stroke="#FFFFFF" stroke-width="12" stroke-linecap="round" opacity="0"/>
+          <rect width="1080" height="1920" filter="url(#pa-grano)" opacity="0.07"/>
+        </svg>
+      </div>
+      <div id="pb" class="clip" data-start="31.7" data-duration="5.2" data-track-index="1">
+        <svg id="pb-svg" viewBox="0 0 1080 1920" width="1080" height="1920">
+          <defs>
+            <filter id="pb-sombra" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="12" stdDeviation="10" flood-color="#3a2a14" flood-opacity="0.35"/></filter>
+            <filter id="pb-grano"><feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="2" seed="11"/><feColorMatrix type="saturate" values="0"/></filter>
+          </defs>
+          <rect width="1080" height="1920" fill="#C98B55"/>
+          <path d="M0 820 C300 800 700 850 1080 815 M0 1180 C350 1160 650 1210 1080 1170 M0 1600 C300 1580 760 1630 1080 1590" fill="none" stroke="#B37743" stroke-width="10"/>
+          <g filter="url(#pb-sombra)" transform="rotate(2 410 1110)">
+            <rect x="110" y="720" width="600" height="780" rx="10" fill="#FBF6EA"/>
+            <path d="M110 820 H710 M110 880 H710 M110 940 H710 M110 1000 H710 M110 1060 H710 M110 1120 H710 M110 1180 H710 M110 1240 H710 M110 1300 H710 M110 1360 H710 M110 1420 H710" stroke="#BFD3EA" stroke-width="3"/>
+            <path d="M200 720 V1500" stroke="#E7A2A2" stroke-width="4"/>
+            <g stroke="#2D3340" stroke-width="12" stroke-linecap="round" fill="none">
+              <path id="pb-m1" d="M270 930 V1080" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"/>
+              <path id="pb-m2" d="M310 930 V1080" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"/>
+              <path id="pb-m3" d="M350 930 V1080" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"/>
+              <path id="pb-m4" d="M390 930 V1080" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"/>
+              <path id="pb-m5" d="M245 1060 L415 950" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"/>
+              <path id="pb-m6" d="M480 930 V1080" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"/>
+              <path id="pb-m7" d="M520 930 V1080" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"/>
+              <path id="pb-m8" d="M560 930 V1080" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"/>
+              <path id="pb-m9" d="M600 930 V1080" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"/>
+              <path id="pb-m10" d="M455 1060 L625 950" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"/>
+              <path id="pb-m11" d="M270 1180 V1330" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"/>
+              <path id="pb-m12" d="M310 1180 V1330" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"/>
+            </g>
+          </g>
+          <g filter="url(#pb-sombra)">
+            <g id="pb-p1"><ellipse cx="880" cy="1480" rx="150" ry="40" fill="#FFFFFF"/><ellipse cx="880" cy="1472" rx="104" ry="24" fill="#EDEFF2"/></g>
+            <g id="pb-p2"><ellipse cx="880" cy="1440" rx="150" ry="40" fill="#FFFFFF"/><ellipse cx="880" cy="1432" rx="104" ry="24" fill="#EDEFF2"/></g>
+            <g id="pb-p3"><ellipse cx="880" cy="1400" rx="150" ry="40" fill="#FFFFFF"/><ellipse cx="880" cy="1392" rx="104" ry="24" fill="#EDEFF2"/></g>
+            <g id="pb-p4"><ellipse cx="880" cy="1360" rx="150" ry="40" fill="#FFFFFF"/><ellipse cx="880" cy="1352" rx="104" ry="24" fill="#EDEFF2"/></g>
+            <g id="pb-p5"><ellipse cx="880" cy="1320" rx="150" ry="40" fill="#FFFFFF"/><ellipse cx="880" cy="1312" rx="104" ry="24" fill="#EDEFF2"/></g>
+            <g id="pb-p6"><ellipse cx="880" cy="1280" rx="150" ry="40" fill="#FFFFFF"/><ellipse cx="880" cy="1272" rx="104" ry="24" fill="#EDEFF2"/></g>
+          </g>
+          <g id="pb-lapiz" filter="url(#pb-sombra)">
+            <polygon points="0,0 22,-30 300,-30 300,30 22,30" fill="#F5B700" transform="rotate(-35)"/>
+            <polygon points="0,0 22,-30 22,30" fill="#E8C9A0" transform="rotate(-35)"/>
+            <polygon points="0,0 8,-10 8,10" fill="#2D3340" transform="rotate(-35)"/>
+          </g>
+          <rect width="1080" height="1920" filter="url(#pb-grano)" opacity="0.07"/>
+        </svg>
+      </div>
+
+      <div id="k1" class="clip" data-start="26.4" data-duration="5.3" data-track-index="3">
+        <div class="ficha" id="k1a"><div class="mono">Uno</div><div class="t">Escribí lo que solo vos sabés</div><div class="s">En una hoja, pegada en la cocina.</div></div>
+      </div>
+      <div id="k2" class="clip" data-start="31.7" data-duration="5.2" data-track-index="3">
+        <div class="ficha" id="k2a"><div class="mono">Dos</div><div class="t">Un solo número, todos los días</div><div class="s">Cuántos platos salieron.</div></div>
+      </div>
+
+      <!-- 11 · Reloj (36.9-40.9) -->
+      <div id="e4" class="clip esc tinta" data-start="36.9" data-duration="4.0" data-track-index="2">
+        <div class="mono" id="e4a">Tres</div>
+        <div class="reloj" id="e4r"><div class="d" id="e4d1">15</div><div class="p">:</div><div class="d" id="e4d2">00</div></div>
+        <div class="serif l" id="e4b">minutos, los <span class="cursiva oro">lunes,</span></div>
+        <div class="serif m sep" id="e4c">con tu gente, para ver ese número.</div>
+      </div>
+
+      <!-- 13 · Pantalla invertida (44.75-46.2) -->
+      <div id="e5" class="clip esc vitela" data-start="44.75" data-duration="1.45" data-track-index="2">
+        <div class="mono" id="e5a" style="color: #23262A">Es una</div>
+        <div class="cursiva xl sep" id="e5b">dependencia.</div>
+      </div>
+
+      <!-- Subtitulos -->
+      <div class="cap" id="cap0" style="top: 1210px"><div class="caja"><span id="cap0w0">Trabajé</span> <span id="cap0w1">catorce</span> <span id="cap0w2">años</span> <span id="cap0w3">en</span></div></div>
+      <div class="cap" id="cap1" style="top: 1210px"><div class="caja"><span id="cap1w0">una</span> <span id="cap1w1">operación</span> <span id="cap1w2">de</span> <span id="cap1w3">Amazon</span></div></div>
+      <div class="cap" id="cap2" style="top: 1210px"><div class="caja"><span id="cap2w0">que</span> <span id="cap2w1">nunca</span> <span id="cap2w2">se</span> <span id="cap2w3">apagó,</span></div></div>
+      <div class="cap" id="cap3" style="top: 1210px"><div class="caja"><span id="cap3w0">ni</span> <span id="cap3w1">un</span> <span id="cap3w2">día.</span></div></div>
+      <div class="cap" id="cap4" style="top: 896px"><div class="caja"><span id="cap4w0">Si</span> <span id="cap4w1">tu</span> <span id="cap4w2">soda</span> <span id="cap4w3">cierra</span></div></div>
+      <div class="cap" id="cap5" style="top: 896px"><div class="caja"><span id="cap5w0">el</span> <span id="cap5w1">día</span> <span id="cap5w2">que</span> <span id="cap5w3">vos</span></div></div>
+      <div class="cap" id="cap6" style="top: 896px"><div class="caja"><span id="cap6w0">te</span> <span id="cap6w1">enfermas,</span></div></div>
+      <div class="cap" id="cap7" style="top: 896px"><div class="caja"><span id="cap7w0">no</span> <span id="cap7w1">tenés</span> <span id="cap7w2">un</span> <span id="cap7w3">negocio,</span></div></div>
+      <div class="cap" id="cap8" style="top: 896px"><div class="caja"><span id="cap8w0">tenés</span> <span id="cap8w1">un</span> <span id="cap8w2">trabajo</span> <span id="cap8w3">con</span></div></div>
+      <div class="cap" id="cap9" style="top: 896px"><div class="caja"><span id="cap9w0">local.</span></div></div>
+      <div class="cap" id="cap10" style="top: 1500px"><div class="caja"><span id="cap10w0">Y</span> <span id="cap10w1">casi</span> <span id="cap10w2">siempre</span> <span id="cap10w3">es</span></div></div>
+      <div class="cap" id="cap11" style="top: 1500px"><div class="caja"><span id="cap11w0">por</span> <span id="cap11w1">lo</span> <span id="cap11w2">mismo:</span></div></div>
+      <div class="cap" id="cap12" style="top: 1500px"><div class="caja"><span id="cap12w0">el</span> <span id="cap12w1">estándar</span> <span id="cap12w2">vive</span> <span id="cap12w3">en</span></div></div>
+      <div class="cap" id="cap13" style="top: 1500px"><div class="caja"><span id="cap13w0">tu</span> <span id="cap13w1">cabeza.</span></div></div>
+      <div class="cap" id="cap14" style="top: 1600px"><div class="caja"><span id="cap14w0">Uno:</span></div></div>
+      <div class="cap" id="cap15" style="top: 1600px"><div class="caja"><span id="cap15w0">escribí</span> <span id="cap15w1">las</span> <span id="cap15w2">tres</span> <span id="cap15w3">cosas</span></div></div>
+      <div class="cap" id="cap16" style="top: 1600px"><div class="caja"><span id="cap16w0">que</span> <span id="cap16w1">solo</span> <span id="cap16w2">vos</span> <span id="cap16w3">sabés</span></div></div>
+      <div class="cap" id="cap17" style="top: 1600px"><div class="caja"><span id="cap17w0">en</span> <span id="cap17w1">una</span> <span id="cap17w2">hoja</span> <span id="cap17w3">pegada</span></div></div>
+      <div class="cap" id="cap18" style="top: 1600px"><div class="caja"><span id="cap18w0">en</span> <span id="cap18w1">la</span> <span id="cap18w2">cocina.</span></div></div>
+      <div class="cap" id="cap19" style="top: 1600px"><div class="caja"><span id="cap19w0">Dos:</span></div></div>
+      <div class="cap" id="cap20" style="top: 1600px"><div class="caja"><span id="cap20w0">un</span> <span id="cap20w1">solo</span> <span id="cap20w2">número</span> <span id="cap20w3">que</span></div></div>
+      <div class="cap" id="cap21" style="top: 1600px"><div class="caja"><span id="cap21w0">veas</span> <span id="cap21w1">todos</span> <span id="cap21w2">los</span> <span id="cap21w3">días.</span></div></div>
+      <div class="cap" id="cap22" style="top: 1600px"><div class="caja"><span id="cap22w0">Cuántos</span> <span id="cap22w1">platos</span> <span id="cap22w2">salieron,</span></div></div>
+      <div class="cap" id="cap23" style="top: 1600px"><div class="caja"><span id="cap23w0">por</span> <span id="cap23w1">ejemplo.</span></div></div>
+      <div class="cap" id="cap24" style="top: 1210px"><div class="caja"><span id="cap24w0">Un</span> <span id="cap24w1">negocio</span> <span id="cap24w2">que</span> <span id="cap24w3">te</span></div></div>
+      <div class="cap" id="cap25" style="top: 1210px"><div class="caja"><span id="cap25w0">necesita</span> <span id="cap25w1">todos</span> <span id="cap25w2">los</span> <span id="cap25w3">días</span></div></div>
+      <div class="cap" id="cap26" style="top: 1500px"><div class="caja"><span id="cap26w0">Si</span> <span id="cap26w1">tenés</span> <span id="cap26w2">uno,</span></div></div>
+      <div class="cap" id="cap27" style="top: 1500px"><div class="caja"><span id="cap27w0">guardá</span> <span id="cap27w1">este</span> <span id="cap27w2">video.</span></div></div>
+      <div class="cap" id="cap28" style="top: 1500px"><div class="caja"><span id="cap28w0">Si</span> <span id="cap28w1">no,</span></div></div>
+      <div class="cap" id="cap29" style="top: 1500px"><div class="caja"><span id="cap29w0">mandáselo</span> <span id="cap29w1">a</span> <span id="cap29w2">quien</span> <span id="cap29w3">sí.</span></div></div>
+
+      <!-- Audio -->
+      <audio id="voz" src="assets/voz.mp3" data-start="0" data-duration="50.16" data-volume="1"></audio>
+      <audio id="sfx0" src="assets/sfx-hit.mp3" data-start="0.35" data-duration="1.2" data-volume="0.4"></audio>
+      <audio id="sfx1" src="assets/sfx-whoosh.mp3" data-start="5.15" data-duration="0.8" data-volume="0.4"></audio>
+      <audio id="sfx2" src="assets/sfx-hit.mp3" data-start="9.35" data-duration="1.2" data-volume="0.45"></audio>
+      <audio id="sfx3" src="assets/sfx-whoosh.mp3" data-start="10.15" data-duration="0.8" data-volume="0.3"></audio>
+      <audio id="sfx4" src="assets/sfx-pop.mp3" data-start="14.1" data-duration="0.5" data-volume="0.4"></audio>
+      <audio id="sfx5" src="assets/sfx-whoosh.mp3" data-start="15.85" data-duration="0.8" data-volume="0.3"></audio>
+      <audio id="sfx6" src="assets/sfx-pop.mp3" data-start="20.2" data-duration="0.5" data-volume="0.4"></audio>
+      <audio id="sfx7" src="assets/sfx-pop.mp3" data-start="21.7" data-duration="0.5" data-volume="0.4"></audio>
+      <audio id="sfx8" src="assets/sfx-pop.mp3" data-start="22.95" data-duration="0.5" data-volume="0.4"></audio>
+      <audio id="sfx9" src="assets/sfx-hit.mp3" data-start="24.85" data-duration="1.2" data-volume="0.5"></audio>
+      <audio id="sfx10" src="assets/sfx-marker.mp3" data-start="26.6" data-duration="1.0" data-volume="0.45"></audio>
+      <audio id="sfx11" src="assets/sfx-marker.mp3" data-start="31.9" data-duration="1.0" data-volume="0.45"></audio>
+      <audio id="sfx12" src="assets/sfx-hit.mp3" data-start="36.95" data-duration="1.2" data-volume="0.45"></audio>
+      <audio id="sfx13" src="assets/sfx-whoosh.mp3" data-start="40.75" data-duration="0.8" data-volume="0.3"></audio>
+      <audio id="sfx14" src="assets/sfx-hit.mp3" data-start="44.75" data-duration="1.2" data-volume="0.45"></audio>
+      <audio id="sfx15" src="assets/sfx-pop.mp3" data-start="46.3" data-duration="0.5" data-volume="0.4"></audio>
+    </div>
+    <script>
+      const CAPS = [{"s": 0.08, "e": 1.58, "top": 1210, "w": [["Trabajé", 0.08], ["catorce", 0.5], ["años", 1.16], ["en", 1.44]]}, {"s": 1.58, "e": 2.8, "top": 1210, "w": [["una", 1.58], ["operación", 1.7], ["de", 2.16], ["Amazon", 2.28]]}, {"s": 2.8, "e": 4.36, "top": 1210, "w": [["que", 2.8], ["nunca", 3.06], ["se", 3.46], ["apagó,", 3.56]]}, {"s": 4.36, "e": 5.3, "top": 1210, "w": [["ni", 4.36], ["un", 4.58], ["día.", 4.76]]}, {"s": 10.5, "e": 11.42, "top": 896, "w": [["Si", 10.5], ["tu", 10.66], ["soda", 10.8], ["cierra", 11.12]]}, {"s": 11.42, "e": 12.02, "top": 896, "w": [["el", 11.42], ["día", 11.54], ["que", 11.74], ["vos", 11.86]]}, {"s": 12.02, "e": 12.86, "top": 896, "w": [["te", 12.02], ["enfermas,", 12.08]]}, {"s": 12.86, "e": 14.18, "top": 896, "w": [["no", 12.86], ["tenés", 13.0], ["un", 13.26], ["negocio,", 13.36]]}, {"s": 14.18, "e": 15.18, "top": 896, "w": [["tenés", 14.18], ["un", 14.42], ["trabajo", 14.56], ["con", 15.02]]}, {"s": 15.18, "e": 15.89, "top": 896, "w": [["local.", 15.18]]}, {"s": 16.02, "e": 16.94, "top": 1500, "w": [["Y", 16.02], ["casi", 16.14], ["siempre", 16.42], ["es", 16.78]]}, {"s": 16.94, "e": 17.96, "top": 1500, "w": [["por", 16.94], ["lo", 17.08], ["mismo:", 17.22]]}, {"s": 17.96, "e": 19.2, "top": 1500, "w": [["el", 17.96], ["estándar", 18.06], ["vive", 18.86], ["en", 19.08]]}, {"s": 19.2, "e": 19.9, "top": 1500, "w": [["tu", 19.2], ["cabeza.", 19.34]]}, {"s": 26.66, "e": 27.26, "top": 1600, "w": [["Uno:", 26.66]]}, {"s": 27.26, "e": 28.58, "top": 1600, "w": [["escribí", 27.26], ["las", 27.66], ["tres", 27.94], ["cosas", 28.24]]}, {"s": 28.58, "e": 29.98, "top": 1600, "w": [["que", 28.58], ["solo", 28.74], ["vos", 29.08], ["sabés", 29.32]]}, {"s": 29.98, "e": 30.86, "top": 1600, "w": [["en", 29.98], ["una", 30.1], ["hoja", 30.28], ["pegada", 30.58]]}, {"s": 30.86, "e": 31.94, "top": 1600, "w": [["en", 30.86], ["la", 30.94], ["cocina.", 31.06]]}, {"s": 31.94, "e": 32.62, "top": 1600, "w": [["Dos:", 31.94]]}, {"s": 32.62, "e": 33.56, "top": 1600, "w": [["un", 32.62], ["solo", 32.82], ["número", 33.08], ["que", 33.44]]}, {"s": 33.56, "e": 35.16, "top": 1600, "w": [["veas", 33.56], ["todos", 34.0], ["los", 34.28], ["días.", 34.48]]}, {"s": 35.16, "e": 36.18, "top": 1600, "w": [["Cuántos", 35.16], ["platos", 35.48], ["salieron,", 35.76]]}, {"s": 36.18, "e": 36.9, "top": 1600, "w": [["por", 36.18], ["ejemplo.", 36.3]]}, {"s": 41.16, "e": 41.92, "top": 1210, "w": [["Un", 41.16], ["negocio", 41.28], ["que", 41.7], ["te", 41.82]]}, {"s": 41.92, "e": 43.55, "top": 1210, "w": [["necesita", 41.92], ["todos", 42.56], ["los", 42.84], ["días", 43.04]]}, {"s": 46.26, "e": 47.14, "top": 1500, "w": [["Si", 46.26], ["tenés", 46.38], ["uno,", 46.72]]}, {"s": 47.14, "e": 48.42, "top": 1500, "w": [["guardá", 47.14], ["este", 47.44], ["video.", 47.68]]}, {"s": 48.42, "e": 49.06, "top": 1500, "w": [["Si", 48.42], ["no,", 48.58]]}, {"s": 49.06, "e": 50.16, "top": 1500, "w": [["mandáselo", 49.06], ["a", 49.5], ["quien", 49.58], ["sí.", 49.8]]}];
+      const tl = gsap.timeline({ paused: true });
+      const ease = "power3.out";
+
+      // 1-2 titular detras de la cabeza
+      tl.fromTo("#t1a", { y: 120, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, ease }, 0.1);
+      tl.fromTo("#t1s", { opacity: 0 }, { opacity: 0.75, duration: 0.4 }, 0.5);
+      tl.fromTo("#t2s", { opacity: 0 }, { opacity: 0.75, duration: 0.3 }, 2.75);
+      tl.fromTo("#t2a", { y: 80, opacity: 0 }, { y: 0, opacity: 1, duration: 0.45, ease }, 2.75);
+      tl.fromTo("#av1", { scale: 0.86 }, { scale: 0.9, duration: 2.7, ease: "none", transformOrigin: "50% 100%" }, 0);
+      tl.fromTo("#av1", { scale: 0.8 }, { scale: 0.83, duration: 2.6, ease: "none", immediateRender: false, transformOrigin: "50% 100%" }, 2.7);
+      // 3 tipografia
+      tl.fromTo("#e1a", { opacity: 0 }, { opacity: 0.75, duration: 0.3 }, 5.45);
+      tl.fromTo("#e1b", { opacity: 0, y: 60 }, { opacity: 1, y: 0, duration: 0.5, ease }, 7.1);
+      tl.fromTo("#e1c", { opacity: 0, x: -40 }, { opacity: 1, x: 0, duration: 0.3, ease }, 9.38);
+      // 4-5 dividida
+      tl.fromTo("#av2a", { scale: 1.0 }, { scale: 1.05, duration: 5.7, ease: "none" }, 10.3);
+      tl.fromTo("#s2-rotulo", { scaleY: 0 }, { scaleY: 1, duration: 0.3, ease: "back.out(2)", svgOrigin: "390 470" }, 11.1);
+      tl.fromTo("#s2-termo", { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.3, ease: "power3.out" }, 11.9);
+      tl.fromTo("#s2-mercurio", { scaleY: 0.15 }, { scaleY: 1, duration: 0.8, ease: "power2.out", svgOrigin: "902 680" }, 12.1);
+
+      tl.fromTo("#s3a", { opacity: 0, y: 20 }, { opacity: 0.7, y: 0, duration: 0.3, ease }, 14.15);
+      tl.fromTo("#s3b", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.35, ease }, 14.3);
+      // 6 portada
+      tl.fromTo("#av2b", { scale: 1.0 }, { scale: 1.03, duration: 3.9, ease: "none" }, 16.0);
+      tl.fromTo("#rv-m", { opacity: 0 }, { opacity: 1, duration: 0.4 }, 16.05);
+      tl.fromTo("#rv-n", { opacity: 0 }, { opacity: 0.75, duration: 0.4 }, 16.2);
+      tl.fromTo("#rv-c", { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 0.5, ease }, 17.3);
+      tl.fromTo("#rv-b", { opacity: 0 }, { opacity: 1, duration: 0.4 }, 18.6);
+      tl.fromTo("#rv-k", { opacity: 0 }, { opacity: 0.9, duration: 0.3 }, 16.6);
+      // 7 tarjetas flotantes
+      tl.fromTo("#n1", { x: -900, rotation: -9 }, { x: 0, rotation: -3, duration: 0.5, ease }, 20.15);
+      tl.fromTo("#n2", { x: 900, rotation: 9 }, { x: 0, rotation: 2.5, duration: 0.5, ease }, 21.65);
+      tl.fromTo("#n3", { x: -900, rotation: -8 }, { x: 0, rotation: -2, duration: 0.5, ease }, 22.9);
+      // 8 tres cosas
+      tl.fromTo("#e3a", { opacity: 0, scale: 0.7 }, { opacity: 1, scale: 1, duration: 0.4, ease: "back.out(1.6)" }, 24.85);
+      tl.fromTo("#e3b", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.35, ease }, 25.2);
+      // 9-10 papel recortado
+      // Papel recortado: la hoja en la cocina
+      tl.fromTo("#pa-svg", { scale: 1.0 }, { scale: 1.04, duration: 5.3, ease: "none", transformOrigin: "50% 60%" }, 26.4);
+      tl.fromTo("#pa-hoja", { y: 260, rotation: -12, opacity: 0 }, { y: 0, rotation: -3, opacity: 1, duration: 0.6, ease: "back.out(1.6)", svgOrigin: "540 1040" }, 26.5);
+      tl.fromTo("#pa-cinta1", { scale: 0 }, { scale: 1, duration: 0.25, ease: "back.out(2)", svgOrigin: "360 724" }, 27.0);
+      tl.fromTo("#pa-cinta2", { scale: 0 }, { scale: 1, duration: 0.25, ease: "back.out(2)", svgOrigin: "720 724" }, 27.15);
+      ["#pa-l1", "#pa-l2", "#pa-l3", "#pa-l4"].forEach((id, i) => tl.fromTo(id, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: 0.45, ease: "power1.inOut" }, 27.4 + i * 0.5));
+      [["#pa-vapor1", 26.6], ["#pa-vapor2", 27.1]].forEach(([id, t0]) => {
+        for (let k = 0; k < 3; k++) {
+          tl.fromTo(id, { y: 0, opacity: 0.7 }, { y: -60, opacity: 0, duration: 1.5, ease: "none", immediateRender: false }, t0 + k * 1.5);
+        }
+      });
+      // Papel recortado: el conteo de platos
+      tl.fromTo("#pb-svg", { scale: 1.04 }, { scale: 1.0, duration: 5.2, ease: "none", transformOrigin: "50% 60%" }, 31.7);
+      const MARCAS = [[270, 1080], [310, 1080], [350, 1080], [390, 1080], [415, 950], [480, 1080], [520, 1080], [560, 1080], [600, 1080], [625, 950], [270, 1330], [310, 1330]];
+      tl.fromTo("#pb-lapiz", { x: 1100, y: 700 }, { x: 270, y: 930, duration: 0.4, ease: "power2.out" }, 31.75);
+      MARCAS.forEach(([x, y], i) => {
+        const t0 = 32.2 + i * 0.28;
+        tl.fromTo("#pb-m" + (i + 1), { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: 0.22, ease: "none" }, t0);
+        tl.to("#pb-lapiz", { x: x, y: y, duration: 0.22, ease: "none" }, t0);
+      });
+      tl.to("#pb-lapiz", { x: 1100, y: 700, duration: 0.5, ease: "power2.in" }, 36.0);
+      [1, 2, 3, 4, 5, 6].forEach((n) => tl.fromTo("#pb-p" + n, { y: -120, opacity: 0 }, { y: 0, opacity: 1, duration: 0.25, ease: "bounce.out" }, 32.3 + (n - 1) * 0.56));
+
+      tl.fromTo("#k1a", { opacity: 0, y: -40 }, { opacity: 1, y: 0, duration: 0.4, ease }, 26.55);
+      tl.fromTo("#k2a", { opacity: 0, y: -40 }, { opacity: 1, y: 0, duration: 0.4, ease }, 31.85);
+      // 11 reloj
+      tl.fromTo("#e4a", { opacity: 0 }, { opacity: 0.75, duration: 0.3 }, 36.95);
+      tl.fromTo("#e4d1", { scaleY: 0 }, { scaleY: 1, duration: 0.3, ease: "back.out(2)", transformOrigin: "50% 0%" }, 37.6);
+      tl.fromTo("#e4d2", { scaleY: 0 }, { scaleY: 1, duration: 0.3, ease: "back.out(2)", transformOrigin: "50% 0%" }, 37.8);
+      tl.fromTo("#e4b", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.35, ease }, 38.4);
+      tl.fromTo("#e4c", { opacity: 0, y: 20 }, { opacity: 0.8, y: 0, duration: 0.35, ease }, 39.2);
+      // 12 cuadro completo + subtitulo gigante
+      tl.fromTo("#av3a", { scale: 1.0 }, { scale: 1.08, duration: 3.85, ease: "none" }, 40.9);
+      tl.fromTo("#cx-a", { opacity: 0, scale: 0.8 }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(1.8)" }, 43.6);
+      // 13 invertida
+      tl.fromTo("#e5a", { opacity: 0 }, { opacity: 0.7, duration: 0.2 }, 44.8);
+      tl.fromTo("#e5b", { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.35, ease }, 44.95);
+      // 14 cierre
+      tl.fromTo("#av3b", { scale: 1.0 }, { scale: 1.03, duration: 3.96, ease: "none" }, 46.2);
+      tl.fromTo("#fin-e", { opacity: 0, x: -40 }, { opacity: 1, x: 0, duration: 0.3, ease }, 46.3);
+      tl.fromTo("#fin-p", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.35, ease }, 48.4);
+
+      // Subtitulos: aparece el grupo, cada palabra se enciende cuando suena
+      CAPS.forEach((c, i) => {
+        tl.set("#cap" + i, { opacity: 1 }, c.s);
+        tl.set("#cap" + i, { opacity: 0 }, c.e);
+        c.w.forEach((w, j) => tl.set("#cap" + i + "w" + j, { opacity: 1 }, w[1]));
+      });
+
+      window.__timelines["main"] = tl;
+      tl.seek(0);
+    </script>
+  </body>
+</html>
