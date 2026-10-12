@@ -113,6 +113,7 @@ marca/
 ├── ESTILO.md            ← el estilo «Editorial»: colores, letras, subtítulos, recursos y las frases que lo cambian
 ├── FORMATO-DIVIDIDO.md  ← el formato de pantalla dividida (Kenneth abajo, animación arriba) y su costo
 ├── ARRANQUE.md          ← el arranque gradual: de la cuenta personal a la marca, por fases
+├── CALENDARIO.md        ← el mapa: dos líneas de contenido, el objetivo de cada pieza y el calendario de 4 semanas
 ├── ANUNCIOS.md          ← líneas de pago para SEMI: el gancho que segmenta en Meta, y ChatGPT
 ├── HERRAMIENTAS.md      ← con qué se hace cada cosa, qué falta y las líneas de trabajo que salen de ahí
 ├── CICLO.md             ← el ciclo autónomo: radar → análisis → producción → publicación → medición
