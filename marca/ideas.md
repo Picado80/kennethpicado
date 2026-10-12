@@ -58,6 +58,34 @@ Los puntajes de abajo son mi primera lectura. **Corregilos vos**: sos el que sab
 | G2 | **Mi gemelo hizo mi reunión de los lunes**: ¿se dio cuenta alguien? | 4 | 4 | 5 | 4 | **17** | probar primero en privado |
 | G3 | **Con 30 segundos de audio se clona una voz**: qué hacer con las notas de voz de tu familia | 5 | 4 | 5 | 3 | **17** | — |
 
+## Línea A · Gráficos (sin cara, 15 a 25 s)
+
+El calendario y el objetivo de cada pieza están en [`CALENDARIO.md`](CALENDARIO.md).
+
+| # | Serie | Idea | Fuente real |
+|---|---|---|---|
+| J1 | IA sin jerga | «Prompt» son las instrucciones que le di | `CANON.md` §Glosario anti-jerga |
+| J2 | IA sin jerga | Un «agente» es un empleado de IA | ídem |
+| J3 | IA sin jerga | Un «modelo» es una IA | ídem |
+| J4 | IA sin jerga | Un «workflow» es la cadena de pasos | ídem |
+| J5 | IA sin jerga | Los «tokens» son horas de trabajo | ídem |
+| J6 | IA sin jerga | El «handoff» es la nota de relevo | ídem |
+| R1 | La regla | El que hace el trabajo no lo revisa | `CANON.md` §El elenco (reglas de la oficina) · guion `001` |
+| R2 | La regla | Un sistema que te necesita es una dependencia | portafolio, §Once it runs · guion `002` |
+| R3 | La regla | Un aviso sin dueño y sin fecha es decoración | guion `005` |
+| R4 | La regla | El mejor no hace todo: decide y revisa | `torre/router/EJECUTORES.md` §2 · guion `003` |
+| R5 | La regla | Nada se hace dos veces | `CANON.md` §El elenco · `torre/protocolo/INDICE-CODIGO.md` |
+| R6 | La regla | Lo que no se escribe no pasó | `CANON.md` §El elenco («todo trabajo deja huella») |
+| R7 | La regla | La tabla decide quién trabaja, no el capricho | `CANON.md` §El elenco · `torre/router/RUTEO.md` |
+| C1–C5 | Las cinco capas | Políticas · números diarios · auditorías semanales · tableros · revisión del lunes | caso del anfiteatro, §02 |
+| L1 | La lista | La reunión de los lunes en 15 minutos | caso del anfiteatro (revisión de los lunes) · guion `002` |
+| L2 | La lista | Las 3 cosas que solo vos sabés, en una hoja | guion `002` |
+| L3 | La lista | Apertura y cierre del local | servicio de SEMI («Listas de apertura y cierre», trysemi.com) |
+| N1 | El número | 165 personas, 4 países | CV: «165-person org», «4-country operation» |
+| N2 | El número | 800 personas de capacidad, 25 % de uso | caso del anfiteatro |
+| N3 | El número | 14 años en una operación que no se apagó | CV: julio 2010 a abril 2024, «24/7 environment» |
+| N4 | El número | 12 semanas, sin contratar a un gerente | caso del anfiteatro, §04 |
+
 ## Entrada de ideas nuevas
 
 Copiá una fila, llenala y puntuala. Las que vienen de comentarios llevan el enlace del comentario como fuente.

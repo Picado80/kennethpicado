@@ -30,6 +30,10 @@
 
 ## Las fases
 
+> **Actualizado el 11-oct:** el ritmo, pieza por pieza, está en [`CALENDARIO.md`](CALENDARIO.md): dos líneas
+> (gráficos y Kenneth + gráficos), de 5 piezas en la primera semana a dos diarias en la cuarta. Las reglas de
+> arriba siguen igual; la tabla de abajo queda como referencia de cómo se pasa de fase.
+
 | Fase | Semanas | Ritmo | Qué se publica | Se pasa a la siguiente cuando… |
 |---|---|---|---|---|
 | **1 · Puente** | 1 y 2 | 2 de marca + 1 personal | *Amazon en la soda*: `002` (vacaciones) y `004` (anfiteatro). Después `001` y `003` de *La Oficina* | 2 de los 4 videos pasan de 326 vistas, o uno pasa de 650 |
