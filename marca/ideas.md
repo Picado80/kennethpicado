@@ -57,6 +57,7 @@ Los puntajes de abajo son mi primera lectura. **Corregilos vos**: sos el que sab
 | G1 | **La nota de voz de «tu hijo» pidiendo plata**: 3 señales y la palabra clave de la familia | 5 | 4 | 5 | 3 | **17** | — |
 | G2 | **Mi gemelo hizo mi reunión de los lunes**: ¿se dio cuenta alguien? | 4 | 4 | 5 | 4 | **17** | probar primero en privado |
 | G3 | **Con 30 segundos de audio se clona una voz**: qué hacer con las notas de voz de tu familia | 5 | 4 | 5 | 3 | **17** | — |
+| G0 | **Los videos de esta semana no los grabé yo**: el gemelo se presenta solo, con humor (`ARRANQUE.md`, idea para abrir) | 5 | 5 | 5 | 3 | **18** | falta el sí de Kenneth; calendario, 20-oct |
 
 ## Línea A · Gráficos (sin cara, 15 a 25 s)
 
@@ -70,6 +71,8 @@ El calendario y el objetivo de cada pieza están en [`CALENDARIO.md`](CALENDARIO
 | J4 | IA sin jerga | Un «workflow» es la cadena de pasos | ídem |
 | J5 | IA sin jerga | Los «tokens» son horas de trabajo | ídem |
 | J6 | IA sin jerga | El «handoff» es la nota de relevo | ídem |
+| J7 | IA sin jerga | «Dispatch» es pasarle el trabajo | ídem |
+| J8 | IA sin jerga | El «log» es la bitácora | ídem |
 | R1 | La regla | El que hace el trabajo no lo revisa | `CANON.md` §El elenco (reglas de la oficina) · guion `001` |
 | R2 | La regla | Un sistema que te necesita es una dependencia | portafolio, §Once it runs · guion `002` |
 | R3 | La regla | Un aviso sin dueño y sin fecha es decoración | guion `005` |
@@ -85,6 +88,14 @@ El calendario y el objetivo de cada pieza están en [`CALENDARIO.md`](CALENDARIO
 | N2 | El número | 800 personas de capacidad, 25 % de uso | caso del anfiteatro |
 | N3 | El número | 14 años en una operación que no se apagó | CV: julio 2010 a abril 2024, «24/7 environment» |
 | N4 | El número | 12 semanas, sin contratar a un gerente | caso del anfiteatro, §04 |
+
+## Línea B · piezas que salen de los gráficos
+
+| # | Idea | Fuente real |
+|---|---|---|
+| C6 | **Las cinco capas, de corrido**: la miniserie C1–C5 en un solo video con Kenneth | caso del anfiteatro, §02 |
+| TOP | **El gráfico más visto de la semana, ahora con Kenneth** (los domingos) | el número sale de `medicion/registro.csv` |
+| RC | **Respuesta al mejor comentario de la semana** (los viernes) | el comentario, con su enlace |
 
 ## Entrada de ideas nuevas
 

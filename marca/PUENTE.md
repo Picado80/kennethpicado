@@ -10,8 +10,8 @@
 > Kenneth quiere que Claude **haga** el trabajo, no que se lo pase: si algo lo puede hacer Claude
 > desde la PC, lo hace Claude. Y quiere ideas que lo empujen, no un sí a todo.
 >
-> **La consola (12-oct):** el calendario, los pendientes, los guiones gráficos, las conexiones y los
-> saldos están en una página: <https://claude.ai/artifact/ThqpTuWtjM3fgiTKWXs5yj>
+> **La consola (12-oct):** el calendario, los pendientes, los guiones gráficos, los
+> objetivos, los resultados, las conexiones y los saldos están en una página: <https://claude.ai/artifact/ThqpTuWtjM3fgiTKWXs5yj>
 > ([`consola/LEEME.md`](consola/LEEME.md)). **Al empezar cada sesión se leen `consola/tareas` y
 > `consola/guiones`**: ahí Kenneth marca lo hecho, aprueba o pide cambios y le anota pendientes a Claude.
 
@@ -24,7 +24,8 @@
 - **Audiencia:** dueños y gerentes de negocios que **no** son técnicos, primero en Costa Rica.
 - **El orden (Kenneth, 7-oct):** darse a conocer en redes → vender **Semi** (el producto estrella) →
   vender **RedTurn** → lo demás.
-- **Plataformas:** TikTok e Instagram primero. YouTube cuando Kenneth pueda; LinkedIn después.
+- **Plataformas (Kenneth, 12-oct):** TikTok lleva todo, **dos piezas por día** (un gráfico y un video con el
+  gemelo). Instagram, tres por semana. LinkedIn y X: sin publicar por ahora. YouTube cuando Kenneth pueda.
 - **Kenneth no graba (7-oct):** los videos salen con su avatar de HeyGen («Kenneth GP») y su voz
   clonada de ElevenLabs desde el video 1. Cambia la regla de `CANON.md` (cara real hasta el 15):
   el video 002 va primero como prueba, y si Kenneth lo aprueba se ajusta el canon.
@@ -249,5 +250,6 @@ Personal», pero duplicaría las llaves fuera de `torre\.env`. **Decisión: la m
 
 > (12-oct) Leer la consola (`consola/tareas` y `consola/guiones`). Con lo que Kenneth haya aprobado:
 > el guion gráfico del `002` con el inicio «En Amazon nadie era indispensable. Ni el jefe.», el de los
-> tres gráficos de la semana 1 (`J1`, `R1`, `N1`) y el del `004`. Cada guion gráfico se publica en la
-> consola **antes** de hacer el video. Sin saldo en HeyGen (quedan $2.88) no sale el `004`.
+> seis gráficos de la semana 1 (`J1`, `R2`, `L1`, `N2`, `J2`, `R1`), los guiones de `A3` y `A4`, y los guiones gráficos de `004`, `001` y `003`.
+> Los resultados de cada pieza se cargan en la consola a las 48 horas y a los 7 días. Cada guion gráfico se publica en la
+> consola **antes** de hacer el video. Sin saldo en HeyGen (quedan $2.88; el mes pide unos $50) no salen los videos.

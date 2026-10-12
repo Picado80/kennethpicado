@@ -2,10 +2,10 @@
  "items": {
   "k-calendario": {
    "titulo": "Aprobar el calendario",
-   "detalle": "O pedir las dos piezas diarias desde la primera semana.",
+   "detalle": "Decidido el 12-oct: dos piezas por día en TikTok y tres por semana en Instagram.",
    "quien": "Kenneth",
    "para": "2026-10-12",
-   "hecho": false,
+   "hecho": true,
    "orden": 0
   },
   "k-002": {
@@ -18,11 +18,19 @@
   },
   "k-heygen": {
    "titulo": "Recargar HeyGen",
-   "detalle": "Quedan $2.88. Para el mes son unos $31.",
+   "detalle": "Quedan $2.88. Con dos piezas por día, el mes necesita unos $50.",
    "quien": "Kenneth",
    "para": "2026-10-12",
    "hecho": false,
    "orden": 2
+  },
+  "k-enlace": {
+   "titulo": "Decir si querés el enlace corto de Vercel",
+   "detalle": "Un enlace fácil de recordar que abre esta consola. La consola sigue privada.",
+   "quien": "Kenneth",
+   "para": "2026-10-13",
+   "hecho": false,
+   "orden": 3
   },
   "k-pixabay": {
    "titulo": "Sacar la llave gratis de Pixabay",
@@ -30,15 +38,23 @@
    "quien": "Kenneth",
    "para": "2026-10-14",
    "hecho": false,
-   "orden": 3
+   "orden": 4
   },
   "k-redes": {
-   "titulo": "Decidir cómo conectar Facebook, X y LinkedIn",
-   "detalle": "Buffer gratis deja 3 redes y ya hay 2. Opciones en la sección Conexiones.",
+   "titulo": "Conectar Facebook en Buffer",
+   "detalle": "Ocupa el tercer lugar gratis y recibe las mismas 3 piezas de Instagram. X espera. LinkedIn: sin publicar por ahora.",
    "quien": "Kenneth",
    "para": "2026-10-14",
    "hecho": false,
-   "orden": 4
+   "orden": 5
+  },
+  "k-g0": {
+   "titulo": "Decidir si sale el video donde el gemelo se presenta",
+   "detalle": "Martes 20: «Los videos de esta semana no los grabé yo». Si no querés, lo cambio por otro.",
+   "quien": "Kenneth",
+   "para": "2026-10-16",
+   "hecho": false,
+   "orden": 6
   },
   "k-tomas": {
    "titulo": "Grabar 3 o 4 tomas más para el gemelo",
@@ -46,7 +62,7 @@
    "quien": "Kenneth",
    "para": "2026-10-17",
    "hecho": false,
-   "orden": 5
+   "orden": 7
   },
   "k-personal": {
    "titulo": "Subir un video personal",
@@ -54,7 +70,7 @@
    "quien": "Kenneth",
    "para": "2026-10-17",
    "hecho": false,
-   "orden": 6
+   "orden": 8
   },
   "k-openai": {
    "titulo": "SEMI: verificar la organización en OpenAI",
@@ -62,7 +78,7 @@
    "quien": "Kenneth",
    "para": "2026-10-16",
    "hecho": false,
-   "orden": 7
+   "orden": 9
   },
   "c-002": {
    "titulo": "Rehacer el 002 con el inicio nuevo",
@@ -70,31 +86,55 @@
    "quien": "Claude",
    "para": "2026-10-12",
    "hecho": false,
-   "orden": 8
+   "orden": 10
   },
   "c-semana1": {
-   "titulo": "Guion gráfico de la semana 1",
-   "detalle": "Los tres gráficos juntos: J1, R1 y N1.",
+   "titulo": "Guion gráfico de los gráficos de la semana 1",
+   "detalle": "Los seis juntos: J1, R2, L1, N2, J2 y R1.",
    "quien": "Claude",
    "para": "2026-10-13",
    "hecho": false,
-   "orden": 9
+   "orden": 11
+  },
+  "c-a3": {
+   "titulo": "Guion y guion gráfico del A3",
+   "detalle": "La reunión de los lunes.",
+   "quien": "Claude",
+   "para": "2026-10-13",
+   "hecho": false,
+   "orden": 12
   },
   "c-004": {
    "titulo": "Guion gráfico del 004",
-   "detalle": "El anfiteatro. Con foto fija de Kenneth, sin gastar.",
+   "detalle": "El anfiteatro.",
    "quien": "Claude",
-   "para": "2026-10-13",
+   "para": "2026-10-14",
    "hecho": false,
-   "orden": 10
+   "orden": 13
+  },
+  "c-a4": {
+   "titulo": "Guion y guion gráfico del A4",
+   "detalle": "El titular del día en que ya lo lograste.",
+   "quien": "Claude",
+   "para": "2026-10-15",
+   "hecho": false,
+   "orden": 14
+  },
+  "c-oficina": {
+   "titulo": "Guiones gráficos del 001 y del 003",
+   "detalle": "Los dos primeros de La Oficina.",
+   "quien": "Claude",
+   "para": "2026-10-16",
+   "hecho": false,
+   "orden": 15
   },
   "c-plantillas": {
    "titulo": "Plantillas por serie",
    "detalle": "Para que cada gráfico nuevo salga de datos y no se arme de cero.",
    "quien": "Claude",
-   "para": "2026-10-15",
+   "para": "2026-10-14",
    "hecho": false,
-   "orden": 11
+   "orden": 16
   },
   "c-buffer": {
    "titulo": "Programar las publicaciones en Buffer",
@@ -102,15 +142,15 @@
    "quien": "Claude",
    "para": "2026-10-16",
    "hecho": false,
-   "orden": 12
+   "orden": 17
   },
   "c-medicion": {
-   "titulo": "Anotar los números a las 48 horas y a los 7 días",
-   "detalle": "Cada pieza contra su objetivo, en el registro.",
+   "titulo": "Cargar los resultados a las 48 horas y a los 7 días",
+   "detalle": "Cada pieza contra su objetivo, en la sección Resultados.",
    "quien": "Claude",
    "para": "2026-10-15",
    "hecho": false,
-   "orden": 13
+   "orden": 18
   }
  }
 }

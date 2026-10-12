@@ -1,39 +1,39 @@
 {
  "actualizado": "2026-10-12T16:00:00-06:00",
  "conexiones": {
-  "instagram": {
-   "nombre": "Instagram",
-   "tipo": "red",
-   "estado": "conectada",
-   "detalle": "@picado80, cuenta profesional. Por Buffer.",
-   "orden": 1
-  },
   "tiktok": {
    "nombre": "TikTok",
    "tipo": "red",
    "estado": "conectada",
-   "detalle": "@picado80. Por Buffer.",
+   "detalle": "@picado80, por Buffer. Dos piezas por día.",
+   "orden": 1
+  },
+  "instagram": {
+   "nombre": "Instagram",
+   "tipo": "red",
+   "estado": "conectada",
+   "detalle": "@picado80, cuenta profesional, por Buffer. Tres piezas por semana; las historias las sube Kenneth cuando quiera.",
    "orden": 2
   },
   "facebook": {
    "nombre": "Facebook",
    "tipo": "red",
    "estado": "falta",
-   "detalle": "Dos caminos: el ajuste de Instagram que comparte los Reels en Facebook (gratis; hay que probar si toma lo que sale por Buffer) o un lugar en Buffer.",
+   "detalle": "Cabe en el tercer lugar gratis de Buffer. Recibe las mismas 3 piezas de Instagram, sin trabajo extra.",
    "orden": 3
   },
   "x": {
    "nombre": "X",
    "tipo": "red",
-   "estado": "falta",
-   "detalle": "Necesita un lugar en Buffer: el plan gratis deja 3 y ya hay 2.",
+   "estado": "despues",
+   "detalle": "Sin plan todavía. En Buffer cuesta $6 al mes.",
    "orden": 4
   },
   "linkedin": {
    "nombre": "LinkedIn",
    "tipo": "red",
-   "estado": "falta",
-   "detalle": "Necesita un lugar en Buffer. Es donde están las empresas.",
+   "estado": "despues",
+   "detalle": "Sin publicar por ahora: Kenneth decidió el 12-oct que no es la red para el resultado que busca.",
    "orden": 5
   },
   "youtube": {
@@ -48,7 +48,7 @@
    "nombre": "Buffer",
    "tipo": "herramienta",
    "estado": "conectada",
-   "detalle": "Plan gratis: 2 de 3 redes usadas. Con 5 redes: Essentials, $6 por red al mes.",
+   "detalle": "Plan gratis: 2 de 3 redes usadas. Cada red extra cuesta $6 al mes.",
    "orden": 10
   },
   "heygen": {
@@ -99,7 +99,6 @@
  },
  "saldos": {
   "heygen": {
-   "enlace": "https://app.heygen.com",
    "nombre": "HeyGen",
    "valor": "$2.88",
    "detalle": "Alcanza para 1 video. Cada video usa unos $1.83.",
@@ -131,11 +130,12 @@
  "presupuesto": {
   "tope": 100,
   "gastado": 30.12,
-  "detalle": "Octubre: $22 de ElevenLabs, $8.12 de HeyGen ($5.75 en pruebas y $2.37 en el primer video).",
+  "proyectado": 64.89,
+  "detalle": "Octubre: $22 de ElevenLabs y $8.12 de HeyGen ($5.75 en pruebas y $2.37 en el primer video).",
   "por_video": 1.83,
   "meta_por_video": 2.0
  },
  "notas": {
-  "redes": "Buffer gratis deja 3 redes y ya hay 2 (Instagram y TikTok). Recomendación: LinkedIn ocupa el tercer lugar, porque ahí están las empresas; Facebook se prueba gratis desde Instagram; X espera o cuesta $6 al mes. Conectar cada red lo hace Kenneth, porque pide iniciar sesión."
+  "redes": "TikTok lleva todo: dos piezas por día. Instagram lleva tres por semana. Facebook cabe gratis en el tercer lugar de Buffer y recibe lo mismo que Instagram. X y LinkedIn quedan sin publicar. Conectar una red lo hace Kenneth, porque pide iniciar sesión."
  }
 }

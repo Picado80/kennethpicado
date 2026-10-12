@@ -30,9 +30,10 @@
 
 ## Las fases
 
-> **Actualizado el 11-oct:** el ritmo, pieza por pieza, está en [`CALENDARIO.md`](CALENDARIO.md): dos líneas
-> (gráficos y Kenneth + gráficos), de 5 piezas en la primera semana a dos diarias en la cuarta. Las reglas de
-> arriba siguen igual; la tabla de abajo queda como referencia de cómo se pasa de fase.
+> **Actualizado el 12-oct:** Kenneth pidió **dos piezas por día desde la primera semana** (un gráfico y un video
+> con el gemelo), todo en TikTok y tres por semana en Instagram. El ritmo, pieza por pieza, está en
+> [`CALENDARIO.md`](CALENDARIO.md). Eso reemplaza la regla 2 y la tabla de fases, que quedan como referencia.
+> Siguen en pie: no se borra nada, lo personal se sigue publicando, *Amazon en la soda* va primero y el gemelo se dice.
 
 | Fase | Semanas | Ritmo | Qué se publica | Se pasa a la siguiente cuando… |
 |---|---|---|---|---|
@@ -42,7 +43,7 @@
 
 **Si una fase no se cumple en 2 semanas:** no se sube el ritmo. Se cambia el gancho del formato (regla de `FORMATOS.md`).
 
-**Instagram:** el mismo video como Reel, programado con Buffer. Las historias quedan para lo personal.
+**Instagram:** tres piezas por semana como Reel, programadas con Buffer (`CALENDARIO.md` §Las redes). Las historias y los reposts los hace Kenneth cuando quiera.
 
 ## Costo del arranque
 
