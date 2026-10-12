@@ -3,6 +3,9 @@
 > Kenneth (11-oct-2026): dos piezas diarias, una 100 % gráficos y una con el gemelo, y que cada una
 > diga **para qué se hace** y **cómo se sabe si lo logró**.
 > El ritmo sube por semanas hasta llegar a las dos diarias (regla de `ARRANQUE.md`: de a poco).
+>
+> **Se ve como calendario en la consola:** <https://claude.ai/artifact/ThqpTuWtjM3fgiTKWXs5yj>
+> ([`consola/LEEME.md`](consola/LEEME.md)). Si cambia este archivo, cambia la consola, y al revés.
 
 ## Las dos líneas
 
