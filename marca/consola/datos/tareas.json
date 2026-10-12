@@ -1,0 +1,116 @@
+{
+ "items": {
+  "k-calendario": {
+   "titulo": "Aprobar el calendario",
+   "detalle": "O pedir las dos piezas diarias desde la primera semana.",
+   "quien": "Kenneth",
+   "para": "2026-10-12",
+   "hecho": false,
+   "orden": 0
+  },
+  "k-002": {
+   "titulo": "Aprobar el 002 con el inicio nuevo",
+   "detalle": "Abre con «En Amazon nadie era indispensable. Ni el jefe.» (fue el inicio con mejor puntaje).",
+   "quien": "Kenneth",
+   "para": "2026-10-13",
+   "hecho": false,
+   "orden": 1
+  },
+  "k-heygen": {
+   "titulo": "Recargar HeyGen",
+   "detalle": "Quedan $2.88. Para el mes son unos $31.",
+   "quien": "Kenneth",
+   "para": "2026-10-12",
+   "hecho": false,
+   "orden": 2
+  },
+  "k-pixabay": {
+   "titulo": "Sacar la llave gratis de Pixabay",
+   "detalle": "En pixabay.com/api/docs. Pegarla en torre\\.env como PIXABAY_API_KEY=",
+   "quien": "Kenneth",
+   "para": "2026-10-14",
+   "hecho": false,
+   "orden": 3
+  },
+  "k-redes": {
+   "titulo": "Decidir cómo conectar Facebook, X y LinkedIn",
+   "detalle": "Buffer gratis deja 3 redes y ya hay 2. Opciones en la sección Conexiones.",
+   "quien": "Kenneth",
+   "para": "2026-10-14",
+   "hecho": false,
+   "orden": 4
+  },
+  "k-tomas": {
+   "titulo": "Grabar 3 o 4 tomas más para el gemelo",
+   "detalle": "2 minutos cada una, sin audífono: cerca, sentado más lejos, de pie y con otro fondo.",
+   "quien": "Kenneth",
+   "para": "2026-10-17",
+   "hecho": false,
+   "orden": 5
+  },
+  "k-personal": {
+   "titulo": "Subir un video personal",
+   "detalle": "Como los de siempre: la cuenta sigue siendo tuya.",
+   "quien": "Kenneth",
+   "para": "2026-10-17",
+   "hecho": false,
+   "orden": 6
+  },
+  "k-openai": {
+   "titulo": "SEMI: verificar la organización en OpenAI",
+   "detalle": "En platform.openai.com. Tarda, conviene empezar ya.",
+   "quien": "Kenneth",
+   "para": "2026-10-16",
+   "hecho": false,
+   "orden": 7
+  },
+  "c-002": {
+   "titulo": "Rehacer el 002 con el inicio nuevo",
+   "detalle": "Guion gráfico primero; después el video.",
+   "quien": "Claude",
+   "para": "2026-10-12",
+   "hecho": false,
+   "orden": 8
+  },
+  "c-semana1": {
+   "titulo": "Guion gráfico de la semana 1",
+   "detalle": "Los tres gráficos juntos: J1, R1 y N1.",
+   "quien": "Claude",
+   "para": "2026-10-13",
+   "hecho": false,
+   "orden": 9
+  },
+  "c-004": {
+   "titulo": "Guion gráfico del 004",
+   "detalle": "El anfiteatro. Con foto fija de Kenneth, sin gastar.",
+   "quien": "Claude",
+   "para": "2026-10-13",
+   "hecho": false,
+   "orden": 10
+  },
+  "c-plantillas": {
+   "titulo": "Plantillas por serie",
+   "detalle": "Para que cada gráfico nuevo salga de datos y no se arme de cero.",
+   "quien": "Claude",
+   "para": "2026-10-15",
+   "hecho": false,
+   "orden": 11
+  },
+  "c-buffer": {
+   "titulo": "Programar las publicaciones en Buffer",
+   "detalle": "Con la aprobación de Kenneth antes de cada una (encargo E003).",
+   "quien": "Claude",
+   "para": "2026-10-16",
+   "hecho": false,
+   "orden": 12
+  },
+  "c-medicion": {
+   "titulo": "Anotar los números a las 48 horas y a los 7 días",
+   "detalle": "Cada pieza contra su objetivo, en el registro.",
+   "quien": "Claude",
+   "para": "2026-10-15",
+   "hecho": false,
+   "orden": 13
+  }
+ }
+}

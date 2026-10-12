@@ -9,6 +9,11 @@
 > opciones que no pidió. Los eventos automáticos (CI, Vercel, recordatorios) no generan mensaje.
 > Kenneth quiere que Claude **haga** el trabajo, no que se lo pase: si algo lo puede hacer Claude
 > desde la PC, lo hace Claude. Y quiere ideas que lo empujen, no un sí a todo.
+>
+> **La consola (12-oct):** el calendario, los pendientes, los guiones gráficos, las conexiones y los
+> saldos están en una página: <https://claude.ai/artifact/ThqpTuWtjM3fgiTKWXs5yj>
+> ([`consola/LEEME.md`](consola/LEEME.md)). **Al empezar cada sesión se leen `consola/tareas` y
+> `consola/guiones`**: ahí Kenneth marca lo hecho, aprueba o pide cambios y le anota pendientes a Claude.
 
 ---
 
@@ -242,6 +247,7 @@ Personal», pero duplicaría las llaves fuera de `torre\.env`. **Decisión: la m
 
 ## 9. Siguiente paso exacto
 
-> Mandarle a Kenneth **un solo mensaje** con dos preguntas: «¿Suena a vos el mp3 de
-> `marca\salidas\`?» y «¿Verifico Buffer?». Con sus dos respuestas, guardar el ID de la voz, listar
-> los canales de Buffer y seguir con E002.
+> (12-oct) Leer la consola (`consola/tareas` y `consola/guiones`). Con lo que Kenneth haya aprobado:
+> el guion gráfico del `002` con el inicio «En Amazon nadie era indispensable. Ni el jefe.», el de los
+> tres gráficos de la semana 1 (`J1`, `R1`, `N1`) y el del `004`. Cada guion gráfico se publica en la
+> consola **antes** de hacer el video. Sin saldo en HeyGen (quedan $2.88) no sale el `004`.
