@@ -14,6 +14,9 @@
 > objetivos, los resultados, las conexiones y los saldos están en una página: <https://claude.ai/artifact/ThqpTuWtjM3fgiTKWXs5yj>
 > ([`consola/LEEME.md`](consola/LEEME.md)). **Al empezar cada sesión se leen `consola/tareas` y
 > `consola/guiones`**: ahí Kenneth marca lo hecho, aprueba o pide cambios y le anota pendientes a Claude.
+> **Se muda a Vercel** (Kenneth, 12-oct): el código ya está en `marca/consola/`; falta que Kenneth cree el proyecto
+> en su cuenta personal de Vercel (el conector no tiene permiso). Cuando exista, lo que él marca se lee en
+> `https://<la consola>/api/marcas` y los datos se cambian en `marca/consola/datos/*.json`.
 
 ---
 

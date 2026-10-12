@@ -78,9 +78,11 @@ La página suma las marcas de Kenneth encima de los datos. **Al empezar cada ses
 corresponda a `datos/*.json`.
 
 **Quién puede abrirla:** nadie sin sesión de Vercel. El proyecto va con la protección de Vercel (Vercel
-Authentication) en todos los despliegues; la función no tiene otra llave, así que **sin esa protección no se publica**.
-Si el plan solo deja proteger las vistas previas, la dirección principal quedaría abierta: en ese caso hay que
-ponerle una llave propia antes de usarla.
+Authentication) en todos los despliegues. La función no tiene otra llave, así que antes de responder comprueba que
+un visitante sin sesión **no** pueda abrir el sitio por esa misma dirección; si puede, contesta 403 y la consola
+queda solo de lectura, con un aviso. Si el plan solo deja proteger las vistas previas, la dirección principal
+quedaría abierta (se verían los datos, que ya son públicos en este repo, pero no se guardaría nada): en ese caso
+hay que ponerle una llave propia.
 
 ### Estado: falta crear el proyecto (lo hace Kenneth)
 
