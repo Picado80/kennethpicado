@@ -1,0 +1,9 @@
+{
+  "name": "consola-marca",
+  "private": true,
+  "type": "module",
+  "description": "Consola de la marca personal de Kenneth: página estática más una función que guarda lo que él marca.",
+  "dependencies": {
+    "@vercel/blob": "^2.8.1"
+  }
+}

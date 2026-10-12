@@ -1,3 +1,10 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='10' fill='%2316233F'/%3E%3Ctext x='32' y='45' font-size='38' text-anchor='middle' fill='%23C9A45C' font-family='Georgia,serif'%3EK%3C/text%3E%3C/svg%3E">
 <title>Consola de marca</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -125,6 +132,8 @@ textarea.campo{min-height:76px;resize:vertical}
 .filtro i{width:12px;height:12px;border-radius:3px}
 .filtro.a i{background:var(--a-fondo)}.filtro.b i{background:var(--b-fondo)}.filtro.m i{background:var(--m-fondo)}
 .filtro[aria-pressed=false]{opacity:.5;text-decoration:line-through}
+.interruptor{display:inline-flex;align-items:center;gap:7px;background:var(--hoja);border:1px solid var(--linea);border-radius:999px;padding:5px 12px;font-size:13px;font-weight:600}
+.interruptor[aria-pressed=true]{background:var(--boton);color:var(--boton-texto);border-color:var(--boton)}
 .cal-cuerpo{display:grid;gap:16px;align-items:start}
 @media (min-width:1040px){.cal-cuerpo.con-dia{grid-template-columns:minmax(0,1fr) 340px}.cal-cuerpo.con-dia #cal-dia{position:sticky;top:60px}}
 .mes{border:1px solid var(--linea);border-radius:6px;overflow:hidden;background:var(--linea)}
@@ -145,11 +154,13 @@ textarea.campo{min-height:76px;resize:vertical}
 .chip.b{background:var(--b-fondo);color:var(--b-texto)}
 .chip.m{background:var(--m-fondo);color:var(--m-texto)}
 .chip.listo{opacity:.55}
+.chip u{text-decoration:none;font-family:"Archivo",sans-serif;font-size:9px;font-weight:800;letter-spacing:.04em;border:1px solid currentColor;border-radius:2px;padding:0 3px;line-height:1.35;flex:none;opacity:.85;margin-left:auto}
 .mas{font-size:11px;color:var(--tinta-3);padding-left:4px}
 @media (max-width:720px){
   .dia{min-height:66px;padding:3px 2px;align-items:stretch}
   .dia .num{width:20px;height:20px;font-size:11px}
-  .chip{justify-content:center;padding:1px 2px}
+  .chip{justify-content:center;padding:1px 2px;gap:3px}
+  .chip u{margin-left:0;padding:0 2px;font-size:8px}
   .chip b{font-size:10px}
   .chip i{display:none}
   .mas{padding:0;text-align:center}
@@ -189,6 +200,43 @@ dialog#visor::backdrop{background:rgba(8,12,22,.72)}
 .visor-barra div{display:flex;gap:6px}
 dialog#visor img{display:block;width:100%;height:auto}
 
+/* objetivos */
+.obj-arriba{display:grid;gap:14px;margin-bottom:14px}
+@media (min-width:860px){.obj-arriba{grid-template-columns:1fr 1fr}}
+.norte .cifra{font-family:"Instrument Serif",Georgia,serif;font-size:64px;line-height:1;margin:6px 0 2px}
+.norte .cifra small{font-family:"Archivo",sans-serif;font-size:14px;color:var(--tinta-2);margin-left:8px}
+.norte h4{font-family:"Instrument Serif",Georgia,serif;font-weight:400;font-size:24px;line-height:1.15}
+.norte p{font-size:14px;color:var(--tinta-2);margin-top:4px}
+.pares{display:grid;gap:6px;margin:8px 0 16px;font-size:14px}
+.pares:last-child{margin-bottom:0}
+.pares li{display:flex;justify-content:space-between;gap:12px;border-top:1px solid var(--linea);padding-top:6px}
+.pares li:first-child{border-top:0;padding-top:0}
+.pares b{font-family:"JetBrains Mono",ui-monospace,monospace;font-weight:600;white-space:nowrap}
+.pares.texto li{display:block}
+.pares.texto strong{font-weight:600;margin-right:6px}
+.pares.texto span{color:var(--tinta-2)}
+.obj-rejilla{display:grid;gap:14px}
+@media (min-width:640px){.obj-rejilla{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (min-width:1000px){.obj-rejilla{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.obj h4{font-family:"Instrument Serif",Georgia,serif;font-weight:400;font-size:26px;line-height:1.1}
+.obj .busca{font-size:14px;color:var(--tinta-2);margin:4px 0 2px}
+.obj .marcador{margin-top:12px;padding-top:10px;border-top:1px solid var(--linea);font-size:13px;color:var(--tinta-2);display:grid;gap:6px}
+.barra.verde i{background:var(--verde)}
+
+/* resultados */
+.cifras{display:grid;gap:14px;grid-template-columns:repeat(2,minmax(0,1fr));margin-bottom:14px}
+@media (min-width:860px){.cifras{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.cifra-t .valor{font-family:"Instrument Serif",Georgia,serif;font-size:40px;line-height:1.05;margin-top:4px}
+.cifra-t .valor small{font-family:"Archivo",sans-serif;font-size:13px;color:var(--tinta-2);margin-left:6px}
+.res-fila{display:grid;gap:4px 14px;padding:12px 0;border-top:1px solid var(--linea);grid-template-columns:minmax(0,1fr)}
+.res-fila:first-of-type{border-top:0}
+@media (min-width:860px){.res-fila{grid-template-columns:minmax(0,1.3fr) minmax(0,1.5fr) auto;align-items:center}}
+.res-fila .que strong{font-weight:600}
+.res-fila .que span{display:block;font-size:12.5px;color:var(--tinta-3)}
+.res-fila .numeros{font-size:13px;color:var(--tinta-2)}
+.res-fila .numeros p + p{margin-top:2px}
+.res-pie{margin-top:14px}
+
 /* conexiones */
 .con{display:grid;grid-template-columns:14px 1fr;gap:10px;padding:12px 0;border-top:1px solid var(--linea)}
 .con:first-child{border-top:0}
@@ -219,6 +267,8 @@ footer{margin-top:56px;padding-top:16px;border-top:1px solid var(--linea);font-s
 .aviso{position:fixed;left:50%;bottom:18px;transform:translateX(-50%);background:var(--b-fondo);color:var(--b-texto);padding:10px 16px;border-radius:6px;font-size:14px;z-index:20;max-width:calc(100vw - 32px)}
 @media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
 </style>
+</head>
+<body>
 
 <div class="pagina">
   <header class="cabeza">
@@ -232,6 +282,8 @@ footer{margin-top:56px;padding-top:16px;border-top:1px solid var(--linea);font-s
     <a href="#pendientes">Pendientes</a>
     <a href="#calendario">Calendario</a>
     <a href="#guiones">Guiones gráficos</a>
+    <a href="#objetivos">Objetivos</a>
+    <a href="#resultados">Resultados</a>
     <a href="#conexiones">Conexiones</a>
     <a href="#saldos">Saldos y costos</a>
   </nav>
@@ -252,7 +304,7 @@ footer{margin-top:56px;padding-top:16px;border-top:1px solid var(--linea);font-s
 
     <section id="calendario" aria-labelledby="t-calendario">
       <div class="titulo"><span class="n">03</span><h2 id="t-calendario">Calendario</h2></div>
-      <p class="bajada">Lo que se publica y lo que hay que hacer por la marca. Tocá un día para ver el detalle.</p>
+      <p class="bajada">Dos piezas por día en TikTok: un gráfico y un video con Kenneth. Las que llevan «IG» van también a Instagram. Tocá un día para ver el detalle.</p>
       <div class="cal-barra">
         <div class="cal-nav">
           <button class="flecha" id="cal-ant" aria-label="Mes anterior">‹</button>
@@ -269,6 +321,7 @@ footer{margin-top:56px;padding-top:16px;border-top:1px solid var(--linea);font-s
         <button class="filtro a" data-linea="A" aria-pressed="true"><i></i>Gráficos</button>
         <button class="filtro b" data-linea="B" aria-pressed="true"><i></i>Kenneth + gráficos</button>
         <button class="filtro m" data-linea="M" aria-pressed="true"><i></i>Marca</button>
+        <button class="interruptor" id="filtro-ig" aria-pressed="false">Solo lo de Instagram</button>
       </div>
       <div class="cal-cuerpo con-dia" id="cal-cuerpo">
         <div id="cal-vista"><p class="vacio">Cargando…</p></div>
@@ -283,13 +336,25 @@ footer{margin-top:56px;padding-top:16px;border-top:1px solid var(--linea);font-s
       <div id="guiones-cuerpo"><p class="vacio">Cargando…</p></div>
     </section>
 
+    <section id="objetivos" aria-labelledby="t-objetivos">
+      <div class="titulo"><span class="n">05</span><h2 id="t-objetivos">Objetivos</h2></div>
+      <p class="bajada">Cada pieza se hace para una sola cosa, y se mide contra eso y no contra las vistas.</p>
+      <div id="objetivos-cuerpo"><p class="vacio">Cargando…</p></div>
+    </section>
+
+    <section id="resultados" aria-labelledby="t-resultados">
+      <div class="titulo"><span class="n">06</span><h2 id="t-resultados">Resultados</h2></div>
+      <p class="bajada">Los números de cada pieza a las 48 horas y a los 7 días, por red, y si logró su objetivo.</p>
+      <div id="resultados-cuerpo"><p class="vacio">Cargando…</p></div>
+    </section>
+
     <section id="conexiones" aria-labelledby="t-conexiones">
-      <div class="titulo"><span class="n">05</span><h2 id="t-conexiones">Conexiones</h2></div>
+      <div class="titulo"><span class="n">07</span><h2 id="t-conexiones">Conexiones</h2></div>
       <div class="rejilla-2" id="conexiones-cuerpo"><p class="vacio">Cargando…</p></div>
     </section>
 
     <section id="saldos" aria-labelledby="t-saldos">
-      <div class="titulo"><span class="n">06</span><h2 id="t-saldos">Saldos y costos</h2></div>
+      <div class="titulo"><span class="n">08</span><h2 id="t-saldos">Saldos y costos</h2></div>
       <div id="saldos-cuerpo"><p class="vacio">Cargando…</p></div>
     </section>
   </main>
@@ -366,13 +431,41 @@ footer{margin-top:56px;padding-top:16px;border-top:1px solid var(--linea);font-s
     "pendiente": "Pendiente", "hecho": "Hecho"
   };
   var LISTOS = { publicado: 1, medido: 1, hecho: 1 };
-  var NOMBRES = ["calendario", "tareas", "guiones", "estado"];
+  var NOMBRES = ["calendario", "tareas", "guiones", "estado", "objetivos"];
+  var REDES = { tiktok: "TikTok", instagram: "Instagram", facebook: "Facebook", x: "X", linkedin: "LinkedIn", youtube: "YouTube" };
+  var METRICAS = [["vistas", "vista", "vistas"], ["guardados", "guardado", "guardados"], ["compartidos", "compartido", "compartidos"], ["comentarios", "comentario", "comentarios"], ["perfil", "visita al perfil", "visitas al perfil"]];
+  function redesDe(x) { return (Array.isArray(x.redes) ? x.redes : []).map(txt).filter(function (r) { return REDES[r]; }); }
+  function vaA(x, red) { return redesDe(x).indexOf(red) !== -1; }
+  function textoRedes(x) {
+    var n = redesDe(x).map(function (r) { return REDES[r]; });
+    if (n.length < 2) return n[0] || "";
+    var ult = n[n.length - 1];
+    return n.slice(0, -1).join(", ") + (/^i/i.test(ult) ? " e " : " y ") + ult;
+  }
+  function esPieza(x) { return x.tipo !== "accion" && x.linea !== "M"; }
+  function numero(n) { var v = Number(n); if (!isFinite(v)) return txt(n); try { return v.toLocaleString("es-CR"); } catch (e) { return String(v); } }
+  function resultadosDe(x) {
+    var r = x.resultados, out = [];
+    if (!r || typeof r !== "object") return out;
+    Object.keys(REDES).forEach(function (k) { if (r[k] && typeof r[k] === "object") out.push({ red: k, datos: r[k] }); });
+    return out;
+  }
+  function lineaNumeros(d) {
+    var partes = METRICAS.filter(function (m) { return d[m[0]] != null && d[m[0]] !== ""; }).map(function (m) { return numero(d[m[0]]) + " " + (Number(d[m[0]]) === 1 ? m[1] : m[2]); });
+    return (partes.length ? partes.join(" · ") : "sin números todavía") + (d.corte ? " (a " + txt(d.corte) + ")" : "");
+  }
+  function veredicto(x) {
+    if (x.logro === true) return ["ok", "Lo logró"];
+    if (x.logro === false) return ["falta", "No lo logró"];
+    if (x.estado === "publicado" || x.estado === "medido") return ["oro", "Midiendo"];
+    return null;
+  }
 
   var S = {
     db: null, lectura: false,
-    docs: { calendario: undefined, tareas: undefined, guiones: undefined, estado: undefined },
+    docs: { calendario: undefined, tareas: undefined, guiones: undefined, estado: undefined, objetivos: undefined },
     mes: HOY.slice(0, 7), dia: HOY, vista: "mes", mesAjustado: false,
-    filtros: { A: true, B: true, M: true },
+    filtros: { A: true, B: true, M: true }, soloIG: false,
     borradores: {}, editando: {}
   };
 
@@ -390,7 +483,9 @@ footer{margin-top:56px;padding-top:16px;border-top:1px solid var(--linea);font-s
       return a.fecha < b.fecha ? -1 : a.fecha > b.fecha ? 1 : (Number(a.orden) || 0) - (Number(b.orden) || 0);
     });
   }
-  function visibles() { return acciones().filter(function (x) { return S.filtros[x.linea] !== false; }); }
+  function visibles() {
+    return acciones().filter(function (x) { return S.filtros[x.linea] !== false && (!S.soloIG || vaA(x, "instagram")); });
+  }
   function tareas() {
     return lista(S.docs.tareas).sort(function (a, b) {
       if (!!a.hecho !== !!b.hecho) return a.hecho ? 1 : -1;
@@ -440,7 +535,7 @@ footer{margin-top:56px;padding-top:16px;border-top:1px solid var(--linea);font-s
         return h("div", { class: "sigue-item" },
           h("span", { class: "cuando", text: x.fecha === HOY ? "hoy" : fechaCorta(x.fecha) }),
           h("span", { class: "que", text: txt(x.titulo) }),
-          h("span", { class: "sub" }, h("span", { class: "linea " + l.clase, text: txt(x.codigo) || l.nombre }), txt(x.serie), " · ", ESTADOS[x.estado] || txt(x.estado)));
+          h("span", { class: "sub" }, h("span", { class: "linea " + l.clase, text: txt(x.codigo) || l.nombre }), txt(x.serie), " · ", ESTADOS[x.estado] || txt(x.estado), textoRedes(x) ? " · " + textoRedes(x) : null));
       })));
     } else c1.append(h("p", { class: "vacio", text: "No hay piezas programadas." }));
 
@@ -529,9 +624,12 @@ footer{margin-top:56px;padding-top:16px;border-top:1px solid var(--linea);font-s
     dato("Objetivo", x.objetivo);
     dato("Lo logró si", x.vara);
     dato("Estado", ESTADOS[x.estado] || x.estado);
+    if (!esAccion) dato("Sale en", textoRedes(x));
     dato("Lo hace", x.quien);
     if (!esAccion) dato("Costo", Number(x.costo) ? plata(x.costo) : "$0");
     dato("Resultado", x.resultado);
+    resultadosDe(x).forEach(function (r) { dato(REDES[r.red], lineaNumeros(r.datos)); });
+    if (!esAccion && veredicto(x)) dato("Veredicto", veredicto(x)[1]);
     var pie = null;
     if (esAccion && !S.lectura && S.db) {
       var hecho = x.estado === "hecho";
@@ -550,7 +648,7 @@ footer{margin-top:56px;padding-top:16px;border-top:1px solid var(--linea);font-s
   function chip(x) {
     var l = LINEAS[x.linea] || LINEAS.M;
     var corto = txt(x.codigo) || "Marca";
-    return h("span", { class: "chip " + l.clase + (LISTOS[x.estado] ? " listo" : "") }, h("b", { text: (LISTOS[x.estado] ? "✓ " : "") + corto }), h("i", { text: txt(x.titulo) }));
+    return h("span", { class: "chip " + l.clase + (LISTOS[x.estado] ? " listo" : "") }, h("b", { text: (LISTOS[x.estado] ? "✓ " : "") + corto }), h("i", { text: txt(x.titulo) }), vaA(x, "instagram") ? h("u", { text: "IG", title: "También va a Instagram" }) : null);
   }
   function elegirDia(f, enfocar) {
     S.dia = f;
@@ -576,6 +674,7 @@ footer{margin-top:56px;padding-top:16px;border-top:1px solid var(--linea);font-s
     $("#vista-mes").setAttribute("aria-pressed", String(S.vista === "mes"));
     $("#vista-lista").setAttribute("aria-pressed", String(S.vista === "lista"));
     document.querySelectorAll(".filtro").forEach(function (b) { b.setAttribute("aria-pressed", String(S.filtros[b.dataset.linea] !== false)); });
+    $("#filtro-ig").setAttribute("aria-pressed", String(S.soloIG));
     if (S.docs.calendario === undefined) { vacio(vista, "Cargando…"); panel.hidden = true; return; }
 
     var todas = visibles(), porDia = {};
@@ -636,11 +735,12 @@ footer{margin-top:56px;padding-top:16px;border-top:1px solid var(--linea);font-s
         S.docs.calendario ? form : null);
     }
 
-    var piezas = delMes.filter(function (x) { return x.tipo !== "accion" && x.linea !== "M"; });
+    var piezas = delMes.filter(esPieza);
     var conK = piezas.filter(function (x) { return x.linea === "B"; }).length;
+    var aIG = piezas.filter(function (x) { return vaA(x, "instagram"); }).length;
     var costo = piezas.reduce(function (s, x) { return s + (Number(x.costo) || 0); }, 0);
     $("#cal-resumen").textContent = piezas.length
-      ? MESES[a[1] - 1][0].toUpperCase() + MESES[a[1] - 1].slice(1) + ": " + piezas.length + (piezas.length === 1 ? " pieza" : " piezas") + " · " + conK + " con Kenneth · costo estimado " + plata(costo) + "."
+      ? MESES[a[1] - 1][0].toUpperCase() + MESES[a[1] - 1].slice(1) + ": " + piezas.length + (piezas.length === 1 ? " pieza" : " piezas") + " · " + conK + " con Kenneth · " + aIG + " también en Instagram · costo estimado " + plata(costo) + "."
       : "";
   }
 
@@ -703,7 +803,96 @@ footer{margin-top:56px;padding-top:16px;border-top:1px solid var(--linea);font-s
     cont.replaceChildren.apply(cont, gs.map(tarjetaGuion));
   }
 
-  /* 05 · conexiones */
+  /* 05 · objetivos */
+  function pintarObjetivos() {
+    var cont = $("#objetivos-cuerpo"), o = S.docs.objetivos;
+    if (!o || typeof o !== "object") return vacio(cont, textoDoc("objetivos", "Todavía no hay objetivos anotados."));
+    var piezas = acciones().filter(esPieza);
+    var arriba = h("div", { class: "obj-arriba" });
+    var n = o.norte;
+    if (n && typeof n === "object") {
+      arriba.append(h("div", { class: "tarjeta norte" }, h("h3", { text: "La meta que manda" }),
+        h("p", { class: "cifra" }, String(Number(n.actual) || 0), h("small", { text: "de " + (Number(n.meta) || 0) + " en " + txt(n.periodo) })),
+        h("h4", { text: txt(n.titulo) }), h("p", { text: txt(n.que) }),
+        n.meta_texto ? h("p", { text: "Meta: " + txt(n.meta_texto) + "." }) : null));
+    }
+    var lado = h("div", { class: "tarjeta" });
+    var ritmo = o.ritmo && typeof o.ritmo === "object" ? Object.keys(o.ritmo).map(function (k) { return o.ritmo[k]; }).filter(Boolean) : [];
+    ritmo.sort(function (a, b) { return (Number(a.orden) || 0) - (Number(b.orden) || 0); });
+    if (ritmo.length) lado.append(h("h3", { text: "Cuánto sale en cada red" }),
+      h("ul", { class: "pares texto" }, ritmo.map(function (r) { return h("li", null, h("strong", { text: txt(r.nombre) }), h("span", { text: txt(r.texto) })); })));
+    var base = o.base && Array.isArray(o.base.datos) ? o.base.datos : [];
+    if (base.length) lado.append(h("h3", { text: "De dónde partimos" + (o.base.fecha ? " (" + txt(o.base.fecha) + ")" : "") }),
+      h("ul", { class: "pares" }, base.map(function (d) { return h("li", null, h("span", { text: txt(d && d.etiqueta) }), h("b", { text: txt(d && d.valor) })); })));
+    if (lado.childNodes.length) arriba.append(lado);
+
+    var obs = lista(o).sort(function (a, b) { return (Number(a.orden) || 0) - (Number(b.orden) || 0); });
+    var rejilla = h("div", { class: "obj-rejilla" }, obs.map(function (ob) {
+      var etiquetas = Array.isArray(ob.cuenta) ? ob.cuenta.map(txt) : [txt(ob.nombre)];
+      var suyas = piezas.filter(function (x) { return etiquetas.indexOf(txt(x.objetivo)) !== -1; });
+      var medidas = suyas.filter(function (x) { return x.logro === true || x.logro === false; });
+      var logradas = medidas.filter(function (x) { return x.logro === true; }).length;
+      var datos = h("dl", { class: "datos" });
+      [["Se mide", ob.mide], ["Lo logró si", ob.vara], ["Excelente", ob.excelente]].forEach(function (d) { if (txt(d[1])) datos.append(h("dt", { text: d[0] }), h("dd", { text: txt(d[1]) })); });
+      var marcador = suyas.length + (suyas.length === 1 ? " pieza" : " piezas") + " en el calendario · " +
+        (medidas.length ? logradas + " de " + medidas.length + " medidas lo lograron" : "ninguna medida todavía");
+      var relleno = h("i");
+      relleno.style.width = (medidas.length ? Math.round(logradas / medidas.length * 100) : 0) + "%";
+      return h("div", { class: "tarjeta obj" }, h("h4", { text: txt(ob.nombre) }), h("p", { class: "busca", text: txt(ob.busca) }), datos,
+        h("div", { class: "marcador" }, h("span", { text: marcador }), h("div", { class: "barra verde", role: "img", "aria-label": marcador }, relleno)));
+    }));
+    cont.replaceChildren(arriba, rejilla);
+  }
+
+  /* 06 · resultados */
+  function pintarResultados() {
+    var cont = $("#resultados-cuerpo");
+    if (S.docs.calendario === undefined) return vacio(cont, "Cargando…");
+    var piezas = acciones().filter(esPieza);
+    var publicadas = piezas.filter(function (x) { return x.estado === "publicado" || x.estado === "medido"; });
+    var medidas = piezas.filter(function (x) { return x.logro === true || x.logro === false; });
+    var logradas = medidas.filter(function (x) { return x.logro === true; }).length;
+    var n = (S.docs.objetivos && S.docs.objetivos.norte) || {};
+    function cifra(titulo, valor, chico) {
+      return h("div", { class: "tarjeta cifra-t" }, h("h3", { text: titulo }), h("p", { class: "valor" }, String(valor), chico ? h("small", { text: chico }) : null));
+    }
+    var cifras = h("div", { class: "cifras" },
+      cifra("Publicadas", publicadas.length, "de " + piezas.length),
+      cifra("Con veredicto", medidas.length, "a los 7 días"),
+      cifra("Lograron su objetivo", logradas, "de " + medidas.length),
+      cifra("Empresas que escribieron", Number(n.actual) || 0, n.periodo ? "en " + txt(n.periodo) : null));
+
+    var porRed = h("div", { class: "tarjeta" }, h("h3", { text: "Por red" }));
+    var redes = Object.keys(REDES).filter(function (r) { return piezas.some(function (x) { return vaA(x, r); }); });
+    porRed.append(h("ul", { class: "pares texto" }, redes.map(function (r) {
+      var suyas = publicadas.filter(function (x) { return vaA(x, r); });
+      var suma = {};
+      suyas.forEach(function (x) {
+        var d = x.resultados && x.resultados[r];
+        if (d && typeof d === "object") METRICAS.forEach(function (m) { if (d[m[0]] != null && d[m[0]] !== "") suma[m[0]] = (suma[m[0]] || 0) + (Number(d[m[0]]) || 0); });
+      });
+      var programadas = piezas.filter(function (x) { return vaA(x, r); }).length;
+      return h("li", null, h("strong", { text: REDES[r] }),
+        h("span", { text: suyas.length + " de " + programadas + " publicadas" + (suyas.length ? " · " + lineaNumeros(suma) : "") }));
+    })));
+
+    var filas = h("div", { class: "tarjeta res-pie" }, h("h3", { text: "Pieza por pieza" }));
+    if (!publicadas.length) {
+      filas.append(h("p", { class: "vacio", text: "Todavía no hay nada publicado. Los primeros números aparecen 48 horas después del primer video; el veredicto, a los 7 días." }));
+    } else {
+      publicadas.slice().reverse().slice(0, 40).forEach(function (x) {
+        var l = LINEAS[x.linea] || LINEAS.M, v = veredicto(x), rs = resultadosDe(x);
+        filas.append(h("div", { class: "res-fila" },
+          h("div", { class: "que" }, h("strong", null, h("span", { class: "linea " + l.clase, text: txt(x.codigo) || l.nombre }), " ", txt(x.titulo)),
+            h("span", { text: fechaCorta(x.fecha) + " · " + txt(x.objetivo) + (x.vara ? ": " + txt(x.vara) : "") })),
+          h("div", { class: "numeros" }, rs.length ? rs.map(function (r) { return h("p", null, h("b", { text: REDES[r.red] + ": " }), lineaNumeros(r.datos)); }) : h("p", { text: "Sin números todavía." })),
+          v ? h("span", { class: "insignia " + v[0], text: v[1] }) : null));
+      });
+    }
+    cont.replaceChildren(cifras, porRed, filas);
+  }
+
+  /* 07 · conexiones */
   var ETIQUETA = { conectada: ["ok", "Conectada"], falta: ["falta", "Falta"], despues: ["", "Después"] };
   function pintarConexiones() {
     var cont = $("#conexiones-cuerpo"), e = S.docs.estado;
@@ -728,7 +917,7 @@ footer{margin-top:56px;padding-top:16px;border-top:1px solid var(--linea);font-s
     cont.replaceChildren(grupo("red", "Redes", e.notas && txt(e.notas.redes)), grupo("herramienta", "Herramientas", null));
   }
 
-  /* 06 · saldos y costos */
+  /* 08 · saldos y costos */
   function pintarSaldos() {
     var cont = $("#saldos-cuerpo"), e = S.docs.estado;
     var ss = e && e.saldos && typeof e.saldos === "object" ? Object.keys(e.saldos).map(function (k) { return e.saldos[k]; }).filter(Boolean) : [];
@@ -749,6 +938,7 @@ footer{margin-top:56px;padding-top:16px;border-top:1px solid var(--linea);font-s
         h("p", { class: "cifra" }, plata(gastado), h("small", { text: "de " + plata(tope) + " de tope" })),
         barra,
         p.detalle ? h("p", { text: txt(p.detalle) }) : null,
+        Number(p.proyectado) ? h("p", { text: "Con dos piezas por día, el mes cierra en unos " + plata(p.proyectado) + "." }) : null,
         Number(p.por_video) ? h("p", { text: "Cada video con Kenneth cuesta " + plata(p.por_video) + (Number(p.meta_por_video) ? " (la meta es " + plata(p.meta_por_video) + ")." : ".") + " Los gráficos cuestan $0." }) : null));
     }
     cont.replaceChildren.apply(cont, partes);
@@ -764,7 +954,7 @@ footer{margin-top:56px;padding-top:16px;border-top:1px solid var(--linea);font-s
     el.textContent = "Saldos y conexiones revisados el " + t.replace(/\.$/, "") + ".";
   }
 
-  function pintarTodo() { pintarSigue(); pintarPendientes(); pintarCalendario(); pintarGuiones(); pintarConexiones(); pintarSaldos(); pintarActualizado(); }
+  function pintarTodo() { pintarSigue(); pintarPendientes(); pintarCalendario(); pintarGuiones(); pintarObjetivos(); pintarResultados(); pintarConexiones(); pintarSaldos(); pintarActualizado(); }
   function alLlegar(nombre) {
     if (nombre === "calendario") {
       if (!S.mesAjustado && S.docs.calendario) {
@@ -775,13 +965,71 @@ footer{margin-top:56px;padding-top:16px;border-top:1px solid var(--linea);font-s
           S.mes = sig.fecha.slice(0, 7); S.dia = sig.fecha;
         }
       }
-      pintarCalendario();
+      pintarCalendario(); pintarObjetivos(); pintarResultados();
     } else if (nombre === "tareas") pintarPendientes();
     else if (nombre === "guiones") pintarGuiones();
+    else if (nombre === "objetivos") { pintarObjetivos(); pintarResultados(); }
     else { pintarConexiones(); pintarSaldos(); pintarActualizado(); }
     pintarSigue();
   }
   function franja(texto) { var f = $("#franja"); f.textContent = texto; f.hidden = false; }
+
+  /* En Vercel no hay base de Claude: los datos son los archivos datos/*.json (los escribe Claude)
+     más lo que Kenneth marcó, que guarda api/marcas. Imita lo justo de la base del Artifact. */
+  function fusionar(a, b) {
+    var o = {}, k;
+    if (a && typeof a === "object" && !Array.isArray(a)) for (k in a) o[k] = a[k];
+    for (k in b) o[k] = b[k] && typeof b[k] === "object" && !Array.isArray(b[k]) ? fusionar(o[k], b[k]) : b[k];
+    return o;
+  }
+  function baseDelSitio() {
+    var marcas = {}, bases = {}, oyentes = {}, cola = Promise.resolve();
+    function pedir(ruta, opciones) {
+      return fetch(ruta, Object.assign({ cache: "no-store", credentials: "same-origin" }, opciones || {})).then(function (r) {
+        if (!r.ok) throw { code: "unavailable", status: r.status };
+        return r.json();
+      });
+    }
+    function emitir(nombre) {
+      if (!(nombre in bases)) return;
+      var cuerpo = bases[nombre] ? fusionar(bases[nombre], marcas[nombre] || {}) : null;
+      var snap = { id: nombre, exists: !!cuerpo, data: function () { return cuerpo || undefined; } };
+      (oyentes[nombre] || []).forEach(function (f) { f(snap); });
+    }
+    function leerMarcas() {
+      return pedir("api/marcas").then(function (m) { marcas = m && typeof m === "object" ? m : {}; });
+    }
+    var primeras = leerMarcas().catch(function (err) {
+      S.lectura = true;
+      franja(err && err.status === 403
+        ? "Esta dirección está abierta a cualquiera, así que no se guarda nada. Falta activar la protección de Vercel del proyecto (Deployment Protection, todos los despliegues)."
+        : "No se pudo leer lo que marcaste. La consola queda solo de lectura: recargá la página.");
+    });
+    return {
+      doc: function (ruta) {
+        var nombre = ruta.split("/")[1];
+        return {
+          onSnapshot: function (next) {
+            (oyentes[nombre] = oyentes[nombre] || []).push(next);
+            var base = pedir("datos/" + nombre + ".json").catch(function () { return null; });
+            Promise.all([base, primeras]).then(function (v) { bases[nombre] = v[0]; emitir(nombre); });
+            return function () {};
+          },
+          update: function (parche) {
+            marcas[nombre] = fusionar(marcas[nombre], parche);
+            emitir(nombre);
+            var envio = cola.then(function () {
+              return pedir("api/marcas", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ doc: nombre, parche: parche }) });
+            }).then(function (m) { marcas = m && typeof m === "object" ? m : marcas; emitir(nombre); }, function (err) {
+              return leerMarcas().catch(function () {}).then(function () { Object.keys(bases).forEach(emitir); throw err; });
+            });
+            cola = envio.catch(function () {});
+            return envio;
+          }
+        };
+      }
+    };
+  }
   function sinDatos() {
     NOMBRES.forEach(function (n) { S.docs[n] = null; });
     pintarTodo();
@@ -798,6 +1046,7 @@ footer{margin-top:56px;padding-top:16px;border-top:1px solid var(--linea);font-s
   document.querySelectorAll(".filtro").forEach(function (b) {
     b.addEventListener("click", function () { var l = b.dataset.linea; S.filtros[l] = S.filtros[l] === false; pintarCalendario(); });
   });
+  $("#filtro-ig").addEventListener("click", function () { S.soloIG = !S.soloIG; pintarCalendario(); });
   document.addEventListener("click", function (e) {
     var a = e.target.closest && e.target.closest('a[href^="#"]');
     if (!a) return;
@@ -815,9 +1064,17 @@ footer{margin-top:56px;padding-top:16px;border-top:1px solid var(--linea);font-s
 
   pintarCalendario();
 
+  /* una pestaña que quedó abierta se pone al día al volver a ella */
+  var abierta = Date.now();
+  document.addEventListener("visibilitychange", function () {
+    var escribiendo = Object.keys(S.borradores).some(function (k) { return S.borradores[k]; });
+    if (document.visibilityState === "visible" && Date.now() - abierta > 30 * 60 * 1000 && !escribiendo) location.reload();
+  });
+
   (async function arrancar() {
-    var db = null;
-    try { db = window.claude && window.claude.use ? await window.claude.use("db") : null; } catch (e) { db = null; }
+    var db = null, enClaude = !!(window.claude && window.claude.use);
+    if (enClaude) { try { db = await window.claude.use("db"); } catch (e) { db = null; } }
+    else db = baseDelSitio();
     if (!db) return sinDatos();
     S.db = db;
     NOMBRES.forEach(function (nombre) {
@@ -829,6 +1086,7 @@ footer{margin-top:56px;padding-top:16px;border-top:1px solid var(--linea);font-s
         franja(err && err.code === "revoked" ? "Esta vista perdió el acceso a los datos. Volvé a abrir la consola." : "No se pudieron cargar algunos datos. Recargá la página.");
       });
     });
+    if (!enClaude) return;
     try {
       var user = await window.claude.use("user");
       if (user && (await user.can("data.write")) === false) { S.lectura = true; pintarTodo(); }
@@ -836,3 +1094,5 @@ footer{margin-top:56px;padding-top:16px;border-top:1px solid var(--linea);font-s
   })();
 })();
 </script>
+</body>
+</html>

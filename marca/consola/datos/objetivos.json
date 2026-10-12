@@ -1,0 +1,126 @@
+{
+ "norte": {
+  "titulo": "Conversaciones con empresas",
+  "que": "Alguien que dirige o decide en un negocio le escribe a Kenneth por algo que vio.",
+  "meta": 1,
+  "meta_texto": "1 al mes ya es avance",
+  "actual": 0,
+  "periodo": "octubre"
+ },
+ "items": {
+  "alcance": {
+   "nombre": "Alcance",
+   "busca": "Que lo vea gente que no lo conoce.",
+   "mide": "Vistas a los 7 días",
+   "vara": "Pasa de 326",
+   "excelente": "650",
+   "cuenta": [
+    "Alcance"
+   ],
+   "orden": 1
+  },
+  "guardado": {
+   "nombre": "Guardado",
+   "busca": "Que sea tan útil que lo guarden.",
+   "mide": "Guardados",
+   "vara": "Al menos 1 (hoy son 0)",
+   "excelente": "10 por cada 1.000 vistas",
+   "cuenta": [
+    "Guardado"
+   ],
+   "orden": 2
+  },
+  "compartido": {
+   "nombre": "Compartido",
+   "busca": "Que el empleado se lo mande al jefe.",
+   "mide": "Compartidos",
+   "vara": "Al menos 1 (hoy son 0)",
+   "excelente": "10 por cada 1.000 vistas",
+   "cuenta": [
+    "Compartido"
+   ],
+   "orden": 3
+  },
+  "comentario": {
+   "nombre": "Comentario",
+   "busca": "Que la gente cuente su caso.",
+   "mide": "Comentarios de gente que no es conocida",
+   "vara": "Al menos 2",
+   "excelente": "10 por cada 1.000 vistas",
+   "cuenta": [
+    "Comentario"
+   ],
+   "orden": 4
+  },
+  "perfil": {
+   "nombre": "Perfil",
+   "busca": "Que quieran saber quién es.",
+   "mide": "Visitas al perfil y seguidores nuevos",
+   "vara": "Más que el video anterior con el mismo objetivo",
+   "excelente": "",
+   "cuenta": [
+    "Perfil",
+    "Perfil y empresa"
+   ],
+   "orden": 5
+  },
+  "empresa": {
+   "nombre": "Empresa",
+   "busca": "La que manda: que una empresa le escriba.",
+   "mide": "Mensajes de alguien que dirige o decide",
+   "vara": "1 conversación al mes",
+   "excelente": "",
+   "cuenta": [
+    "Perfil y empresa"
+   ],
+   "orden": 6
+  }
+ },
+ "ritmo": {
+  "tiktok": {
+   "nombre": "TikTok",
+   "texto": "2 por día: un gráfico y un video con Kenneth.",
+   "orden": 1
+  },
+  "instagram": {
+   "nombre": "Instagram",
+   "texto": "3 por semana, las más útiles para guardar o mandar. Historias cuando Kenneth quiera.",
+   "orden": 2
+  },
+  "facebook": {
+   "nombre": "Facebook",
+   "texto": "Lo mismo que Instagram, cuando se conecte.",
+   "orden": 3
+  },
+  "linkedin": {
+   "nombre": "LinkedIn y X",
+   "texto": "Sin publicar por ahora.",
+   "orden": 4
+  }
+ },
+ "base": {
+  "fecha": "9 de octubre",
+  "datos": [
+   {
+    "etiqueta": "TikTok: vistas de un video normal",
+    "valor": "326"
+   },
+   {
+    "etiqueta": "TikTok: comentarios por cada 1.000 vistas",
+    "valor": "2"
+   },
+   {
+    "etiqueta": "TikTok: compartidos y guardados",
+    "valor": "0"
+   },
+   {
+    "etiqueta": "TikTok: videos en la cuenta",
+    "valor": "238"
+   },
+   {
+    "etiqueta": "Instagram: seguidores",
+    "valor": "576"
+   }
+  ]
+ }
+}

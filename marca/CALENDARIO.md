@@ -2,7 +2,8 @@
 
 > Kenneth (11-oct-2026): dos piezas diarias, una 100 % gráficos y una con el gemelo, y que cada una
 > diga **para qué se hace** y **cómo se sabe si lo logró**.
-> El ritmo sube por semanas hasta llegar a las dos diarias (regla de `ARRANQUE.md`: de a poco).
+> **Kenneth (12-oct-2026): dos por día desde la primera semana.** Todo va a TikTok; a Instagram van tres por
+> semana (las historias y los reposts los hace él cuando quiera); en LinkedIn y X no se publica por ahora.
 >
 > **Se ve como calendario en la consola:** <https://claude.ai/artifact/ThqpTuWtjM3fgiTKWXs5yj>
 > ([`consola/LEEME.md`](consola/LEEME.md)). Si cambia este archivo, cambia la consola, y al revés.
@@ -16,8 +17,18 @@
 | Para qué sirve | **Probar.** Sale todos los días, le enseña a TikTok de qué habla la cuenta y mide qué gancho pega, gratis | **Confirmar.** Pone la cara y la autoridad: convierte vistas en visitas al perfil y en conversaciones |
 | Aprobación | Un guion gráfico por semana, con todas las piezas juntas | Un guion gráfico por video, antes de gastar |
 
-**La regla que las une:** el gráfico que pase de **650 vistas** (el doble de lo normal en la cuenta) se convierte
-en video con Kenneth la semana siguiente. Así el gemelo solo se paga en temas que ya probaron que pegan.
+**La regla que las une:** cada domingo, el gráfico más visto de la semana se convierte en video con Kenneth
+(`TOP`). Si alguno pasa de **650 vistas** (el doble de lo normal en la cuenta), ese entra primero. Así parte del
+gasto en el gemelo va a temas que ya probaron que pegan.
+
+## Las redes
+
+| Red | Cuánto | Qué |
+|---|---|---|
+| **TikTok** | 2 por día | Todo: el gráfico y el video con Kenneth |
+| **Instagram** | 3 por semana | Las más útiles para guardar o mandarle a alguien: casi siempre dos videos con Kenneth y un gráfico. Historias y reposts, cuando Kenneth quiera |
+| **Facebook** | 3 por semana | Lo mismo que Instagram, cuando esté conectado en Buffer |
+| **LinkedIn y X** | nada por ahora | Kenneth (12-oct): LinkedIn no es la red para el resultado que busca |
 
 ## Los objetivos: uno por video
 
@@ -37,7 +48,7 @@ cada 1.000 vistas, 0 compartidos y 0 guardados.** Después de dos semanas se rec
 
 | Línea | Serie | De dónde sale (todo tiene fuente) | Objetivo |
 |---|---|---|---|
-| A | **IA sin jerga** (J) | El glosario de `CANON.md`: una palabra de IA, como se la explicarías a tu tía | Alcance |
+| A | **IA sin jerga** (J) | El glosario de `CANON.md`: una palabra de IA, como se la explicarías a tu tía (8 palabras) | Alcance |
 | A | **La regla** (R) | Las reglas de la oficina de IAs (TORRE) y del portafolio, en 20 s | Guardado |
 | A | **Las cinco capas** (C) | El caso del anfiteatro: políticas, números, auditorías, tableros, lunes | Guardado |
 | A | **La lista** (L) | Listas que se pueden usar mañana: la reunión de los lunes, apertura y cierre | Guardado |
@@ -45,71 +56,75 @@ cada 1.000 vistas, 0 compartidos y 0 guardados.** Después de dos semanas se rec
 | B | **Amazon en la soda** | `FORMATOS.md` §2 | Guardado y compartido |
 | B | **La Oficina** | `FORMATOS.md` §1 | Comentario y compartido |
 | B | **Sistema de la semana** | `FORMATOS.md` §3: un problema real resuelto, en pantalla | Perfil y empresa |
-| B | **Respuesta a un comentario** | El mejor comentario de la semana (desde la semana 3) | Comentario |
+| B | **Respuesta a un comentario** | El mejor comentario de la semana (los viernes, desde la semana 2) | Comentario |
+| B | **El más visto** (TOP) | El gráfico más visto de la semana, contado por Kenneth (los domingos, desde la semana 2) | Alcance |
+| B | **¿Cuál soy yo?** (G) | `FORMATOS.md` §4: el gemelo y la clonación de voz. Después del video 15 y como mucho 1 de cada 5 | Compartido y comentario |
 
 Las ideas, con su fuente, están en [`ideas.md`](ideas.md).
 
-## Calendario: cuatro semanas
+## Calendario: cuatro semanas, dos piezas por día
 
-### Semana 42 · del 13 al 18 de octubre · 5 piezas
+Todo sale en **TikTok**. La columna Instagram marca las tres de la semana que también van allá.
+El gráfico de un día muchas veces deja en una frase el video del día anterior: quien vio el video lo guarda; quien no, entra por el gráfico.
 
-| Día | Línea | Pieza | Por qué se hace | Objetivo |
-|---|---|---|---|---|
-| Mar 13 | B | `002` Amazon en la soda: si tu negocio no sobrevive a tus vacaciones (abre con «nadie era indispensable») | El primer video de la marca entra por lo que ya le funcionó a la cuenta: Amazon y Costa Rica | Guardado |
-| Mié 14 | A | `J1` IA sin jerga: «prompt» son las instrucciones que le di | Tema amplio, para que TikTok empiece a mostrar la cuenta a gente interesada en IA | Alcance |
-| Jue 15 | B | `004` Amazon en la soda: un anfiteatro para 800 personas al 25 % | El caso real más fuerte: prueba que el método funciona | Compartido |
-| Vie 16 | A | `R1` La regla: el que hace el trabajo no lo revisa | Una regla que se entiende sola y sirve en cualquier negocio | Guardado |
-| Dom 18 | A | `N1` El número: 165 personas, 4 países | Dice quién es Kenneth sin presumir | Perfil |
+### Semana 42 · del 13 al 18 de octubre · 12 piezas
 
-Sábado 17: un video personal, como los de siempre.
+| Día | Gráfico (línea A) | Objetivo | Video con Kenneth (línea B) | Objetivo | Instagram |
+|---|---|---|---|---|---|
+| Mar 13 | `J1` IA sin jerga: «Prompt» son las instrucciones que le di | Alcance | `002` Amazon en la soda: si tu negocio no sobrevive a tus vacaciones | Guardado | `002` |
+| Mié 14 | `R2` La regla: un sistema que te necesita es una dependencia | Guardado | `A3` Amazon en la soda: la reunión de los lunes | Guardado | — |
+| Jue 15 | `L1` La lista: la reunión de los lunes en 15 minutos | Guardado | `004` Amazon en la soda: un anfiteatro para 800 personas al 25 % | Compartido | `004` |
+| Vie 16 | `N2` El número: 800 personas de capacidad, 25 % de uso | Perfil | `A4` Amazon en la soda: escribí el titular del día en que ya lo lograste | Guardado | — |
+| Sáb 17 | `J2` IA sin jerga: un «agente» es un empleado de IA | Alcance | `001` La Oficina: mi empleado se calificó su propio examen | Comentario | — |
+| Dom 18 | `R1` La regla: el que hace el trabajo no lo revisa | Guardado | `003` La Oficina: le prohibí trabajar a mi mejor empleado | Compartido | `R1` |
 
-### Semana 43 · del 19 al 25 de octubre · 8 piezas
+Sábado 17: además, un video personal de Kenneth, como los de siempre.
 
-| Día | Línea | Pieza | Por qué se hace | Objetivo |
-|---|---|---|---|---|
-| Lun 19 | A | `J2` IA sin jerga: un «agente» es un empleado de IA | Prepara el terreno para La Oficina | Alcance |
-| Mar 20 | B | `001` La Oficina: mi empleado se calificó su propio examen | Presenta la serie insignia con el incidente más claro | Comentario |
-| Mié 21 | A | `C1` Las cinco capas, 1: lo que se escribe (políticas) | Abre una miniserie: quien ve una capa busca las otras | Guardado |
-| Jue 22 | B | `003` La Oficina: le prohibí trabajar a mi mejor empleado | El gancho con más puntaje del banco (20 de 20) | Compartido |
-| Vie 23 | A | `L1` La lista: la reunión de los lunes en 15 minutos | Algo que se puede hacer el lunes siguiente | Guardado |
-| Sáb 24 | B | `005` La Oficina: la oficina me avisó tres veces | Kenneth se equivoca en público: da confianza | Comentario |
-| Dom 25 | A | `N2` El número: 800 personas de capacidad, 25 % de uso | Refuerza el caso del jueves 15 | Perfil |
-| Dom 25 | A | `J3` IA sin jerga: un «modelo» es una IA | Mantiene el alcance el fin de semana | Alcance |
+### Semana 43 · del 19 al 25 de octubre · 14 piezas
 
-### Semana 44 · del 26 de octubre al 1 de noviembre · 11 piezas
+| Día | Gráfico (línea A) | Objetivo | Video con Kenneth (línea B) | Objetivo | Instagram |
+|---|---|---|---|---|---|
+| Lun 19 | `R4` La regla: el mejor no hace todo: decide y revisa | Guardado | `005` La Oficina: la oficina me avisó tres veces | Comentario | — |
+| Mar 20 | `R3` La regla: un aviso sin dueño y sin fecha es decoración | Guardado | `G0` ¿Cuál soy yo?: los videos de esta semana no los grabé yo | Comentario | `G0` |
+| Mié 21 | `J3` IA sin jerga: un «modelo» es una IA | Alcance | `S2` Sistema de la semana: las notas de voz de WhatsApp convertidas en pasos | Perfil y empresa | `S2` |
+| Jue 22 | `C1` Las cinco capas: 1 de 5: lo que se escribe | Guardado | `A5` Amazon en la soda: una evaluación que no dispara nada no sirve | Compartido | — |
+| Vie 23 | `N1` El número: 165 personas, 4 países | Perfil | `RC1` Respuesta a un comentario: el mejor comentario de la semana | Comentario | `N1` |
+| Sáb 24 | `J4` IA sin jerga: un «workflow» es la cadena de pasos | Alcance | `O7` La Oficina: contraté a un practicante gratis | Compartido | — |
+| Dom 25 | `C2` Las cinco capas: 2 de 5: lo que se cuenta todos los días | Guardado | `TOP1` El más visto: el gráfico más visto de la semana, ahora con Kenneth | Alcance | — |
 
-| Día | Línea | Pieza | Por qué se hace | Objetivo |
-|---|---|---|---|---|
-| Lun 26 | A | `C2` Las cinco capas, 2: lo que se cuenta todos los días | Sigue la miniserie | Guardado |
-| Lun 26 | B | `O6` La Oficina: cuando el gerente se queda sin horas, ¿quién manda? | Todo dueño se pregunta quién manda si él falta | Comentario |
-| Mar 27 | A | `J4` IA sin jerga: un «workflow» es la cadena de pasos | Una palabra que el dueño oye y no entiende | Alcance |
-| Mar 27 | B | `S2` Sistema de la semana: las notas de voz de WhatsApp convertidas en pasos | Primera prueba en pantalla: un problema que todos tienen | Perfil y empresa |
-| Mié 28 | A | `R5` La regla: nada se hace dos veces | Ahorro que cualquier negocio entiende | Guardado |
-| Jue 29 | A | `C3` Las cinco capas, 3: lo que se revisa cada semana | Sigue la miniserie | Guardado |
-| Jue 29 | B | `A3` Amazon en la soda: la reunión de los lunes | El gráfico del viernes 23, ahora con Kenneth | Guardado |
-| Vie 30 | A | `L2` La lista: las 3 cosas que solo vos sabés | Sale del `002` | Guardado |
-| Vie 30 | B | Respuesta al mejor comentario de la semana | La audiencia empieza a dictar los temas | Comentario |
-| Sáb 31 | B | `O7` La Oficina: contraté a un practicante gratis | Tono liviano para el sábado | Compartido |
-| Dom 1 | A | `N4` El número: 12 semanas, sin contratar a un gerente | Cierra el caso del anfiteatro | Perfil |
+`G0` (martes 20) es el gemelo presentándose solo. Sale solo si Kenneth dice que sí; si no, se cambia por otro.
 
-### Semana 45 · del 2 al 8 de noviembre · 14 piezas (dos diarias)
+### Semana 44 · del 26 de octubre al 1 de noviembre · 14 piezas
 
-| Día | Línea A (gráfico) | Objetivo | Línea B (Kenneth) | Objetivo |
-|---|---|---|---|---|
-| Lun 2 | `C4` Las cinco capas, 4: lo que ve el que dirige | Guardado | `A4` Amazon en la soda: escribí el titular del día en que ya lo lograste | Guardado |
-| Mar 3 | `J5` IA sin jerga: los «tokens» son horas de trabajo | Alcance | `S1` Sistema de la semana: la factura te dice a quién comprarle más barato | Perfil y empresa |
-| Mié 4 | `R6` La regla: lo que no se escribe no pasó | Guardado | Respuesta al mejor comentario | Comentario |
-| Jue 5 | `C5` Las cinco capas, 5: lo que se decide los lunes | Guardado | `O4` La Oficina: mis empleados llevan bitácora | Compartido |
-| Vie 6 | `L3` La lista: apertura y cierre del local | Guardado | `S3` Sistema de la semana: la cámara mágica | Perfil y empresa |
-| Sáb 7 | `J6` IA sin jerga: la «nota de relevo» | Alcance | `O8` La Oficina: nada se hace dos veces | Comentario |
-| Dom 8 | `R7` La regla: la tabla decide quién trabaja, no el capricho | Guardado | El gráfico más visto del mes, ahora con Kenneth | Alcance |
+| Día | Gráfico (línea A) | Objetivo | Video con Kenneth (línea B) | Objetivo | Instagram |
+|---|---|---|---|---|---|
+| Lun 26 | `C3` Las cinco capas: 3 de 5: lo que se revisa cada semana | Guardado | `O6` La Oficina: cuando el gerente se queda sin horas, ¿quién manda? | Comentario | `O6` |
+| Mar 27 | `J5` IA sin jerga: los «tokens» son horas de trabajo | Alcance | `O3` La Oficina: despedí a una IA | Comentario | — |
+| Mié 28 | `N3` El número: 14 años en una operación que no se apagó | Perfil | `S1` Sistema de la semana: la factura te dice a quién comprarle más barato | Perfil y empresa | `S1` |
+| Jue 29 | `C4` Las cinco capas: 4 de 5: lo que ve el que dirige | Guardado | `G1` ¿Cuál soy yo?: la nota de voz de «tu hijo» pidiendo plata | Compartido | — |
+| Vie 30 | `L2` La lista: las 3 cosas que solo vos sabés | Guardado | `RC2` Respuesta a un comentario: el mejor comentario de la semana | Comentario | `L2` |
+| Sáb 31 | `J6` IA sin jerga: el «handoff» es la nota de relevo | Alcance | `O4` La Oficina: mis empleados llevan bitácora | Compartido | — |
+| Dom 1 | `C5` Las cinco capas: 5 de 5: lo que se decide los lunes | Guardado | `TOP2` El más visto: el gráfico más visto de la semana, ahora con Kenneth | Alcance | — |
+
+### Semana 45 · del 2 al 8 de noviembre · 14 piezas
+
+| Día | Gráfico (línea A) | Objetivo | Video con Kenneth (línea B) | Objetivo | Instagram |
+|---|---|---|---|---|---|
+| Lun 2 | `R6` La regla: lo que no se escribe no pasó | Guardado | `C6` Las cinco capas: las cinco capas, de corrido | Guardado | `C6` |
+| Mar 3 | `J8` IA sin jerga: el «log» es la bitácora | Alcance | `O8` La Oficina: nada se hace dos veces | Comentario | — |
+| Mié 4 | `R5` La regla: nada se hace dos veces | Guardado | `S3` Sistema de la semana: la cámara mágica | Perfil y empresa | — |
+| Jue 5 | `J7` IA sin jerga: «Dispatch» es pasarle el trabajo | Alcance | `G3` ¿Cuál soy yo?: con 30 segundos de audio se clona una voz | Compartido | `G3` |
+| Vie 6 | `N4` El número: 12 semanas, sin contratar a un gerente | Perfil | `RC3` Respuesta a un comentario: el mejor comentario de la semana | Comentario | — |
+| Sáb 7 | `L3` La lista: apertura y cierre del local | Guardado | `S4` Sistema de la semana: 11 bolsas de empleo a la vez | Alcance | `L3` |
+| Dom 8 | `R7` La regla: la tabla decide quién trabaja, no el capricho | Guardado | `TOP3` El más visto: el gráfico más visto del mes, ahora con Kenneth | Alcance | — |
 
 ## Cómo se revisa (lunes, 20 minutos)
 
 1. Cada video se compara **contra su propio objetivo**, no contra las vistas. Un gráfico de «guardado» con 200 vistas y 5 guardados cumplió.
 2. Se cuentan los que cumplieron por serie. La serie que falla 4 de 5 cambia de gancho; la que cumple 4 de 5 se duplica.
 3. El gráfico que pasó de 650 vistas entra al calendario como video con Kenneth.
-4. No se sube de semana (de 5 a 8, de 8 a 11) si menos de la mitad de las piezas cumplió su objetivo.
+4. El ritmo no baja. Si menos de la mitad cumplió, se cambia el gancho de las series que fallaron, no la cantidad.
+5. Los números se cargan en la consola (sección Resultados) a las 48 horas y a los 7 días.
 
 Los números van a [`medicion/registro.csv`](medicion/registro.csv), que ya tiene las columnas `objetivo` y `meta`.
 
@@ -117,10 +132,10 @@ Los números van a [`medicion/registro.csv`](medicion/registro.csv), que ya tien
 
 | | Piezas | Costo |
 |---|---|---|
-| Línea A | 21 gráficos | $0 |
-| Línea B | 17 videos con Kenneth, a $1.83 | unos $31 |
+| Línea A | 27 gráficos | $0 |
+| Línea B | 27 videos con Kenneth, a $1.83 | unos $49 |
 | Voz (ElevenLabs) | fijo | $22 |
-| **Total** | **38 piezas** | **unos $53**, bajo el tope de $100 |
+| **Total** | **54 piezas** | **unos $71**, bajo el tope de $100 |
 
 ## Tomas de banco sin costo
 

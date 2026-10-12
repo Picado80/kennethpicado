@@ -1,5 +1,23 @@
 {
  "items": {
+  "p-2026-10-13-J1": {
+   "fecha": "2026-10-13",
+   "linea": "A",
+   "tipo": "pieza",
+   "codigo": "J1",
+   "serie": "IA sin jerga",
+   "titulo": "«Prompt» son las instrucciones que le di",
+   "porque": "Tema amplio, para que TikTok empiece a mostrar la cuenta a gente interesada en IA.",
+   "objetivo": "Alcance",
+   "vara": "pasa de 326 vistas",
+   "redes": [
+    "tiktok"
+   ],
+   "estado": "por-hacer",
+   "quien": "Claude",
+   "costo": 0,
+   "orden": 0
+  },
   "p-2026-10-13-002": {
    "fecha": "2026-10-13",
    "linea": "B",
@@ -10,25 +28,68 @@
    "porque": "El primer video de la marca entra por lo que ya le funcionó a la cuenta: Amazon y Costa Rica.",
    "objetivo": "Guardado",
    "vara": "al menos 1 guardado",
+   "redes": [
+    "tiktok",
+    "instagram"
+   ],
    "estado": "guion-grafico",
    "quien": "Claude",
    "costo": 1.83,
-   "orden": 0
+   "orden": 1
   },
-  "p-2026-10-14-J1": {
+  "p-2026-10-14-R2": {
    "fecha": "2026-10-14",
    "linea": "A",
    "tipo": "pieza",
-   "codigo": "J1",
-   "serie": "IA sin jerga",
-   "titulo": "«Prompt» son las instrucciones que le di",
-   "porque": "Tema amplio, para que TikTok empiece a mostrar la cuenta a gente interesada en IA.",
-   "objetivo": "Alcance",
-   "vara": "pasa de 326 vistas",
+   "codigo": "R2",
+   "serie": "La regla",
+   "titulo": "Un sistema que te necesita es una dependencia",
+   "porque": "Deja en una frase el video de ayer, para guardarlo.",
+   "objetivo": "Guardado",
+   "vara": "al menos 1 guardado",
+   "redes": [
+    "tiktok"
+   ],
    "estado": "por-hacer",
    "quien": "Claude",
    "costo": 0,
-   "orden": 1
+   "orden": 2
+  },
+  "p-2026-10-14-A3": {
+   "fecha": "2026-10-14",
+   "linea": "B",
+   "tipo": "pieza",
+   "codigo": "A3",
+   "serie": "Amazon en la soda",
+   "titulo": "La reunión de los lunes",
+   "porque": "Un método de Amazon que un negocio puede copiar el lunes siguiente.",
+   "objetivo": "Guardado",
+   "vara": "al menos 1 guardado",
+   "redes": [
+    "tiktok"
+   ],
+   "estado": "por-hacer",
+   "quien": "Claude",
+   "costo": 1.83,
+   "orden": 3
+  },
+  "p-2026-10-15-L1": {
+   "fecha": "2026-10-15",
+   "linea": "A",
+   "tipo": "pieza",
+   "codigo": "L1",
+   "serie": "La lista",
+   "titulo": "La reunión de los lunes en 15 minutos",
+   "porque": "La lista del video de ayer, para guardarla.",
+   "objetivo": "Guardado",
+   "vara": "al menos 1 guardado",
+   "redes": [
+    "tiktok"
+   ],
+   "estado": "por-hacer",
+   "quien": "Claude",
+   "costo": 0,
+   "orden": 4
   },
   "p-2026-10-15-004": {
    "fecha": "2026-10-15",
@@ -40,58 +101,71 @@
    "porque": "El caso real más fuerte: prueba que el método funciona.",
    "objetivo": "Compartido",
    "vara": "al menos 1 compartido",
+   "redes": [
+    "tiktok",
+    "instagram"
+   ],
    "estado": "por-hacer",
    "quien": "Claude",
    "costo": 1.83,
-   "orden": 2
+   "orden": 5
   },
-  "p-2026-10-16-R1": {
+  "p-2026-10-16-N2": {
    "fecha": "2026-10-16",
    "linea": "A",
    "tipo": "pieza",
-   "codigo": "R1",
-   "serie": "La regla",
-   "titulo": "El que hace el trabajo no lo revisa",
-   "porque": "Una regla que se entiende sola y sirve en cualquier negocio.",
-   "objetivo": "Guardado",
-   "vara": "al menos 1 guardado",
-   "estado": "por-hacer",
-   "quien": "Claude",
-   "costo": 0,
-   "orden": 3
-  },
-  "p-2026-10-18-N1": {
-   "fecha": "2026-10-18",
-   "linea": "A",
-   "tipo": "pieza",
-   "codigo": "N1",
+   "codigo": "N2",
    "serie": "El número",
-   "titulo": "165 personas, 4 países",
-   "porque": "Dice quién es Kenneth sin presumir.",
+   "titulo": "800 personas de capacidad, 25 % de uso",
+   "porque": "El dato del video de ayer, solo.",
    "objetivo": "Perfil",
    "vara": "más visitas al perfil que el video anterior",
+   "redes": [
+    "tiktok"
+   ],
    "estado": "por-hacer",
    "quien": "Claude",
    "costo": 0,
-   "orden": 4
+   "orden": 6
   },
-  "p-2026-10-19-J2": {
-   "fecha": "2026-10-19",
+  "p-2026-10-16-A4": {
+   "fecha": "2026-10-16",
+   "linea": "B",
+   "tipo": "pieza",
+   "codigo": "A4",
+   "serie": "Amazon en la soda",
+   "titulo": "Escribí el titular del día en que ya lo lograste",
+   "porque": "Un método de Amazon que cualquiera puede usar.",
+   "objetivo": "Guardado",
+   "vara": "al menos 1 guardado",
+   "redes": [
+    "tiktok"
+   ],
+   "estado": "por-hacer",
+   "quien": "Claude",
+   "costo": 1.83,
+   "orden": 7
+  },
+  "p-2026-10-17-J2": {
+   "fecha": "2026-10-17",
    "linea": "A",
    "tipo": "pieza",
    "codigo": "J2",
    "serie": "IA sin jerga",
    "titulo": "Un «agente» es un empleado de IA",
-   "porque": "Prepara el terreno para La Oficina.",
+   "porque": "Prepara el terreno para La Oficina, que empieza hoy.",
    "objetivo": "Alcance",
    "vara": "pasa de 326 vistas",
+   "redes": [
+    "tiktok"
+   ],
    "estado": "por-hacer",
    "quien": "Claude",
    "costo": 0,
-   "orden": 5
+   "orden": 8
   },
-  "p-2026-10-20-001": {
-   "fecha": "2026-10-20",
+  "p-2026-10-17-001": {
+   "fecha": "2026-10-17",
    "linea": "B",
    "tipo": "pieza",
    "codigo": "001",
@@ -100,28 +174,35 @@
    "porque": "Presenta la serie insignia con el incidente más claro.",
    "objetivo": "Comentario",
    "vara": "al menos 2 comentarios de gente nueva",
+   "redes": [
+    "tiktok"
+   ],
    "estado": "por-hacer",
    "quien": "Claude",
    "costo": 1.83,
-   "orden": 6
+   "orden": 9
   },
-  "p-2026-10-21-C1": {
-   "fecha": "2026-10-21",
+  "p-2026-10-18-R1": {
+   "fecha": "2026-10-18",
    "linea": "A",
    "tipo": "pieza",
-   "codigo": "C1",
-   "serie": "Las cinco capas",
-   "titulo": "1 de 5: lo que se escribe",
-   "porque": "Abre una miniserie: quien ve una capa busca las otras.",
+   "codigo": "R1",
+   "serie": "La regla",
+   "titulo": "El que hace el trabajo no lo revisa",
+   "porque": "Deja en una frase el video de ayer, para guardarlo.",
    "objetivo": "Guardado",
    "vara": "al menos 1 guardado",
+   "redes": [
+    "tiktok",
+    "instagram"
+   ],
    "estado": "por-hacer",
    "quien": "Claude",
    "costo": 0,
-   "orden": 7
+   "orden": 10
   },
-  "p-2026-10-22-003": {
-   "fecha": "2026-10-22",
+  "p-2026-10-18-003": {
+   "fecha": "2026-10-18",
    "linea": "B",
    "tipo": "pieza",
    "codigo": "003",
@@ -130,28 +211,34 @@
    "porque": "El gancho con más puntaje del banco (20 de 20).",
    "objetivo": "Compartido",
    "vara": "al menos 1 compartido",
+   "redes": [
+    "tiktok"
+   ],
    "estado": "por-hacer",
    "quien": "Claude",
    "costo": 1.83,
-   "orden": 8
+   "orden": 11
   },
-  "p-2026-10-23-L1": {
-   "fecha": "2026-10-23",
+  "p-2026-10-19-R4": {
+   "fecha": "2026-10-19",
    "linea": "A",
    "tipo": "pieza",
-   "codigo": "L1",
-   "serie": "La lista",
-   "titulo": "La reunión de los lunes en 15 minutos",
-   "porque": "Algo que se puede hacer el lunes siguiente.",
+   "codigo": "R4",
+   "serie": "La regla",
+   "titulo": "El mejor no hace todo: decide y revisa",
+   "porque": "Deja en una frase el video de ayer, para guardarlo.",
    "objetivo": "Guardado",
    "vara": "al menos 1 guardado",
+   "redes": [
+    "tiktok"
+   ],
    "estado": "por-hacer",
    "quien": "Claude",
    "costo": 0,
-   "orden": 9
+   "orden": 12
   },
-  "p-2026-10-24-005": {
-   "fecha": "2026-10-24",
+  "p-2026-10-19-005": {
+   "fecha": "2026-10-19",
    "linea": "B",
    "tipo": "pieza",
    "codigo": "005",
@@ -160,43 +247,199 @@
    "porque": "Kenneth se equivoca en público: da confianza.",
    "objetivo": "Comentario",
    "vara": "al menos 2 comentarios de gente nueva",
+   "redes": [
+    "tiktok"
+   ],
    "estado": "por-hacer",
    "quien": "Claude",
    "costo": 1.83,
-   "orden": 10
+   "orden": 13
   },
-  "p-2026-10-25-N2": {
-   "fecha": "2026-10-25",
+  "p-2026-10-20-R3": {
+   "fecha": "2026-10-20",
    "linea": "A",
    "tipo": "pieza",
-   "codigo": "N2",
-   "serie": "El número",
-   "titulo": "800 personas de capacidad, 25 % de uso",
-   "porque": "Refuerza el caso del anfiteatro.",
-   "objetivo": "Perfil",
-   "vara": "más visitas al perfil que el video anterior",
+   "codigo": "R3",
+   "serie": "La regla",
+   "titulo": "Un aviso sin dueño y sin fecha es decoración",
+   "porque": "Deja en una frase el video de ayer, para guardarlo.",
+   "objetivo": "Guardado",
+   "vara": "al menos 1 guardado",
+   "redes": [
+    "tiktok"
+   ],
    "estado": "por-hacer",
    "quien": "Claude",
    "costo": 0,
-   "orden": 11
+   "orden": 14
   },
-  "p-2026-10-25-J3": {
-   "fecha": "2026-10-25",
+  "p-2026-10-20-G0": {
+   "fecha": "2026-10-20",
+   "linea": "B",
+   "tipo": "pieza",
+   "codigo": "G0",
+   "serie": "¿Cuál soy yo?",
+   "titulo": "Los videos de esta semana no los grabé yo",
+   "porque": "El gemelo se presenta solo: mejor contarlo con humor que dejar que alguien lo descubra. Falta el sí de Kenneth.",
+   "objetivo": "Comentario",
+   "vara": "al menos 2 comentarios de gente nueva",
+   "redes": [
+    "tiktok",
+    "instagram"
+   ],
+   "estado": "por-hacer",
+   "quien": "Claude",
+   "costo": 1.83,
+   "orden": 15
+  },
+  "p-2026-10-21-J3": {
+   "fecha": "2026-10-21",
    "linea": "A",
    "tipo": "pieza",
    "codigo": "J3",
    "serie": "IA sin jerga",
    "titulo": "Un «modelo» es una IA",
-   "porque": "Mantiene el alcance el fin de semana.",
+   "porque": "Mantiene el alcance entre semana.",
    "objetivo": "Alcance",
    "vara": "pasa de 326 vistas",
+   "redes": [
+    "tiktok"
+   ],
    "estado": "por-hacer",
    "quien": "Claude",
    "costo": 0,
-   "orden": 12
+   "orden": 16
   },
-  "p-2026-10-26-C2": {
-   "fecha": "2026-10-26",
+  "p-2026-10-21-S2": {
+   "fecha": "2026-10-21",
+   "linea": "B",
+   "tipo": "pieza",
+   "codigo": "S2",
+   "serie": "Sistema de la semana",
+   "titulo": "Las notas de voz de WhatsApp convertidas en pasos",
+   "porque": "Primera prueba en pantalla: un problema que todos tienen.",
+   "objetivo": "Perfil y empresa",
+   "vara": "más visitas al perfil, o un mensaje de una empresa",
+   "redes": [
+    "tiktok",
+    "instagram"
+   ],
+   "estado": "por-hacer",
+   "quien": "Claude",
+   "costo": 1.83,
+   "orden": 17
+  },
+  "p-2026-10-22-C1": {
+   "fecha": "2026-10-22",
+   "linea": "A",
+   "tipo": "pieza",
+   "codigo": "C1",
+   "serie": "Las cinco capas",
+   "titulo": "1 de 5: lo que se escribe",
+   "porque": "Abre una miniserie: quien ve una capa busca las otras.",
+   "objetivo": "Guardado",
+   "vara": "al menos 1 guardado",
+   "redes": [
+    "tiktok"
+   ],
+   "estado": "por-hacer",
+   "quien": "Claude",
+   "costo": 0,
+   "orden": 18
+  },
+  "p-2026-10-22-A5": {
+   "fecha": "2026-10-22",
+   "linea": "B",
+   "tipo": "pieza",
+   "codigo": "A5",
+   "serie": "Amazon en la soda",
+   "titulo": "Una evaluación que no dispara nada no sirve",
+   "porque": "Todo negocio evalúa a su gente y casi ninguno hace algo con el resultado.",
+   "objetivo": "Compartido",
+   "vara": "al menos 1 compartido",
+   "redes": [
+    "tiktok"
+   ],
+   "estado": "por-hacer",
+   "quien": "Claude",
+   "costo": 1.83,
+   "orden": 19
+  },
+  "p-2026-10-23-N1": {
+   "fecha": "2026-10-23",
+   "linea": "A",
+   "tipo": "pieza",
+   "codigo": "N1",
+   "serie": "El número",
+   "titulo": "165 personas, 4 países",
+   "porque": "Dice quién es Kenneth sin presumir.",
+   "objetivo": "Perfil",
+   "vara": "más visitas al perfil que el video anterior",
+   "redes": [
+    "tiktok",
+    "instagram"
+   ],
+   "estado": "por-hacer",
+   "quien": "Claude",
+   "costo": 0,
+   "orden": 20
+  },
+  "p-2026-10-23-RC1": {
+   "fecha": "2026-10-23",
+   "linea": "B",
+   "tipo": "pieza",
+   "codigo": "RC1",
+   "serie": "Respuesta a un comentario",
+   "titulo": "El mejor comentario de la semana",
+   "porque": "La audiencia empieza a dictar los temas.",
+   "objetivo": "Comentario",
+   "vara": "al menos 2 comentarios de gente nueva",
+   "redes": [
+    "tiktok"
+   ],
+   "estado": "por-hacer",
+   "quien": "Claude",
+   "costo": 1.83,
+   "orden": 21
+  },
+  "p-2026-10-24-J4": {
+   "fecha": "2026-10-24",
+   "linea": "A",
+   "tipo": "pieza",
+   "codigo": "J4",
+   "serie": "IA sin jerga",
+   "titulo": "Un «workflow» es la cadena de pasos",
+   "porque": "Una palabra que el dueño oye y no entiende.",
+   "objetivo": "Alcance",
+   "vara": "pasa de 326 vistas",
+   "redes": [
+    "tiktok"
+   ],
+   "estado": "por-hacer",
+   "quien": "Claude",
+   "costo": 0,
+   "orden": 22
+  },
+  "p-2026-10-24-O7": {
+   "fecha": "2026-10-24",
+   "linea": "B",
+   "tipo": "pieza",
+   "codigo": "O7",
+   "serie": "La Oficina",
+   "titulo": "Contraté a un practicante gratis",
+   "porque": "Tono liviano para el sábado.",
+   "objetivo": "Compartido",
+   "vara": "al menos 1 compartido",
+   "redes": [
+    "tiktok"
+   ],
+   "estado": "por-hacer",
+   "quien": "Claude",
+   "costo": 1.83,
+   "orden": 23
+  },
+  "p-2026-10-25-C2": {
+   "fecha": "2026-10-25",
    "linea": "A",
    "tipo": "pieza",
    "codigo": "C2",
@@ -205,10 +448,49 @@
    "porque": "Sigue la miniserie.",
    "objetivo": "Guardado",
    "vara": "al menos 1 guardado",
+   "redes": [
+    "tiktok"
+   ],
    "estado": "por-hacer",
    "quien": "Claude",
    "costo": 0,
-   "orden": 13
+   "orden": 24
+  },
+  "p-2026-10-25-TOP1": {
+   "fecha": "2026-10-25",
+   "linea": "B",
+   "tipo": "pieza",
+   "codigo": "TOP1",
+   "serie": "El más visto",
+   "titulo": "El gráfico más visto de la semana, ahora con Kenneth",
+   "porque": "El gemelo se usa en un tema que ya probó que pega.",
+   "objetivo": "Alcance",
+   "vara": "pasa de 326 vistas",
+   "redes": [
+    "tiktok"
+   ],
+   "estado": "por-hacer",
+   "quien": "Claude",
+   "costo": 1.83,
+   "orden": 25
+  },
+  "p-2026-10-26-C3": {
+   "fecha": "2026-10-26",
+   "linea": "A",
+   "tipo": "pieza",
+   "codigo": "C3",
+   "serie": "Las cinco capas",
+   "titulo": "3 de 5: lo que se revisa cada semana",
+   "porque": "Sigue la miniserie.",
+   "objetivo": "Guardado",
+   "vara": "al menos 1 guardado",
+   "redes": [
+    "tiktok"
+   ],
+   "estado": "por-hacer",
+   "quien": "Claude",
+   "costo": 0,
+   "orden": 26
   },
   "p-2026-10-26-O6": {
    "fecha": "2026-10-26",
@@ -220,148 +502,90 @@
    "porque": "Todo dueño se pregunta quién manda si él falta.",
    "objetivo": "Comentario",
    "vara": "al menos 2 comentarios de gente nueva",
+   "redes": [
+    "tiktok",
+    "instagram"
+   ],
    "estado": "por-hacer",
    "quien": "Claude",
    "costo": 1.83,
-   "orden": 14
+   "orden": 27
   },
-  "p-2026-10-27-J4": {
+  "p-2026-10-27-J5": {
    "fecha": "2026-10-27",
    "linea": "A",
    "tipo": "pieza",
-   "codigo": "J4",
+   "codigo": "J5",
    "serie": "IA sin jerga",
-   "titulo": "Un «workflow» es la cadena de pasos",
-   "porque": "Una palabra que el dueño oye y no entiende.",
+   "titulo": "Los «tokens» son horas de trabajo",
+   "porque": "Explica el costo de la IA sin tecnicismos y prepara el video de hoy.",
    "objetivo": "Alcance",
    "vara": "pasa de 326 vistas",
+   "redes": [
+    "tiktok"
+   ],
    "estado": "por-hacer",
    "quien": "Claude",
    "costo": 0,
-   "orden": 15
+   "orden": 28
   },
-  "p-2026-10-27-S2": {
+  "p-2026-10-27-O3": {
    "fecha": "2026-10-27",
    "linea": "B",
    "tipo": "pieza",
-   "codigo": "S2",
-   "serie": "Sistema de la semana",
-   "titulo": "Las notas de voz de WhatsApp convertidas en pasos",
-   "porque": "Primera prueba en pantalla: un problema que todos tienen.",
-   "objetivo": "Perfil y empresa",
-   "vara": "más visitas al perfil, o un mensaje de una empresa",
+   "codigo": "O3",
+   "serie": "La Oficina",
+   "titulo": "Despedí a una IA",
+   "porque": "Una decisión de plata que cualquier dueño entiende: no pagar dos veces por lo mismo.",
+   "objetivo": "Comentario",
+   "vara": "al menos 2 comentarios de gente nueva",
+   "redes": [
+    "tiktok"
+   ],
    "estado": "por-hacer",
    "quien": "Claude",
    "costo": 1.83,
-   "orden": 16
+   "orden": 29
   },
-  "p-2026-10-28-R5": {
+  "p-2026-10-28-N3": {
    "fecha": "2026-10-28",
    "linea": "A",
    "tipo": "pieza",
-   "codigo": "R5",
-   "serie": "La regla",
-   "titulo": "Nada se hace dos veces",
-   "porque": "Ahorro que cualquier negocio entiende.",
-   "objetivo": "Guardado",
-   "vara": "al menos 1 guardado",
-   "estado": "por-hacer",
-   "quien": "Claude",
-   "costo": 0,
-   "orden": 17
-  },
-  "p-2026-10-29-C3": {
-   "fecha": "2026-10-29",
-   "linea": "A",
-   "tipo": "pieza",
-   "codigo": "C3",
-   "serie": "Las cinco capas",
-   "titulo": "3 de 5: lo que se revisa cada semana",
-   "porque": "Sigue la miniserie.",
-   "objetivo": "Guardado",
-   "vara": "al menos 1 guardado",
-   "estado": "por-hacer",
-   "quien": "Claude",
-   "costo": 0,
-   "orden": 18
-  },
-  "p-2026-10-29-A3": {
-   "fecha": "2026-10-29",
-   "linea": "B",
-   "tipo": "pieza",
-   "codigo": "A3",
-   "serie": "Amazon en la soda",
-   "titulo": "La reunión de los lunes",
-   "porque": "El gráfico del viernes 23, ahora con Kenneth.",
-   "objetivo": "Guardado",
-   "vara": "al menos 1 guardado",
-   "estado": "por-hacer",
-   "quien": "Claude",
-   "costo": 1.83,
-   "orden": 19
-  },
-  "p-2026-10-30-L2": {
-   "fecha": "2026-10-30",
-   "linea": "A",
-   "tipo": "pieza",
-   "codigo": "L2",
-   "serie": "La lista",
-   "titulo": "Las 3 cosas que solo vos sabés",
-   "porque": "Sale del 002.",
-   "objetivo": "Guardado",
-   "vara": "al menos 1 guardado",
-   "estado": "por-hacer",
-   "quien": "Claude",
-   "costo": 0,
-   "orden": 20
-  },
-  "p-2026-10-30-RC1": {
-   "fecha": "2026-10-30",
-   "linea": "B",
-   "tipo": "pieza",
-   "codigo": "RC1",
-   "serie": "Respuesta a un comentario",
-   "titulo": "El mejor comentario de la semana",
-   "porque": "La audiencia empieza a dictar los temas.",
-   "objetivo": "Comentario",
-   "vara": "al menos 2 comentarios de gente nueva",
-   "estado": "por-hacer",
-   "quien": "Claude",
-   "costo": 1.83,
-   "orden": 21
-  },
-  "p-2026-10-31-O7": {
-   "fecha": "2026-10-31",
-   "linea": "B",
-   "tipo": "pieza",
-   "codigo": "O7",
-   "serie": "La Oficina",
-   "titulo": "Contraté a un practicante gratis",
-   "porque": "Tono liviano para el sábado.",
-   "objetivo": "Compartido",
-   "vara": "al menos 1 compartido",
-   "estado": "por-hacer",
-   "quien": "Claude",
-   "costo": 1.83,
-   "orden": 22
-  },
-  "p-2026-11-01-N4": {
-   "fecha": "2026-11-01",
-   "linea": "A",
-   "tipo": "pieza",
-   "codigo": "N4",
+   "codigo": "N3",
    "serie": "El número",
-   "titulo": "12 semanas, sin contratar a un gerente",
-   "porque": "Cierra el caso del anfiteatro.",
+   "titulo": "14 años en una operación que no se apagó",
+   "porque": "De dónde sale lo que Kenneth enseña.",
    "objetivo": "Perfil",
    "vara": "más visitas al perfil que el video anterior",
+   "redes": [
+    "tiktok"
+   ],
    "estado": "por-hacer",
    "quien": "Claude",
    "costo": 0,
-   "orden": 23
+   "orden": 30
   },
-  "p-2026-11-02-C4": {
-   "fecha": "2026-11-02",
+  "p-2026-10-28-S1": {
+   "fecha": "2026-10-28",
+   "linea": "B",
+   "tipo": "pieza",
+   "codigo": "S1",
+   "serie": "Sistema de la semana",
+   "titulo": "La factura te dice a quién comprarle más barato",
+   "porque": "Un sistema que le ahorra plata al dueño. SEMI aparece como «lo que construyo».",
+   "objetivo": "Perfil y empresa",
+   "vara": "más visitas al perfil, o un mensaje de una empresa",
+   "redes": [
+    "tiktok",
+    "instagram"
+   ],
+   "estado": "por-hacer",
+   "quien": "Claude",
+   "costo": 1.83,
+   "orden": 31
+  },
+  "p-2026-10-29-C4": {
+   "fecha": "2026-10-29",
    "linea": "A",
    "tipo": "pieza",
    "codigo": "C4",
@@ -370,103 +594,89 @@
    "porque": "Sigue la miniserie.",
    "objetivo": "Guardado",
    "vara": "al menos 1 guardado",
+   "redes": [
+    "tiktok"
+   ],
    "estado": "por-hacer",
    "quien": "Claude",
    "costo": 0,
-   "orden": 24
+   "orden": 32
   },
-  "p-2026-11-02-A4": {
-   "fecha": "2026-11-02",
+  "p-2026-10-29-G1": {
+   "fecha": "2026-10-29",
    "linea": "B",
    "tipo": "pieza",
-   "codigo": "A4",
-   "serie": "Amazon en la soda",
-   "titulo": "Escribí el titular del día en que ya lo lograste",
-   "porque": "Un método de Amazon que cualquiera puede usar.",
-   "objetivo": "Guardado",
-   "vara": "al menos 1 guardado",
+   "codigo": "G1",
+   "serie": "¿Cuál soy yo?",
+   "titulo": "La nota de voz de «tu hijo» pidiendo plata",
+   "porque": "Algo que la gente le manda a su familia.",
+   "objetivo": "Compartido",
+   "vara": "al menos 1 compartido",
+   "redes": [
+    "tiktok"
+   ],
    "estado": "por-hacer",
    "quien": "Claude",
    "costo": 1.83,
-   "orden": 25
+   "orden": 33
   },
-  "p-2026-11-03-J5": {
-   "fecha": "2026-11-03",
+  "p-2026-10-30-L2": {
+   "fecha": "2026-10-30",
    "linea": "A",
    "tipo": "pieza",
-   "codigo": "J5",
-   "serie": "IA sin jerga",
-   "titulo": "Los «tokens» son horas de trabajo",
-   "porque": "Explica el costo de la IA sin tecnicismos.",
-   "objetivo": "Alcance",
-   "vara": "pasa de 326 vistas",
-   "estado": "por-hacer",
-   "quien": "Claude",
-   "costo": 0,
-   "orden": 26
-  },
-  "p-2026-11-03-S1": {
-   "fecha": "2026-11-03",
-   "linea": "B",
-   "tipo": "pieza",
-   "codigo": "S1",
-   "serie": "Sistema de la semana",
-   "titulo": "La factura te dice a quién comprarle más barato",
-   "porque": "Un sistema que le ahorra plata al dueño.",
-   "objetivo": "Perfil y empresa",
-   "vara": "más visitas al perfil, o un mensaje de una empresa",
-   "estado": "por-hacer",
-   "quien": "Claude",
-   "costo": 1.83,
-   "orden": 27
-  },
-  "p-2026-11-04-R6": {
-   "fecha": "2026-11-04",
-   "linea": "A",
-   "tipo": "pieza",
-   "codigo": "R6",
-   "serie": "La regla",
-   "titulo": "Lo que no se escribe no pasó",
-   "porque": "La regla de la bitácora.",
+   "codigo": "L2",
+   "serie": "La lista",
+   "titulo": "Las 3 cosas que solo vos sabés",
+   "porque": "Sale del 002: lo que hay que dejar escrito antes de irse de vacaciones.",
    "objetivo": "Guardado",
    "vara": "al menos 1 guardado",
+   "redes": [
+    "tiktok",
+    "instagram"
+   ],
    "estado": "por-hacer",
    "quien": "Claude",
    "costo": 0,
-   "orden": 28
+   "orden": 34
   },
-  "p-2026-11-04-RC2": {
-   "fecha": "2026-11-04",
+  "p-2026-10-30-RC2": {
+   "fecha": "2026-10-30",
    "linea": "B",
    "tipo": "pieza",
    "codigo": "RC2",
    "serie": "Respuesta a un comentario",
    "titulo": "El mejor comentario de la semana",
-   "porque": "Sigue la conversación con la audiencia.",
+   "porque": "La audiencia empieza a dictar los temas.",
    "objetivo": "Comentario",
    "vara": "al menos 2 comentarios de gente nueva",
+   "redes": [
+    "tiktok"
+   ],
    "estado": "por-hacer",
    "quien": "Claude",
    "costo": 1.83,
-   "orden": 29
+   "orden": 35
   },
-  "p-2026-11-05-C5": {
-   "fecha": "2026-11-05",
+  "p-2026-10-31-J6": {
+   "fecha": "2026-10-31",
    "linea": "A",
    "tipo": "pieza",
-   "codigo": "C5",
-   "serie": "Las cinco capas",
-   "titulo": "5 de 5: lo que se decide los lunes",
-   "porque": "Cierra la miniserie.",
-   "objetivo": "Guardado",
-   "vara": "al menos 1 guardado",
+   "codigo": "J6",
+   "serie": "IA sin jerga",
+   "titulo": "El «handoff» es la nota de relevo",
+   "porque": "Otra palabra de IA traducida a oficina.",
+   "objetivo": "Alcance",
+   "vara": "pasa de 326 vistas",
+   "redes": [
+    "tiktok"
+   ],
    "estado": "por-hacer",
    "quien": "Claude",
    "costo": 0,
-   "orden": 30
+   "orden": 36
   },
-  "p-2026-11-05-O4": {
-   "fecha": "2026-11-05",
+  "p-2026-10-31-O4": {
+   "fecha": "2026-10-31",
    "linea": "B",
    "tipo": "pieza",
    "codigo": "O4",
@@ -475,28 +685,143 @@
    "porque": "Muestra la oficina de IAs por dentro.",
    "objetivo": "Compartido",
    "vara": "al menos 1 compartido",
+   "redes": [
+    "tiktok"
+   ],
    "estado": "por-hacer",
    "quien": "Claude",
    "costo": 1.83,
-   "orden": 31
+   "orden": 37
   },
-  "p-2026-11-06-L3": {
-   "fecha": "2026-11-06",
+  "p-2026-11-01-C5": {
+   "fecha": "2026-11-01",
    "linea": "A",
    "tipo": "pieza",
-   "codigo": "L3",
-   "serie": "La lista",
-   "titulo": "Apertura y cierre del local",
-   "porque": "Una lista que se usa todos los días.",
+   "codigo": "C5",
+   "serie": "Las cinco capas",
+   "titulo": "5 de 5: lo que se decide los lunes",
+   "porque": "Cierra la miniserie.",
    "objetivo": "Guardado",
    "vara": "al menos 1 guardado",
+   "redes": [
+    "tiktok"
+   ],
    "estado": "por-hacer",
    "quien": "Claude",
    "costo": 0,
-   "orden": 32
+   "orden": 38
   },
-  "p-2026-11-06-S3": {
-   "fecha": "2026-11-06",
+  "p-2026-11-01-TOP2": {
+   "fecha": "2026-11-01",
+   "linea": "B",
+   "tipo": "pieza",
+   "codigo": "TOP2",
+   "serie": "El más visto",
+   "titulo": "El gráfico más visto de la semana, ahora con Kenneth",
+   "porque": "El gemelo se usa en un tema que ya probó que pega.",
+   "objetivo": "Alcance",
+   "vara": "pasa de 326 vistas",
+   "redes": [
+    "tiktok"
+   ],
+   "estado": "por-hacer",
+   "quien": "Claude",
+   "costo": 1.83,
+   "orden": 39
+  },
+  "p-2026-11-02-R6": {
+   "fecha": "2026-11-02",
+   "linea": "A",
+   "tipo": "pieza",
+   "codigo": "R6",
+   "serie": "La regla",
+   "titulo": "Lo que no se escribe no pasó",
+   "porque": "La regla que sale del video de la bitácora.",
+   "objetivo": "Guardado",
+   "vara": "al menos 1 guardado",
+   "redes": [
+    "tiktok"
+   ],
+   "estado": "por-hacer",
+   "quien": "Claude",
+   "costo": 0,
+   "orden": 40
+  },
+  "p-2026-11-02-C6": {
+   "fecha": "2026-11-02",
+   "linea": "B",
+   "tipo": "pieza",
+   "codigo": "C6",
+   "serie": "Las cinco capas",
+   "titulo": "Las cinco capas, de corrido",
+   "porque": "Junta la miniserie en un solo video con Kenneth.",
+   "objetivo": "Guardado",
+   "vara": "al menos 1 guardado",
+   "redes": [
+    "tiktok",
+    "instagram"
+   ],
+   "estado": "por-hacer",
+   "quien": "Claude",
+   "costo": 1.83,
+   "orden": 41
+  },
+  "p-2026-11-03-J8": {
+   "fecha": "2026-11-03",
+   "linea": "A",
+   "tipo": "pieza",
+   "codigo": "J8",
+   "serie": "IA sin jerga",
+   "titulo": "El «log» es la bitácora",
+   "porque": "Otra palabra de IA traducida a oficina.",
+   "objetivo": "Alcance",
+   "vara": "pasa de 326 vistas",
+   "redes": [
+    "tiktok"
+   ],
+   "estado": "por-hacer",
+   "quien": "Claude",
+   "costo": 0,
+   "orden": 42
+  },
+  "p-2026-11-03-O8": {
+   "fecha": "2026-11-03",
+   "linea": "B",
+   "tipo": "pieza",
+   "codigo": "O8",
+   "serie": "La Oficina",
+   "titulo": "Nada se hace dos veces",
+   "porque": "Ahorro que cualquier negocio entiende, contado como historia.",
+   "objetivo": "Comentario",
+   "vara": "al menos 2 comentarios de gente nueva",
+   "redes": [
+    "tiktok"
+   ],
+   "estado": "por-hacer",
+   "quien": "Claude",
+   "costo": 1.83,
+   "orden": 43
+  },
+  "p-2026-11-04-R5": {
+   "fecha": "2026-11-04",
+   "linea": "A",
+   "tipo": "pieza",
+   "codigo": "R5",
+   "serie": "La regla",
+   "titulo": "Nada se hace dos veces",
+   "porque": "Deja en una frase el video de ayer, para guardarlo.",
+   "objetivo": "Guardado",
+   "vara": "al menos 1 guardado",
+   "redes": [
+    "tiktok"
+   ],
+   "estado": "por-hacer",
+   "quien": "Claude",
+   "costo": 0,
+   "orden": 44
+  },
+  "p-2026-11-04-S3": {
+   "fecha": "2026-11-04",
    "linea": "B",
    "tipo": "pieza",
    "codigo": "S3",
@@ -505,40 +830,123 @@
    "porque": "Un sistema hecho para un evento real.",
    "objetivo": "Perfil y empresa",
    "vara": "más visitas al perfil, o un mensaje de una empresa",
+   "redes": [
+    "tiktok"
+   ],
    "estado": "por-hacer",
    "quien": "Claude",
    "costo": 1.83,
-   "orden": 33
+   "orden": 45
   },
-  "p-2026-11-07-J6": {
-   "fecha": "2026-11-07",
+  "p-2026-11-05-J7": {
+   "fecha": "2026-11-05",
    "linea": "A",
    "tipo": "pieza",
-   "codigo": "J6",
+   "codigo": "J7",
    "serie": "IA sin jerga",
-   "titulo": "El «handoff» es la nota de relevo",
-   "porque": "Cierra la primera tanda del glosario.",
+   "titulo": "«Dispatch» es pasarle el trabajo",
+   "porque": "Otra palabra de IA traducida a oficina.",
    "objetivo": "Alcance",
    "vara": "pasa de 326 vistas",
+   "redes": [
+    "tiktok"
+   ],
    "estado": "por-hacer",
    "quien": "Claude",
    "costo": 0,
-   "orden": 34
+   "orden": 46
   },
-  "p-2026-11-07-O8": {
-   "fecha": "2026-11-07",
+  "p-2026-11-05-G3": {
+   "fecha": "2026-11-05",
    "linea": "B",
    "tipo": "pieza",
-   "codigo": "O8",
-   "serie": "La Oficina",
-   "titulo": "Nada se hace dos veces",
-   "porque": "La regla del miércoles 28, contada como historia.",
-   "objetivo": "Comentario",
-   "vara": "al menos 2 comentarios de gente nueva",
+   "codigo": "G3",
+   "serie": "¿Cuál soy yo?",
+   "titulo": "Con 30 segundos de audio se clona una voz",
+   "porque": "Qué hacer con las notas de voz de la familia: es de los que se comparten.",
+   "objetivo": "Compartido",
+   "vara": "al menos 1 compartido",
+   "redes": [
+    "tiktok",
+    "instagram"
+   ],
    "estado": "por-hacer",
    "quien": "Claude",
    "costo": 1.83,
-   "orden": 35
+   "orden": 47
+  },
+  "p-2026-11-06-N4": {
+   "fecha": "2026-11-06",
+   "linea": "A",
+   "tipo": "pieza",
+   "codigo": "N4",
+   "serie": "El número",
+   "titulo": "12 semanas, sin contratar a un gerente",
+   "porque": "Cierra el caso del anfiteatro.",
+   "objetivo": "Perfil",
+   "vara": "más visitas al perfil que el video anterior",
+   "redes": [
+    "tiktok"
+   ],
+   "estado": "por-hacer",
+   "quien": "Claude",
+   "costo": 0,
+   "orden": 48
+  },
+  "p-2026-11-06-RC3": {
+   "fecha": "2026-11-06",
+   "linea": "B",
+   "tipo": "pieza",
+   "codigo": "RC3",
+   "serie": "Respuesta a un comentario",
+   "titulo": "El mejor comentario de la semana",
+   "porque": "La audiencia empieza a dictar los temas.",
+   "objetivo": "Comentario",
+   "vara": "al menos 2 comentarios de gente nueva",
+   "redes": [
+    "tiktok"
+   ],
+   "estado": "por-hacer",
+   "quien": "Claude",
+   "costo": 1.83,
+   "orden": 49
+  },
+  "p-2026-11-07-L3": {
+   "fecha": "2026-11-07",
+   "linea": "A",
+   "tipo": "pieza",
+   "codigo": "L3",
+   "serie": "La lista",
+   "titulo": "Apertura y cierre del local",
+   "porque": "Una lista que se usa todos los días.",
+   "objetivo": "Guardado",
+   "vara": "al menos 1 guardado",
+   "redes": [
+    "tiktok",
+    "instagram"
+   ],
+   "estado": "por-hacer",
+   "quien": "Claude",
+   "costo": 0,
+   "orden": 50
+  },
+  "p-2026-11-07-S4": {
+   "fecha": "2026-11-07",
+   "linea": "B",
+   "tipo": "pieza",
+   "codigo": "S4",
+   "serie": "Sistema de la semana",
+   "titulo": "11 bolsas de empleo a la vez",
+   "porque": "Tema amplio. Atrae más a quien busca trabajo que a quien contrata: va una sola vez.",
+   "objetivo": "Alcance",
+   "vara": "pasa de 326 vistas",
+   "redes": [
+    "tiktok"
+   ],
+   "estado": "por-hacer",
+   "quien": "Claude",
+   "costo": 1.83,
+   "orden": 51
   },
   "p-2026-11-08-R7": {
    "fecha": "2026-11-08",
@@ -550,25 +958,31 @@
    "porque": "Cómo se reparte el trabajo sin favoritismos.",
    "objetivo": "Guardado",
    "vara": "al menos 1 guardado",
+   "redes": [
+    "tiktok"
+   ],
    "estado": "por-hacer",
    "quien": "Claude",
    "costo": 0,
-   "orden": 36
+   "orden": 52
   },
-  "p-2026-11-08-TOP": {
+  "p-2026-11-08-TOP3": {
    "fecha": "2026-11-08",
    "linea": "B",
    "tipo": "pieza",
-   "codigo": "TOP",
-   "serie": "El más visto del mes",
-   "titulo": "El gráfico más visto, ahora con Kenneth",
-   "porque": "El gemelo solo se paga en temas que ya pegaron.",
+   "codigo": "TOP3",
+   "serie": "El más visto",
+   "titulo": "El gráfico más visto del mes, ahora con Kenneth",
+   "porque": "El gemelo se usa en un tema que ya probó que pega.",
    "objetivo": "Alcance",
    "vara": "pasa de 326 vistas",
+   "redes": [
+    "tiktok"
+   ],
    "estado": "por-hacer",
    "quien": "Claude",
    "costo": 1.83,
-   "orden": 37
+   "orden": 53
   },
   "m-2026-10-12-0": {
    "fecha": "2026-10-12",
@@ -576,7 +990,7 @@
    "tipo": "accion",
    "codigo": "",
    "serie": "Marca",
-   "titulo": "Aprobar el calendario y los guiones gráficos de la semana 1",
+   "titulo": "Aprobar los guiones gráficos de la semana 1",
    "porque": "Sin el visto bueno no se produce nada.",
    "objetivo": "",
    "vara": "",
@@ -592,7 +1006,7 @@
    "codigo": "",
    "serie": "Marca",
    "titulo": "Recargar HeyGen",
-   "porque": "Quedan $2.88: alcanza para un video. El mes necesita unos $31.",
+   "porque": "Quedan $2.88: alcanza para un video. Con dos piezas por día el mes necesita unos $50.",
    "objetivo": "",
    "vara": "",
    "estado": "pendiente",
@@ -637,7 +1051,7 @@
    "codigo": "",
    "serie": "Marca",
    "titulo": "Revisión de la semana 1",
-   "porque": "Cada pieza contra su objetivo. Se decide si se sube a 8 piezas.",
+   "porque": "Cada pieza contra su objetivo. La serie que falla cambia de gancho; la que cumple se repite.",
    "objetivo": "",
    "vara": "",
    "estado": "pendiente",
@@ -652,7 +1066,7 @@
    "codigo": "",
    "serie": "Marca",
    "titulo": "Revisión de la semana 2",
-   "porque": "Cada pieza contra su objetivo. Se decide si se sube a 11 piezas.",
+   "porque": "Cada pieza contra su objetivo. La serie que falla cambia de gancho; la que cumple se repite.",
    "objetivo": "",
    "vara": "",
    "estado": "pendiente",
@@ -667,7 +1081,7 @@
    "codigo": "",
    "serie": "Marca",
    "titulo": "Revisión de la semana 3",
-   "porque": "Cada pieza contra su objetivo. Se decide si se sube a dos diarias.",
+   "porque": "Cada pieza contra su objetivo. La serie que falla cambia de gancho; la que cumple se repite.",
    "objetivo": "",
    "vara": "",
    "estado": "pendiente",
@@ -682,7 +1096,7 @@
    "codigo": "",
    "serie": "Marca",
    "titulo": "Revisión del mes",
-   "porque": "Qué series se quedan, cuáles cambian de gancho y cuánto costó.",
+   "porque": "Qué series se quedan, cuáles cambian de gancho, cuánto costó y cuántas empresas escribieron.",
    "objetivo": "",
    "vara": "",
    "estado": "pendiente",
