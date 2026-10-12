@@ -115,7 +115,7 @@ TAREAS = [
     ("k-calendario", "Aprobar el calendario", "Decidido el 12-oct: dos piezas por día en TikTok y tres por semana en Instagram.", "Kenneth", "2026-10-12", True),
     ("k-002", "Aprobar el 002 con el inicio nuevo", "Abre con «En Amazon nadie era indispensable. Ni el jefe.» (fue el inicio con mejor puntaje).", "Kenneth", "2026-10-13", False),
     ("k-heygen", "Recargar HeyGen", "Quedan $2.88. Con dos piezas por día, el mes necesita unos $50.", "Kenneth", "2026-10-12", False),
-    ("k-enlace", "Decir si querés el enlace corto de Vercel", "Un enlace fácil de recordar que abre esta consola. La consola sigue privada.", "Kenneth", "2026-10-13", False),
+    ("k-enlace", "Crear el proyecto de la consola en Vercel", "En tu cuenta personal de Vercel: importar el repo con la carpeta marca/consola, crear el almacén Blob privado y activar la protección. Los pasos están en el LEEME de la consola.", "Kenneth", "2026-10-13", False),
     ("k-pixabay", "Sacar la llave gratis de Pixabay", "En pixabay.com/api/docs. Pegarla en torre\\.env como PIXABAY_API_KEY=", "Kenneth", "2026-10-14", False),
     ("k-redes", "Conectar Facebook en Buffer", "Ocupa el tercer lugar gratis y recibe las mismas 3 piezas de Instagram. X espera. LinkedIn: sin publicar por ahora.", "Kenneth", "2026-10-14", False),
     ("k-g0", "Decidir si sale el video donde el gemelo se presenta", "Martes 20: «Los videos de esta semana no los grabé yo». Si no querés, lo cambio por otro.", "Kenneth", "2026-10-16", False),
@@ -137,7 +137,7 @@ GUIONES = {
     "002-v4": {
         "titulo": "002 · Si tu negocio no sobrevive a tus vacaciones", "version": "v4", "estado": "por-aprobar",
         "nota": "El video ya existe. Falta decidir si se rehace el inicio con «nadie era indispensable».",
-        "comentario": "", "paginas": ["guiones/002-v4-1.png", "guiones/002-v4-2.png", "guiones/002-v4-3.png"], "orden": 1,
+        "comentario": "", "paginas": ["guiones/002-v4-1.webp", "guiones/002-v4-2.webp", "guiones/002-v4-3.webp"], "orden": 1,
     },
 }
 

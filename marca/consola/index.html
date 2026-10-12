@@ -1,3 +1,10 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='10' fill='%2316233F'/%3E%3Ctext x='32' y='45' font-size='38' text-anchor='middle' fill='%23C9A45C' font-family='Georgia,serif'%3EK%3C/text%3E%3C/svg%3E">
 <title>Consola de marca</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -260,6 +267,8 @@ footer{margin-top:56px;padding-top:16px;border-top:1px solid var(--linea);font-s
 .aviso{position:fixed;left:50%;bottom:18px;transform:translateX(-50%);background:var(--b-fondo);color:var(--b-texto);padding:10px 16px;border-radius:6px;font-size:14px;z-index:20;max-width:calc(100vw - 32px)}
 @media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
 </style>
+</head>
+<body>
 
 <div class="pagina">
   <header class="cabeza">
@@ -964,6 +973,63 @@ footer{margin-top:56px;padding-top:16px;border-top:1px solid var(--linea);font-s
     pintarSigue();
   }
   function franja(texto) { var f = $("#franja"); f.textContent = texto; f.hidden = false; }
+
+  /* En Vercel no hay base de Claude: los datos son los archivos datos/*.json (los escribe Claude)
+     más lo que Kenneth marcó, que guarda api/marcas. Imita lo justo de la base del Artifact. */
+  function fusionar(a, b) {
+    var o = {}, k;
+    if (a && typeof a === "object" && !Array.isArray(a)) for (k in a) o[k] = a[k];
+    for (k in b) o[k] = b[k] && typeof b[k] === "object" && !Array.isArray(b[k]) ? fusionar(o[k], b[k]) : b[k];
+    return o;
+  }
+  function baseDelSitio() {
+    var marcas = {}, bases = {}, oyentes = {}, cola = Promise.resolve();
+    function pedir(ruta, opciones) {
+      return fetch(ruta, Object.assign({ cache: "no-store", credentials: "same-origin" }, opciones || {})).then(function (r) {
+        if (!r.ok) throw { code: "unavailable", status: r.status };
+        return r.json();
+      });
+    }
+    function emitir(nombre) {
+      if (!(nombre in bases)) return;
+      var cuerpo = bases[nombre] ? fusionar(bases[nombre], marcas[nombre] || {}) : null;
+      var snap = { id: nombre, exists: !!cuerpo, data: function () { return cuerpo || undefined; } };
+      (oyentes[nombre] || []).forEach(function (f) { f(snap); });
+    }
+    function leerMarcas() {
+      return pedir("api/marcas").then(function (m) { marcas = m && typeof m === "object" ? m : {}; });
+    }
+    var primeras = leerMarcas().catch(function (err) {
+      S.lectura = true;
+      franja(err && err.status === 403
+        ? "Esta dirección está abierta a cualquiera, así que no se guarda nada. Falta activar la protección de Vercel del proyecto (Deployment Protection, todos los despliegues)."
+        : "No se pudo leer lo que marcaste. La consola queda solo de lectura: recargá la página.");
+    });
+    return {
+      doc: function (ruta) {
+        var nombre = ruta.split("/")[1];
+        return {
+          onSnapshot: function (next) {
+            (oyentes[nombre] = oyentes[nombre] || []).push(next);
+            var base = pedir("datos/" + nombre + ".json").catch(function () { return null; });
+            Promise.all([base, primeras]).then(function (v) { bases[nombre] = v[0]; emitir(nombre); });
+            return function () {};
+          },
+          update: function (parche) {
+            marcas[nombre] = fusionar(marcas[nombre], parche);
+            emitir(nombre);
+            var envio = cola.then(function () {
+              return pedir("api/marcas", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ doc: nombre, parche: parche }) });
+            }).then(function (m) { marcas = m && typeof m === "object" ? m : marcas; emitir(nombre); }, function (err) {
+              return leerMarcas().catch(function () {}).then(function () { Object.keys(bases).forEach(emitir); throw err; });
+            });
+            cola = envio.catch(function () {});
+            return envio;
+          }
+        };
+      }
+    };
+  }
   function sinDatos() {
     NOMBRES.forEach(function (n) { S.docs[n] = null; });
     pintarTodo();
@@ -998,9 +1064,17 @@ footer{margin-top:56px;padding-top:16px;border-top:1px solid var(--linea);font-s
 
   pintarCalendario();
 
+  /* una pestaña que quedó abierta se pone al día al volver a ella */
+  var abierta = Date.now();
+  document.addEventListener("visibilitychange", function () {
+    var escribiendo = Object.keys(S.borradores).some(function (k) { return S.borradores[k]; });
+    if (document.visibilityState === "visible" && Date.now() - abierta > 30 * 60 * 1000 && !escribiendo) location.reload();
+  });
+
   (async function arrancar() {
-    var db = null;
-    try { db = window.claude && window.claude.use ? await window.claude.use("db") : null; } catch (e) { db = null; }
+    var db = null, enClaude = !!(window.claude && window.claude.use);
+    if (enClaude) { try { db = await window.claude.use("db"); } catch (e) { db = null; } }
+    else db = baseDelSitio();
     if (!db) return sinDatos();
     S.db = db;
     NOMBRES.forEach(function (nombre) {
@@ -1012,6 +1086,7 @@ footer{margin-top:56px;padding-top:16px;border-top:1px solid var(--linea);font-s
         franja(err && err.code === "revoked" ? "Esta vista perdió el acceso a los datos. Volvé a abrir la consola." : "No se pudieron cargar algunos datos. Recargá la página.");
       });
     });
+    if (!enClaude) return;
     try {
       var user = await window.claude.use("user");
       if (user && (await user.can("data.write")) === false) { S.lectura = true; pintarTodo(); }
@@ -1019,3 +1094,5 @@ footer{margin-top:56px;padding-top:16px;border-top:1px solid var(--linea);font-s
   })();
 })();
 </script>
+</body>
+</html>

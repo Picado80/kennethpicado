@@ -5,7 +5,8 @@
 
 ## Qué es
 
-**Enlace:** https://claude.ai/artifact/ThqpTuWtjM3fgiTKWXs5yj (privada: solo la abre Kenneth con su cuenta).
+**Enlace en Claude:** https://claude.ai/artifact/ThqpTuWtjM3fgiTKWXs5yj (privada: solo la abre Kenneth con su cuenta).
+**Enlace en Vercel:** pendiente (ver «La consola en Vercel», abajo). Cuando exista, esa es la principal.
 
 Una página publicada como Artifact de Claude (privada, se abre desde claude.ai en la PC o el celular).
 El código está en [`index.html`](index.html). Los datos **no** van en la página: viven en la base de la
@@ -52,7 +53,7 @@ una nota de la consola, Claude lo confirma con él en la conversación.
 - Un dato suelto (un saldo, el estado de una pieza) se cambia con una actualización del documento, sin republicar.
   `sembrar.py` es para la primera carga o para rehacer todo: **pisa lo que Kenneth marcó**, así que antes se lee
   la base y se conserva lo suyo.
-- La página se republica desde `marca/consola/index.html` con las capacidades `db` y `user`, al mismo enlace.
+- `index.html` es ahora un documento completo (lo pide Vercel). Para republicar en Claude hay que quitarle el envoltorio (`<!doctype>`, `<html>`, `<head>`, `<body>`) y publicar con las capacidades `db` y `user`, al mismo enlace.
 - Para probarla sin publicar: se envuelve `index.html` con una base falsa hecha de `datos/*.json` y se abre en un
   servidor local. Probada el 12-oct-2026 a 1280 y 400 px, en claro y oscuro, con resultados de prueba.
 
@@ -62,8 +63,37 @@ TikTok lleva todo (dos por día) e Instagram tres por semana. LinkedIn y X: sin 
 deja 3 redes y hoy hay 2 (TikTok e Instagram): el tercer lugar queda para Facebook, que recibe lo mismo que
 Instagram. Conectar una red lo hace Kenneth, porque pide iniciar sesión.
 
-## Enlace corto
+## La consola en Vercel (Kenneth, 12-oct: «movámoslo a Vercel»)
 
-Kenneth pidió un enlace de Vercel para abrir la consola. La página no puede vivir en Vercel tal cual: los datos
-están en la base del Artifact y un sitio de Vercel sería público. Lo que sí se puede es un proyecto aparte de
-Vercel que solo redirige a la consola (sigue privada). Espera su sí; el portafolio no se toca.
+La misma página corre en dos lugares. En Claude usa la base del Artifact. En Vercel no hay base de Claude, así que:
+
+| Qué | Dónde vive | Quién escribe |
+|---|---|---|
+| Los datos (calendario, pendientes, guiones, estado, objetivos) | `datos/*.json`, en este repo | Claude: cambia el archivo y sube a `main`; Vercel publica solo |
+| Lo que Kenneth marca (pendientes hechos, respuestas a guiones, acciones y notas nuevas) | Un Blob privado del proyecto, `consola/marcas.json` | La página, por [`api/marcas.js`](api/marcas.js) |
+| Las páginas de los guiones gráficos | `guiones/*.webp`, en este repo | Claude |
+
+La página suma las marcas de Kenneth encima de los datos. **Al empezar cada sesión Claude lee
+`https://<la consola>/api/marcas`** (con la herramienta de Vercel que abre direcciones protegidas) y pasa lo que
+corresponda a `datos/*.json`.
+
+**Quién puede abrirla:** nadie sin sesión de Vercel. El proyecto va con la protección de Vercel (Vercel
+Authentication) en todos los despliegues; la función no tiene otra llave, así que **sin esa protección no se publica**.
+Si el plan solo deja proteger las vistas previas, la dirección principal quedaría abierta: en ese caso hay que
+ponerle una llave propia antes de usarla.
+
+### Estado: falta crear el proyecto (lo hace Kenneth)
+
+El conector de Vercel de la sesión puede leer la cuenta personal de Kenneth («Kenneth Gonzalez's projects», la del
+portafolio) pero no puede crear proyectos ahí (403), y la terminal de la PC está en la cuenta de SEMI. Pasos:
+
+1. En vercel.com, cuenta personal: **Add New → Project → Import** `Picado80/kennethpicado`. Nombre `consola-marca`,
+   **Root Directory** `marca/consola`, Framework **Other**. Deploy.
+2. En el proyecto: **Storage → Create → Blob**, acceso **Private**, conectado al proyecto. Después, **Redeploy**.
+3. **Settings → Deployment Protection → Vercel Authentication → All Deployments.**
+
+El portafolio (`kennethpicado.vercel.app`) es otro proyecto y no se toca: su `.vercelignore` deja fuera `marca/`.
+
+**Sin probar en Vercel todavía:** la página en modo Vercel se probó en local contra una `api/marcas` de mentira
+(marcar, pedir cambios, agregar una acción y recargar). La función real, el Blob y el `.vercelignore` de esta carpeta
+se prueban con el primer despliegue.

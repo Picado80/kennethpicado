@@ -25,8 +25,8 @@
    "orden": 2
   },
   "k-enlace": {
-   "titulo": "Decir si querés el enlace corto de Vercel",
-   "detalle": "Un enlace fácil de recordar que abre esta consola. La consola sigue privada.",
+   "titulo": "Crear el proyecto de la consola en Vercel",
+   "detalle": "En tu cuenta personal de Vercel: importar el repo con la carpeta marca/consola, crear el almacén Blob privado y activar la protección. Los pasos están en el LEEME de la consola.",
    "quien": "Kenneth",
    "para": "2026-10-13",
    "hecho": false,
