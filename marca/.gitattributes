@@ -1,0 +1,2 @@
+# los guiones de consola tienen que quedar con saltos de línea de Unix, también en Windows
+*.sh text eol=lf

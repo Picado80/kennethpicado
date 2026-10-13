@@ -43,12 +43,15 @@ ejecutan, a dónde se conectan, qué llaves piden): ninguno manda datos a un lug
 | **onetake** | Una sola toma continua: cada momento sale del anterior y la cámara nunca corta | `feitangyuan/onetake` · `4157581` (12-oct) | **PolyForm Noncommercial: prohíbe el uso comercial** | $0. Python con Playwright, numpy y scipy; ffmpeg; Node | **No para videos publicados de la marca** sin pagar la licencia comercial (onetakemotion.com). Sirve para estudiar la continuidad y aplicarla en HyperFrames |
 | **gbro-collage-broll** | Tomas de relleno de 5 s en papel recortado con trama de puntos, que se arman solas | `pyang5166/gbro-collage-broll` · `a1a4ee2` (15-jul) | MIT | **Cobra por uso:** el video lo genera Gemini (hace falta `GEMINI_API_KEY`). Está en chino y pensado para Codex: la imagen fija hay que generarla con otra herramienta | Solo si el estilo vale lo que cuesta. El papel recortado de la línea A ya sale gratis con código |
 | **Claude Animation Base** | Dibujos animados pintados a mano (p5.js y p5.brush) | `JohnHeibel/ClaudeAnimationBase` · `0ac8bf2` (24-sep) | MIT | $0. Node, Chrome y ffmpeg. Sin tarjeta de video dedicada, la acuarela es lenta | La técnica sí. **El personaje es Clawd, la mascota de Anthropic:** para la marca se dibuja un personaje propio |
-| **Lemo-Opuscar** | 43 estilos de cine hechos solo con código (óleo, acuarela, tinta china, pizarra, plano técnico, datos, 16 bits…) | `lemomo-ai/lemo-opuscar` · `fdc46d7` (13-oct) | MIT (guías y muestras, CC BY 4.0) | $0. Node 20+, ffmpeg y Python 3.11+. La instalación de dependencias está escrita para Mac y Linux: **en Windows está sin probar** | El más útil para variar la línea A: un estilo por serie (pizarra para *IA sin jerga*, datos para *El número*, plano técnico para *Las cinco capas*) |
+| **Lemo-Opuscar** | 43 estilos de cine hechos solo con código (óleo, acuarela, tinta china, pizarra, plano técnico, datos, 16 bits…) | `lemomo-ai/lemo-opuscar` · `fdc46d7` (13-oct) | MIT (guías y muestras, CC BY 4.0) | $0. Node 20+, ffmpeg y Python 3.11+. **Probado en Windows el 13-oct** con el J1: Node y el navegador se instalan con su guion; el ambiente de Python hay que crearlo a mano (`python -m venv .venv` en `~/lemo-opuscar` y `pip install -r requirements.txt`) y llamarlo como `.venv/Scripts/python.exe` | El más útil para variar la línea A: un estilo por serie (pizarra para *IA sin jerga*, datos para *El número*, plano técnico para *Las cinco capas*) |
 
-**Estado:** los cuatro nuevos están descargados y revisados, **sin instalar**: la sesión no tiene permiso para
-escribir en la carpeta de skills de Claude (`~/.claude/skills`). Los instala Kenneth con cinco órdenes de copia.
-Las dependencias de cada uno (paquetes de Node y de Python, el navegador sin ventana) se instalan la primera vez que
-se use, no antes.
+**Estado:** Kenneth instaló los cuatro nuevos el 13-oct (la sesión no puede escribir en `~/.claude/skills`; él corrió
+las copias). Las dependencias de cada uno se instalan la primera vez que se use: las de Lemo-Opuscar ya están.
+
+**Primera prueba (13-oct):** el `J1` de *IA sin jerga* en estilo pizarra, en [`produccion/j1/`](produccion/j1/TREATMENT.md).
+Vertical, 24,6 s, con la voz clonada, sonido de marcador y música sintetizada; costo $0. Se arma con un solo
+comando (`sh marca/produccion/j1/build.sh`, unos 40 s). El motor del estilo es de 1920×1080: se copió al proyecto con
+el tamaño del cuadro configurable.
 
 **Antes de actualizar cualquiera:** volver a leer lo que cambió. Lemo-Opuscar, tal como quedó, no se actualiza solo.
 

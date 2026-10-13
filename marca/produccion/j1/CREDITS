@@ -1,0 +1,19 @@
+J1 · «Prompt» son las instrucciones que le di — créditos de lo que no es propio
+
+Motor de pizarra (engine/wb.js)
+  Lemo-Opuscar, © 2026 LemoLab, licencia MIT. https://github.com/lemomo-ai/lemo-opuscar (styles/whiteboard/demo/engine/wb.js,
+  versión fdc46d7). Cambio propio: el tamaño del cuadro se pone con setFrame().
+  El sonido del marcador y del borrador (mix.py) sigue la técnica del mismo demo.
+
+Letra de la pizarra (fonts/EMSTech.json)
+  EMS Tech, de Sheldon B. Michaels, SIL Open Font License 1.1. Convertida a JSON por Lemo-Opuscar.
+
+Letra de los subtítulos (fonts/ArchitectsDaughter-Regular.ttf)
+  Architects Daughter, de Kimberly Geswein, SIL Open Font License 1.1 (fonts/OFL-ArchitectsDaughter.txt).
+  https://github.com/google/fonts/tree/main/ofl/architectsdaughter
+
+Voz
+  La voz de Kenneth Picado, clonada con su permiso en ElevenLabs (modelo eleven_v4). Al publicar lleva la etiqueta de contenido con IA.
+
+Música
+  Original de este video: kalimba y marimba sintetizadas en mix.py. No usa muestras ni obras de terceros.
