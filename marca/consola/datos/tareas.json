@@ -26,7 +26,7 @@
   },
   "k-enlace": {
    "titulo": "Crear el proyecto de la consola en Vercel",
-   "detalle": "En tu cuenta personal de Vercel: importar el repo con la carpeta marca/consola, crear el almacén Blob privado y activar la protección. Los pasos están en el LEEME de la consola.",
+   "detalle": "En tu cuenta personal de Vercel: importar el repo con la carpeta marca/consola y crear el almacén Blob privado. Los pasos están en el LEEME de la consola.",
    "quien": "Kenneth",
    "para": "2026-10-13",
    "hecho": false,
