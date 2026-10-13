@@ -7,6 +7,7 @@ Uso (desde la raíz de kennethpicado):
         --video marca/salidas/002-final-v4.mp4 --salida marca/salidas/guion-grafico-002-v4
 
 --video es el render (o el borrador con una foto fija de Kenneth en vez del gemelo).
+El JSON puede traer "acento": el nombre de la fila del color que resalta (por omisión, "Oro").
 Saca los cuadros con ffmpeg y las páginas en PNG con Edge o Chrome sin ventana.
 No llama a ninguna API ni gasta nada.
 """
@@ -104,7 +105,7 @@ def main():
     <ul class="pasa">{pasa}</ul>
     <div class="etiquetas">
       <div class="k mono">Énfasis</div><div>{html.escape(t["enfasis"])}</div>
-      <div class="k mono">Oro</div><div class="oro">{html.escape(t["oro"])}</div>
+      <div class="k mono">{html.escape(d.get("acento", "Oro"))}</div><div class="oro">{html.escape(t["oro"])}</div>
       <div class="k mono">Sonido</div><div>{html.escape(t["sonido"])}</div>
     </div>
   </div>

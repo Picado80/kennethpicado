@@ -113,6 +113,7 @@ ACCIONES = [
 # id, titulo, detalle, quien, para, hecho
 TAREAS = [
     ("k-calendario", "Aprobar el calendario", "Decidido el 12-oct: dos piezas por día en TikTok y tres por semana en Instagram.", "Kenneth", "2026-10-12", True),
+    ("k-j1", "Aprobar el J1 en estilo pizarra", "Mirá el borrador y su guion gráfico. Si te gusta, la serie IA sin jerga sale en ese estilo.", "Kenneth", "2026-10-13", False),
     ("k-002", "Aprobar el 002 con el inicio nuevo", "Abre con «En Amazon nadie era indispensable. Ni el jefe.» (fue el inicio con mejor puntaje).", "Kenneth", "2026-10-13", False),
     ("k-heygen", "Recargar HeyGen", "Quedan $2.88. Con dos piezas por día, el mes necesita unos $50.", "Kenneth", "2026-10-12", False),
     ("k-enlace", "Crear el proyecto de la consola en Vercel", "En tu cuenta personal de Vercel: importar el repo con la carpeta marca/consola y crear el almacén Blob privado. Los pasos están en el LEEME de la consola.", "Kenneth", "2026-10-13", False),
@@ -123,7 +124,7 @@ TAREAS = [
     ("k-personal", "Subir un video personal", "Como los de siempre: la cuenta sigue siendo tuya.", "Kenneth", "2026-10-17", False),
     ("k-openai", "SEMI: verificar la organización en OpenAI", "En platform.openai.com. Tarda, conviene empezar ya.", "Kenneth", "2026-10-16", False),
     ("c-002", "Rehacer el 002 con el inicio nuevo", "Guion gráfico primero; después el video.", "Claude", "2026-10-12", False),
-    ("c-semana1", "Guion gráfico de los gráficos de la semana 1", "Los seis juntos: J1, R2, L1, N2, J2 y R1.", "Claude", "2026-10-13", False),
+    ("c-semana1", "Guion gráfico de los gráficos de la semana 1", "El J1 ya está en borrador (pizarra). Faltan R2, L1, N2, J2 y R1.", "Claude", "2026-10-14", False),
     ("c-a3", "Guion y guion gráfico del A3", "La reunión de los lunes.", "Claude", "2026-10-13", False),
     ("c-004", "Guion gráfico del 004", "El anfiteatro.", "Claude", "2026-10-14", False),
     ("c-a4", "Guion y guion gráfico del A4", "El titular del día en que ya lo lograste.", "Claude", "2026-10-15", False),
@@ -134,6 +135,11 @@ TAREAS = [
 ]
 
 GUIONES = {
+    "j1-v1": {
+        "titulo": "J1 · «Prompt» son las instrucciones que le di", "version": "v1", "estado": "por-aprobar",
+        "nota": "Estilo pizarra (Lemo-Opuscar). El borrador con sonido ya existe: 24,6 s, costo $0. Si te gusta, la serie IA sin jerga sale así.",
+        "comentario": "", "paginas": ["guiones/j1-v1-1.webp", "guiones/j1-v1-2.webp"], "orden": 0,
+    },
     "002-v4": {
         "titulo": "002 · Si tu negocio no sobrevive a tus vacaciones", "version": "v4", "estado": "por-aprobar",
         "nota": "El video ya existe. Falta decidir si se rehace el inicio con «nadie era indispensable».",
@@ -212,6 +218,7 @@ def main():
             "estado": "por-hacer", "quien": "Claude", "costo": COSTO_B if linea == "B" else 0, "orden": n,
         }
     items["p-2026-10-13-002"]["estado"] = "guion-grafico"
+    items["p-2026-10-13-J1"]["estado"] = "guion-grafico"
     for n, (fecha, titulo, porque, quien) in enumerate(ACCIONES):
         items[f"m-{fecha}-{n}"] = {"fecha": fecha, "linea": "M", "tipo": "accion", "codigo": "", "serie": "Marca", "titulo": titulo,
                                    "porque": porque, "objetivo": "", "vara": "", "estado": "pendiente", "quien": quien, "costo": 0, "orden": 100 + n}

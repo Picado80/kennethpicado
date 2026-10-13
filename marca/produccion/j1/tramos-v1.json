@@ -1,0 +1,125 @@
+{
+ "serie": "ia-sin-jerga / guion gráfico",
+ "titulo": "J1 · «Prompt» son las instrucciones que le di",
+ "version": "v1",
+ "estilo": "Pizarra",
+ "kenneth_s": 0,
+ "costo_usd": 0,
+ "acento": "Rojo",
+ "tramos": [
+  {
+   "ini": 0.0,
+   "fin": 3.3,
+   "toma": "Zona de arriba, empuje lento",
+   "cita": "“Prompt”. Suena a algo de ingenieros.",
+   "pasa": [
+    "El marcador escribe PROMPT en un segundo.",
+    "En azul claro, garabatos de ingeniero: </>, { } y un engranaje."
+   ],
+   "enfasis": "PROMPT, enorme",
+   "oro": "—",
+   "sonido": "marcador sobre pizarra; entra la kalimba"
+  },
+  {
+   "ini": 3.3,
+   "fin": 6.5,
+   "toma": "La cámara baja montada en la flecha",
+   "cita": "Y es lo que hacés todos los días: dar instrucciones.",
+   "pasa": [
+    "Flecha hacia abajo; la cámara la sigue.",
+    "Se dibuja el globo del pedido, todavía vacío."
+   ],
+   "enfasis": "el globo vacío",
+   "oro": "—",
+   "sonido": "trazo largo, aire de cámara"
+  },
+  {
+   "ini": 6.5,
+   "fin": 9.5,
+   "toma": "Quieta sobre el globo",
+   "cita": "Si a alguien nuevo le decís “haceme un informe”,",
+   "pasa": [
+    "Aparece quien recibe el pedido.",
+    "Dentro del globo se escribe: «haceme un informe»."
+   ],
+   "enfasis": "haceme un informe",
+   "oro": "—",
+   "sonido": "trazos cortos"
+  },
+  {
+   "ini": 9.5,
+   "fin": 11.0,
+   "toma": "Baja a la hoja",
+   "cita": "te trae cualquier cosa.",
+   "pasa": [
+    "Flecha, una hoja y adentro un enredo."
+   ],
+   "enfasis": "el enredo",
+   "oro": "—",
+   "sonido": "garabato que chirría; la música desafina"
+  },
+  {
+   "ini": 11.0,
+   "fin": 12.3,
+   "toma": "Quieta: el giro",
+   "cita": "(sin voz)",
+   "pasa": [
+    "El borrador deshace el enredo. Queda el fantasma."
+   ],
+   "enfasis": "el borrador",
+   "oro": "—",
+   "sonido": "solo el fieltro; la música se calla"
+  },
+  {
+   "ini": 12.3,
+   "fin": 16.3,
+   "toma": "Retrocede: pedido y resultado juntos",
+   "cita": "Si le decís para quién es, qué tiene que decir y para cuándo,",
+   "pasa": [
+    "En el globo se suman: + para quién, + qué dice, + para cuándo.",
+    "Cada renglón termina de escribirse en su palabra."
+   ],
+   "enfasis": "las tres preguntas",
+   "oro": "—",
+   "sonido": "la música suma una nota por pregunta"
+  },
+  {
+   "ini": 16.3,
+   "fin": 17.9,
+   "toma": "Empuje lento",
+   "cita": "te trae lo que ocupás.",
+   "pasa": [
+    "La hoja se dibuja limpia, sobre el fantasma del enredo.",
+    "Marca roja de «bien»."
+   ],
+   "enfasis": "la hoja limpia",
+   "oro": "la marca ✓",
+   "sonido": "campanita"
+  },
+  {
+   "ini": 17.9,
+   "fin": 20.0,
+   "toma": "A quien recibe el pedido",
+   "cita": "Con la IA es igual.",
+   "pasa": [
+    "Le salen antenitas y se escribe «IA»."
+   ],
+   "enfasis": "las antenitas",
+   "oro": "IA",
+   "sonido": "dos trazos y la sigla"
+  },
+  {
+   "ini": 20.0,
+   "fin": 24.6,
+   "toma": "Pizarra entera de paso y vuelta arriba",
+   "cita": "Un prompt son las instrucciones que le das.",
+   "pasa": [
+    "El borrador se lleva los garabatos de ingeniero.",
+    "«= instrucciones», encerrada dos veces. El marcador se tapa."
+   ],
+   "enfasis": "la palabra de siempre",
+   "oro": "= instrucciones",
+   "sonido": "la música resuelve; clic de la tapa"
+  }
+ ]
+}

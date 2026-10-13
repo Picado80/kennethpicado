@@ -8,13 +8,21 @@
    "hecho": true,
    "orden": 0
   },
+  "k-j1": {
+   "titulo": "Aprobar el J1 en estilo pizarra",
+   "detalle": "Mirá el borrador y su guion gráfico. Si te gusta, la serie IA sin jerga sale en ese estilo.",
+   "quien": "Kenneth",
+   "para": "2026-10-13",
+   "hecho": false,
+   "orden": 1
+  },
   "k-002": {
    "titulo": "Aprobar el 002 con el inicio nuevo",
    "detalle": "Abre con «En Amazon nadie era indispensable. Ni el jefe.» (fue el inicio con mejor puntaje).",
    "quien": "Kenneth",
    "para": "2026-10-13",
    "hecho": false,
-   "orden": 1
+   "orden": 2
   },
   "k-heygen": {
    "titulo": "Recargar HeyGen",
@@ -22,7 +30,7 @@
    "quien": "Kenneth",
    "para": "2026-10-12",
    "hecho": false,
-   "orden": 2
+   "orden": 3
   },
   "k-enlace": {
    "titulo": "Crear el proyecto de la consola en Vercel",
@@ -30,7 +38,7 @@
    "quien": "Kenneth",
    "para": "2026-10-13",
    "hecho": false,
-   "orden": 3
+   "orden": 4
   },
   "k-pixabay": {
    "titulo": "Sacar la llave gratis de Pixabay",
@@ -38,7 +46,7 @@
    "quien": "Kenneth",
    "para": "2026-10-14",
    "hecho": false,
-   "orden": 4
+   "orden": 5
   },
   "k-redes": {
    "titulo": "Conectar Facebook en Buffer",
@@ -46,7 +54,7 @@
    "quien": "Kenneth",
    "para": "2026-10-14",
    "hecho": false,
-   "orden": 5
+   "orden": 6
   },
   "k-g0": {
    "titulo": "Decidir si sale el video donde el gemelo se presenta",
@@ -54,7 +62,7 @@
    "quien": "Kenneth",
    "para": "2026-10-16",
    "hecho": false,
-   "orden": 6
+   "orden": 7
   },
   "k-tomas": {
    "titulo": "Grabar 3 o 4 tomas más para el gemelo",
@@ -62,7 +70,7 @@
    "quien": "Kenneth",
    "para": "2026-10-17",
    "hecho": false,
-   "orden": 7
+   "orden": 8
   },
   "k-personal": {
    "titulo": "Subir un video personal",
@@ -70,7 +78,7 @@
    "quien": "Kenneth",
    "para": "2026-10-17",
    "hecho": false,
-   "orden": 8
+   "orden": 9
   },
   "k-openai": {
    "titulo": "SEMI: verificar la organización en OpenAI",
@@ -78,7 +86,7 @@
    "quien": "Kenneth",
    "para": "2026-10-16",
    "hecho": false,
-   "orden": 9
+   "orden": 10
   },
   "c-002": {
    "titulo": "Rehacer el 002 con el inicio nuevo",
@@ -86,15 +94,15 @@
    "quien": "Claude",
    "para": "2026-10-12",
    "hecho": false,
-   "orden": 10
+   "orden": 11
   },
   "c-semana1": {
    "titulo": "Guion gráfico de los gráficos de la semana 1",
-   "detalle": "Los seis juntos: J1, R2, L1, N2, J2 y R1.",
+   "detalle": "El J1 ya está en borrador (pizarra). Faltan R2, L1, N2, J2 y R1.",
    "quien": "Claude",
-   "para": "2026-10-13",
+   "para": "2026-10-14",
    "hecho": false,
-   "orden": 11
+   "orden": 12
   },
   "c-a3": {
    "titulo": "Guion y guion gráfico del A3",
@@ -102,7 +110,7 @@
    "quien": "Claude",
    "para": "2026-10-13",
    "hecho": false,
-   "orden": 12
+   "orden": 13
   },
   "c-004": {
    "titulo": "Guion gráfico del 004",
@@ -110,7 +118,7 @@
    "quien": "Claude",
    "para": "2026-10-14",
    "hecho": false,
-   "orden": 13
+   "orden": 14
   },
   "c-a4": {
    "titulo": "Guion y guion gráfico del A4",
@@ -118,7 +126,7 @@
    "quien": "Claude",
    "para": "2026-10-15",
    "hecho": false,
-   "orden": 14
+   "orden": 15
   },
   "c-oficina": {
    "titulo": "Guiones gráficos del 001 y del 003",
@@ -126,7 +134,7 @@
    "quien": "Claude",
    "para": "2026-10-16",
    "hecho": false,
-   "orden": 15
+   "orden": 16
   },
   "c-plantillas": {
    "titulo": "Plantillas por serie",
@@ -134,7 +142,7 @@
    "quien": "Claude",
    "para": "2026-10-14",
    "hecho": false,
-   "orden": 16
+   "orden": 17
   },
   "c-buffer": {
    "titulo": "Programar las publicaciones en Buffer",
@@ -142,7 +150,7 @@
    "quien": "Claude",
    "para": "2026-10-16",
    "hecho": false,
-   "orden": 17
+   "orden": 18
   },
   "c-medicion": {
    "titulo": "Cargar los resultados a las 48 horas y a los 7 días",
@@ -150,7 +158,7 @@
    "quien": "Claude",
    "para": "2026-10-15",
    "hecho": false,
-   "orden": 18
+   "orden": 19
   }
  }
 }

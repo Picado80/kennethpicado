@@ -1,5 +1,17 @@
 {
  "items": {
+  "j1-v1": {
+   "titulo": "J1 · «Prompt» son las instrucciones que le di",
+   "version": "v1",
+   "estado": "por-aprobar",
+   "nota": "Estilo pizarra (Lemo-Opuscar). El borrador con sonido ya existe: 24,6 s, costo $0. Si te gusta, la serie IA sin jerga sale así.",
+   "comentario": "",
+   "paginas": [
+    "guiones/j1-v1-1.webp",
+    "guiones/j1-v1-2.webp"
+   ],
+   "orden": 0
+  },
   "002-v4": {
    "titulo": "002 · Si tu negocio no sobrevive a tus vacaciones",
    "version": "v4",

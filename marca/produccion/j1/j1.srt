@@ -1,0 +1,31 @@
+1
+00:00:00,330 --> 00:00:03,240
+«Prompt». Suena a algo de ingenieros.
+
+2
+00:00:03,330 --> 00:00:06,620
+Y es lo que hacés todos los días: dar instrucciones.
+
+3
+00:00:06,790 --> 00:00:09,490
+Si a alguien nuevo le decís «haceme un informe»,
+
+4
+00:00:09,530 --> 00:00:11,260
+te trae cualquier cosa.
+
+5
+00:00:12,350 --> 00:00:16,310
+Si le decís para quién es, qué tiene que decir y para cuándo,
+
+6
+00:00:16,350 --> 00:00:17,880
+te trae lo que ocupás.
+
+7
+00:00:18,030 --> 00:00:19,940
+Con la IA es igual.
+
+8
+00:00:20,070 --> 00:00:22,840
+Un prompt son las instrucciones que le das.
