@@ -90,16 +90,15 @@ el sitio por esa misma dirección; si puede, contesta 403 y la consola queda sol
 
 **Cómo se publica:** lo que está en `main` no sale solo. Para publicar: `git push origin main:consola`.
 
-### Estado: falta crear el proyecto (lo hace Kenneth)
+### Estado (12-oct): proyecto creado, falta el almacén
 
-El conector de Vercel de la sesión puede leer la cuenta personal de Kenneth («Kenneth Gonzalez's projects», la del
-portafolio) pero no puede crear proyectos ahí (403), y la terminal de la PC está en la cuenta de SEMI. Pasos:
+Kenneth creó el proyecto en su cuenta personal de Vercel («Kenneth Gonzalez's projects», plan Hobby):
+**`kennethpicado-consola`** (`prj_tf4AmEJ1CxBVZG9CxqNWMpWEErP4`), con raíz `marca/consola` y la protección de Vercel
+activada de fábrica. El despliegue de producción sale cancelado a propósito. El conector de Vercel de la sesión lee
+esa cuenta pero no puede crear proyectos ni almacenes; la terminal de la PC está en la cuenta de SEMI.
 
-1. En vercel.com, cuenta personal: **Create New → Project → Import** `Picado80/kennethpicado`. Nombre `consola-marca`,
-   **Root Directory** `marca/consola`, Framework **Other**. Deploy. Ese primer despliegue sale **cancelado a
-   propósito** (es el de producción, que no se usa).
-2. En el proyecto: **Storage → Create → Blob**, acceso **Private**, conectado al proyecto en todos los ambientes.
-3. Avisarle a Claude, que publica la rama `consola` y prueba todo.
+Falta: **Storage → Create Database → Blob**, acceso **Private**, conectado al proyecto en todos los ambientes (lo hace
+Kenneth). Después se vuelve a publicar la rama `consola` para que la función vea el almacén.
 
 El portafolio (`kennethpicado.vercel.app`) es otro proyecto y no se toca: su `.vercelignore` deja fuera `marca/`.
 
