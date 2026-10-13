@@ -77,22 +77,29 @@ La página suma las marcas de Kenneth encima de los datos. **Al empezar cada ses
 `https://<la consola>/api/marcas`** (con la herramienta de Vercel que abre direcciones protegidas) y pasa lo que
 corresponda a `datos/*.json`.
 
-**Quién puede abrirla:** nadie sin sesión de Vercel. El proyecto va con la protección de Vercel (Vercel
-Authentication) en todos los despliegues. La función no tiene otra llave, así que antes de responder comprueba que
-un visitante sin sesión **no** pueda abrir el sitio por esa misma dirección; si puede, contesta 403 y la consola
-queda solo de lectura, con un aviso. Si el plan solo deja proteger las vistas previas, la dirección principal
-quedaría abierta (se verían los datos, que ya son públicos en este repo, pero no se guardaría nada): en ese caso
-hay que ponerle una llave propia.
+**Quién puede abrirla:** nadie sin sesión de Vercel. La cuenta personal de Kenneth está en el plan Hobby, que solo
+protege las vistas previas (la dirección principal de un proyecto queda abierta). Por eso **la consola nunca se
+publica como producción**: `vercel.json` trae un `ignoreCommand` que solo deja construir la rama **`consola`**, y esa
+rama sale como vista previa, detrás de la protección de Vercel (Vercel Authentication, que viene activada en los
+proyectos nuevos). La dirección es la de la rama:
+
+`https://consola-marca-git-consola-kenneth-gonzalezs-projects-e39f498a.vercel.app`
+
+La función no tiene otra llave, así que antes de responder comprueba que un visitante sin sesión **no** pueda abrir
+el sitio por esa misma dirección; si puede, contesta 403 y la consola queda solo de lectura, con un aviso.
+
+**Cómo se publica:** lo que está en `main` no sale solo. Para publicar: `git push origin main:consola`.
 
 ### Estado: falta crear el proyecto (lo hace Kenneth)
 
 El conector de Vercel de la sesión puede leer la cuenta personal de Kenneth («Kenneth Gonzalez's projects», la del
 portafolio) pero no puede crear proyectos ahí (403), y la terminal de la PC está en la cuenta de SEMI. Pasos:
 
-1. En vercel.com, cuenta personal: **Add New → Project → Import** `Picado80/kennethpicado`. Nombre `consola-marca`,
-   **Root Directory** `marca/consola`, Framework **Other**. Deploy.
-2. En el proyecto: **Storage → Create → Blob**, acceso **Private**, conectado al proyecto. Después, **Redeploy**.
-3. **Settings → Deployment Protection → Vercel Authentication → All Deployments.**
+1. En vercel.com, cuenta personal: **Create New → Project → Import** `Picado80/kennethpicado`. Nombre `consola-marca`,
+   **Root Directory** `marca/consola`, Framework **Other**. Deploy. Ese primer despliegue sale **cancelado a
+   propósito** (es el de producción, que no se usa).
+2. En el proyecto: **Storage → Create → Blob**, acceso **Private**, conectado al proyecto en todos los ambientes.
+3. Avisarle a Claude, que publica la rama `consola` y prueba todo.
 
 El portafolio (`kennethpicado.vercel.app`) es otro proyecto y no se toca: su `.vercelignore` deja fuera `marca/`.
 
