@@ -1,7 +1,10 @@
 # Formatos
 
-> Formato rápido = **45 segundos o menos, una toma, una idea, una lección.**
-> Cada formato tiene una métrica que lo juzga. Si no la mueve en 10 videos, se cambia el gancho; si en 20 sigue sin moverla, se mata.
+> **Manda `ESTRATEGIA.md`** (19-oct). Estos 4 formatos son las **insignias** (§3): de 40 a 90 s, 2 o 3 por semana,
+> con la vara de «calidad extraordinaria» (§4). El **volumen** (3 piezas por día: loops, imágenes, carruseles y
+> motion graphics) sigue la regla corta: **una idea, una lección, 45 segundos o menos.**
+> Cada formato tiene una métrica que lo juzga, pero al final todo se juzga por **seguidores por cada 1.000 vistas**:
+> si no lo mueve en 5 piezas, se cambia el gancho; en 10, se mata.
 
 ## El orden de lanzamiento (no son 4 a la vez)
 

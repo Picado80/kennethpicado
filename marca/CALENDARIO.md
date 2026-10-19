@@ -1,7 +1,8 @@
 # Mapa y calendario de contenido
 
-> **Desde el 19-oct manda [`ESTRATEGIA.md`](ESTRATEGIA.md):** la meta es crecer en seguidores y el orden de
-> la primera semana sale de ahí (§11). Este calendario queda como banco de piezas y de objetivos.
+> **Desde el 19-oct manda [`ESTRATEGIA.md`](ESTRATEGIA.md):** la meta es crecer en seguidores. El ritmo es **3 piezas de
+> volumen por día y 2 o 3 insignias por semana** (§3), y la primera semana sale de ahí (§11). Las series de abajo
+> y la grilla de 4 semanas quedan como banco de piezas y de objetivos.
 
 > Kenneth (11-oct-2026): dos piezas diarias, una 100 % gráficos y una con el gemelo, y que cada una
 > diga **para qué se hace** y **cómo se sabe si lo logró**.

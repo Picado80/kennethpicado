@@ -28,7 +28,7 @@ Los puntajes de abajo son mi primera lectura. **Corregilos vos**: sos el que sab
 
 | # | Idea | Fuente real | U | V | T | P | Total | Estado |
 |---|---|---|---|---|---|---|---|---|
-| A1 | **Si tu negocio no sobrevive a tus vacaciones, no tenés negocio, tenés un trabajo** | portafolio («un sistema que me necesita es una dependencia») | 5 | 5 | 5 | 5 | **20** | guion `002` |
+| A1 | **Si tu negocio no sobrevive a tus vacaciones, no tenés negocio, tenés un trabajo** | portafolio («un sistema que me necesita es una dependencia») | 5 | 5 | 5 | 5 | **20** | guion `002` (soda) y sus variantes `002b` (cafetería), `002c` (restaurante) y `002d` (emprendedor): gana el escenario que traiga más seguidores |
 | A2 | **350 entrevistas me enseñaron a no contratar al que te cae bien** (Bar Raiser) | CV: 350+ entrevistas | 5 | 5 | 4 | 5 | **19** | toca *equipos*, que es de Cawhi (`CANON.md`, límite 7): hablarlo con Bernal antes |
 | A3 | **La reunión de los lunes de 15 minutos** que ordena cualquier negocio | caso del anfiteatro: revisión de los lunes | 4 | 5 | 3 | 5 | **17** | — |
 | A4 | **Escribí el titular del día en que ya lo lograste** (working backwards, método NORTE) | skill `norte-builder` | 4 | 5 | 3 | 5 | **17** | — |

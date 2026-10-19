@@ -251,9 +251,14 @@ Personal», pero duplicaría las llaves fuera de `torre\.env`. **Decisión: la m
 
 ## 9. Siguiente paso exacto
 
-> **(19-oct) Manda [`ESTRATEGIA.md`](ESTRATEGIA.md).** Con el sí de Kenneth al reto, hacer lo de su §12: los guiones gráficos de la
-> semana 1 (§11), el `002` con el gancho nuevo, `G0` y los capítulos gráficos, todo por la consola. Pasar a la consola
-> (`consola/datos/*.json`) el objetivo «Seguir» y la semana 1 nueva. Lo de abajo es el paso anterior (12-oct).
+> **(19-oct) Manda [`ESTRATEGIA.md`](ESTRATEGIA.md)**: volumen (3 piezas por día, $0) e insignias (2 o 3 por semana).
+> Con el sí de Kenneth, hacer lo de su §13:
+> - el guion gráfico de las 21 piezas de volumen de la semana 1 (§11);
+> - las 3 insignias con su prueba de gancho;
+> - en la consola (`consola/datos/*.json`): el objetivo «Seguir», los seguidores nuevos por pieza, el tipo de pieza y la aprobación por lote;
+> - en `costeo`: el costo por seguidor.
+>
+> Lo de abajo es el paso anterior (12-oct).
 >
 > (12-oct) Leer la consola (`consola/tareas` y `consola/guiones`). Con lo que Kenneth haya aprobado:
 > el guion gráfico del `002` con el inicio «En Amazon nadie era indispensable. Ni el jefe.», el de los

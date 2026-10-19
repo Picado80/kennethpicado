@@ -8,11 +8,15 @@
 1. **La meta no son vistas: son seguidores que se quedan** (fase 1, `ESTRATEGIA.md`). Un millón de
    vistas que no siguen es ruido. Las conversaciones con empresas vuelven en la fase 3.
 2. **Kenneth aprueba antes de publicar.** Quien produce no publica solo: es la regla de TORRE
-   («quien ejecuta no se revisa a sí mismo»). Después de 30 videos aprobados sin rechazos, los
-   formatos ya probados pueden publicarse solos.
+   («quien ejecuta no se revisa a sí mismo»). **El volumen se aprueba en lote** (un guion gráfico por
+   semana) y las insignias una por una (`ESTRATEGIA.md` §3). Después de 30 piezas de volumen aprobadas
+   sin rechazos, el volumen se publica solo.
 3. **Se copia el mecanismo, nunca el contenido** (`viral-content-machine/VIRAL_CONTENT_PLAYBOOK.md` §1).
 
 ## La versión grande: el experimento es el contenido
+
+> **Reemplazado el 19-oct** por el reto de `ESTRATEGIA.md` §6: «30 días: mi oficina de siete IAs tiene que
+> conseguirme 10.000 seguidores». Lo de abajo era la versión para la fase de ventas.
 
 **Episodio 0 de *La Oficina*: «Le di a mi oficina de siete IAs $100 y 30 días para conseguirme
 un cliente.»** Morfeo buscó vistas; vos buscás un cliente de verdad. Hay un video por semana
