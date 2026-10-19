@@ -4,26 +4,26 @@
    "titulo": "J1 · «Prompt» son las instrucciones que le di",
    "version": "v1",
    "estado": "por-aprobar",
-   "nota": "Estilo pizarra (Lemo-Opuscar). El borrador con sonido ya existe: 24,6 s, costo $0. Si te gusta, la serie IA sin jerga sale así.",
+   "nota": "Estilo pizarra. Está hecho (24,6 s, $0) y va en el Día 1 como volumen. Si te gusta, la serie IA sin jerga sale así.",
    "comentario": "",
    "paginas": [
     "guiones/j1-v1-1.webp",
     "guiones/j1-v1-2.webp"
    ],
-   "orden": 0
+   "orden": 1
   },
   "002-v4": {
    "titulo": "002 · Si tu negocio no sobrevive a tus vacaciones",
    "version": "v4",
    "estado": "por-aprobar",
-   "nota": "El video ya existe. Falta decidir si se rehace el inicio con «nadie era indispensable».",
+   "nota": "Insignia del Día 3. El video existe; el gancho se rehace hasta pasar la vara de la estrategia (70 / 60 / 90) antes de pagar el gemelo.",
    "comentario": "",
    "paginas": [
     "guiones/002-v4-1.webp",
     "guiones/002-v4-2.webp",
     "guiones/002-v4-3.webp"
    ],
-   "orden": 1
+   "orden": 2
   }
  }
 }

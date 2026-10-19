@@ -1,5 +1,8 @@
 # Mapa y calendario de contenido
 
+> **19-oct: el calendario que vale es [`MES-1.md`](MES-1.md)**, bajo [`ESTRATEGIA.md`](ESTRATEGIA.md). Las series y la
+> grilla de este archivo quedan como banco de piezas.
+
 > **Desde el 19-oct manda [`ESTRATEGIA.md`](ESTRATEGIA.md):** la meta es crecer en seguidores. El ritmo es **3 piezas de
 > volumen por día y 2 o 3 insignias por semana** (§3), y la primera semana sale de ahí (§11). Las series de abajo
 > y la grilla de 4 semanas quedan como banco de piezas y de objetivos.

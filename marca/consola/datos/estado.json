@@ -1,39 +1,39 @@
 {
- "actualizado": "2026-10-12T16:00:00-06:00",
+ "actualizado": "2026-10-19T11:30:00-06:00",
  "conexiones": {
   "tiktok": {
    "nombre": "TikTok",
    "tipo": "red",
    "estado": "conectada",
-   "detalle": "@picado80, por Buffer. Dos piezas por día.",
+   "detalle": "@picado80, por Buffer. 3 piezas de volumen por día y las insignias.",
    "orden": 1
   },
   "instagram": {
    "nombre": "Instagram",
    "tipo": "red",
    "estado": "conectada",
-   "detalle": "@picado80, cuenta profesional, por Buffer. Tres piezas por semana; las historias las sube Kenneth cuando quiera.",
+   "detalle": "@picado80, por Buffer. 1 por día (la de volumen que mejor le fue el día anterior en TikTok) y las insignias.",
    "orden": 2
   },
   "facebook": {
    "nombre": "Facebook",
    "tipo": "red",
    "estado": "falta",
-   "detalle": "Cabe en el tercer lugar gratis de Buffer. Recibe las mismas 3 piezas de Instagram, sin trabajo extra.",
+   "detalle": "Falta crear la página «Kenneth Picado» y conectarla en Buffer: es la tercera red gratis. Recibe lo mismo que Instagram.",
    "orden": 3
   },
   "x": {
    "nombre": "X",
    "tipo": "red",
    "estado": "despues",
-   "detalle": "Sin plan todavía. En Buffer cuesta $6 al mes.",
+   "detalle": "Fase 2, o ya por unos $25 al mes en Buffer: espera tu respuesta.",
    "orden": 4
   },
   "linkedin": {
    "nombre": "LinkedIn",
    "tipo": "red",
    "estado": "despues",
-   "detalle": "Sin publicar por ahora: Kenneth decidió el 12-oct que no es la red para el resultado que busca.",
+   "detalle": "Fase 2, o ya por unos $25 al mes en Buffer: espera tu respuesta.",
    "orden": 5
   },
   "youtube": {
@@ -48,7 +48,7 @@
    "nombre": "Buffer",
    "tipo": "herramienta",
    "estado": "conectada",
-   "detalle": "Plan gratis: 2 de 3 redes usadas. Cada red extra cuesta $6 al mes.",
+   "detalle": "Plan gratis: 3 redes, 10 programadas por red y 3.000 llamadas al mes. Hoy, 2 redes.",
    "orden": 10
   },
   "heygen": {
@@ -56,7 +56,7 @@
    "nombre": "HeyGen",
    "tipo": "herramienta",
    "estado": "conectada",
-   "detalle": "El gemelo «Kenneth GP». Por API, $0.0805 por segundo.",
+   "detalle": "El gemelo «Kenneth GP», por la API v3 (la v2 se apaga el 31-oct). $0.0805 por segundo.",
    "orden": 11
   },
   "elevenlabs": {
@@ -70,14 +70,14 @@
    "nombre": "Higgsfield",
    "tipo": "herramienta",
    "estado": "conectada",
-   "detalle": "La prueba de gancho (gratis) y tomas realistas.",
+   "detalle": "La prueba de gancho de las insignias (gratis, hasta 16 s).",
    "orden": 13
   },
   "hyperframes": {
-   "nombre": "HyperFrames",
+   "nombre": "HyperFrames y Lemo-Opuscar",
    "tipo": "herramienta",
    "estado": "conectada",
-   "detalle": "Gráficos, subtítulos y montaje, en tu PC. $0.",
+   "detalle": "Todo el volumen, con código, en tu PC. $0.",
    "orden": 14
   },
   "pixabay": {
@@ -85,29 +85,21 @@
    "nombre": "Pixabay",
    "tipo": "herramienta",
    "estado": "falta",
-   "detalle": "Video de banco gratis. Falta la llave.",
+   "detalle": "Video de banco gratis para el volumen. Falta la llave.",
    "orden": 15
-  },
-  "openai": {
-   "enlace": "https://platform.openai.com/settings/organization/general",
-   "nombre": "OpenAI (SEMI)",
-   "tipo": "herramienta",
-   "estado": "despues",
-   "detalle": "Anuncios y directorio de plugins, para SEMI. Falta verificar la organización.",
-   "orden": 16
   }
  },
  "saldos": {
   "heygen": {
    "nombre": "HeyGen",
    "valor": "$2.88",
-   "detalle": "Alcanza para 1 video. Cada video usa unos $1.83.",
+   "detalle": "No alcanza para las 3 insignias de la semana. Hace falta cargar unos $40.",
    "alerta": true,
    "orden": 1
   },
   "elevenlabs": {
    "nombre": "ElevenLabs",
-   "valor": "169 de 186.000",
+   "valor": "313 de 186.000",
    "detalle": "Caracteres del mes. Plan fijo de $22.",
    "alerta": false,
    "orden": 2
@@ -121,8 +113,8 @@
   },
   "claude": {
    "nombre": "Claude",
-   "valor": "23 % de la semana",
-   "detalle": "Plan Max, sin cobros extra.",
+   "valor": "Plan Max",
+   "detalle": "Sin cobros extra.",
    "alerta": false,
    "orden": 4
   }
@@ -130,12 +122,13 @@
  "presupuesto": {
   "tope": 100,
   "gastado": 30.12,
-  "proyectado": 64.89,
-  "detalle": "Octubre: $22 de ElevenLabs y $8.12 de HeyGen ($5.75 en pruebas y $2.37 en el primer video).",
-  "por_video": 1.83,
-  "meta_por_video": 2.0
+  "proyectado": 78.0,
+  "proyectado_texto": "El mes del reto",
+  "detalle": "Octubre hasta hoy: $22 de ElevenLabs y $8.12 de HeyGen. El mes del reto: 12 insignias (unos $36), voz $22, impulso $20; el volumen, $0.",
+  "por_video": 3.0,
+  "meta_por_video": 4.0
  },
  "notas": {
-  "redes": "TikTok lleva todo: dos piezas por día. Instagram lleva tres por semana. Facebook cabe gratis en el tercer lugar de Buffer y recibe lo mismo que Instagram. X y LinkedIn quedan sin publicar. Conectar una red lo hace Kenneth, porque pide iniciar sesión."
+  "redes": "Fase 1: TikTok lleva todo; Instagram, 1 pieza por día más las insignias; Facebook, lo mismo que Instagram cuando esté. X y LinkedIn, en la fase 2. Conectar una red lo hace Kenneth, porque pide iniciar sesión."
  }
 }

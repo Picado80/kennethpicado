@@ -27,11 +27,11 @@ propia página (capacidad `db`), así Claude los actualiza sin republicar y Kenn
 
 | Documento | Contenido | Quién escribe |
 |---|---|---|
-| `consola/calendario` | `items.{id}`: fecha, linea (A, B o M), tipo (pieza o accion), codigo, serie, titulo, porque, objetivo, vara, estado, quien, costo, redes (`tiktok`, `instagram`…); al publicar se agregan `url`, `resultados.{red}` (vistas, guardados, compartidos, comentarios, perfil, corte) y `logro` (true o false, a los 7 días) | Claude. Kenneth agrega acciones de marca (`creado_por: kenneth`) y las marca hechas |
+| `consola/calendario` | `items.{id}`: fecha, dia (del reto), linea (A volumen, B insignia, M marca), tipo (volumen, insignia o accion), formato (loop, imagen, carrusel, motion, voz, personal, insignia), codigo, serie, titulo, porque, objetivo (el paso de la cadena: Ver, Reaccionar, Pasarlo, Conocerte, Seguir), vara, reto (depende del sí al reto), estado, quien, costo, redes (`tiktok`, `instagram`…); `arranque.fecha` es el Día 1 (provisional); al publicar se agregan `url`, `resultados.{red}` (vistas, seguidores, guardados, compartidos, comentarios, perfil, corte) y `logro` (true o false, a los 7 días) | Claude. Kenneth agrega acciones de marca (`creado_por: kenneth`) y las marca hechas |
 | `consola/tareas` | `items.{id}`: titulo, detalle, quien, para (fecha), hecho | Claude crea; Kenneth marca `hecho` y le anota pendientes a Claude (`creado_por: kenneth`) |
 | `consola/guiones` | `items.{id}`: titulo, version, estado (por-aprobar, aprobado, cambios), nota, comentario, revisado, paginas | Claude crea; Kenneth aprueba o comenta |
 | `consola/estado` | `actualizado`, `conexiones.{id}` (con `enlace` opcional), `saldos.{id}`, `presupuesto` (con `proyectado`), `notas.redes` | Claude |
-| `consola/objetivos` | `norte` (meta, actual, periodo), `items.{id}` (nombre, busca, mide, vara, excelente, cuenta), `ritmo.{red}`, `base.datos` | Claude |
+| `consola/objetivos` | `norte` (seguidores nuevos por semana: actual, periodo), `items.{paso}` (la cadena), `ritmo.{red}`, `base.datos`, `fases` | Claude |
 
 Las semillas se generan con [`sembrar.py`](sembrar.py) en `datos/` y se suben con la herramienta de datos del
 Artifact. **Al empezar cada sesión, Claude lee `consola/tareas` y `consola/guiones`**: ahí están las
@@ -105,3 +105,14 @@ El portafolio (`kennethpicado.vercel.app`) es otro proyecto y no se toca: su `.v
 **Sin probar en Vercel todavía:** la página en modo Vercel se probó en local contra una `api/marcas` de mentira
 (marcar, pedir cambios, agregar una acción y recargar). La función real, el Blob y el `.vercelignore` de esta carpeta
 se prueban con el primer despliegue.
+
+## Desde el 19-oct: la estrategia de seguidores
+
+La consola sigue a [`../ESTRATEGIA.md`](../ESTRATEGIA.md) y al calendario de [`../MES-1.md`](../MES-1.md): la meta es
+**seguidores nuevos por semana**, cada pieza dice si es volumen o insignia, su formato y el paso de la cadena que mueve, y
+los resultados muestran **seguidores por cada 1.000 vistas**. Los números de cada publicación se pueden leer por la API de
+Buffer (vistas, alcance, me gusta, comentarios, compartidos y tiempo visto); el total de seguidores, todavía no (ver
+`MES-1.md` §9).
+
+**La página del Artifact** se publica desde una copia sin el envoltorio de documento (`<!doctype>`, `<html>`, `<head>`,
+`<body>`), con las capacidades `db` y `user`, al mismo enlace.
