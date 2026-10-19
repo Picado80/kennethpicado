@@ -1,5 +1,8 @@
 # Mapa y calendario de contenido
 
+> **Desde el 19-oct manda [`ESTRATEGIA.md`](ESTRATEGIA.md):** la meta es crecer en seguidores y el orden de
+> la primera semana sale de ahí (§11). Este calendario queda como banco de piezas y de objetivos.
+
 > Kenneth (11-oct-2026): dos piezas diarias, una 100 % gráficos y una con el gemelo, y que cada una
 > diga **para qué se hace** y **cómo se sabe si lo logró**.
 > **Kenneth (12-oct-2026): dos por día desde la primera semana.** Todo va a TikTok; a Instagram van tres por
@@ -42,7 +45,8 @@ cada 1.000 vistas, 0 compartidos y 0 guardados.** Después de dos semanas se rec
 | **Compartido** | Que el empleado se lo mande al jefe | Compartidos | Al menos 1 (hoy son 0). Excelente: 10 por cada 1.000 vistas |
 | **Comentario** | Que la gente cuente su caso | Comentarios de gente que no es conocida | Al menos 2. Excelente: 10 por cada 1.000 vistas |
 | **Perfil** | Que quieran saber quién es | Visitas al perfil y seguidores nuevos (TikTok Studio) | Más que el video anterior con el mismo objetivo |
-| **Empresa** | La métrica que manda (`README.md` §5) | Mensajes de alguien que dirige o decide | 1 conversación al mes ya es avance |
+| **Seguir** | **La métrica que manda en la fase 1** (`ESTRATEGIA.md` §1) | Seguidores nuevos que trajo el video (TikTok Studio) | Más seguidores por cada 1.000 vistas que el promedio de su serie |
+| **Empresa** | En pausa hasta la fase 3 de `ESTRATEGIA.md` | Mensajes de alguien que dirige o decide | — |
 
 ## Las series y su objetivo
 

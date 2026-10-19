@@ -5,8 +5,8 @@
 
 ## Tres cambios respecto a lo de Morfeo
 
-1. **La meta no son vistas: son conversaciones con empresas.** Un millón de vistas de gente
-   que no contrata es ruido. Se mide lo que dice `README.md` §Medición.
+1. **La meta no son vistas: son seguidores que se quedan** (fase 1, `ESTRATEGIA.md`). Un millón de
+   vistas que no siguen es ruido. Las conversaciones con empresas vuelven en la fase 3.
 2. **Kenneth aprueba antes de publicar.** Quien produce no publica solo: es la regla de TORRE
    («quien ejecuta no se revisa a sí mismo»). Después de 30 videos aprobados sin rechazos, los
    formatos ya probados pueden publicarse solos.

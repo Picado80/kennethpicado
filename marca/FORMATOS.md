@@ -105,7 +105,7 @@ proveedor te vende más barato). El filtro de reseñas necesita una revisión an
 
 **Regla de honestidad:** las horas que se dicen son las horas reales. Si fueron tres noches, se dice tres noches.
 
-**Métrica que lo juzga:** visitas al perfil por cada 1.000 vistas + conversaciones con empresas.
+**Métrica que lo juzga:** visitas al perfil y seguidores por cada 1.000 vistas (`ESTRATEGIA.md` §1). Las conversaciones con empresas, desde la fase 3.
 
 ---
 

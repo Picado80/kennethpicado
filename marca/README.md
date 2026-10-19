@@ -72,7 +72,7 @@ Cada etapa tiene entrada, salida y una condición para pasar a la siguiente (igu
 
 - **A las 48 horas y a los 7 días:** copiar los números de TikTok Analytics a [`medicion/registro.csv`](medicion/registro.csv), una fila por corte (`corte` = `48h` o `7d`).
 - **Lunes, 20 minutos:** revisión con [`plantillas/semana.md`](plantillas/semana.md). Sale **una sola decisión**.
-- **La métrica que manda:** `conversaciones con empresas por mes`. Una conversación cuenta cuando alguien que dirige o decide en un negocio te escribe por DM, correo o LinkedIn por algo que vio. Las vistas son el medio. Qué hacer cuando escriben: [`VENTA.md`](VENTA.md).
+- **La métrica que manda (fase 1, desde el 19-oct):** `seguidores nuevos por semana`, y para decidir qué se repite, seguidores por cada 1.000 vistas de cada serie ([`ESTRATEGIA.md`](ESTRATEGIA.md) §1). Las conversaciones con empresas vuelven a ser la métrica en la fase 3; si alguien escribe antes, se atiende con [`VENTA.md`](VENTA.md).
 
 ---
 
@@ -105,6 +105,7 @@ Cuando TikTok tenga 30 videos y 2 formatos validados:
 
 ```
 marca/
+├── ESTRATEGIA.md        ← LA ESTRATEGIA MAESTRA (fase 1: crecer en seguidores). Manda sobre los demás
 ├── README.md            ← estás aquí: el proceso
 ├── LLAVES.md            ← dónde van HeyGen y ElevenLabs (respuesta corta adentro)
 ├── CANON.md             ← tesis, audiencia, voz, límites, qué es real y qué es IA

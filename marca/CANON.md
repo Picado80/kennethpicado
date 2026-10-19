@@ -101,7 +101,8 @@ es la regla aplicada a operar con IA.
 ## Límites (nunca)
 
 1. **Nunca se vende en el video.** Ni «agendá», ni precios, ni demos. Semi aparece como «lo
-   que construyo», no como oferta, y como mucho en 1 de cada 10 videos. Lo que pasa después del
+   que construyo», no como oferta, como mucho en 1 de cada 10 videos y **solo desde la fase 3 de
+   `ESTRATEGIA.md`** (más de 10.000 seguidores nuevos). Lo que pasa después del
    video (LinkedIn, la conversación, la llamada y la propuesta) está en `VENTA.md`.
 2. **Nunca nombres de clientes ni de personas** sin permiso por escrito. «Un anfiteatro de
    800 personas», «una cooperativa de mil empleados».
