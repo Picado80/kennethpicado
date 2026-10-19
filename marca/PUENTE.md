@@ -1,5 +1,7 @@
 # Puente — marca personal (7-oct-2026): de la nube a la PC
 
+> **Último relevo: [`HANDOFF-2026-10-19.md`](HANDOFF-2026-10-19.md)** (la nube, 19-oct): dónde estamos, lo que espera a Kenneth y el orden de trabajo. Manda [`ESTRATEGIA.md`](ESTRATEGIA.md).
+
 > **Para la sesión que sigue, en la PC de Kenneth** (Claude Code local en `C:\Users\Picado\kennethpicado`,
 > o la sesión de Remote Control «Marca personal: voz y radar»). Desde la PC, Claude llega a
 > `torre\.env`, a TikTok, ElevenLabs, HeyGen y Buffer, y puede despachar a MiniMax. Desde la nube, no.
