@@ -9,6 +9,14 @@
 > opciones que no pidió. Los eventos automáticos (CI, Vercel, recordatorios) no generan mensaje.
 > Kenneth quiere que Claude **haga** el trabajo, no que se lo pase: si algo lo puede hacer Claude
 > desde la PC, lo hace Claude. Y quiere ideas que lo empujen, no un sí a todo.
+>
+> **La consola (12-oct):** el calendario, los pendientes, los guiones gráficos, los
+> objetivos, los resultados, las conexiones y los saldos están en una página: <https://claude.ai/artifact/ThqpTuWtjM3fgiTKWXs5yj>
+> ([`consola/LEEME.md`](consola/LEEME.md)). **Al empezar cada sesión se leen `consola/tareas` y
+> `consola/guiones`**: ahí Kenneth marca lo hecho, aprueba o pide cambios y le anota pendientes a Claude.
+> **Se muda a Vercel** (Kenneth, 12-oct): el código ya está en `marca/consola/`; falta que Kenneth cree el proyecto
+> en su cuenta personal de Vercel (el conector no tiene permiso). Cuando exista, lo que él marca se lee en
+> `https://<la consola>/api/marcas` y los datos se cambian en `marca/consola/datos/*.json`.
 
 ---
 
@@ -19,7 +27,8 @@
 - **Audiencia:** dueños y gerentes de negocios que **no** son técnicos, primero en Costa Rica.
 - **El orden (Kenneth, 7-oct):** darse a conocer en redes → vender **Semi** (el producto estrella) →
   vender **RedTurn** → lo demás.
-- **Plataformas:** TikTok e Instagram primero. YouTube cuando Kenneth pueda; LinkedIn después.
+- **Plataformas (Kenneth, 12-oct):** TikTok lleva todo, **dos piezas por día** (un gráfico y un video con el
+  gemelo). Instagram, tres por semana. LinkedIn y X: sin publicar por ahora. YouTube cuando Kenneth pueda.
 - **Kenneth no graba (7-oct):** los videos salen con su avatar de HeyGen («Kenneth GP») y su voz
   clonada de ElevenLabs desde el video 1. Cambia la regla de `CANON.md` (cara real hasta el 15):
   el video 002 va primero como prueba, y si Kenneth lo aprueba se ajusta el canon.
@@ -215,6 +224,13 @@ Personal», pero duplicaría las llaves fuera de `torre\.env`. **Decisión: la m
 7. **El gasto:** confirmar los planes reales. La API de ElevenLabs dice **creator**, no Starter; el
    plan de HeyGen no está confirmado; Buffer, yt-dlp y Composio cuestan $0. Que no pase de $100 al mes.
 
+## 7b. La marca y SEMI (9-oct)
+
+- La marca personal va a quedar ligada a SEMI más adelante. Primero se trabaja la estrategia de SEMI y después se conectan.
+- **Anuncios en ChatGPT:** para SEMI, no para la marca. Hoy Costa Rica no puede comprar. Kenneth crea la cuenta en ads.openai.com para que le avisen.
+- **Que ChatGPT mencione a SEMI** (CRM, ERP, facturación, planillas, recursos humanos): el handoff con el diagnóstico de `trysemi.com` y los cambios está en `marca/salidas/HANDOFF-semi-seo-y-anuncios.md`. No va a git: es estrategia de SEMI y este repo es público. Kenneth se lo pasa a la sesión del sitio de SEMI.
+- **Directorio de plugins de OpenAI** (antes «apps»): el primer paso es que Kenneth verifique la organización en platform.openai.com.
+
 ## 8. Siguientes encargos (en orden)
 
 - **E002 · Producción** (cuando haya voz confirmada y gemelo):
@@ -235,6 +251,8 @@ Personal», pero duplicaría las llaves fuera de `torre\.env`. **Decisión: la m
 
 ## 9. Siguiente paso exacto
 
-> Mandarle a Kenneth **un solo mensaje** con dos preguntas: «¿Suena a vos el mp3 de
-> `marca\salidas\`?» y «¿Verifico Buffer?». Con sus dos respuestas, guardar el ID de la voz, listar
-> los canales de Buffer y seguir con E002.
+> (12-oct) Leer la consola (`consola/tareas` y `consola/guiones`). Con lo que Kenneth haya aprobado:
+> el guion gráfico del `002` con el inicio «En Amazon nadie era indispensable. Ni el jefe.», el de los
+> seis gráficos de la semana 1 (`J1`, `R2`, `L1`, `N2`, `J2`, `R1`), los guiones de `A3` y `A4`, y los guiones gráficos de `004`, `001` y `003`.
+> Los resultados de cada pieza se cargan en la consola a las 48 horas y a los 7 días. Cada guion gráfico se publica en la
+> consola **antes** de hacer el video. Sin saldo en HeyGen (quedan $2.88; el mes pide unos $50) no salen los videos.
