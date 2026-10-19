@@ -5,8 +5,8 @@
 > actualizaciones, pruebas».
 > **Manda [`ESTRATEGIA.md`](ESTRATEGIA.md).** Este archivo la baja a 30 días. Si chocan, gana la estrategia.
 
-**Fechas:** el Día 1 es el día en que Kenneth diga «arranca». En la consola va provisional el **miércoles 21 de
-octubre**, y el Día 30 cae el **jueves 19 de noviembre**. Si arranca otro día, todo se corre igual.
+**Fechas:** el Día 1 es el **miércoles 21 de octubre** (Kenneth, 19-oct) y el Día 30 cae el **jueves 19 de
+noviembre**.
 
 ## 1. La meta del mes
 
@@ -14,7 +14,7 @@ octubre**, y el Día 30 cae el **jueves 19 de noviembre**. Si arranca otro día,
 |---|---|
 | **La que manda** | Seguidores nuevos por semana, TikTok + Instagram. El Día 1 fija la vara y cada semana tiene que traer más que la anterior |
 | **La que decide qué se repite** | Seguidores por cada 1.000 vistas, por serie y por tipo de pieza |
-| **El reto público** | «Mi oficina de siete IAs tiene que conseguirme 10.000 seguidores en 30 días. Yo solo apruebo.» Es una meta muy alta para la cuenta de hoy (576 seguidores en Instagram, 326 vistas por video en TikTok): **lo que se vende es la historia, no la cifra.** Llegue o no, el Día 30 se cuenta igual y el contador nunca se infla |
+| **El reto público** | «Mi oficina de siete IAs tiene que conseguirme 1.000 seguidores en 30 días. Yo solo apruebo.» Es la meta de la fase 1 de la estrategia contada en público: no es una meta nueva. Son unos 33 por día. Llegue o no, el Día 30 se cuenta igual y el contador nunca se infla |
 | **Para el mes 2** | Saber qué serie y qué tipo de pieza hace seguir, con números de la cuenta |
 
 Cada pieza declara qué paso de la cadena mueve: **ver → reaccionar → pasarlo → conocerte → seguir** (`ESTRATEGIA.md` §1).
@@ -33,6 +33,10 @@ Cada pieza declara qué paso de la cadena mueve: **ver → reaccionar → pasarl
 1. **V1 · El reto:** «Día N de 30». Un loop del contador o una imagen con lo que hizo la oficina. Paso: **seguir**.
 2. **V2 · La pieza del día de la semana** (§3): una palabra de IA, una regla, la noticia, la prueba o una fecha del mes.
 3. **V3 · La que provoca o se guarda:** una postura, una pregunta, una lista, un número o una voz sobre animación.
+
+> **Regla de Kenneth (19-oct): siempre, primero el guion gráfico, muy barato ($0), para ver la idea.** El contenido
+> real se hace solo cuando Kenneth está contento con el guion gráfico. El lote de cada semana se aprueba en su guion
+> gráfico el domingo anterior; el de la semana 1, antes del Día 1.
 
 ## 3. Lo que pasa cada semana (siempre igual)
 
@@ -165,11 +169,10 @@ mata. Después de 30 piezas de volumen sin rechazos, el volumen se publica sin p
 
 HeyGen tiene $2.88: hay que cargar unos $40 antes del Día 1.
 
-## 11. Si el reto es que no
+## 11. El reto va
 
-El lugar de V1 lo toma **La bitácora de la oficina**: el mismo formato diario sin la meta de los 10.000 (qué hizo la
-oficina hoy, qué falló, qué se prueba mañana). `G0`, `DIA15` y `DIA30` se cambian por insignias del banco
-(`CALENDARIO.md`). Todo lo demás del mes queda igual.
+Kenneth dijo que sí el 19-oct, con la meta de la fase 1: 1.000 seguidores nuevos. `G0` pasa por guion gráfico antes de
+gastar en el gemelo.
 
 ## 12. El calendario, día por día
 
@@ -208,7 +211,7 @@ Lo mismo está en la consola, como calendario. Se genera con `python marca/conso
 | 29 | Mié 18 nov | `D29` El contador: faltan 24 horas | `J6` El «handoff» es la nota de relevo | `A5` Una evaluación que no dispara nada no sirve | — |
 | 30 | Jue 19 nov | `D30` El número final | `FIN` Lo que aprendió la oficina en 30 días, en 30 segundos | `RC4` Respuesta a un comentario | `DIA30` Día 30: ¿llegamos? Se cuenta igual |
 
-**Las piezas del reto** (`D1` a `D30`, `FIN`, `G0`, `DIA15` y `DIA30`) esperan el sí de Kenneth (§11).
+**Cada semana se aprueba en su guion gráfico antes de producir** (§2).
 
 ### Fuentes de las fechas (§6)
 

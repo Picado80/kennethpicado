@@ -59,7 +59,10 @@ A las 4 semanas, los números de la cuenta confirman o corrigen esta hipótesis 
 | Qué tipo | Se alternan:<br>• **loop corto**: de 3 a 8 s, se repite solo. Es «el GIF»: las redes no aceptan archivos .gif, así que va como video<br>• **imagen o carrusel** en modo foto<br>• **video con motion graphics** de 15 a 30 s<br>• **video con voz** sobre tomas o animación | El gemelo con motion graphics y estilo Editorial (`ESTILO.md`), de 40 a 90 s |
 | La vara | **Calidad aceptable** (§4) | **Calidad extraordinaria** (§4) |
 | Costo | $0: todo con código (HyperFrames, Lemo-Opuscar) y la voz del plan fijo | De $2 a $4 cada una, según cuánto salga la cara |
-| Aprobación | **En lote:** un guion gráfico por semana con las 21 piezas. Después de 30 sin rechazos, el volumen se publica solo | **Una por una:** guion gráfico, prueba de gancho y visto bueno antes de gastar |
+| Aprobación | **En lote:** un guion gráfico barato por semana con las 21 piezas. Se produce solo lo que Kenneth aprobó en él | **Una por una:** guion gráfico, prueba de gancho y visto bueno antes de gastar |
+
+> **Regla de Kenneth (19-oct): siempre, primero el guion gráfico, muy barato ($0), para ver la idea.** El contenido
+> real se hace solo cuando Kenneth está contento con el guion gráfico. Vale para el volumen y para las insignias.
 
 **Instagram:**
 - 1 por día: la pieza de volumen que mejor le fue el día anterior en TikTok.
@@ -109,11 +112,12 @@ La controversia trae comentarios, y los comentarios traen alcance. **Se discute 
   - Un dato inventado para provocar.
   - Prometer resultados.
 
-## 6. La serie ancla — **falta el sí de Kenneth**
+## 6. La serie ancla — **va: Kenneth dijo que sí (19-oct)**
 
-> **«30 días: mi oficina de siete IAs tiene que conseguirme 10.000 seguidores. Yo solo apruebo.»**
+> **«30 días: mi oficina de siete IAs tiene que conseguirme 1.000 seguidores. Yo solo apruebo.»**
 
-- **Es la meta de esta fase contada como contenido.** Morfeo le dio $100 a una IA para hacerse viral.
+- **Es la meta de la fase 1 (§9), 1.000 seguidores nuevos, contada como contenido.** No es una meta nueva: el reto
+  cuenta en público la misma. Si se logra, el mes 2 arranca la fase 2 con su propio reto. Morfeo le dio $100 a una IA para hacerse viral.
   Acá es un equipo de IAs con jefe, reglas y bitácora, y eso ya existe: es TORRE.
 - **Día 1:** el número real de seguidores y el plan, en una insignia. **Cada día:** «Día N de 30» es una
   de las 3 piezas de volumen. Lleva el contador, qué intentó la oficina, qué falló y el comentario que se va a probar.
@@ -123,13 +127,11 @@ La controversia trae comentarios, y los comentarios traen alcance. **Se discute 
 - **Todo entra al reto:** las piezas llevan el sello «Día N de 30» en una esquina.
 - **Reemplaza el Episodio 0 de `CICLO.md`** («$100 para conseguir un cliente»), que era de la fase de ventas.
 
-**Si Kenneth dice que no:** el lugar del reto en el volumen lo toma otra serie de `CALENDARIO.md`.
-
 ## 7. El perfil (se arma una vez, antes del Día 1)
 
 - **Nombre visible:** «Kenneth Picado · Dirijo una oficina de IAs».
 - **Bio (borrador):** «Dirijo una oficina de 7 IAs. 14 años en Amazon. Te cuento cómo, sin jerga. 🇨🇷
-  Reto: 10.000 en 30 días.»
+  Reto: 1.000 en 30 días.»
 - **3 videos fijados:** el gemelo presentándose (`G0`), el Día 1 del reto y la mejor insignia.
 - **La misma foto** en TikTok e Instagram.
 
@@ -168,7 +170,7 @@ La controversia trae comentarios, y los comentarios traen alcance. **Se discute 
 
 **Bloqueo de hoy:** HeyGen tiene $2.88. Para el primer mes hay que cargar unos $40.
 
-## 11. La primera semana (arranca el día en que Kenneth diga «arranca»)
+## 11. La primera semana (arranca el miércoles 21 de octubre)
 
 > **El mes completo está en [`MES-1.md`](MES-1.md)** (19-oct): los 30 días del reto con lo que pasa cada día y cada
 > semana, las noticias, las pruebas, las fechas del mes y las 12 insignias. La semana 1 de allá sale de esta tabla y
@@ -213,11 +215,11 @@ Salen de la semana 1 y pasan a la 2: el carrusel `A7`, las 3 reglas de la oficin
 
 ## 13. Lo que tiene que pasar para arrancar
 
-1. **Kenneth:** sí o no al reto (§6) y a `G0`.
+1. **Hecho (19-oct):** sí al reto (§6), con la meta de la fase 1, y `G0` pasa por guion gráfico.
 2. **Kenneth:** cargar unos $40 en HeyGen.
 3. **Kenneth:** pasar el número de seguidores de hoy en TikTok e Instagram para el Día 1. yt-dlp no lo trae.
 4. **Kenneth:** poner la bio, el nombre y la foto (§7).
-5. **Kenneth:** el visto bueno a la aprobación por lotes del volumen (§3).
+5. **Hecho (19-oct):** sí a la aprobación por lotes, siempre con el guion gráfico barato primero (§3).
 6. **Claude, en la PC:**
    - el guion gráfico de las 21 piezas de volumen de la semana 1;
    - las 3 insignias con su prueba de gancho;

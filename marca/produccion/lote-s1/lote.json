@@ -1,0 +1,354 @@
+{
+  "titulo": "Lote de la semana 1 · del 21 al 27 de octubre",
+  "version": "v1 · boceto",
+  "dias": [
+    {
+      "dia": 1, "fecha": "miércoles 21 de octubre", "nota": "Arranca el reto", "costo": "unos $1.60",
+      "piezas": [
+        {
+          "codigo": "D1", "serie": "El reto", "formato": "Loop de 5 s", "paso": "Seguir", "costo": "$0",
+          "titulo": "El contador en el número real",
+          "cuadros": [
+            {"t": "0 s", "bloques": [{"dice": "Seguidores hoy", "oro": ""}, {"dice": "[N]", "grande": true}]},
+            {"t": "2 s", "bloques": [{"dice": "Meta en 30 días: +1.000", "oro": "+1.000"}]},
+            {"t": "4 s", "bloques": [{"dice": "Lo consigue mi oficina de 7 IAs. Yo solo apruebo.", "oro": "apruebo"}]}
+          ],
+          "pasa": [
+            "El contador sube de 0 al número real, se queda y el loop vuelve a empezar.",
+            "Sin voz: un tic de contador.",
+            "Texto de la publicación: «Seguí la cuenta para ver si llega».",
+            "[N] es el número que me pasás esa mañana."
+          ]
+        },
+        {
+          "codigo": "J1", "serie": "IA sin jerga", "formato": "Motion graphics de 24,6 s", "paso": "Ver", "costo": "$0",
+          "estado": "Ya hecho",
+          "titulo": "«Prompt» son las instrucciones que le di",
+          "cuadros": [
+            {"t": "0 s", "claro": true, "bloques": [{"dice": "«Prompt»", "oro": "Prompt", "grande": true}]},
+            {"t": "12 s", "claro": true, "bloques": [{"toma": "pizarra: la instrucción vaga y la completa"}]},
+            {"t": "24 s", "claro": true, "bloques": [{"dice": "Son las instrucciones que le di.", "oro": "instrucciones"}]}
+          ],
+          "pasa": [
+            "Ya está hecho. Su guion gráfico completo es el «J1 v1» de la consola.",
+            "Solo le falta el sello del Día 1."
+          ]
+        },
+        {
+          "codigo": "P1", "serie": "Postura", "formato": "Imagen", "paso": "Reaccionar", "costo": "$0",
+          "titulo": "Si tu negocio no sobrevive a tus vacaciones, no es un negocio",
+          "cuadros": [
+            {"t": "única", "bloques": [{"dice": "Si tu negocio no sobrevive a tus vacaciones, no es un negocio.", "oro": "vacaciones", "grande": true}, {"dice": "Es un trabajo con local."}]}
+          ],
+          "pasa": [
+            "Sale de la línea del 002, la que más se repite cuando lo cuento.",
+            "Texto de la publicación: «¿Cuántos días aguanta el tuyo sin vos?».",
+            "Divide a propósito: el que no está de acuerdo comenta."
+          ]
+        },
+        {
+          "codigo": "G0", "serie": "¿Cuál soy yo?", "formato": "Gemelo, unos 20 s", "paso": "Seguir", "costo": "unos $1.60",
+          "insignia": true,
+          "titulo": "El gemelo se presenta y lanza el reto",
+          "cuadros": [
+            {"t": "0–3 s", "bloques": [{"toma": "pantalla partida: vos de verdad y el gemelo"}, {"dice": "¿Cuál soy yo?", "oro": "yo"}]},
+            {"t": "3–8 s", "bloques": [{"toma": "el gemelo"}, {"dice": "El de la derecha. Soy la versión de IA de Kenneth.", "oro": "IA"}]},
+            {"t": "8–15 s", "bloques": [{"dice": "Él dirige una oficina de 7 IAs. En 30 días le tienen que conseguir 1.000 seguidores.", "oro": "1.000"}]},
+            {"t": "15–20 s", "bloques": [{"dice": "Día 1: [N].", "grande": true}, {"dice": "Seguilo para ver si llegamos.", "oro": "llegamos"}]}
+          ],
+          "pasa": [
+            "Dice qué es real y qué es IA desde el primer día, y la etiqueta «hecho con IA» va todo el video.",
+            "Va fijado en el perfil.",
+            "Si lo aprobás: prueba de gancho (70 / 60 / 90) y recién ahí se paga el gemelo."
+          ]
+        }
+      ]
+    },
+    {
+      "dia": 2, "fecha": "jueves 22 de octubre", "nota": "La prueba", "costo": "$0",
+      "piezas": [
+        {
+          "codigo": "D2", "serie": "El reto", "formato": "Imagen", "paso": "Conocerte", "costo": "$0",
+          "titulo": "El plan de la oficina: quién hace qué",
+          "cuadros": [
+            {"t": "única", "bloques": [
+              {"dice": "Kenneth: aprueba.", "oro": "aprueba"},
+              {"dice": "Claude decide y revisa · Codex es el ingeniero · MiniMax y Kimi, el turno · DeepSeek, el contratista · Grok, la segunda opinión · Antigravity, el practicante"}
+            ]}
+          ],
+          "pasa": [
+            "Los 7 y sus papeles salen del elenco del CANON; antes de producir cuento los que siguen activos.",
+            "Presenta a los personajes que van a aparecer todo el mes."
+          ]
+        },
+        {
+          "codigo": "PR1", "serie": "La prueba", "formato": "Voz sobre pantalla, 30 s", "paso": "Pasarlo", "costo": "$0",
+          "titulo": "3 IAs de la oficina: el mismo pedido vago y después completo",
+          "cuadros": [
+            {"t": "0–2 s", "bloques": [{"dice": "Le pedí lo mismo a 3 IAs de mi oficina.", "oro": "mismo"}]},
+            {"t": "2–12 s", "bloques": [{"dice": "«Haceme un menú.»"}, {"toma": "las 3 respuestas, capturas reales"}]},
+            {"t": "12–24 s", "bloques": [{"dice": "Ahora con contexto: qué negocio, para quién, a qué precio.", "oro": "contexto"}, {"toma": "las 3 respuestas otra vez"}]},
+            {"t": "24–30 s", "bloques": [{"dice": "[lo que salió, tal como salió]"}]}
+          ],
+          "pasa": [
+            "Prueba real: el cierre no se escribe antes, se cuenta lo que pasó.",
+            "Es el J1 funcionando.",
+            "Tu voz clonada, con la etiqueta «hecho con IA»."
+          ]
+        },
+        {
+          "codigo": "002b", "serie": "Amazon en la soda", "formato": "Voz y motion graphics, unos 40 s", "paso": "Pasarlo", "costo": "$0",
+          "titulo": "Si tu cafetería recién abierta no sobrevive a tus vacaciones",
+          "cuadros": [
+            {"t": "0–2 s", "bloques": [{"dice": "En Amazon nadie era indispensable. Ni el jefe.", "oro": "indispensable"}]},
+            {"t": "2–10 s", "bloques": [{"toma": "cafetería, 6:40, la máquina de espresso"}, {"dice": "La única que sabe calibrarla sos vos."}]},
+            {"t": "10–20 s", "bloques": [{"dice": "Si tu cafetería cierra el día que te enfermás, no tenés un negocio.", "oro": "negocio"}]},
+            {"t": "20–40 s", "bloques": [{"dice": "1 hoja · 1 número · 15 min los lunes", "oro": "15 min"}]}
+          ],
+          "pasa": [
+            "Guion completo en guiones/002b. Prueba qué escenario trae más seguidores.",
+            "Tu voz clonada, con la etiqueta «hecho con IA»."
+          ]
+        }
+      ]
+    },
+    {
+      "dia": 3, "fecha": "viernes 23 de octubre", "nota": "Noticias y una lista", "costo": "unos $3",
+      "piezas": [
+        {
+          "codigo": "D3", "serie": "El reto", "formato": "Loop de 5 s", "paso": "Seguir", "costo": "$0",
+          "titulo": "El contador y lo que falló",
+          "cuadros": [
+            {"t": "0 s", "bloques": [{"dice": "[N]", "grande": true}, {"dice": "+[nuevos] en 2 días", "oro": "+[nuevos]"}]},
+            {"t": "3 s", "bloques": [{"dice": "Lo que falló: [una línea]", "oro": "falló"}]}
+          ],
+          "pasa": [
+            "Lo que falló sale de los números de los días 1 y 2. Nunca se infla."
+          ]
+        },
+        {
+          "codigo": "RN1", "serie": "3 noticias en 30 s", "formato": "Voz sobre animación, 30 s", "paso": "Ver", "costo": "$0",
+          "titulo": "Las 3 noticias de IA de la semana",
+          "cuadros": [
+            {"t": "0–2 s", "bloques": [{"dice": "3 noticias de IA de esta semana que le cambian algo a tu negocio.", "oro": "tu negocio"}]},
+            {"t": "2–10 s", "bloques": [{"dice": "1 · [noticia]"}, {"toma": "fuente y fecha"}]},
+            {"t": "10–20 s", "bloques": [{"dice": "2 · [noticia]"}, {"toma": "fuente y fecha"}]},
+            {"t": "20–30 s", "bloques": [{"dice": "3 · [noticia]"}, {"dice": "¿Cuál te sirve?", "oro": "sirve"}]}
+          ],
+          "pasa": [
+            "Las noticias se eligen el jueves 22 en las fuentes originales y las aprobás ese día en la consola.",
+            "Tu voz clonada, con la etiqueta «hecho con IA»."
+          ]
+        },
+        {
+          "codigo": "L1", "serie": "La lista", "formato": "Carrusel de 5", "paso": "Pasarlo", "costo": "$0", "claro": true,
+          "titulo": "La reunión de los lunes en 15 minutos",
+          "cuadros": [
+            {"t": "1", "bloques": [{"dice": "La reunión de los lunes en 15 minutos.", "oro": "15 minutos", "grande": true}]},
+            {"t": "2", "bloques": [{"dice": "1 · Los 3 números de la semana pasada.", "oro": "números"}, {"dice": "5 min"}]},
+            {"t": "3", "bloques": [{"dice": "2 · Lo que se prometió y no se hizo.", "oro": "prometió"}, {"dice": "5 min"}]},
+            {"t": "4", "bloques": [{"dice": "3 · Un problema, un dueño, una fecha.", "oro": "dueño"}, {"dice": "5 min"}]},
+            {"t": "5", "bloques": [{"dice": "No entran quejas sin propuesta. Guardalo para el lunes.", "oro": "Guardalo"}]}
+          ],
+          "pasa": [
+            "Sale de la revisión semanal que hacía en Amazon, bajada a un negocio chico.",
+            "Se guarda: es para usarlo el lunes 26."
+          ]
+        },
+        {
+          "codigo": "002", "serie": "Amazon en la soda", "formato": "Gemelo, unos 45 s", "paso": "Pasarlo", "costo": "unos $3",
+          "insignia": true,
+          "titulo": "Si tu negocio no sobrevive a tus vacaciones (gancho nuevo)",
+          "cuadros": [
+            {"t": "gancho A", "bloques": [{"dice": "Si tu soda cierra el día que te enfermás, no tenés un negocio.", "oro": "negocio"}]},
+            {"t": "gancho B", "bloques": [{"dice": "En Amazon nadie era indispensable. Ni el jefe.", "oro": "Ni el jefe"}]},
+            {"t": "gancho C", "bloques": [{"dice": "¿Tu negocio sobrevive a tus vacaciones?", "oro": "vacaciones", "grande": true}]}
+          ],
+          "pasa": [
+            "El video ya existe (guion gráfico 002 v4 en la consola). Solo cambia el gancho.",
+            "Los 3 ganchos van a la prueba (70 / 60 / 90) y el que pase se monta.",
+            "Si ninguno pasa, se escriben otros 3: es barato."
+          ]
+        }
+      ]
+    },
+    {
+      "dia": 4, "fecha": "sábado 24 de octubre", "nota": "La fecha del mes: GP de Austin", "costo": "$0",
+      "piezas": [
+        {
+          "codigo": "D4", "serie": "El reto", "formato": "Imagen", "paso": "Reaccionar", "costo": "$0",
+          "titulo": "El comentario que se va a probar",
+          "cuadros": [
+            {"t": "única", "bloques": [{"dice": "Día 4. Esto propusieron en los comentarios:", "oro": "comentarios"}, {"dice": "«[el comentario]»"}, {"dice": "La oficina lo prueba hoy."}]}
+          ],
+          "pasa": [
+            "Un comentario real, sin el nombre de quien lo escribió.",
+            "Si todavía no hay uno que sirva, la oficina propone dos ideas y la gente vota."
+          ]
+        },
+        {
+          "codigo": "F1A", "serie": "Fecha del mes", "formato": "Motion graphics, 20 s", "paso": "Ver", "costo": "$0",
+          "titulo": "Un pit stop dura 2 segundos porque nadie es indispensable",
+          "cuadros": [
+            {"t": "0–2 s", "bloques": [{"toma": "pit stop dibujado: el auto entra"}, {"dice": "2 segundos.", "oro": "2 segundos", "grande": true}]},
+            {"t": "2–10 s", "bloques": [{"dice": "Cada persona hace una sola cosa. Y está escrito quién hace qué.", "oro": "escrito"}]},
+            {"t": "10–16 s", "bloques": [{"dice": "Si falta uno, entra otro que sabe qué hacer.", "oro": "sabe"}]},
+            {"t": "16–20 s", "bloques": [{"dice": "¿En tu negocio está escrito quién hace qué?"}]}
+          ],
+          "pasa": [
+            "Es el fin de semana del GP de Austin. Va con dibujos: las imágenes de la F1 no se pueden usar.",
+            "El dato de los 2 segundos lo verifico con fuente antes de producir."
+          ]
+        },
+        {
+          "codigo": "002c", "serie": "Amazon en la soda", "formato": "Voz y motion graphics, unos 40 s", "paso": "Pasarlo", "costo": "$0",
+          "titulo": "Si tu restaurante recién abierto no sobrevive a tus vacaciones",
+          "cuadros": [
+            {"t": "0–2 s", "bloques": [{"dice": "En Amazon nadie era indispensable. Ni el jefe.", "oro": "indispensable"}]},
+            {"t": "2–10 s", "bloques": [{"toma": "sábado, la cocina llena"}, {"dice": "Y todo el mundo te pregunta a vos."}]},
+            {"t": "10–20 s", "bloques": [{"dice": "Si tu restaurante cierra el día que te enfermás, no tenés un negocio.", "oro": "negocio"}]},
+            {"t": "20–40 s", "bloques": [{"dice": "1 hoja · 1 número · 15 min los lunes", "oro": "15 min"}]}
+          ],
+          "pasa": [
+            "Guion completo en guiones/002c. El mismo video que el 002b con otro escenario.",
+            "Tu voz clonada, con la etiqueta «hecho con IA»."
+          ]
+        }
+      ]
+    },
+    {
+      "dia": 5, "fecha": "domingo 25 de octubre", "nota": "Resumen y lo personal", "costo": "unos $3",
+      "piezas": [
+        {
+          "codigo": "D5", "serie": "El reto", "formato": "Loop de 6 s", "paso": "Seguir", "costo": "$0",
+          "titulo": "Resumen de los primeros 5 días",
+          "cuadros": [
+            {"t": "0 s", "bloques": [{"dice": "5 días: [N]", "grande": true}, {"dice": "Faltan [X] para 1.000.", "oro": "[X]"}]},
+            {"t": "3 s", "bloques": [{"dice": "Lo que más hizo seguir: [la pieza]", "oro": "seguir"}]}
+          ],
+          "pasa": [
+            "La pieza que más seguidores trajo, no la más vista."
+          ]
+        },
+        {
+          "codigo": "PER1", "serie": "Personal", "formato": "Lo que grabes", "paso": "Conocerte", "costo": "$0",
+          "titulo": "Video personal",
+          "cuadros": [
+            {"t": "libre", "bloques": [{"toma": "lo grabás vos: por ejemplo, viendo la carrera de Austin"}]}
+          ],
+          "pasa": [
+            "La cuenta sigue siendo de una persona. Lo subís vos.",
+            "Yo solo le pongo el sello del Día 5."
+          ]
+        },
+        {
+          "codigo": "Q1", "serie": "Pregunta", "formato": "Imagen", "paso": "Reaccionar", "costo": "$0",
+          "titulo": "¿Le darías la caja a una IA? Sí o no.",
+          "cuadros": [
+            {"t": "única", "bloques": [{"dice": "¿Le darías la caja a una IA?", "oro": "caja", "grande": true}, {"dice": "Sí  ·  No"}, {"dice": "Respondé con una palabra."}]}
+          ],
+          "pasa": [
+            "Obliga a tomar partido.",
+            "El domingo siguiente se cuenta cuántos dijeron que sí, sin inventar nada."
+          ]
+        },
+        {
+          "codigo": "001", "serie": "La Oficina", "formato": "Gemelo, unos 50 s", "paso": "Reaccionar", "costo": "unos $3",
+          "insignia": true,
+          "titulo": "Mi empleado se calificó su propio examen",
+          "cuadros": [
+            {"t": "0–3 s", "bloques": [{"dice": "Uno de mis empleados se calificó su propio examen.", "oro": "su propio"}]},
+            {"t": "3–20 s", "bloques": [{"dice": "Mis empleados son IAs."}, {"toma": "la voz de la IA: «Trabajo terminado. Todo salió bien.»"}]},
+            {"t": "20–42 s", "bloques": [{"dice": "El que hace el trabajo no se lo revisa.", "oro": "no se lo revisa"}]},
+            {"t": "42–50 s", "bloques": [{"dice": "¿En tu trabajo quién se califica solo? Te leo."}]}
+          ],
+          "pasa": [
+            "Guion completo en guiones/001. Presenta la serie La Oficina con el incidente más claro.",
+            "Si lo aprobás: prueba de gancho y después el gemelo."
+          ]
+        }
+      ]
+    },
+    {
+      "dia": 6, "fecha": "lunes 26 de octubre", "nota": "Primera revisión del lunes", "costo": "$0",
+      "piezas": [
+        {
+          "codigo": "D6", "serie": "El reto", "formato": "Imagen", "paso": "Conocerte", "costo": "$0",
+          "titulo": "Lo que decidió la oficina el lunes",
+          "cuadros": [
+            {"t": "única", "bloques": [{"dice": "Día 6. La oficina decidió:", "oro": "decidió"}, {"dice": "[la decisión de la revisión del lunes]"}]}
+          ],
+          "pasa": [
+            "Sale de la revisión del lunes: una sola decisión, la que tomemos ese día."
+          ]
+        },
+        {
+          "codigo": "R2", "serie": "La regla", "formato": "Motion graphics, 15 s", "paso": "Pasarlo", "costo": "$0",
+          "titulo": "Un sistema que te necesita es una dependencia",
+          "cuadros": [
+            {"t": "0–2 s", "bloques": [{"dice": "Si tu negocio se para cuando faltás…", "oro": "faltás"}]},
+            {"t": "2–8 s", "bloques": [{"dice": "…no tenés un sistema."}]},
+            {"t": "8–15 s", "bloques": [{"dice": "Tenés una dependencia.", "oro": "dependencia", "grande": true}, {"dice": "Guardalo."}]}
+          ],
+          "pasa": [
+            "Una regla corta que se guarda. Es el cierre del 002, solo."
+          ]
+        },
+        {
+          "codigo": "002d", "serie": "Amazon en la soda", "formato": "Voz y motion graphics, unos 40 s", "paso": "Pasarlo", "costo": "$0",
+          "titulo": "Si acabás de emprender y tu negocio no sobrevive a tus vacaciones",
+          "cuadros": [
+            {"t": "0–2 s", "bloques": [{"dice": "En Amazon nadie era indispensable. Ni el jefe.", "oro": "indispensable"}]},
+            {"t": "2–10 s", "bloques": [{"toma": "11 de la noche, contestando mensajes"}, {"dice": "Arrancaste hace dos meses."}]},
+            {"t": "10–20 s", "bloques": [{"dice": "Si tu emprendimiento se detiene cuando te enfermás, no tenés un negocio.", "oro": "negocio"}]},
+            {"t": "20–40 s", "bloques": [{"dice": "1 hoja · 1 número · 15 min los lunes", "oro": "15 min"}]}
+          ],
+          "pasa": [
+            "Guion completo en guiones/002d. El tercer escenario de la prueba.",
+            "Tu voz clonada, con la etiqueta «hecho con IA»."
+          ]
+        }
+      ]
+    },
+    {
+      "dia": 7, "fecha": "martes 27 de octubre", "nota": "La noticia de la semana", "costo": "$0",
+      "piezas": [
+        {
+          "codigo": "D7", "serie": "El reto", "formato": "Loop de 5 s", "paso": "Seguir", "costo": "$0",
+          "titulo": "El contador",
+          "cuadros": [
+            {"t": "0 s", "bloques": [{"dice": "[N]", "grande": true}, {"dice": "Faltan [X] para 1.000.", "oro": "[X]"}]}
+          ],
+          "pasa": [
+            "El loop más corto del reto: el número y cuánto falta."
+          ]
+        },
+        {
+          "codigo": "NS1", "serie": "La noticia sin jerga", "formato": "Voz sobre animación, 40 s", "paso": "Pasarlo", "costo": "$0",
+          "titulo": "La noticia de la semana, sin jerga",
+          "cuadros": [
+            {"t": "0–2 s", "bloques": [{"dice": "[la noticia en una frase, sin jerga]"}]},
+            {"t": "2–20 s", "bloques": [{"dice": "Qué pasó."}, {"toma": "fuente y fecha en pantalla"}]},
+            {"t": "20–35 s", "bloques": [{"dice": "Qué le cambia a tu negocio: [una cosa]", "oro": "tu negocio"}]},
+            {"t": "35–40 s", "bloques": [{"dice": "¿Te sirve o no?"}]}
+          ],
+          "pasa": [
+            "La noticia se elige el lunes 26 en la fuente original y la aprobás ese día en la consola.",
+            "Tu voz clonada, con la etiqueta «hecho con IA»."
+          ]
+        },
+        {
+          "codigo": "P2", "serie": "Postura", "formato": "Imagen", "paso": "Reaccionar", "costo": "$0",
+          "titulo": "Tu mejor empleado es el que menos debería hacer",
+          "cuadros": [
+            {"t": "única", "bloques": [{"dice": "Tu mejor empleado es el que menos debería hacer.", "oro": "menos", "grande": true}, {"dice": "Su trabajo es decidir y revisar."}]}
+          ],
+          "pasa": [
+            "Sale del 003 (Le prohibí trabajar a mi mejor empleado), que es la insignia del Día 8.",
+            "Texto de la publicación: «¿En tu negocio quién hace todo? ¿Sos vos?»."
+          ]
+        }
+      ]
+    }
+  ]
+}

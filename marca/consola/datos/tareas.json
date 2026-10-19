@@ -1,11 +1,11 @@
 {
  "items": {
   "k-reto": {
-   "titulo": "¿Sí o no al reto de 30 días por 10.000 seguidores?",
-   "detalle": "«Mi oficina de siete IAs tiene que conseguirme 10.000 seguidores. Yo solo apruebo.» Y el G0: el gemelo se presenta solo.",
+   "titulo": "Sí al reto de 30 días, a 1.000 seguidores",
+   "detalle": "La meta de la fase 1, contada en público. El G0 pasa por guion gráfico.",
    "quien": "Kenneth",
    "para": "2026-10-20",
-   "hecho": false,
+   "hecho": true,
    "orden": 0
   },
   "k-heygen": {
@@ -33,11 +33,11 @@
    "orden": 3
   },
   "k-lote": {
-   "titulo": "¿Sí a aprobar el volumen en lote, una vez por semana?",
-   "detalle": "Un guion gráfico con las 21 piezas; después de 30 sin rechazos, el volumen se publica solo.",
+   "titulo": "Sí a aprobar en lote, con guion gráfico primero",
+   "detalle": "Siempre un guion gráfico barato primero; el contenido real, solo cuando lo aprobás.",
    "quien": "Kenneth",
    "para": "2026-10-20",
-   "hecho": false,
+   "hecho": true,
    "orden": 4
   },
   "k-facebook": {
@@ -66,10 +66,10 @@
   },
   "k-arranca": {
    "titulo": "Decir «arranca»",
-   "detalle": "Ese día es el Día 1. En la consola va provisional el miércoles 21.",
+   "detalle": "El Día 1 es el miércoles 21 de octubre.",
    "quien": "Kenneth",
    "para": "2026-10-20",
-   "hecho": false,
+   "hecho": true,
    "orden": 8
   },
   "k-j1": {
@@ -105,32 +105,32 @@
    "orden": 12
   },
   "c-lote": {
-   "titulo": "Guion gráfico del volumen de la semana 1",
-   "detalle": "Las 21 piezas en un solo guion, para aprobar en lote. Las del reto, por confirmar.",
+   "titulo": "Guion gráfico de la semana 1",
+   "detalle": "Las 21 piezas de volumen y las 3 insignias, en bocetos de $0. Está en Guiones.",
    "quien": "Claude",
-   "para": "2026-10-20",
-   "hecho": false,
+   "para": "2026-10-19",
+   "hecho": true,
    "orden": 13
   },
   "c-002": {
    "titulo": "Rehacer el gancho del 002 hasta pasar la vara",
-   "detalle": "La prueba pide 70 de total, 60 de gancho y 90 de «sostiene»; el mejor intento sacó 56. El gancho se rehace antes de pagar el gemelo.",
+   "detalle": "Los 3 ganchos nuevos están en el guion gráfico de la semana 1. Con tu sí van a la prueba: 70 de total, 60 de gancho y 90 de «sostiene» (el mejor intento sacó 56).",
    "quien": "Claude",
    "para": "2026-10-21",
    "hecho": false,
    "orden": 14
   },
   "c-g0": {
-   "titulo": "Guion y prueba de gancho del G0",
-   "detalle": "El gemelo se presenta. Solo si el reto va.",
+   "titulo": "Prueba de gancho del G0",
+   "detalle": "Su boceto está en el guion gráfico de la semana 1. Con tu sí, la prueba y después el gemelo.",
    "quien": "Claude",
    "para": "2026-10-21",
    "hecho": false,
    "orden": 15
   },
   "c-001": {
-   "titulo": "Guion gráfico y prueba de gancho del 001",
-   "detalle": "La Oficina: mi empleado se calificó su propio examen.",
+   "titulo": "Prueba de gancho del 001",
+   "detalle": "Su boceto está en el guion gráfico de la semana 1. Con tu sí, la prueba y después el gemelo.",
    "quien": "Claude",
    "para": "2026-10-22",
    "hecho": false,
@@ -138,7 +138,7 @@
   },
   "c-002bcd": {
    "titulo": "Hacer el 002b, el 002c y el 002d",
-   "detalle": "Voz y motion graphics, $0. Gana el escenario con más seguidores por cada 1.000 vistas.",
+   "detalle": "Voz y motion graphics, $0, después de tu sí al guion gráfico. Gana el escenario con más seguidores por cada 1.000 vistas.",
    "quien": "Claude",
    "para": "2026-10-22",
    "hecho": false,
@@ -146,7 +146,7 @@
   },
   "c-reto": {
    "titulo": "Plantilla del contador «Día N de 30»",
-   "detalle": "Un loop que se rehace cada día con el número. Solo si el reto va.",
+   "detalle": "Un loop que se rehace cada día con el número, después de tu sí al guion gráfico.",
    "quien": "Claude",
    "para": "2026-10-21",
    "hecho": false,
