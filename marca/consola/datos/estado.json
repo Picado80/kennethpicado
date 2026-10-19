@@ -93,7 +93,7 @@
   "heygen": {
    "nombre": "HeyGen",
    "valor": "$2.88",
-   "detalle": "No alcanza para las 3 insignias de la semana. Hace falta cargar unos $40.",
+   "detalle": "No alcanza para las 3 insignias de la semana 1 (unos $7.60). Faltan unos $5.",
    "alerta": true,
    "orden": 1
   },

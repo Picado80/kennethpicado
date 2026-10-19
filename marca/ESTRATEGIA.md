@@ -168,7 +168,8 @@ La controversia trae comentarios, y los comentarios traen alcance. **Se discute 
 | Impulso: cada semana, la pieza que más seguidores trajo, con el objetivo «más seguidores» de TikTok Promote | $5 por semana, unos $20 |
 | **Total** | **unos $81** |
 
-**Bloqueo de hoy:** HeyGen tiene $2.88. Para el primer mes hay que cargar unos $40.
+**HeyGen se carga por semana, solo lo de sus insignias** (Kenneth, 19-oct): la semana 1 son 3 (`G0`, `002` y `001`),
+unos $7.60. Hay $2.88, así que faltan unos $5. Los unos $36 del mes son el total de las 12, no una carga de golpe.
 
 ## 11. La primera semana (arranca el miércoles 21 de octubre)
 
@@ -216,8 +217,8 @@ Salen de la semana 1 y pasan a la 2: el carrusel `A7`, las 3 reglas de la oficin
 ## 13. Lo que tiene que pasar para arrancar
 
 1. **Hecho (19-oct):** sí al reto (§6), con la meta de la fase 1, y `G0` pasa por guion gráfico.
-2. **Kenneth:** cargar unos $40 en HeyGen.
-3. **Kenneth:** pasar el número de seguidores de hoy en TikTok e Instagram para el Día 1. yt-dlp no lo trae.
+2. **Kenneth:** cargar en HeyGen lo de la semana 1, unos $5.
+3. **Hecho (19-oct):** los seguidores los lee Claude de los perfiles públicos (TikTok 1.080 e Instagram 578 el 19-oct).
 4. **Kenneth:** poner la bio, el nombre y la foto (§7).
 5. **Hecho (19-oct):** sí a la aprobación por lotes, siempre con el guion gráfico barato primero (§3).
 6. **Claude, en la PC:**

@@ -24,7 +24,7 @@ Cada pieza declara qué paso de la cadena mueve: **ver → reaccionar → pasarl
 | Hora | Qué | Quién |
 |---|---|---|
 | 7:00 | **Radar y noticias:** lo que está creciendo afuera (`radar/`) y las noticias de IA del día, en las fuentes originales (§5) | Claude |
-| 8:00 | **El número del día:** los seguidores de TikTok e Instagram para el contador del reto | Kenneth, hasta que las cuentas estén conectadas (§9) |
+| 8:00 | **El número del día:** los seguidores de TikTok e Instagram para el contador del reto, de los perfiles públicos. Quedan en `medicion/seguidores.csv` | Claude |
 | 9:00 | Se terminan las 3 piezas de volumen del día. Las del lote ya están aprobadas; la de noticias se aprueba ese día con un sí en la consola | Claude hace, Kenneth aprueba |
 | 12:00 a 13:00 o 19:00 a 21:00 | **Se publica.** TikTok lleva las 3 de volumen. Instagram, la de volumen que mejor le fue ayer en TikTok, más las insignias | A mano hasta que esté el script de Buffer |
 | A las 48 h y a los 7 días | Se leen los números de cada pieza y se cargan en la consola | Claude |
@@ -167,7 +167,8 @@ mata. Después de 30 piezas de volumen sin rechazos, el volumen se publica sin p
 | Impulso: la pieza que más seguidores trajo cada semana, $5 × 4 | $20 |
 | **Total** | **unos $78**, bajo el tope de $100 |
 
-HeyGen tiene $2.88: hay que cargar unos $40 antes del Día 1.
+HeyGen se carga por semana, solo lo de sus insignias. La semana 1 son unos $7.60 (`G0`, `002` y `001`) y hay $2.88:
+faltan unos $5.
 
 ## 11. El reto va
 

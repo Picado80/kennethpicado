@@ -9,19 +9,19 @@
    "orden": 0
   },
   "k-heygen": {
-   "titulo": "Cargar unos $40 en HeyGen",
-   "detalle": "Quedan $2.88. Las 12 insignias del mes piden unos $36.",
+   "titulo": "Cargar unos $5 en HeyGen",
+   "detalle": "Lo de las 3 insignias de la semana 1 (unos $7.60); quedan $2.88. Se carga por semana, solo lo de sus insignias.",
    "quien": "Kenneth",
    "para": "2026-10-20",
    "hecho": false,
    "orden": 1
   },
   "k-dia1": {
-   "titulo": "Pasar los seguidores de hoy en TikTok e Instagram",
-   "detalle": "Para el Día 1 y la vara de la semana. yt-dlp no los trae.",
+   "titulo": "Seguidores de hoy en TikTok e Instagram",
+   "detalle": "Ya no hace falta que los pases: los leo de los perfiles públicos. 19-oct: TikTok 1.080, Instagram 578.",
    "quien": "Kenneth",
    "para": "2026-10-20",
-   "hecho": false,
+   "hecho": true,
    "orden": 2
   },
   "k-perfil": {
