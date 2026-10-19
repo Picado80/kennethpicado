@@ -12,6 +12,23 @@
    ],
    "orden": 1
   },
+  "lote-s1": {
+   "titulo": "Semana 1 · del 21 al 27 de octubre",
+   "version": "v1 · boceto",
+   "estado": "por-aprobar",
+   "nota": "Las 21 piezas de volumen y las 3 insignias de la semana, una página por día, en bocetos de $0. Con tu sí se hace el contenido real; si algo no te gusta, decime qué pieza y qué cambiar.",
+   "comentario": "",
+   "paginas": [
+    "guiones/lote-s1-dia-1.webp",
+    "guiones/lote-s1-dia-2.webp",
+    "guiones/lote-s1-dia-3.webp",
+    "guiones/lote-s1-dia-4.webp",
+    "guiones/lote-s1-dia-5.webp",
+    "guiones/lote-s1-dia-6.webp",
+    "guiones/lote-s1-dia-7.webp"
+   ],
+   "orden": 0
+  },
   "002-v4": {
    "titulo": "002 · Si tu negocio no sobrevive a tus vacaciones",
    "version": "v4",

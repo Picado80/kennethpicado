@@ -15,7 +15,7 @@ from pathlib import Path
 
 DATOS = Path(__file__).resolve().parent / "datos"
 ACTUALIZADO = "2026-10-19T11:30:00-06:00"
-ARRANQUE = date(2026, 10, 21)        # provisional: el Día 1 es el día en que Kenneth diga «arranca»
+ARRANQUE = date(2026, 10, 21)        # el Día 1 (Kenneth, 19-oct)
 COSTO_INSIGNIA = 3.0                 # ESTRATEGIA.md §10: de $2 a $4 cada una
 
 # La cadena (ESTRATEGIA.md §1). En cada pieza, «objetivo» es el paso que mueve.
@@ -26,7 +26,7 @@ VARAS = {
     "Conocerte": "más visitas al perfil que la pieza anterior del mismo tipo",
     "Seguir": "más seguidores por cada 1.000 vistas que el promedio de la semana",
 }
-RETO = "Pieza del reto: falta tu sí. Si es que no, este lugar lo toma otra serie de CALENDARIO.md."
+RETO = "Pieza del reto: lleva el sello «Día N de 30». Meta: 1.000 seguidores nuevos, la de la fase 1."
 
 # El mes: 30 días = los 30 días del reto. Cada día, 3 piezas de volumen (V1 el reto, V2 y V3) y, algunos días, una insignia.
 # Ritmo fijo por día de la semana (MES-1.md §3): lunes la decisión y una regla · martes la noticia · miércoles IA sin jerga
@@ -175,25 +175,25 @@ ACCIONES = [
 
 # id, titulo, detalle, quien, para, hecho
 TAREAS = [
-    ("k-reto", "¿Sí o no al reto de 30 días por 10.000 seguidores?", "«Mi oficina de siete IAs tiene que conseguirme 10.000 seguidores. Yo solo apruebo.» Y el G0: el gemelo se presenta solo.", "Kenneth", "2026-10-20", False),
+    ("k-reto", "Sí al reto de 30 días, a 1.000 seguidores", "La meta de la fase 1, contada en público. El G0 pasa por guion gráfico.", "Kenneth", "2026-10-20", True),
     ("k-heygen", "Cargar unos $40 en HeyGen", "Quedan $2.88. Las 12 insignias del mes piden unos $36.", "Kenneth", "2026-10-20", False),
     ("k-dia1", "Pasar los seguidores de hoy en TikTok e Instagram", "Para el Día 1 y la vara de la semana. yt-dlp no los trae.", "Kenneth", "2026-10-20", False),
     ("k-perfil", "Poner nombre, bio y foto del perfil", "«Kenneth Picado · Dirijo una oficina de IAs». La bio está en ESTRATEGIA.md §7. La misma foto en las dos redes.", "Kenneth", "2026-10-20", False),
-    ("k-lote", "¿Sí a aprobar el volumen en lote, una vez por semana?", "Un guion gráfico con las 21 piezas; después de 30 sin rechazos, el volumen se publica solo.", "Kenneth", "2026-10-20", False),
+    ("k-lote", "Sí a aprobar en lote, con guion gráfico primero", "Siempre un guion gráfico barato primero; el contenido real, solo cuando lo aprobás.", "Kenneth", "2026-10-20", True),
     ("k-facebook", "Crear la página «Kenneth Picado» y conectarla en Buffer", "Es la tercera red gratis de Buffer. Avisame cuando esté y reviso qué canales ve.", "Kenneth", "2026-10-21", False),
     ("k-xli", "X y LinkedIn: ¿ya o en la fase 2?", "Ya cuesta unos $25 al mes en Buffer. La estrategia los deja para la fase 2.", "Kenneth", "2026-10-21", False),
     ("k-bernal", "Hablar con Bernal", "Pasarle el carrusel de aires (es terreno de Cawhi) y consultarle la idea A8, que toca ventas.", "Kenneth", "2026-10-23", False),
-    ("k-arranca", "Decir «arranca»", "Ese día es el Día 1. En la consola va provisional el miércoles 21.", "Kenneth", "2026-10-20", False),
+    ("k-arranca", "Decir «arranca»", "El Día 1 es el miércoles 21 de octubre.", "Kenneth", "2026-10-20", True),
     ("k-j1", "Aprobar el J1 en estilo pizarra", "Está hecho; va en el Día 1. Si no te convence el estilo, se cambia antes de hacer los otros.", "Kenneth", "2026-10-20", False),
     ("k-blob", "Crear el almacén Blob de la consola en Vercel", "Proyecto kennethpicado-consola → Storage → Blob, acceso Private. Sin eso, la consola de Vercel no guarda lo que marcás.", "Kenneth", "2026-10-22", False),
     ("c-consola", "Alinear la consola con la estrategia", "Seguidores nuevos como meta, la cadena, volumen e insignias, y la semana 1.", "Claude", "2026-10-19", True),
     ("c-costeo", "Alinear el costeo", "Costo por seguidor nuevo de cada insignia.", "Claude", "2026-10-19", True),
-    ("c-lote", "Guion gráfico del volumen de la semana 1", "Las 21 piezas en un solo guion, para aprobar en lote. Las del reto, por confirmar.", "Claude", "2026-10-20", False),
-    ("c-002", "Rehacer el gancho del 002 hasta pasar la vara", "La prueba pide 70 de total, 60 de gancho y 90 de «sostiene»; el mejor intento sacó 56. El gancho se rehace antes de pagar el gemelo.", "Claude", "2026-10-21", False),
-    ("c-g0", "Guion y prueba de gancho del G0", "El gemelo se presenta. Solo si el reto va.", "Claude", "2026-10-21", False),
-    ("c-001", "Guion gráfico y prueba de gancho del 001", "La Oficina: mi empleado se calificó su propio examen.", "Claude", "2026-10-22", False),
-    ("c-002bcd", "Hacer el 002b, el 002c y el 002d", "Voz y motion graphics, $0. Gana el escenario con más seguidores por cada 1.000 vistas.", "Claude", "2026-10-22", False),
-    ("c-reto", "Plantilla del contador «Día N de 30»", "Un loop que se rehace cada día con el número. Solo si el reto va.", "Claude", "2026-10-21", False),
+    ("c-lote", "Guion gráfico de la semana 1", "Las 21 piezas de volumen y las 3 insignias, en bocetos de $0. Está en Guiones.", "Claude", "2026-10-19", True),
+    ("c-002", "Rehacer el gancho del 002 hasta pasar la vara", "Los 3 ganchos nuevos están en el guion gráfico de la semana 1. Con tu sí van a la prueba: 70 de total, 60 de gancho y 90 de «sostiene» (el mejor intento sacó 56).", "Claude", "2026-10-21", False),
+    ("c-g0", "Prueba de gancho del G0", "Su boceto está en el guion gráfico de la semana 1. Con tu sí, la prueba y después el gemelo.", "Claude", "2026-10-21", False),
+    ("c-001", "Prueba de gancho del 001", "Su boceto está en el guion gráfico de la semana 1. Con tu sí, la prueba y después el gemelo.", "Claude", "2026-10-22", False),
+    ("c-002bcd", "Hacer el 002b, el 002c y el 002d", "Voz y motion graphics, $0, después de tu sí al guion gráfico. Gana el escenario con más seguidores por cada 1.000 vistas.", "Claude", "2026-10-22", False),
+    ("c-reto", "Plantilla del contador «Día N de 30»", "Un loop que se rehace cada día con el número, después de tu sí al guion gráfico.", "Claude", "2026-10-21", False),
     ("c-buffer", "Programar en Buffer (E003)", "Con tu aprobación antes de cada publicación. Hasta que esté, se publica a mano.", "Claude", "2026-10-23", False),
     ("c-medicion", "Cargar los números a las 48 horas y a los 7 días", "Seguidores nuevos por pieza y por semana, y la revisión de los lunes.", "Claude", "2026-10-23", False),
 ]
@@ -203,6 +203,11 @@ GUIONES = {
         "titulo": "J1 · «Prompt» son las instrucciones que le di", "version": "v1", "estado": "por-aprobar",
         "nota": "Estilo pizarra. Está hecho (24,6 s, $0) y va en el Día 1 como volumen. Si te gusta, la serie IA sin jerga sale así.",
         "comentario": "", "paginas": ["guiones/j1-v1-1.webp", "guiones/j1-v1-2.webp"], "orden": 1,
+    },
+    "lote-s1": {
+        "titulo": "Semana 1 · del 21 al 27 de octubre", "version": "v1 · boceto", "estado": "por-aprobar",
+        "nota": "Las 21 piezas de volumen y las 3 insignias de la semana, una página por día, en bocetos de $0. Con tu sí se hace el contenido real; si algo no te gusta, decime qué pieza y qué cambiar.",
+        "comentario": "", "paginas": [f"guiones/lote-s1-dia-{d}.webp" for d in range(1, 8)], "orden": 0,
     },
     "002-v4": {
         "titulo": "002 · Si tu negocio no sobrevive a tus vacaciones", "version": "v4", "estado": "por-aprobar",
@@ -298,7 +303,7 @@ def main():
         "por_video": COSTO_INSIGNIA, "meta_por_video": 4.0,
     }
     docs = {
-        "calendario": {"items": items, "arranque": {"fecha": ARRANQUE.isoformat(), "provisional": True}},
+        "calendario": {"items": items, "arranque": {"fecha": ARRANQUE.isoformat(), "provisional": False}},
         "tareas": {"items": tareas},
         "guiones": {"items": GUIONES},
         "estado": {"actualizado": ACTUALIZADO, "conexiones": CONEXIONES, "saldos": SALDOS, "presupuesto": presupuesto, "notas": NOTAS},
@@ -312,7 +317,7 @@ def main():
     for d in range(1, 31):
         assert sum(1 for p in vol if p[0] == d) == 3, d
     assert len({(p[0], p[3]) for p in PIEZAS}) == len(PIEZAS), "códigos repetidos el mismo día"
-    print(f"el mes: {len(vol)} de volumen ({sum(1 for p in vol if p[9])} del reto) y {insignias} insignias, del {ARRANQUE.isoformat()} al {dia(30)} (provisional)")
+    print(f"el mes: {len(vol)} de volumen ({sum(1 for p in vol if p[9])} del reto) y {insignias} insignias, del {ARRANQUE.isoformat()} al {dia(30)}")
 
 
 if __name__ == "__main__":
