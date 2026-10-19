@@ -121,6 +121,7 @@ marca/
 ├── encargos/            ← trabajo para los ejecutores de TORRE (E001 radar, ya hecho)
 ├── radar/               ← radar.py, fuentes.json y sus pruebas
 ├── PUENTE.md            ← dónde quedó todo y qué sigue (para la próxima sesión)
+├── HANDOFF-2026-10-19.md ← el último relevo de la sesión en la nube: estado, pendientes y orden de trabajo
 ├── ideas.md             ← banco de ideas con puntaje
 ├── config/estudio.json  ← IDs de avatar y de voces (no son secretos)
 ├── scripts/             ← verificar-llaves.ps1 (prueba las llaves) · probar-voz.ps1 (frase de prueba con tu clon)
