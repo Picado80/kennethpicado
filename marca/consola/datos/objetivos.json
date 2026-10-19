@@ -1,106 +1,98 @@
 {
  "norte": {
-  "titulo": "Conversaciones con empresas",
-  "que": "Alguien que dirige o decide en un negocio le escribe a Kenneth por algo que vio.",
-  "meta": 1,
-  "meta_texto": "1 al mes ya es avance",
+  "titulo": "Seguidores nuevos por semana",
+  "que": "En TikTok más Instagram. Es la única métrica que importa al final (ESTRATEGIA.md §1).",
+  "meta": 0,
+  "meta_texto": "la semana 1 fija la vara; después, cada semana más que la anterior",
   "actual": 0,
-  "periodo": "octubre"
+  "periodo": "la semana 1"
  },
  "items": {
-  "alcance": {
-   "nombre": "Alcance",
-   "busca": "Que lo vea gente que no lo conoce.",
-   "mide": "Vistas a los 7 días",
-   "vara": "Pasa de 326",
-   "excelente": "650",
+  "ver": {
+   "nombre": "Ver",
+   "busca": "Que lo vea completo gente que no te conoce.",
+   "mide": "Retención a los 3 s y vio completo",
+   "vara": "retiene más del 50 % a los 3 s",
+   "excelente": "",
    "cuenta": [
-    "Alcance"
+    "Ver"
    ],
    "orden": 1
   },
-  "guardado": {
-   "nombre": "Guardado",
-   "busca": "Que sea tan útil que lo guarden.",
-   "mide": "Guardados",
-   "vara": "Al menos 1 (hoy son 0)",
-   "excelente": "10 por cada 1.000 vistas",
+  "reaccionar": {
+   "nombre": "Reaccionar",
+   "busca": "Me gusta, comentarios y la discusión.",
+   "mide": "Comentarios por cada 1.000 vistas",
+   "vara": "más comentarios por cada 1.000 vistas que el promedio de la cuenta",
+   "excelente": "",
    "cuenta": [
-    "Guardado"
+    "Reaccionar"
    ],
    "orden": 2
   },
-  "compartido": {
-   "nombre": "Compartido",
-   "busca": "Que el empleado se lo mande al jefe.",
-   "mide": "Compartidos",
-   "vara": "Al menos 1 (hoy son 0)",
-   "excelente": "10 por cada 1.000 vistas",
+  "pasarlo": {
+   "nombre": "Pasarlo",
+   "busca": "Que lo compartan o lo guarden: así llega a gente nueva.",
+   "mide": "Compartidos y guardados por cada 1.000 vistas",
+   "vara": "al menos 1 compartido o guardado por cada 1.000 vistas",
+   "excelente": "",
    "cuenta": [
-    "Compartido"
+    "Pasarlo"
    ],
    "orden": 3
   },
-  "comentario": {
-   "nombre": "Comentario",
-   "busca": "Que la gente cuente su caso.",
-   "mide": "Comentarios de gente que no es conocida",
-   "vara": "Al menos 2",
-   "excelente": "10 por cada 1.000 vistas",
+  "conocerte": {
+   "nombre": "Conocerte",
+   "busca": "Que quieran saber quién es.",
+   "mide": "Visitas al perfil",
+   "vara": "más visitas al perfil que la pieza anterior del mismo tipo",
+   "excelente": "",
    "cuenta": [
-    "Comentario"
+    "Conocerte"
    ],
    "orden": 4
   },
-  "perfil": {
-   "nombre": "Perfil",
-   "busca": "Que quieran saber quién es.",
-   "mide": "Visitas al perfil y seguidores nuevos",
-   "vara": "Más que el video anterior con el mismo objetivo",
+  "seguir": {
+   "nombre": "Seguir",
+   "busca": "La meta: que te sigan.",
+   "mide": "Seguidores nuevos por cada 1.000 vistas",
+   "vara": "más seguidores por cada 1.000 vistas que el promedio de la semana",
    "excelente": "",
    "cuenta": [
-    "Perfil",
-    "Perfil y empresa"
+    "Seguir"
    ],
    "orden": 5
-  },
-  "empresa": {
-   "nombre": "Empresa",
-   "busca": "La que manda: que una empresa le escriba.",
-   "mide": "Mensajes de alguien que dirige o decide",
-   "vara": "1 conversación al mes",
-   "excelente": "",
-   "cuenta": [
-    "Perfil y empresa"
-   ],
-   "orden": 6
   }
  },
  "ritmo": {
   "tiktok": {
    "nombre": "TikTok",
-   "texto": "2 por día: un gráfico y un video con Kenneth.",
+   "texto": "3 piezas de volumen por día (loop, imagen o carrusel, motion, voz) y 2 o 3 insignias por semana.",
    "orden": 1
   },
   "instagram": {
    "nombre": "Instagram",
-   "texto": "3 por semana, las más útiles para guardar o mandar. Historias cuando Kenneth quiera.",
+   "texto": "1 por día, la de volumen que mejor le fue ayer en TikTok, y las insignias.",
    "orden": 2
   },
-  "facebook": {
-   "nombre": "Facebook",
-   "texto": "Lo mismo que Instagram, cuando se conecte.",
+  "personal": {
+   "nombre": "Lo personal",
+   "texto": "1 por semana, como siempre.",
    "orden": 3
   },
-  "linkedin": {
-   "nombre": "LinkedIn y X",
-   "texto": "Sin publicar por ahora.",
+  "fuera": {
+   "nombre": "Fuera de la fase 1",
+   "texto": "Vender, nombrar SEMI o RedTurn, buscar empresas, LinkedIn, X y anuncios de venta.",
    "orden": 4
   }
  },
  "base": {
   "fecha": "9 de octubre",
   "datos": [
+   {
+    "etiqueta": "Seguidores hoy (TikTok + Instagram)",
+    "valor": "falta el dato"
+   },
    {
     "etiqueta": "TikTok: vistas de un video normal",
     "valor": "326"
@@ -114,13 +106,26 @@
     "valor": "0"
    },
    {
-    "etiqueta": "TikTok: videos en la cuenta",
-    "valor": "238"
-   },
-   {
     "etiqueta": "Instagram: seguidores",
     "valor": "576"
    }
   ]
- }
+ },
+ "fases": [
+  {
+   "nombre": "1 · Probar",
+   "cuando": "hasta 1.000 seguidores nuevos",
+   "texto": "Se busca qué serie y qué tipo de pieza hace seguir."
+  },
+  {
+   "nombre": "2 · Duplicar",
+   "cuando": "de 1.000 a 10.000",
+   "texto": "70 % de lo que mejor convierte y 30 % de pruebas."
+  },
+  {
+   "nombre": "3 · Introducir",
+   "cuando": "más de 10.000",
+   "texto": "SEMI aparece en 1 de cada 10 piezas, sin precio."
+  }
+ ]
 }

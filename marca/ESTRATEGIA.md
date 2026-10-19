@@ -170,6 +170,11 @@ La controversia trae comentarios, y los comentarios traen alcance. **Se discute 
 
 ## 11. La primera semana (arranca el día en que Kenneth diga «arranca»)
 
+> **El mes completo está en [`MES-1.md`](MES-1.md)** (19-oct): los 30 días del reto con lo que pasa cada día y cada
+> semana, las noticias, las pruebas, las fechas del mes y las 12 insignias. La semana 1 de allá sale de esta tabla y
+> le suma la noticia, la prueba y la fecha del fin de semana; si chocan, vale la de `MES-1.md` para el orden de las
+> piezas y esta estrategia para todo lo demás.
+
 Tres piezas de volumen todos los días, más tres insignias en la semana. Todo con fuente, de `CALENDARIO.md` e `ideas.md`.
 
 | Día | Volumen 1 · el reto | Volumen 2 · motion graphics | Volumen 3 · imagen o carrusel | Insignia |

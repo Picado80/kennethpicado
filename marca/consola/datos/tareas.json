@@ -1,164 +1,172 @@
 {
  "items": {
-  "k-calendario": {
-   "titulo": "Aprobar el calendario",
-   "detalle": "Decidido el 12-oct: dos piezas por día en TikTok y tres por semana en Instagram.",
+  "k-reto": {
+   "titulo": "¿Sí o no al reto de 30 días por 10.000 seguidores?",
+   "detalle": "«Mi oficina de siete IAs tiene que conseguirme 10.000 seguidores. Yo solo apruebo.» Y el G0: el gemelo se presenta solo.",
    "quien": "Kenneth",
-   "para": "2026-10-12",
-   "hecho": true,
+   "para": "2026-10-20",
+   "hecho": false,
    "orden": 0
   },
-  "k-j1": {
-   "titulo": "Aprobar el J1 en estilo pizarra",
-   "detalle": "Mirá el borrador y su guion gráfico. Si te gusta, la serie IA sin jerga sale en ese estilo.",
+  "k-heygen": {
+   "titulo": "Cargar unos $40 en HeyGen",
+   "detalle": "Quedan $2.88. Las 12 insignias del mes piden unos $36.",
    "quien": "Kenneth",
-   "para": "2026-10-13",
+   "para": "2026-10-20",
    "hecho": false,
    "orden": 1
   },
-  "k-002": {
-   "titulo": "Aprobar el 002 con el inicio nuevo",
-   "detalle": "Abre con «En Amazon nadie era indispensable. Ni el jefe.» (fue el inicio con mejor puntaje).",
+  "k-dia1": {
+   "titulo": "Pasar los seguidores de hoy en TikTok e Instagram",
+   "detalle": "Para el Día 1 y la vara de la semana. yt-dlp no los trae.",
    "quien": "Kenneth",
-   "para": "2026-10-13",
+   "para": "2026-10-20",
    "hecho": false,
    "orden": 2
   },
-  "k-heygen": {
-   "titulo": "Recargar HeyGen",
-   "detalle": "Quedan $2.88. Con dos piezas por día, el mes necesita unos $50.",
+  "k-perfil": {
+   "titulo": "Poner nombre, bio y foto del perfil",
+   "detalle": "«Kenneth Picado · Dirijo una oficina de IAs». La bio está en ESTRATEGIA.md §7. La misma foto en las dos redes.",
    "quien": "Kenneth",
-   "para": "2026-10-12",
+   "para": "2026-10-20",
    "hecho": false,
    "orden": 3
   },
-  "k-enlace": {
-   "titulo": "Crear el proyecto de la consola en Vercel",
-   "detalle": "En tu cuenta personal de Vercel: importar el repo con la carpeta marca/consola y crear el almacén Blob privado. Los pasos están en el LEEME de la consola.",
+  "k-lote": {
+   "titulo": "¿Sí a aprobar el volumen en lote, una vez por semana?",
+   "detalle": "Un guion gráfico con las 21 piezas; después de 30 sin rechazos, el volumen se publica solo.",
    "quien": "Kenneth",
-   "para": "2026-10-13",
+   "para": "2026-10-20",
    "hecho": false,
    "orden": 4
   },
-  "k-pixabay": {
-   "titulo": "Sacar la llave gratis de Pixabay",
-   "detalle": "En pixabay.com/api/docs. Pegarla en torre\\.env como PIXABAY_API_KEY=",
+  "k-facebook": {
+   "titulo": "Crear la página «Kenneth Picado» y conectarla en Buffer",
+   "detalle": "Es la tercera red gratis de Buffer. Avisame cuando esté y reviso qué canales ve.",
    "quien": "Kenneth",
-   "para": "2026-10-14",
+   "para": "2026-10-21",
    "hecho": false,
    "orden": 5
   },
-  "k-redes": {
-   "titulo": "Conectar Facebook en Buffer",
-   "detalle": "Ocupa el tercer lugar gratis y recibe las mismas 3 piezas de Instagram. X espera. LinkedIn: sin publicar por ahora.",
+  "k-xli": {
+   "titulo": "X y LinkedIn: ¿ya o en la fase 2?",
+   "detalle": "Ya cuesta unos $25 al mes en Buffer. La estrategia los deja para la fase 2.",
    "quien": "Kenneth",
-   "para": "2026-10-14",
+   "para": "2026-10-21",
    "hecho": false,
    "orden": 6
   },
-  "k-g0": {
-   "titulo": "Decidir si sale el video donde el gemelo se presenta",
-   "detalle": "Martes 20: «Los videos de esta semana no los grabé yo». Si no querés, lo cambio por otro.",
+  "k-bernal": {
+   "titulo": "Hablar con Bernal",
+   "detalle": "Pasarle el carrusel de aires (es terreno de Cawhi) y consultarle la idea A8, que toca ventas.",
    "quien": "Kenneth",
-   "para": "2026-10-16",
+   "para": "2026-10-23",
    "hecho": false,
    "orden": 7
   },
-  "k-tomas": {
-   "titulo": "Grabar 3 o 4 tomas más para el gemelo",
-   "detalle": "2 minutos cada una, sin audífono: cerca, sentado más lejos, de pie y con otro fondo.",
+  "k-arranca": {
+   "titulo": "Decir «arranca»",
+   "detalle": "Ese día es el Día 1. En la consola va provisional el miércoles 21.",
    "quien": "Kenneth",
-   "para": "2026-10-17",
+   "para": "2026-10-20",
    "hecho": false,
    "orden": 8
   },
-  "k-personal": {
-   "titulo": "Subir un video personal",
-   "detalle": "Como los de siempre: la cuenta sigue siendo tuya.",
+  "k-j1": {
+   "titulo": "Aprobar el J1 en estilo pizarra",
+   "detalle": "Está hecho; va en el Día 1. Si no te convence el estilo, se cambia antes de hacer los otros.",
    "quien": "Kenneth",
-   "para": "2026-10-17",
+   "para": "2026-10-20",
    "hecho": false,
    "orden": 9
   },
-  "k-openai": {
-   "titulo": "SEMI: verificar la organización en OpenAI",
-   "detalle": "En platform.openai.com. Tarda, conviene empezar ya.",
+  "k-blob": {
+   "titulo": "Crear el almacén Blob de la consola en Vercel",
+   "detalle": "Proyecto kennethpicado-consola → Storage → Blob, acceso Private. Sin eso, la consola de Vercel no guarda lo que marcás.",
    "quien": "Kenneth",
-   "para": "2026-10-16",
+   "para": "2026-10-22",
    "hecho": false,
    "orden": 10
   },
-  "c-002": {
-   "titulo": "Rehacer el 002 con el inicio nuevo",
-   "detalle": "Guion gráfico primero; después el video.",
+  "c-consola": {
+   "titulo": "Alinear la consola con la estrategia",
+   "detalle": "Seguidores nuevos como meta, la cadena, volumen e insignias, y la semana 1.",
    "quien": "Claude",
-   "para": "2026-10-12",
-   "hecho": false,
+   "para": "2026-10-19",
+   "hecho": true,
    "orden": 11
   },
-  "c-semana1": {
-   "titulo": "Guion gráfico de los gráficos de la semana 1",
-   "detalle": "El J1 ya está en borrador (pizarra). Faltan R2, L1, N2, J2 y R1.",
+  "c-costeo": {
+   "titulo": "Alinear el costeo",
+   "detalle": "Costo por seguidor nuevo de cada insignia.",
    "quien": "Claude",
-   "para": "2026-10-14",
-   "hecho": false,
+   "para": "2026-10-19",
+   "hecho": true,
    "orden": 12
   },
-  "c-a3": {
-   "titulo": "Guion y guion gráfico del A3",
-   "detalle": "La reunión de los lunes.",
+  "c-lote": {
+   "titulo": "Guion gráfico del volumen de la semana 1",
+   "detalle": "Las 21 piezas en un solo guion, para aprobar en lote. Las del reto, por confirmar.",
    "quien": "Claude",
-   "para": "2026-10-13",
+   "para": "2026-10-20",
    "hecho": false,
    "orden": 13
   },
-  "c-004": {
-   "titulo": "Guion gráfico del 004",
-   "detalle": "El anfiteatro.",
+  "c-002": {
+   "titulo": "Rehacer el gancho del 002 hasta pasar la vara",
+   "detalle": "La prueba pide 70 de total, 60 de gancho y 90 de «sostiene»; el mejor intento sacó 56. El gancho se rehace antes de pagar el gemelo.",
    "quien": "Claude",
-   "para": "2026-10-14",
+   "para": "2026-10-21",
    "hecho": false,
    "orden": 14
   },
-  "c-a4": {
-   "titulo": "Guion y guion gráfico del A4",
-   "detalle": "El titular del día en que ya lo lograste.",
+  "c-g0": {
+   "titulo": "Guion y prueba de gancho del G0",
+   "detalle": "El gemelo se presenta. Solo si el reto va.",
    "quien": "Claude",
-   "para": "2026-10-15",
+   "para": "2026-10-21",
    "hecho": false,
    "orden": 15
   },
-  "c-oficina": {
-   "titulo": "Guiones gráficos del 001 y del 003",
-   "detalle": "Los dos primeros de La Oficina.",
+  "c-001": {
+   "titulo": "Guion gráfico y prueba de gancho del 001",
+   "detalle": "La Oficina: mi empleado se calificó su propio examen.",
    "quien": "Claude",
-   "para": "2026-10-16",
+   "para": "2026-10-22",
    "hecho": false,
    "orden": 16
   },
-  "c-plantillas": {
-   "titulo": "Plantillas por serie",
-   "detalle": "Para que cada gráfico nuevo salga de datos y no se arme de cero.",
+  "c-002bcd": {
+   "titulo": "Hacer el 002b, el 002c y el 002d",
+   "detalle": "Voz y motion graphics, $0. Gana el escenario con más seguidores por cada 1.000 vistas.",
    "quien": "Claude",
-   "para": "2026-10-14",
+   "para": "2026-10-22",
    "hecho": false,
    "orden": 17
   },
-  "c-buffer": {
-   "titulo": "Programar las publicaciones en Buffer",
-   "detalle": "Con la aprobación de Kenneth antes de cada una (encargo E003).",
+  "c-reto": {
+   "titulo": "Plantilla del contador «Día N de 30»",
+   "detalle": "Un loop que se rehace cada día con el número. Solo si el reto va.",
    "quien": "Claude",
-   "para": "2026-10-16",
+   "para": "2026-10-21",
    "hecho": false,
    "orden": 18
   },
-  "c-medicion": {
-   "titulo": "Cargar los resultados a las 48 horas y a los 7 días",
-   "detalle": "Cada pieza contra su objetivo, en la sección Resultados.",
+  "c-buffer": {
+   "titulo": "Programar en Buffer (E003)",
+   "detalle": "Con tu aprobación antes de cada publicación. Hasta que esté, se publica a mano.",
    "quien": "Claude",
-   "para": "2026-10-15",
+   "para": "2026-10-23",
    "hecho": false,
    "orden": 19
+  },
+  "c-medicion": {
+   "titulo": "Cargar los números a las 48 horas y a los 7 días",
+   "detalle": "Seguidores nuevos por pieza y por semana, y la revisión de los lunes.",
+   "quien": "Claude",
+   "para": "2026-10-23",
+   "hecho": false,
+   "orden": 20
   }
  }
 }

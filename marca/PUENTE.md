@@ -253,17 +253,7 @@ Personal», pero duplicaría las llaves fuera de `torre\.env`. **Decisión: la m
 
 ## 9. Siguiente paso exacto
 
-> **(19-oct) Manda [`ESTRATEGIA.md`](ESTRATEGIA.md)**: volumen (3 piezas por día, $0) e insignias (2 o 3 por semana).
-> Con el sí de Kenneth, hacer lo de su §13:
-> - el guion gráfico de las 21 piezas de volumen de la semana 1 (§11);
-> - las 3 insignias con su prueba de gancho;
-> - en la consola (`consola/datos/*.json`): el objetivo «Seguir», los seguidores nuevos por pieza, el tipo de pieza y la aprobación por lote;
-> - en `costeo`: el costo por seguidor.
->
-> Lo de abajo es el paso anterior (12-oct).
->
-> (12-oct) Leer la consola (`consola/tareas` y `consola/guiones`). Con lo que Kenneth haya aprobado:
-> el guion gráfico del `002` con el inicio «En Amazon nadie era indispensable. Ni el jefe.», el de los
-> seis gráficos de la semana 1 (`J1`, `R2`, `L1`, `N2`, `J2`, `R1`), los guiones de `A3` y `A4`, y los guiones gráficos de `004`, `001` y `003`.
-> Los resultados de cada pieza se cargan en la consola a las 48 horas y a los 7 días. Cada guion gráfico se publica en la
-> consola **antes** de hacer el video. Sin saldo en HeyGen (quedan $2.88; el mes pide unos $50) no salen los videos.
+> (19-oct) Leer [`HANDOFF-2026-10-19.md`](HANDOFF-2026-10-19.md), [`ESTRATEGIA.md`](ESTRATEGIA.md) y [`MES-1.md`](MES-1.md),
+> que es el calendario de los 30 días del reto. Después, las respuestas de Kenneth a las 8 preguntas del arranque (en la
+> consola, Pendientes). Lo que sigue sin depender de él: el guion gráfico del lote de la semana 1, el gancho del `002`
+> hasta pasar la vara (70 / 60 / 90) y el `002b`, el `002c` y el `002d`.

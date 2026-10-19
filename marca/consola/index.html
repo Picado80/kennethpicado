@@ -304,7 +304,7 @@ footer{margin-top:56px;padding-top:16px;border-top:1px solid var(--linea);font-s
 
     <section id="calendario" aria-labelledby="t-calendario">
       <div class="titulo"><span class="n">03</span><h2 id="t-calendario">Calendario</h2></div>
-      <p class="bajada">Dos piezas por día en TikTok: un gráfico y un video con Kenneth. Las que llevan «IG» van también a Instagram. Tocá un día para ver el detalle.</p>
+      <p class="bajada">El mes del reto: 3 piezas de volumen por día en TikTok y 2 o 3 insignias por semana con el gemelo. Las insignias van también a Instagram. Tocá un día para ver el detalle.</p>
       <div class="cal-barra">
         <div class="cal-nav">
           <button class="flecha" id="cal-ant" aria-label="Mes anterior">‹</button>
@@ -318,8 +318,8 @@ footer{margin-top:56px;padding-top:16px;border-top:1px solid var(--linea);font-s
         </div>
       </div>
       <div class="cal-filtros" role="group" aria-label="Qué se muestra">
-        <button class="filtro a" data-linea="A" aria-pressed="true"><i></i>Gráficos</button>
-        <button class="filtro b" data-linea="B" aria-pressed="true"><i></i>Kenneth + gráficos</button>
+        <button class="filtro a" data-linea="A" aria-pressed="true"><i></i>Volumen</button>
+        <button class="filtro b" data-linea="B" aria-pressed="true"><i></i>Insignias</button>
         <button class="filtro m" data-linea="M" aria-pressed="true"><i></i>Marca</button>
         <button class="interruptor" id="filtro-ig" aria-pressed="false">Solo lo de Instagram</button>
       </div>
@@ -421,8 +421,8 @@ footer{margin-top:56px;padding-top:16px;border-top:1px solid var(--linea);font-s
   var HOY = hoyCR();
 
   var LINEAS = {
-    A: { clase: "a", nombre: "Gráficos", largo: "Línea A · Gráficos" },
-    B: { clase: "b", nombre: "Kenneth + gráficos", largo: "Línea B · Kenneth + gráficos" },
+    A: { clase: "a", nombre: "Volumen", largo: "Volumen" },
+    B: { clase: "b", nombre: "Insignia", largo: "Insignia · con el gemelo" },
     M: { clase: "m", nombre: "Marca", largo: "Marca" }
   };
   var ESTADOS = {
@@ -433,7 +433,7 @@ footer{margin-top:56px;padding-top:16px;border-top:1px solid var(--linea);font-s
   var LISTOS = { publicado: 1, medido: 1, hecho: 1 };
   var NOMBRES = ["calendario", "tareas", "guiones", "estado", "objetivos"];
   var REDES = { tiktok: "TikTok", instagram: "Instagram", facebook: "Facebook", x: "X", linkedin: "LinkedIn", youtube: "YouTube" };
-  var METRICAS = [["vistas", "vista", "vistas"], ["guardados", "guardado", "guardados"], ["compartidos", "compartido", "compartidos"], ["comentarios", "comentario", "comentarios"], ["perfil", "visita al perfil", "visitas al perfil"]];
+  var METRICAS = [["vistas", "vista", "vistas"], ["seguidores", "seguidor nuevo", "seguidores nuevos"], ["guardados", "guardado", "guardados"], ["compartidos", "compartido", "compartidos"], ["comentarios", "comentario", "comentarios"], ["perfil", "visita al perfil", "visitas al perfil"]];
   function redesDe(x) { return (Array.isArray(x.redes) ? x.redes : []).map(txt).filter(function (r) { return REDES[r]; }); }
   function vaA(x, red) { return redesDe(x).indexOf(red) !== -1; }
   function textoRedes(x) {
@@ -621,8 +621,10 @@ footer{margin-top:56px;padding-top:16px;border-top:1px solid var(--linea);font-s
     var esAccion = x.tipo === "accion" || x.linea === "M";
     var datos = h("dl", { class: "datos" });
     function dato(k, v) { if (txt(v)) datos.append(h("dt", { text: k }), h("dd", { text: txt(v) })); }
-    dato("Objetivo", x.objetivo);
+    dato("Formato", x.formato_texto);
+    dato(x.tipo === "accion" ? "Objetivo" : "Paso", x.objetivo);
     dato("Lo logró si", x.vara);
+    if (x.reto) dato("Reto", "Depende de tu sí al reto");
     dato("Estado", ESTADOS[x.estado] || x.estado);
     if (!esAccion) dato("Sale en", textoRedes(x));
     dato("Lo hace", x.quien);
@@ -640,7 +642,7 @@ footer{margin-top:56px;padding-top:16px;border-top:1px solid var(--linea);font-s
     }
     var enlace = /^https:\/\//.test(txt(x.url)) ? h("p", { class: "pie" }, h("a", { class: "enlace", href: x.url, target: "_blank", rel: "noopener noreferrer", text: "Ver la publicación" })) : null;
     return h("article", { class: "accion" },
-      h("div", { class: "arriba" }, h("span", { class: "linea " + l.clase, text: l.largo }), txt(x.codigo) ? h("span", { class: "mono", text: txt(x.codigo) }) : null, esAccion ? null : txt(x.serie)),
+      h("div", { class: "arriba" }, h("span", { class: "linea " + l.clase, text: l.largo }), txt(x.codigo) ? h("span", { class: "mono", text: txt(x.codigo) }) : null, esAccion ? null : txt(x.serie), x.dia ? h("span", { class: "mono", text: "Día " + x.dia }) : null),
       h("h4", { text: txt(x.titulo) }),
       x.porque ? h("p", { class: "porque", text: txt(x.porque) }) : null,
       datos, enlace, pie);
@@ -740,7 +742,7 @@ footer{margin-top:56px;padding-top:16px;border-top:1px solid var(--linea);font-s
     var aIG = piezas.filter(function (x) { return vaA(x, "instagram"); }).length;
     var costo = piezas.reduce(function (s, x) { return s + (Number(x.costo) || 0); }, 0);
     $("#cal-resumen").textContent = piezas.length
-      ? MESES[a[1] - 1][0].toUpperCase() + MESES[a[1] - 1].slice(1) + ": " + piezas.length + (piezas.length === 1 ? " pieza" : " piezas") + " · " + conK + " con Kenneth · " + aIG + " también en Instagram · costo estimado " + plata(costo) + "."
+      ? MESES[a[1] - 1][0].toUpperCase() + MESES[a[1] - 1].slice(1) + ": " + piezas.length + (piezas.length === 1 ? " pieza" : " piezas") + " · " + conK + " insignias · " + aIG + " también en Instagram · costo estimado " + plata(costo) + "."
       : "";
   }
 
@@ -822,6 +824,9 @@ footer{margin-top:56px;padding-top:16px;border-top:1px solid var(--linea);font-s
     if (ritmo.length) lado.append(h("h3", { text: "Cuánto sale en cada red" }),
       h("ul", { class: "pares texto" }, ritmo.map(function (r) { return h("li", null, h("strong", { text: txt(r.nombre) }), h("span", { text: txt(r.texto) })); })));
     var base = o.base && Array.isArray(o.base.datos) ? o.base.datos : [];
+    var fases = Array.isArray(o.fases) ? o.fases : [];
+    if (fases.length) lado.append(h("h3", { text: "Las fases: se pasa con seguidores, no con fechas" }),
+      h("ul", { class: "pares texto" }, fases.map(function (f) { return h("li", null, h("strong", { text: txt(f && f.nombre) }), h("span", { text: txt(f && f.cuando) + ". " + txt(f && f.texto) })); })));
     if (base.length) lado.append(h("h3", { text: "De dónde partimos" + (o.base.fecha ? " (" + txt(o.base.fecha) + ")" : "") }),
       h("ul", { class: "pares" }, base.map(function (d) { return h("li", null, h("span", { text: txt(d && d.etiqueta) }), h("b", { text: txt(d && d.valor) })); })));
     if (lado.childNodes.length) arriba.append(lado);
@@ -853,14 +858,19 @@ footer{margin-top:56px;padding-top:16px;border-top:1px solid var(--linea);font-s
     var medidas = piezas.filter(function (x) { return x.logro === true || x.logro === false; });
     var logradas = medidas.filter(function (x) { return x.logro === true; }).length;
     var n = (S.docs.objetivos && S.docs.objetivos.norte) || {};
+    function porMil() {                              // la que decide qué se repite (ESTRATEGIA.md §1)
+      var seg = 0, vis = 0;
+      publicadas.forEach(function (x) { resultadosDe(x).forEach(function (r) { seg += Number(r.datos.seguidores) || 0; vis += Number(r.datos.vistas) || 0; }); });
+      return vis ? (seg / vis * 1000).toFixed(1) : "—";
+    }
     function cifra(titulo, valor, chico) {
       return h("div", { class: "tarjeta cifra-t" }, h("h3", { text: titulo }), h("p", { class: "valor" }, String(valor), chico ? h("small", { text: chico }) : null));
     }
     var cifras = h("div", { class: "cifras" },
       cifra("Publicadas", publicadas.length, "de " + piezas.length),
       cifra("Con veredicto", medidas.length, "a los 7 días"),
-      cifra("Lograron su objetivo", logradas, "de " + medidas.length),
-      cifra("Empresas que escribieron", Number(n.actual) || 0, n.periodo ? "en " + txt(n.periodo) : null));
+      cifra("Seguidores por cada 1.000 vistas", porMil(), "en lo medido"),
+      cifra("Seguidores nuevos", Number(n.actual) || 0, n.periodo ? "en " + txt(n.periodo) : null));
 
     var porRed = h("div", { class: "tarjeta" }, h("h3", { text: "Por red" }));
     var redes = Object.keys(REDES).filter(function (r) { return piezas.some(function (x) { return vaA(x, r); }); });
@@ -938,8 +948,8 @@ footer{margin-top:56px;padding-top:16px;border-top:1px solid var(--linea);font-s
         h("p", { class: "cifra" }, plata(gastado), h("small", { text: "de " + plata(tope) + " de tope" })),
         barra,
         p.detalle ? h("p", { text: txt(p.detalle) }) : null,
-        Number(p.proyectado) ? h("p", { text: "Con dos piezas por día, el mes cierra en unos " + plata(p.proyectado) + "." }) : null,
-        Number(p.por_video) ? h("p", { text: "Cada video con Kenneth cuesta " + plata(p.por_video) + (Number(p.meta_por_video) ? " (la meta es " + plata(p.meta_por_video) + ")." : ".") + " Los gráficos cuestan $0." }) : null));
+        Number(p.proyectado) ? h("p", { text: (txt(p.proyectado_texto) || "El mes") + " cierra en unos " + plata(p.proyectado) + "." }) : null,
+        Number(p.por_video) ? h("p", { text: "Cada insignia con el gemelo cuesta unos " + plata(p.por_video) + (Number(p.meta_por_video) ? " (hasta " + plata(p.meta_por_video) + ")." : ".") + " El volumen cuesta $0." }) : null));
     }
     cont.replaceChildren.apply(cont, partes);
   }
