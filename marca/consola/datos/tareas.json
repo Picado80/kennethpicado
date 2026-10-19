@@ -10,10 +10,10 @@
   },
   "k-heygen": {
    "titulo": "Cargar unos $5 en HeyGen",
-   "detalle": "Lo de las 3 insignias de la semana 1 (unos $7.60); quedan $2.88. Se carga por semana, solo lo de sus insignias.",
+   "detalle": "Cargaste $15 el 19-oct: hay $17.88. Se carga por semana, solo lo de sus insignias.",
    "quien": "Kenneth",
    "para": "2026-10-20",
-   "hecho": false,
+   "hecho": true,
    "orden": 1
   },
   "k-dia1": {
