@@ -39,7 +39,7 @@
 |---|---|---|---|---|
 | **1 · Puente** | 1 y 2 | 2 de marca + 1 personal | *Amazon en la soda*: `002` (vacaciones) y `004` (anfiteatro). Después `001` y `003` de *La Oficina* | 2 de los 4 videos pasan de 326 vistas, o uno pasa de 650 |
 | **2 · Serie** | 3 y 4 | 3 de marca + 1 personal | 2 de *La Oficina* + 1 de *Amazon en la soda* por semana | La mediana de los videos de marca iguala la de la cuenta y llega al menos un comentario de alguien que no lo conoce |
-| **3 · Ritmo** | 5 en adelante | 4 o 5 de marca + 1 personal cada dos semanas | Se suma *Sistema de la semana*. SEMI aparece como «lo que construyo» | Primera conversación con una empresa |
+| **3 · Ritmo** | 5 en adelante | 4 o 5 de marca + 1 personal cada dos semanas | Se suma *Sistema de la semana*. SEMI no aparece hasta la fase 3 de `ESTRATEGIA.md` (más de 10.000 seguidores nuevos) | Lo decide `ESTRATEGIA.md` §9 |
 
 **Si una fase no se cumple en 2 semanas:** no se sube el ritmo. Se cambia el gancho del formato (regla de `FORMATOS.md`).
 

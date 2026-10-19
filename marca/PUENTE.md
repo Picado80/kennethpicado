@@ -33,7 +33,7 @@
   clonada de ElevenLabs desde el video 1. Cambia la regla de `CANON.md` (cara real hasta el 15):
   el video 002 va primero como prueba, y si Kenneth lo aprueba se ajusta el canon.
 - **El sitio `kennethpicado.vercel.app` no se toca:** es su portafolio y CV, no es parte de la marca.
-- **Meta:** **conversaciones con empresas por mes**, no vistas. Una conversación cuenta cuando
+- **Meta (19-oct):** **crecer en seguidores** — manda [`ESTRATEGIA.md`](ESTRATEGIA.md). Lo de abajo es la meta vieja, de la fase 3: **conversaciones con empresas por mes**, no vistas. Una conversación cuenta cuando
   alguien que dirige o decide en un negocio le escribe a Kenneth por algo que vio.
 - **Los 4 formatos** (`FORMATOS.md`):
   - *La Oficina*: las IAs de TORRE como empleados.
@@ -251,6 +251,15 @@ Personal», pero duplicaría las llaves fuera de `torre\.env`. **Decisión: la m
 
 ## 9. Siguiente paso exacto
 
+> **(19-oct) Manda [`ESTRATEGIA.md`](ESTRATEGIA.md)**: volumen (3 piezas por día, $0) e insignias (2 o 3 por semana).
+> Con el sí de Kenneth, hacer lo de su §13:
+> - el guion gráfico de las 21 piezas de volumen de la semana 1 (§11);
+> - las 3 insignias con su prueba de gancho;
+> - en la consola (`consola/datos/*.json`): el objetivo «Seguir», los seguidores nuevos por pieza, el tipo de pieza y la aprobación por lote;
+> - en `costeo`: el costo por seguidor.
+>
+> Lo de abajo es el paso anterior (12-oct).
+>
 > (12-oct) Leer la consola (`consola/tareas` y `consola/guiones`). Con lo que Kenneth haya aprobado:
 > el guion gráfico del `002` con el inicio «En Amazon nadie era indispensable. Ni el jefe.», el de los
 > seis gráficos de la semana 1 (`J1`, `R2`, `L1`, `N2`, `J2`, `R1`), los guiones de `A3` y `A4`, y los guiones gráficos de `004`, `001` y `003`.

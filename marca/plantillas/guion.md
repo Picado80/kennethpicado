@@ -1,6 +1,8 @@
 ---
 id: NNN
-formato: la-oficina | amazon-soda | sistema-semana | cual-soy-yo
+tipo: volumen | insignia   # ESTRATEGIA.md §3
+paso: ver | reaccionar | pasarlo | conocerte | seguir   # el paso de la cadena que mueve (ESTRATEGIA.md §1)
+formato: la-oficina | amazon-soda | sistema-semana | cual-soy-yo | loop | imagen | carrusel | motion
 titulo:
 idea: O1 | A1 | …      # fila de ideas.md
 estado: guion | grabado | editado | publicado
@@ -42,8 +44,12 @@ Gancho + 3 a 5 hashtags. Sacarlo con el skill `social-copy-generator`.
 
 ## QA antes de publicar (todas marcadas o no sale)
 
-- [ ] El gancho se entiende **sin sonido** (texto en pantalla en los primeros 3 s)
+- [ ] El gancho se entiende **sin sonido** (texto en pantalla en los primeros 2 s)
+- [ ] Cierra con una **razón para seguir** («mañana…», «Día N de 30», «parte 2»)
+- [ ] Si es **insignia**: prueba de gancho con total ≥ 70, gancho ≥ 60 y «sostiene» ≥ 90 (`ESTRATEGIA.md` §4)
+- [ ] Si provoca discusión, es sobre una idea y no contra una persona (`ESTRATEGIA.md` §5)
 - [ ] Cero jerga: pasó el glosario de `CANON.md`
+- [ ] Cada beneficio es una **escena** que se puede filmar (alguien, un lugar, una hora), no una ficha técnica, y el después pasó de verdad (`CANON.md` §La escena)
 - [ ] Ningún nombre de cliente o persona; ninguna llave, correo ni dato en pantalla (revisado cuadro por cuadro)
 - [ ] Todo número tiene fuente en la tabla de arriba
 - [ ] Ninguna venta: ni precios, ni «agendá», ni pitch de Semi
