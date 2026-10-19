@@ -152,10 +152,10 @@ LUNES = ("Seguidores nuevos contra la semana anterior, seguidores por cada 1.000
          "a seguir y una sola decisión (ESTRATEGIA.md §8).")
 ACCIONES = [
     (0, "Responder las 8 preguntas del arranque", "Están en Pendientes. Sin ellas no arranca el Día 1.", "Kenneth"),
-    (0, "Cargar unos $40 en HeyGen", "Quedan $2.88. Las 12 insignias del mes piden unos $36.", "Kenneth"),
+    (0, "Cargar unos $5 en HeyGen", "Lo de las 3 insignias de la semana 1 (unos $7.60); quedan $2.88.", "Kenneth"),
     (0, "Poner nombre, bio y foto del perfil", "ESTRATEGIA.md §7. Se hace una vez, antes del Día 1.", "Kenneth"),
     (0, "Aprobar el lote de la semana 1", "Un guion gráfico con las 21 piezas de volumen.", "Kenneth"),
-    (1, "Anotar los seguidores de hoy en TikTok e Instagram", "Es el número del contador y la vara del mes.", "Kenneth"),
+    (1, "Leer los seguidores del Día 1 en TikTok e Instagram", "De los perfiles públicos. Es el número del contador y la vara del mes.", "Claude"),
     (5, "Aprobar el lote de la semana siguiente", "El domingo, un solo guion gráfico con las 21 piezas.", "Kenneth"),
     (6, "Revisión del lunes", LUNES, "Kenneth y Claude"),
     (6, "Impulsar la pieza que más seguidores trajo", "TikTok Promote, objetivo «más seguidores», $5.", "Kenneth"),
@@ -176,8 +176,8 @@ ACCIONES = [
 # id, titulo, detalle, quien, para, hecho
 TAREAS = [
     ("k-reto", "Sí al reto de 30 días, a 1.000 seguidores", "La meta de la fase 1, contada en público. El G0 pasa por guion gráfico.", "Kenneth", "2026-10-20", True),
-    ("k-heygen", "Cargar unos $40 en HeyGen", "Quedan $2.88. Las 12 insignias del mes piden unos $36.", "Kenneth", "2026-10-20", False),
-    ("k-dia1", "Pasar los seguidores de hoy en TikTok e Instagram", "Para el Día 1 y la vara de la semana. yt-dlp no los trae.", "Kenneth", "2026-10-20", False),
+    ("k-heygen", "Cargar unos $5 en HeyGen", "Lo de las 3 insignias de la semana 1 (unos $7.60); quedan $2.88. Se carga por semana, solo lo de sus insignias.", "Kenneth", "2026-10-20", False),
+    ("k-dia1", "Seguidores de hoy en TikTok e Instagram", "Ya no hace falta que los pases: los leo de los perfiles públicos. 19-oct: TikTok 1.080, Instagram 578.", "Kenneth", "2026-10-20", True),
     ("k-perfil", "Poner nombre, bio y foto del perfil", "«Kenneth Picado · Dirijo una oficina de IAs». La bio está en ESTRATEGIA.md §7. La misma foto en las dos redes.", "Kenneth", "2026-10-20", False),
     ("k-lote", "Sí a aprobar en lote, con guion gráfico primero", "Siempre un guion gráfico barato primero; el contenido real, solo cuando lo aprobás.", "Kenneth", "2026-10-20", True),
     ("k-facebook", "Crear la página «Kenneth Picado» y conectarla en Buffer", "Es la tercera red gratis de Buffer. Avisame cuando esté y reviso qué canales ve.", "Kenneth", "2026-10-21", False),
@@ -232,7 +232,7 @@ CONEXIONES = {
 }
 
 SALDOS = {
-    "heygen": {"nombre": "HeyGen", "valor": "$2.88", "detalle": "No alcanza para las 3 insignias de la semana. Hace falta cargar unos $40.", "alerta": True, "orden": 1},
+    "heygen": {"nombre": "HeyGen", "valor": "$2.88", "detalle": "No alcanza para las 3 insignias de la semana 1 (unos $7.60). Faltan unos $5.", "alerta": True, "orden": 1},
     "elevenlabs": {"nombre": "ElevenLabs", "valor": "313 de 186.000", "detalle": "Caracteres del mes. Plan fijo de $22.", "alerta": False, "orden": 2},
     "higgsfield": {"nombre": "Higgsfield", "valor": "200 créditos", "detalle": "La prueba de gancho no gasta créditos.", "alerta": False, "orden": 3},
     "claude": {"nombre": "Claude", "valor": "Plan Max", "detalle": "Sin cobros extra.", "alerta": False, "orden": 4},
