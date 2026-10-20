@@ -29,6 +29,18 @@
    ],
    "orden": 0
   },
+  "efectos-v1": {
+   "titulo": "Efectos de motion graphics · los 7 de la semana 1",
+   "version": "v1 · carrete",
+   "estado": "por-aprobar",
+   "nota": "La biblioteca de efectos en el estilo de la marca: la curva del contador, la tipografía de golpe, el chat que toma la pantalla, el teléfono, la lista que aparece, los titulares que llueven y el recorte de papel. Cada uno dice dónde se usa. Datos y titulares de ejemplo; el recorte es una silueta hasta tener el del gemelo. El video de 29 s te lo mandé aparte.",
+   "comentario": "",
+   "paginas": [
+    "guiones/efectos-v1-1.webp",
+    "guiones/efectos-v1-2.webp"
+   ],
+   "orden": 1
+  },
   "002-v4": {
    "titulo": "002 · Si tu negocio no sobrevive a tus vacaciones",
    "version": "v4",

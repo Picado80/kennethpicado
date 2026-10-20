@@ -209,6 +209,11 @@ GUIONES = {
         "nota": "Las 21 piezas de volumen y las 3 insignias de la semana, una página por día, en bocetos de $0. Con tu sí se hace el contenido real; si algo no te gusta, decime qué pieza y qué cambiar.",
         "comentario": "", "paginas": [f"guiones/lote-s1-dia-{d}.webp" for d in range(1, 8)], "orden": 0,
     },
+    "efectos-v1": {
+        "titulo": "Efectos de motion graphics · los 7 de la semana 1", "version": "v1 · carrete", "estado": "por-aprobar",
+        "nota": "La biblioteca de efectos en el estilo de la marca: la curva del contador, la tipografía de golpe, el chat que toma la pantalla, el teléfono, la lista que aparece, los titulares que llueven y el recorte de papel. Cada uno dice dónde se usa. Datos y titulares de ejemplo; el recorte es una silueta hasta tener el del gemelo. El video de 29 s te lo mandé aparte.",
+        "comentario": "", "paginas": ["guiones/efectos-v1-1.webp", "guiones/efectos-v1-2.webp"], "orden": 1,
+    },
     "002-v4": {
         "titulo": "002 · Si tu negocio no sobrevive a tus vacaciones", "version": "v4", "estado": "por-aprobar",
         "nota": "Insignia del Día 3. El video existe; el gancho se rehace hasta pasar la vara de la estrategia (70 / 60 / 90) antes de pagar el gemelo.",

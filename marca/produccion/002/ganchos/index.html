@@ -1,0 +1,46 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><title>002 · ganchos para la prueba</title></head>
+<body><div id="escenario" style="position:absolute;left:0;top:0;width:1080px;height:1920px;overflow:hidden"></div>
+<script type="module">
+// Un gancho del 002 en tipografía de golpe, colgado de la voz. Se elige con ?h=h1 (h1, h2 o h3).
+// Con &cara=1 va sobre la cara (cara/*.jpg, sacada de cara.mp4) en vez del fondo liso: la letra arriba, sobre un degradé.
+// Render: node core/render/video.mjs <esta carpeta> --q h=h1 --size 1080x1920 --out .../h1.mp4
+import * as F from './efectos.js';
+const GANCHOS = {
+  h1: { texto: 'Si mañana te enfermás, ¿tu negocio abre?', oro: 'abre' },
+  h2: { texto: 'Andate una semana de vacaciones. ¿Qué le pasa a tu negocio?', oro: 'negocio' },
+  h3: { texto: 'Tu mejor empleado sos vos. Y ese es el problema.', oro: 'problema' },
+};
+const q = new URLSearchParams(location.search);
+const id = q.get('h') || 'h1', conCara = q.get('cara') === '1';
+const g = GANCHOS[id];
+await F.instalar();
+const esc = document.getElementById('escenario');
+let video = null;
+if (conCara) {
+  // la cara va cuadro por cuadro (cara/001.jpg…): el navegador sin ventana no avanza un <video> al saltar de tiempo
+  video = F.el('img', { position: 'absolute', inset: '0', width: '1080px', height: '1920px', objectFit: 'cover' }, esc);
+  F.el('div', { position: 'absolute', left: '0', right: '0', top: '0', height: '1000px',
+    background: 'linear-gradient(rgba(16,27,51,.92) 0%, rgba(16,27,51,.75) 55%, rgba(16,27,51,0) 100%)' }, esc);
+}
+const capa = F.el('div', { position: 'absolute', inset: '0' }, esc);
+const voz = (await (await fetch('palabras.json')).json())[id];   // [[palabra, inicio, fin], ...]
+const tiempos = voz.map(w => Math.max(0, w[1] - .05));
+const limpio = w => w.normalize('NFD').replace(/[^\p{L}]/gu, '').toLowerCase();
+const iOro = g.texto.split(' ').findIndex(w => limpio(w) === limpio(g.oro));
+const efecto = F.frase(capa, { texto: g.texto, oro: g.oro, tiempos, golpeEn: tiempos[iOro] + .05 });
+if (conCara) {
+  const raiz = capa.firstChild;
+  raiz.style.background = 'transparent'; raiz.style.alignItems = 'flex-start'; raiz.style.paddingTop = '260px';
+  raiz.firstChild.style.fontSize = '112px';
+}
+window.DUR = voz[voz.length - 1][2] + .35;
+window.render = async t => {
+  if (video) {
+    video.src = `cara/${String(Math.min(108, 1 + Math.round(t * 30))).padStart(3, '0')}.jpg`;
+    await video.decode();
+  }
+  efecto.pintar(t);
+};
+await window.render(0);
+window.READY = true;
+</script></body></html>
