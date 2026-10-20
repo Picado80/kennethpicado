@@ -60,3 +60,12 @@ carpeta `Mercadeo` de la PC. No son de esta marca, pero el proceso es el mismo.
 2. Repartir la idea de las vacaciones en 3 semanas (problema 2).
 3. La vara de las insignias (problema 5).
 4. El nuevo Día 1, cuando el lote esté aprobado (problema 6).
+
+## Las 3 reglas de Kenneth para lo que se paga (20-oct)
+
+1. **No se gasta dinero en Higgsfield hasta que todo esté 100 % medido y acomodado**, revisado 3 o 4 veces, para no
+   repetir nada por un mal prompt. (El Virality Predictor no cobra: verificado en el historial del 20-oct.)
+2. **Los detalles se afinan antes con Gemini, ChatGPT o MiniMax** (imágenes y video de prueba). Higgsfield (Seedance)
+   queda para la toma final. Hoy en la PC: llave de OpenAI (cobra por uso), MiniMax con el Token Plan (la generación de
+   imagen y video está sin verificar en TORRE; nunca el pago por uso) y Gemini sin llave: Gemini y Google Flow van a mano.
+3. **Siempre se puede usar B-roll** (de banco o del celular) para generar menos video y bajar el costo.
