@@ -49,7 +49,9 @@ export async function armar(escenario) {
     const rot = el('div', { position: 'absolute', left: '60px', top: '70px', right: '60px', zIndex: 50, fontSize: '24px',
       color: C.oro, lineHeight: '1.6' }, r, `Efecto ${i + 1} de ${ESCENAS.length} · ${e.nombre}<br><span style="color:${C.gris}">Se usa en: ${e.uso}</span>`);
     rot.className = 'mono';
-    const sello = el('div', { position: 'absolute', right: '60px', bottom: '70px', zIndex: 50, fontSize: '24px', color: C.oro }, r, 'Día 3 de 30');
+    // el sello del reto va arriba a la izquierda, debajo de las pestañas y lejos de los botones (SEGURA)
+    const sello = el('div', { position: 'absolute', left: `${F.SEGURA.izquierda}px`, top: `${F.SEGURA.arriba + 20}px`, zIndex: 50,
+      fontSize: '24px', color: C.oro }, r, 'Día 3 de 30');
     sello.className = 'mono';
     const a = { r, efecto, t0, dur: e.dur };
     t0 += e.dur;

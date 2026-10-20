@@ -8,6 +8,10 @@ export const C = {
   grafito: '#23262A', rojo: '#B22B3F', gris: '#9AA3B5', blanco: '#FFFFFF',
 };
 export const FW = 1080, FH = 1920;
+// Zonas que tapa la interfaz de TikTok y Reels en 1080×1920, en píxeles (la medida en píxeles es la fuente; ver la fila
+// 202 del índice de TORRE). Son aproximadas y conservadoras: arriba las pestañas, abajo el texto y la música, a la
+// derecha la columna de botones. Nada importante va ahí.
+export const SEGURA = { arriba: 220, abajo: 500, derecha: 160, izquierda: 60 };
 
 export const clamp = (x, a = 0, b = 1) => Math.min(b, Math.max(a, x));
 export const tramo = (t, a, b) => clamp((t - a) / (b - a));
@@ -77,14 +81,14 @@ export function curva(padre, o) {
   const sub = el('div', { position: 'absolute', left: '90px', top: '660px', font: '400 60px "Instrument Serif"' }, raiz,
     conOro(`Meta: ${miles(meta)} el Día 30`, miles(meta)));
   // la gráfica
-  const X0 = 90, Y0 = 820, W = 900, H = 820;
+  const X0 = 90, Y0 = 760, W = FW - 90 - SEGURA.derecha - 20, H = FH - SEGURA.abajo - 90 - 760;   // el eje y su rótulo, sobre la zona de abajo
   const g = svg('svg', { width: FW, height: FH, style: 'position:absolute;left:0;top:0' }, raiz);
   const y = val => Y0 + H - (val - base) / (meta - base) * H;
   const x = i => X0 + i / 29 * W;                           // 30 días a lo ancho
   svg('line', { x1: X0, y1: Y0 + H, x2: X0 + W, y2: Y0 + H, stroke: C.gris, 'stroke-width': 2, opacity: .5 }, g);
   const lineaMeta = svg('line', { x1: X0, y1: y(meta), x2: X0 + W, y2: y(meta), stroke: C.oro, 'stroke-width': 4,
     'stroke-dasharray': '18 14' }, g);
-  const rotMeta = el('div', { position: 'absolute', right: '90px', top: `${y(meta) - 52}px`, fontSize: '26px', color: C.oro }, raiz, 'Meta');
+  const rotMeta = el('div', { position: 'absolute', right: `${SEGURA.derecha + 20}px`, top: `${y(meta) - 52}px`, fontSize: '26px', color: C.oro }, raiz, 'Meta');
   rotMeta.className = 'mono';
   const d = v.map((val, i) => `${i ? 'L' : 'M'}${x(i).toFixed(1)},${y(val).toFixed(1)}`).join(' ');
   const camino = svg('path', { d, fill: 'none', stroke: C.vitela, 'stroke-width': 10, 'stroke-linecap': 'round', 'stroke-linejoin': 'round' }, g);
@@ -165,9 +169,9 @@ export function chat(padre, o) {
       panel.style.width = `${mezcla(PW, FW, k)}px`; panel.style.height = `${mezcla(PH, FH, k)}px`;
       panel.style.borderRadius = `${44 * (1 - k)}px`;
       panel.style.opacity = a; panel.style.transform = `scale(${mezcla(.94, 1, E.sale(a))})`;
-      cab.style.height = `${mezcla(150, 300, k)}px`; cab.style.paddingTop = `${mezcla(34, 190, k)}px`;
-      cuerpo.style.top = `${mezcla(150, 300, k)}px`;
-      cuerpo.style.padding = `${mezcla(40, 70, k)}px ${mezcla(40, 60, k)}px`;
+      cab.style.height = `${mezcla(150, SEGURA.arriba + 150, k)}px`; cab.style.paddingTop = `${mezcla(34, SEGURA.arriba + 30, k)}px`;
+      cuerpo.style.top = `${mezcla(150, SEGURA.arriba + 150, k)}px`;
+      cuerpo.style.padding = `${mezcla(40, 70, k)}px ${mezcla(40, SEGURA.derecha + 10, k)}px ${mezcla(40, SEGURA.abajo, k)}px ${mezcla(40, SEGURA.izquierda, k)}px`;
     },
   };
 }
@@ -200,11 +204,11 @@ export function telefono(padre, o) {
 export function lista(padre, o) {
   const claro = o.claro ?? true;
   const raiz = el('div', { position: 'absolute', inset: '0', background: claro ? C.vitela : C.tinta, color: claro ? C.tinta : C.vitela,
-    padding: '0 90px', boxSizing: 'border-box' }, padre);
-  const tit = el('div', { position: 'absolute', left: '90px', right: '90px', top: '360px', font: '400 108px/1.02 "Instrument Serif"' },
+    boxSizing: 'border-box' }, padre);
+  const tit = el('div', { position: 'absolute', left: '90px', right: `${SEGURA.derecha + 10}px`, top: '360px', font: '400 108px/1.02 "Instrument Serif"' },
     raiz, conOro(o.titulo, o.oro));
   const filas = o.items.map((texto, i) => {
-    const f = el('div', { position: 'absolute', left: '90px', right: '90px', top: `${820 + i * 190}px`, display: 'flex',
+    const f = el('div', { position: 'absolute', left: '90px', right: `${SEGURA.derecha + 10}px`, top: `${820 + i * 190}px`, display: 'flex',
       alignItems: 'center', gap: '40px', transformOrigin: '0 50%' }, raiz);
     const s = svg('svg', { width: 84, height: 84, viewBox: '0 0 84 84', style: 'flex:none' }, f);
     svg('rect', { x: 4, y: 4, width: 76, height: 76, rx: 14, fill: 'none', stroke: claro ? C.tinta : C.vitela, 'stroke-width': 6 }, s);
@@ -235,12 +239,12 @@ export function titulares(padre, o) {
   const mesa = el('div', { position: 'absolute', inset: '0', transformOrigin: '50% 50%' }, raiz);
   const r = azar(23), n = o.items.length;
   const tarjetas = o.items.map((it, i) => {
-    const c = el('div', { position: 'absolute', left: '110px', width: '860px', padding: '36px 44px', boxSizing: 'border-box',
+    const c = el('div', { position: 'absolute', left: `${SEGURA.izquierda + 20}px`, width: `${FW - SEGURA.izquierda - 20 - SEGURA.derecha - 20}px`, padding: '36px 44px', boxSizing: 'border-box',
       background: C.vitela, color: C.tinta, borderRadius: '10px', boxShadow: '0 24px 50px rgba(0,0,0,.4)' }, mesa);
     const m = el('div', { fontSize: '22px', color: C.rojo, marginBottom: '14px' }, c, `${it.fuente} · ${it.fecha}`);
     m.className = 'mono';
     el('div', { font: '400 56px/1.08 "Instrument Serif"' }, c, it.texto);
-    const fin = { y: 330 + i * (1180 / Math.max(1, n - 1)), rot: (r() - .5) * 8, x: (r() - .5) * 60 };
+    const fin = { y: SEGURA.arriba + 60 + i * ((FH - SEGURA.arriba - SEGURA.abajo - 260) / Math.max(1, n - 1)), rot: (r() - .5) * 6, x: (r() - .5) * 30 };
     const ang = r() * Math.PI * 2;
     const desde = { x: Math.cos(ang) * 1400, y: Math.sin(ang) * 1700, rot: (r() - .5) * 60 };
     return { c, fin, desde };
@@ -323,7 +327,7 @@ export function golpe(objetivo, o) {
 // o: { texto, oro, cada, golpeEn, tiempos: [segundo en que entra cada palabra] (opcional, para colgarla de la voz) }
 export function frase(padre, o) {
   const raiz = el('div', { position: 'absolute', inset: '0', background: C.tinta, color: C.vitela, display: 'flex', alignItems: 'center',
-    padding: '0 90px', boxSizing: 'border-box' }, padre);
+    padding: `0 ${SEGURA.derecha + 10}px 0 90px`, boxSizing: 'border-box' }, padre);
   const caja = el('div', { font: '400 128px/1.02 "Instrument Serif"', width: '100%' }, raiz);
   const palabras = o.texto.split(' ').map(w => {
     const s = el('span', { display: 'inline-block', marginRight: '.24em' }, caja, w);
