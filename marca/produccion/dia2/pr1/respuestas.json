@@ -1,0 +1,104 @@
+{
+  "MiniMax:vago": {
+    "pedido": "Haceme un menú.",
+    "texto": "¡Por supuesto! ¿Podrías darme más detalles? Para poder ayudarte mejor, necesito saber:\n\n1. **¿Para qué ocasión?** (desayuno, almuerzo, cena, evento especial, semana completa, etc.)\n2. **¿Para cuántas personas?**\n3. **¿Tenés alguna preferencia o restricción alimentaria?** (vegetariano, sin gluten, sin lácteos, etc.)\n4. **¿Qué tipo de cocina te gusta?** (argentina, italiana, mexicana, saludable, gourmet, etc.)\n\nMientras tanto, te dejo un **ejemplo de menú para una cena para 4 personas** inspirada en comida argentina:\n\n---\n\n## 🇦🇷 Menú: Cena Argentina para 4 personas\n\n### 🥗 Entrada\n- **Empanadas de carne** (12 unidades)\n- **Provoleta** con chimichurri\n\n### 🍽️ Plato principal\n- **Asado de tira** con ensalada mixta\n- **Papas soufflé**\n\n### 🍷 Acompañamiento\n- Vino tinto (Malbec)\n- Pan casero\n\n### 🍰 Postre\n- **Flan casero** con dulce de leche y crema\n\n### ☕ Bebidas sin alcohol\n- Agua con gas\n- Limonada de menta\n\n---\n\nContame qué necesitás y te armo un menú a medida 😊",
+    "segundos": 4.9,
+    "modelo": "MiniMax-M3",
+    "uso": {
+      "input_tokens": 40,
+      "output_tokens": 276,
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 128,
+      "service_tier": "standard"
+    }
+  },
+  "MiniMax:completo": {
+    "pedido": "Tengo una soda en San José, Costa Rica. Haceme el menú del almuerzo de la semana que viene: un casado distinto para cada día, de lunes a viernes, para la gente que trabaja en las oficinas de enfrente. Ningún plato puede pasar de 3.500 colones y tiene que salir en menos de 5 minutos. Ponelo listo para escribirlo en la pizarra.",
+    "texto": "# 🍛 MENÚ DE ALAMUERZO - SEMANA DEL ___ al ___\n\n**Soda [Nombre] · San José** · ₡3.500 · Listo en 5 min\n\n---\n\n**LUNES** →\nCasado de **arroz, frijoles molidos, bistec de res encebollado, ensalada de repollo con zanahoria y tortillas**\n\n**MARTES** →\nCasado de **arroz, frijoles enteros, pollo en salsa con chimichurri, plátano maduro frito y ensalada mixta**\n\n**MIÉRCOLES** →\nCasado de **arroz, frijoles negros, chuleta de cerdo a la plancha con chimichurri, papas fritas y ensalada de tomate y lechuga**\n\n**JUEVES** →\nCasado de **arroz, frijoles rojos, filete de pollo empanizado, tajarines a lo pobre y ensalada de repollo**\n\n**VIERNES** →\nCasado de **arroz, frijoles molidos, carne mechada de res, yuca con chimichurri y ensalada verde**\n\n---\n\nTodos los casados vienen con **limón, salsas y tortillas** 🥑🍋",
+    "segundos": 4.5,
+    "modelo": "MiniMax-M3",
+    "uso": {
+      "input_tokens": 115,
+      "output_tokens": 257,
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 128,
+      "service_tier": "standard"
+    }
+  },
+  "Kimi:vago": {
+    "pedido": "Haceme un menú.",
+    "texto": "¡Dale! Acá va un menú completo estilo argentino:\n\n**Entrada**\n- Provoleta a la parrilla con tomates confitados\n- Empanadas criollas de carne\n\n**Plato principal**\n- Ojo de bife a la parrilla con papas rústicas y ensalada mixta\n- *Alternativa:* Milanesa napolitana con puré de papas\n\n**Postre**\n- Flan casero con dulce de leche y crema\n- Ensalada de frutas de estación\n\n**Para beber**\n- Malbec / Agua con o sin gas\n\n---\n\n¿Te sirve así o querés que te arme algo distinto? Puedo hacer:\n\n- Un **menú semanal** (almuerzo y cena de lunes a viernes)\n- Opciones **vegetarianas, light o económicas**\n- Un menú para un **asado con amigos** o evento especial\n- Algo más **gourmet** o rápido para todos los días\n\nContame qué necesitás y lo ajusto. 🍽️",
+    "segundos": 40.6,
+    "modelo": "kimi-k3",
+    "uso": {
+      "input_tokens": 92,
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 0,
+      "output_tokens": 1250,
+      "cache_creation": {
+        "ephemeral_5m_input_tokens": 0,
+        "ephemeral_1h_input_tokens": 0
+      },
+      "output_tokens_details": {
+        "thinking_tokens": 977
+      },
+      "service_tier": "standard",
+      "inference_geo": "not_available",
+      "prompt_tokens": 92,
+      "cached_tokens": 0,
+      "completion_tokens": 1250,
+      "total_tokens": 1342
+    }
+  },
+  "DeepSeek:vago": {
+    "pedido": "Haceme un menú.",
+    "texto": "¡Dale! Te armo un **menú diario equilibrado de ejemplo**:\n\n**Desayuno**\n- Infusión con leche o café\n- 2 tostadas de pan integral con queso untable y tomate\n- 1 fruta\n\n**Almuerzo**\n- Pollo grillado con limón y hierbas\n- Arroz integral o puré de calabaza\n- Ensalada mixta con aceite de oliva\n\n**Merienda**\n- Yogur natural con avena y frutas\n- Agua o infusión\n\n**Cena**\n- Tarta de verdura y huevo\n- Ensalada de hojas verdes\n- 1 fruta o gelatina light\n\n¿Querés que te haga un menú **semanal**, **vegetariano**, **para restaurante**, **económico** o **para una ocasión especial**? Decime para qué lo necesitás y lo ajusto.",
+    "segundos": 4.6,
+    "modelo": "deepseek-flash",
+    "uso": {
+      "input_tokens": 37,
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 0,
+      "output_tokens": 631,
+      "service_tier": "standard"
+    }
+  },
+  "Kimi:completo": {
+    "pedido": "Tengo una soda en San José, Costa Rica. Haceme el menú del almuerzo de la semana que viene: un casado distinto para cada día, de lunes a viernes, para la gente que trabaja en las oficinas de enfrente. Ningún plato puede pasar de 3.500 colones y tiene que salir en menos de 5 minutos. Ponelo listo para escribirlo en la pizarra.",
+    "texto": "¡Con gusto! Acá lo tenés, listo para copiar tal cual a la pizarra:\n\n```\n══════════════════════════════\n        MENÚ DE LA SEMANA\n   ¡CASADOS LISTOS EN 5 MINUTOS!\n══════════════════════════════\n\nLUNES\nCasado con pollo en salsa . . . . ¢2.800\n\nMARTES\nCasado con bistec encebollado . . ¢3.000\n\nMIÉRCOLES\nCasado con chuleta a la plancha . ¢3.200\n\nJUEVES\nCasado con carne en salsa . . . . ¢3.300\n\nVIERNES\nCasado con filet de pescado . . . ¢3.500\n\nTodos incluyen: arroz, frijoles,\nensalada fresca, picadillo del día\ny maduro.\n\nFresco natural del día: +¢500\n══════════════════════════════\n```\n\n**Para cumplir los 5 minutos de verdad:**\n\n- **Pollo y carne en salsa:** los cocinás desde temprano y salen directo de la olla. Cero espera.\n- **Bistec y chuleta:** cortes delgados, marinados desde la mañana. En la plancha bien caliente tardan 3-4 minutos.\n- **Pescado:** filets delgados, ya enharinados y listos en la refri. 3-4 minutos en el sartén.\n- **Arroz, frijoles, picadillo y maduro:** todo listo desde las 11:00, solo se emplata.\n\n**Dos detalles pensados para la oficina de enfrente:**\n\n- El **pescado el viernes** no es casualidad: es tradición y la gente lo busca ese día, así justificás el precio más alto de la semana sin quejas.\n- Empezar el lunes a **¢2.800** engancha: la gente prueba barato el primer día y vuelve toda la semana.\n\nSi querés, te armo también una frase corta tipo \"combo ejecutivo\" (casado + fresco + café por ¢3.500) para atraer más volumen.",
+    "segundos": 79.8,
+    "modelo": "kimi-k3",
+    "uso": {
+      "input_tokens": 190,
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 0,
+      "output_tokens": 2619,
+      "cache_creation": {
+        "ephemeral_5m_input_tokens": 0,
+        "ephemeral_1h_input_tokens": 0
+      },
+      "output_tokens_details": {
+        "thinking_tokens": 2098
+      },
+      "service_tier": "standard",
+      "inference_geo": "not_available",
+      "prompt_tokens": 190,
+      "cached_tokens": 0,
+      "completion_tokens": 2619,
+      "total_tokens": 2809
+    }
+  },
+  "DeepSeek:completo": {
+    "pedido": "Tengo una soda en San José, Costa Rica. Haceme el menú del almuerzo de la semana que viene: un casado distinto para cada día, de lunes a viernes, para la gente que trabaja en las oficinas de enfrente. Ningún plato puede pasar de 3.500 colones y tiene que salir en menos de 5 minutos. Ponelo listo para escribirlo en la pizarra.",
+    "texto": "```text\n┌──────────────────────────────┐\n│     ALMUERZOS EXPRESS        │\n│        LUNES A VIERNES       │\n└──────────────────────────────┘\n\nLUNES\nCasado de pollo guisado\narroz · frijoles negros · ensalada · maduro\n₡3.500\n\nMARTES\nCasado de picadillo de carne con papa\narroz · frijoles rojos · ensalada verde · tortilla\n₡3.500\n\nMIÉRCOLES\nCasado de chuleta de cerdo a la plancha\narroz · frijoles tiernos · picadillo de chayote · ensalada de tomate\n₡3.500\n\nJUEVES\nCasado vegetariano de garbanzos guisados\narroz · frijoles negros · ensalada · maduro\n₡3.200\n\nVIERNES\nCasado de pollo a la plancha con limón\narroz · frijoles rojos · ensalada · tortilla\n₡3.500\n\n──────────────────────────────\nTODO CASADO: LISTO EN MENOS DE 5 MIN\nPRECIOS FINALES EN COLONES\n──────────────────────────────\n```",
+    "segundos": 25.9,
+    "modelo": "deepseek-flash",
+    "uso": {
+      "input_tokens": 125,
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 0,
+      "output_tokens": 4961,
+      "service_tier": "standard"
+    }
+  }
+}
