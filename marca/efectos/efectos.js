@@ -8,10 +8,12 @@ export const C = {
   grafito: '#23262A', rojo: '#B22B3F', gris: '#9AA3B5', blanco: '#FFFFFF',
 };
 export const FW = 1080, FH = 1920;
-// Zonas que tapa la interfaz de TikTok y Reels en 1080×1920, en píxeles (la medida en píxeles es la fuente; ver la fila
-// 202 del índice de TORRE). Son aproximadas y conservadoras: arriba las pestañas, abajo el texto y la música, a la
-// derecha la columna de botones. Nada importante va ahí.
-export const SEGURA = { arriba: 220, abajo: 500, derecha: 160, izquierda: 60 };
+// Zona segura común a TikTok, Instagram Reels, Facebook Reels y YouTube Shorts en 1080×1920, en píxeles (la medida en
+// píxeles es la fuente; ver la fila 202 del índice de TORRE). Sale de la guía de anuncios de cada red, la única publicada
+// (20-oct-2026, Kenneth: «que estén en la zona segura de todas las redes»): todo lo que se lee va de x 120 a 888 y de
+// y 288 a 1248. Además, de y 840 para abajo TikTok pone su columna de botones: ahí nada pasa de x 780.
+export const SEGURA = { arriba: 288, abajo: 672, derecha: 192, izquierda: 120 };
+export const BOTONES = { desde: 840, derecha: 300 };   // de y 840 para abajo, el margen derecho es 300 (hasta x 780)
 
 export const clamp = (x, a = 0, b = 1) => Math.min(b, Math.max(a, x));
 export const tramo = (t, a, b) => clamp((t - a) / (b - a));
@@ -327,7 +329,7 @@ export function golpe(objetivo, o) {
 // o: { texto, oro, cada, golpeEn, tiempos: [segundo en que entra cada palabra] (opcional, para colgarla de la voz) }
 export function frase(padre, o) {
   const raiz = el('div', { position: 'absolute', inset: '0', background: C.tinta, color: C.vitela, display: 'flex', alignItems: 'center',
-    padding: `0 ${SEGURA.derecha + 10}px 0 90px`, boxSizing: 'border-box' }, padre);
+    padding: `0 ${BOTONES.derecha}px 0 ${SEGURA.izquierda + 10}px`, boxSizing: 'border-box' }, padre);
   const caja = el('div', { font: '400 128px/1.02 "Instrument Serif"', width: '100%' }, raiz);
   const palabras = o.texto.split(' ').map(w => {
     const s = el('span', { display: 'inline-block', marginRight: '.24em' }, caja, w);

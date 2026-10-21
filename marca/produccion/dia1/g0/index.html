@@ -5,7 +5,7 @@
 // 30 por segundo); encima, el gancho en tipografía, subtítulos de una línea (27 caracteres como máximo), el sello con
 // «hecho con IA» y, al final, el contador del Día 1 (?n=). Todo dentro de la zona segura (SEGURA).
 import * as F from './efectos.js';
-const { el, C, E, tramo, miles, SEGURA } = F;
+const { el, C, E, tramo, miles, SEGURA, BOTONES } = F;
 const q = new URLSearchParams(location.search);
 const FONDO = q.get('fondo') || 'fondo', NF = +(q.get('nf') || 1), N = +(q.get('n') || 1659), DIA = +(q.get('dia') || 1);
 await F.instalar();
@@ -14,10 +14,10 @@ const W = T.palabras, off = T.offsets;
 const esc = document.getElementById('escenario');
 const img = el('img', { position: 'absolute', inset: '0', width: '1080px', height: '1920px', objectFit: 'cover' }, esc);
 // la cara del gemelo va arriba: los textos grandes van a la altura del pecho, sobre un degradé que no toca la cara
-const sombra = el('div', { position: 'absolute', left: '0', right: '0', top: '860px', height: '700px',
+const sombra = el('div', { position: 'absolute', left: '0', right: '0', top: '760px', height: '600px',
   background: 'linear-gradient(rgba(16,27,51,0) 0%, rgba(16,27,51,.82) 35%, rgba(16,27,51,.9) 100%)' }, esc);
-const L = SEGURA.izquierda + 30, R = SEGURA.derecha + 30;
-const sello = el('div', { position: 'absolute', left: `${L}px`, top: `${SEGURA.arriba + 26}px`, fontSize: '28px', color: C.oro,
+const L = SEGURA.izquierda + 10, R = BOTONES.derecha;   // los textos van debajo de y 840: hasta x 780
+const sello = el('div', { position: 'absolute', left: `${L}px`, top: `${SEGURA.arriba + 12}px`, fontSize: '28px', color: C.oro,
   background: 'rgba(16,27,51,.72)', padding: '10px 16px', borderRadius: '10px', zIndex: 10 }, esc, `Día ${DIA} de 30 · Hecho con IA`);
 sello.className = 'mono';
 
@@ -31,20 +31,21 @@ const capaTipo = tipo ? F.frase(el('div', { position: 'absolute', inset: '0', zI
 const raizTipo = tipo ? esc.lastChild : null;
 
 // 1 · el gancho, palabra por palabra con la voz
-const gancho = el('div', { position: 'absolute', left: `${L}px`, right: `${R}px`, top: '1010px', font: '400 108px/1.0 "Instrument Serif"', color: C.vitela }, esc);
+const gancho = el('div', { position: 'absolute', left: `${L}px`, right: `${R}px`, top: '880px', font: '400 92px/1.0 "Instrument Serif"', color: C.vitela }, esc);
 const wa = W.filter(w => w.tramo === 'a');
 const spans = wa.map(w => { const s = el('span', { display: 'inline-block', marginRight: '.24em' }, gancho, w.t);
   if (/grab/i.test(w.t) || /^no$/i.test(w.t)) { s.style.color = C.oro; s.style.fontStyle = 'italic'; } return s; });
 
 // 2 · el número de la meta, cuando se dice «1.000»
 const wMil = W.find(w => w.tramo === 'c' && /1\.?000|mil/i.test(w.t));
-const mil = el('div', { position: 'absolute', left: `${L}px`, right: `${R}px`, top: '1010px', color: C.vitela }, esc,
-  `<div style="font:400 150px/1 'Instrument Serif';color:${C.oro};font-style:italic">+1.000</div><div class="mono" style="font-size:30px;margin-top:18px">seguidores en 30 días</div>`);
+// los números van a la altura de la barba (la boca queda libre) y los subtítulos debajo, todo antes de y 1248
+const mil = el('div', { position: 'absolute', left: `${L}px`, right: `${R}px`, top: '950px', color: C.vitela }, esc,
+  `<div style="font:400 150px/1 'Instrument Serif';color:${C.oro};font-style:italic">+1.000</div><div class="mono" style="font-size:30px;margin-top:10px">seguidores en 30 días</div>`);
 
 // 3 · el contador del Día N, cuando dice «día uno»
 const wUno = W.find(w => w.tramo === 'd' && /uno/i.test(w.t));
-const cont = el('div', { position: 'absolute', left: `${L}px`, right: `${R}px`, top: '1000px', color: C.vitela }, esc,
-  `<div class="mono" style="font-size:28px;color:${C.gris}">Seguidores hoy</div><div style="font:900 200px/1 Archivo;letter-spacing:-.045em">${miles(N)}</div>`);
+const cont = el('div', { position: 'absolute', left: `${L}px`, right: `${R}px`, top: '950px', color: C.vitela }, esc,
+  `<div class="mono" style="font-size:28px;color:${C.gris}">Seguidores hoy</div><div style="font:900 160px/1 Archivo;letter-spacing:-.045em">${miles(N)}</div>`);
 
 // 4 · subtítulos de una línea, de hasta 27 caracteres, desde el segundo tramo
 const lineas = []; let cur = null;
@@ -54,8 +55,8 @@ for (const w of W.filter(w => w.tramo !== 'a')) {
   else { cur.txt += ' ' + t; cur.e = w.e; }
 }
 lineas.forEach((l, i) => { const sig = lineas[i + 1]; l.hasta = sig ? Math.min(sig.s, l.e + .6) : l.e + .8; });
-const sub = el('div', { position: 'absolute', left: `${L}px`, width: `${1080 - L - R}px`, top: '1310px', textAlign: 'center' }, esc);
-const pill = el('span', { display: 'inline-block', font: '600 50px/1.2 Archivo', color: C.vitela, background: 'rgba(16,27,51,.86)',
+const sub = el('div', { position: 'absolute', left: `${L}px`, width: `${1080 - L - R}px`, top: '1168px', textAlign: 'center' }, esc);
+const pill = el('span', { display: 'inline-block', font: '600 42px/1.2 Archivo', color: C.vitela, background: 'rgba(16,27,51,.86)',
   padding: '12px 26px', borderRadius: '14px' }, sub);
 
 window.DUR = T.total;

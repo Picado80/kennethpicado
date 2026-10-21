@@ -64,9 +64,13 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("plan")
     ap.add_argument("--enviar", action="store_true")
+    ap.add_argument("--solo", help="solo esta pieza (código), para probar una antes de mandar las demás")
     a = ap.parse_args()
     plan = json.loads(Path(a.plan).read_text(encoding="utf-8"))
-    piezas = plan["piezas"]
+    piezas = [p for p in plan["piezas"] if not a.solo or p["codigo"] == a.solo]
+    # Lo ya programado queda anotado al lado del plan y no se vuelve a mandar (así un segundo intento no duplica)
+    hecho_f = Path(a.plan).with_suffix(".enviado.json")
+    hecho = json.loads(hecho_f.read_text(encoding="utf-8")) if hecho_f.exists() else {}
     archivos = [RAIZ / p["archivo"] for p in piezas]
     for f in archivos:
         assert f.exists(), f"falta {f}"
@@ -80,9 +84,16 @@ def main():
     k = llave("BUFFER_API_KEY")
     for p, f in zip(piezas, archivos):
         for canal in p["canales"]:
+            clave = f"{p['codigo']}:{canal}"
+            if clave in hecho:
+                print(clave, "ya estaba programada:", hecho[clave]["id"])
+                continue
             r = gql(k, CREAR, {"input": entrada(p, canal, urls[f.name])})
             res = (r.get("data") or {}).get("createPost") or r
-            print(p["codigo"], canal, "->", res.get("post") or res.get("message") or r.get("errors"))
+            print(clave, "->", res.get("post") or res.get("message") or r.get("errors"))
+            if res.get("post"):
+                hecho[clave] = res["post"]
+                hecho_f.write_text(json.dumps(hecho, ensure_ascii=False, indent=2), encoding="utf-8")
     return 0
 
 

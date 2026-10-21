@@ -38,9 +38,9 @@ body { width: 1080px; background: #101B33; color: #E8E6DE; font-family: "Archivo
 .cinco .cuadro { width: 128px; }
 .cinco .lienzo { height: 228px; }
 .lienzo { position: relative; width: 100%; height: 284px; border: 1.5px dashed rgba(232,230,222,0.45); border-radius: 6px;
-  background: #16233F; padding: 50px 26px 76px 9px;  /* lo que dice va dentro de la zona segura (SEGURA) */ display: flex; flex-direction: column; justify-content: center; gap: 7px; overflow: hidden; }
+  background: #16233F; padding: 46px 46px 100px 20px;  /* lo que dice va dentro de la zona segura común (SEGURA) */ display: flex; flex-direction: column; justify-content: center; gap: 7px; overflow: hidden; }
 .lienzo.claro { background: #E8E6DE; color: #16233F; border-color: rgba(22,35,63,0.5); }
-.sello { position: absolute; top: 34px; left: 8px; font-size: 9px; color: #C9A45C; z-index: 2; }
+.sello { position: absolute; top: 44px; left: 20px; font-size: 9px; color: #C9A45C; z-index: 2; }
 .zona { position: absolute; background: repeating-linear-gradient(45deg, rgba(178,43,63,.16) 0 4px, transparent 4px 9px); pointer-events: none; }
 .lienzo.claro .sello { color: #8a6a2a; }
 .dice { font-family: "Instrument Serif", serif; font-size: 20px; line-height: 1.06; }
@@ -87,9 +87,12 @@ def cuadro(c, dia, claro):
             partes.append(f'<div class="dice" style="font-size:{tam}px">{con_oro(b["dice"], b.get("oro"))}</div>')
     fondo = " claro" if c.get("claro", claro) else ""
     # Zonas que tapa TikTok (las mismas de marca/efectos/efectos.js, SEGURA, a la escala del boceto): rayadas en rojo
-    zonas = ('<div class="zona" style="left:0;right:0;top:0;height:11.5%"></div>'
-             '<div class="zona" style="left:0;right:0;bottom:0;height:26%"></div>'
-             '<div class="zona" style="right:0;top:11.5%;bottom:26%;width:14.8%"></div>')
+    # Zona segura común a TikTok, Reels (Instagram y Facebook) y Shorts: x 120–888, y 288–1248, y de y 840 para abajo hasta x 780
+    zonas = ('<div class="zona" style="left:0;right:0;top:0;height:15%"></div>'
+             '<div class="zona" style="left:0;right:0;bottom:0;height:35%"></div>'
+             '<div class="zona" style="left:0;top:15%;bottom:35%;width:11.1%"></div>'
+             '<div class="zona" style="right:0;top:15%;bottom:56.25%;width:17.8%"></div>'
+             '<div class="zona" style="right:0;top:43.75%;bottom:35%;width:27.8%"></div>')
     return (f'<div class="cuadro"><div class="lienzo{fondo}">{zonas}<div class="sello mono">Día {dia} de 30</div>{"".join(partes)}</div>'
             f'<div class="t mono">{html.escape(c.get("t", ""))}</div></div>')
 

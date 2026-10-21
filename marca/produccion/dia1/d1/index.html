@@ -5,27 +5,27 @@
 // ?n=<seguidores de hoy, TikTok + Instagram>&dia=1&meta=<seguidores del Día 30>. Todo dentro de la zona segura (SEGURA).
 // Render: node core/render/video.mjs <esta carpeta> --q "n=1659&dia=1&meta=2659" --fps 30 --size 1080x1920 --out …
 import * as F from './efectos.js';
-const { el, C, E, tramo, mezcla, miles, SEGURA } = F;
+const { el, C, E, tramo, mezcla, miles, SEGURA, BOTONES } = F;
 const q = new URLSearchParams(location.search);
 const N = +(q.get('n') || 1659), DIA = +(q.get('dia') || 1), META = +(q.get('meta') || (N + 1000));
 await F.instalar();
 const r = el('div', { position: 'absolute', inset: '0', background: C.tinta, color: C.vitela }, document.getElementById('escenario'));
-const L = SEGURA.izquierda + 30, R = SEGURA.derecha + 30;
-const sello = el('div', { position: 'absolute', left: `${L}px`, top: `${SEGURA.arriba + 30}px`, fontSize: '30px', color: C.oro }, r, `Día ${DIA} de 30`);
+const L = SEGURA.izquierda + 10, R = SEGURA.derecha + 10, RB = BOTONES.derecha;   // RB: margen derecho de y 840 para abajo
+const sello = el('div', { position: 'absolute', left: `${L}px`, top: `${SEGURA.arriba + 12}px`, fontSize: '30px', color: C.oro }, r, `Día ${DIA} de 30`);
 sello.className = 'mono';
-const rot = el('div', { position: 'absolute', left: `${L}px`, top: '540px', fontSize: '28px', color: C.gris }, r, 'Seguidores hoy · TikTok + Instagram');
+const rot = el('div', { position: 'absolute', left: `${L}px`, top: '400px', fontSize: '28px', color: C.gris }, r, 'Seguidores hoy · TikTok + Instagram');
 rot.className = 'mono';
-const num = el('div', { position: 'absolute', left: `${L - 8}px`, top: '590px', font: '900 270px/1 Archivo', letterSpacing: '-.045em',
+const num = el('div', { position: 'absolute', left: `${L - 6}px`, top: '440px', font: '900 230px/1 Archivo', letterSpacing: '-.045em',
   fontVariantNumeric: 'tabular-nums' }, r, '0');
-const meta = el('div', { position: 'absolute', left: `${L}px`, right: `${R}px`, top: '900px', font: '400 84px/1.05 "Instrument Serif"' }, r,
+const meta = el('div', { position: 'absolute', left: `${L}px`, right: `${R}px`, top: '710px', font: '400 70px/1.05 "Instrument Serif"' }, r,
   F.conOro(`Meta: +${miles(META - N)} en 30 días`, `+${miles(META - N)}`));
-const ofi = el('div', { position: 'absolute', left: `${L}px`, right: `${R}px`, top: '1080px', font: '600 54px/1.2 Archivo' }, r,
-  'Lo consigue mi oficina de 7 IAs.');
-const yo = el('div', { position: 'absolute', left: `${L}px`, right: `${R}px`, top: '1160px', font: '400 76px/1.1 "Instrument Serif"' }, r,
+const ofi = el('div', { position: 'absolute', left: `${L}px`, right: `${RB}px`, top: '860px', font: '600 48px/1.2 Archivo' }, r,
+  'Lo consigue mi oficina<br>de 7 IAs.');
+const yo = el('div', { position: 'absolute', left: `${L}px`, right: `${RB}px`, top: '990px', font: '400 66px/1.1 "Instrument Serif"' }, r,
   'Yo solo apruebo.');
 // La razón para seguir, en pantalla (condición 4 del volumen «aceptable», ESTRATEGIA.md §4)
-const cta = el('div', { position: 'absolute', left: `${L}px`, right: `${R}px`, top: '1330px', fontSize: '30px', color: C.vitela }, r,
-  'Seguí la cuenta para ver si llega');
+const cta = el('div', { position: 'absolute', left: `${L}px`, right: `${RB}px`, top: '1110px', fontSize: '28px', lineHeight: '1.5', color: C.vitela }, r,
+  'Seguí la cuenta<br>para ver si llega');
 cta.className = 'mono';
 const DUR = 6.0;
 window.DUR = DUR;

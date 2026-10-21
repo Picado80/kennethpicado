@@ -66,7 +66,7 @@ export async function build() {
   }
 
   // 0 · el rótulo de la serie ya está escrito
-  const rot = T('IA sin jerga', 602, 372, { h: 38, w: 6 });
+  const rot = T('IA sin jerga', 640, 372, { h: 38, w: 6 });
   tl.draw(PRE, [rot, W.line(600, 392, 600 + rot.width + 6, 394, { w: 5 })], -6, { by: -4 });
 
   // 1 · la palabra
@@ -136,22 +136,24 @@ export async function build() {
   tl.strokes.forEach(baja); tl.erasers.forEach(e => baja(e.path));
 
   // ───────── cámara: nunca corta. [t, x, y, zoom, giro, curva]
-  const X = 1110, cy = (y, z) => y + DY + extra(y) + 150 / z;   // el centro útil del cuadro está 150 px arriba del centro real
-  const cam = new W.Camera([
+  // la zona segura común (x 120–888, y 288–1248) tiene su centro 192 px arriba del centro real; la pizarra se abre un 12 %
+  const ZK = .88, X = 1110, cy = (y, z) => y + DY + extra(y) + 192 / (z * ZK);
+  const alejar = ks => ks.map(k => { const c = [...k]; c[3] = c[3] * ZK; return c; });
+  const cam = new W.Camera(alejar([
     [0, X, cy(650, .93), .93],
     [tFlecha - .05, X, cy(655, 1), 1, 0, 's'],                 // empuje lento a la palabra
     [atE('a', 'dias') + .5, X, cy(1790, .95), .95, 0, 'io'],   // baja montada en la flecha
     [tVuelve - .12, X, cy(1798, .97), .97, 0, 'l'],            // quieta sobre el globo
     [tVuelve + .72, X, cy(2700, 1), 1, 0, 'io'],               // sigue la segunda flecha hasta la hoja
     [VO.b - .3, X, cy(2704, 1.02), 1.02, 0, 'l'],              // quieta: el borrador
-    [VO.b + .5, X, cy(2265, .68), .68, 0, 'io'],               // retrocede: pedido y resultado en un solo cuadro
-    [at('b', 'con') - .25, X, cy(2265, .72), .72, 0, 'l'],     // empuje lento mientras se completa
+    [VO.b + .5, X, cy(2250, .62), .62, 0, 'io'],               // retrocede: pedido y resultado en un solo cuadro
+    [at('b', 'con') - .25, X, cy(2250, .66), .66, 0, 'l'],   // el globo entero queda debajo del sello     // empuje lento mientras se completa
     [at('b', 'ia') - .05, X, cy(2040, 1), 1, 0, 'io'],         // a quien recibe el pedido
     [atE('b', 'igual') + .05, X, cy(2042, 1.04), 1.04, 0, 'l'],
     [at('b', 'prompt') - .1, X, 2030, .55, 0, 'i'],            // la pizarra entera, de paso
-    [at('b', 'prompt') + .5, X, cy(770, .88), .88, 0, 'o'],    // y de vuelta a la palabra (abierto: el círculo no entra bajo los botones de TikTok)
-    [END, X, cy(772, .9), .9, 0, 'l'],
-  ]);
+    [at('b', 'prompt') + .5, X + 35, cy(770, .8), .8, 0, 'o'],    // y de vuelta a la palabra (abierto: el círculo no entra bajo los botones de TikTok)
+    [END, X + 35, cy(772, .82), .82, 0, 'l'],                // un poco a la izquierda: «instrucciones» no llega a los botones
+  ]));
 
   const board = new W.Board(tl, { W: 2160, H: 4400, ghosts });
   board.objs.push({ draw: (ctx, t, c) => { for (const e of tl.erasers) W.drawEraser(ctx, { ...e, label: ROJO }, t, c); } });
@@ -167,12 +169,12 @@ export async function build() {
       const a = Math.min(1, (t - s.t0) / .12, (s.t1 - t) / .12);
       ctx.font = '46px AD';
       let rows = [s.text];
-      if (ctx.measureText(s.text).width > 840) {    // dos renglones parejos
+      if (ctx.measureText(s.text).width > 580) {    // dos renglones parejos (de y 840 para abajo, nada pasa de x 780)
         const ws = s.text.split(' '); let best = 1, bd = 1e9;
         for (let i = 1; i < ws.length; i++) { const d = Math.abs(ctx.measureText(ws.slice(0, i).join(' ')).width - ctx.measureText(ws.slice(i).join(' ')).width); if (d < bd) { bd = d; best = i; } }
         rows = [ws.slice(0, best).join(' '), ws.slice(best).join(' ')];
       }
-      const w = Math.max(...rows.map(r => ctx.measureText(r).width)) + 64, h = 74 + (rows.length - 1) * 56, y0 = 1395 - h, cx = 490;
+      const w = Math.max(...rows.map(r => ctx.measureText(r).width)) + 64, h = 74 + (rows.length - 1) * 56, y0 = 1240 - h, cx = 450;
       ctx.globalAlpha = a * .92; ctx.fillStyle = '#fdfcf8'; ctx.shadowColor = 'rgba(30,30,40,.18)'; ctx.shadowBlur = 18; ctx.shadowOffsetY = 4;
       ctx.beginPath(); ctx.roundRect(cx - w / 2, y0, w, h, 14); ctx.fill();
       ctx.shadowColor = 'transparent'; ctx.globalAlpha = a;
@@ -187,8 +189,8 @@ export async function build() {
     const txt = `DÍA ${q.get('dia')} DE 30 · VOZ CON IA`;   // la voz es el clon de Kenneth: se dice en pantalla además de la etiqueta de TikTok (CANON)
     ctx.font = '500 30px "JetBrains Mono"'; ctx.letterSpacing = '4px';
     const w = ctx.measureText(txt).width;
-    ctx.globalAlpha = .94; ctx.fillStyle = '#fdfcf8'; ctx.beginPath(); ctx.roundRect(72, 236, w + 36, 58, 12); ctx.fill();   // papel detrás, por si pasa un dibujo
-    ctx.globalAlpha = .9; ctx.fillStyle = TINTA; ctx.textAlign = 'left'; ctx.textBaseline = 'top'; ctx.fillText(txt, 90, 250);
+    ctx.globalAlpha = .94; ctx.fillStyle = '#fdfcf8'; ctx.beginPath(); ctx.roundRect(112, 286, w + 36, 58, 12); ctx.fill();   // papel detrás, por si pasa un dibujo
+    ctx.globalAlpha = .9; ctx.fillStyle = TINTA; ctx.textAlign = 'left'; ctx.textBaseline = 'top'; ctx.fillText(txt, 130, 300);
   } });
 
   // ───────── cuadro: desenfoque de movimiento cuando la cámara corre
