@@ -56,7 +56,16 @@ def main():
     req = {"type": "avatar", "avatar_id": cfg["look_gemelo_video"], "audio_asset_id": asset_id, "aspect_ratio": "9:16",
            "resolution": "1080p", "title": a.titulo, "engine": {"type": "avatar_iv"}, "expressiveness": "medium",
            "motion_prompt": cfg["motion_prompt"]}
-    v = json.loads(pedir(f"{API}/videos", k, json.dumps(req).encode(), {"Content-Type": "application/json"}))
+    try:
+        v = json.loads(pedir(f"{API}/videos", k, json.dumps(req).encode(), {"Content-Type": "application/json"}))
+    except SystemExit as e:
+        # algunos looks del gemelo son «video avatars» y no aceptan motion_prompt ni expressiveness: se pide sin ellos
+        if "motion_prompt" not in str(e) and "expressiveness" not in str(e):
+            raise
+        print("este look no acepta motion_prompt: se pide sin él", flush=True)
+        for clave in ("motion_prompt", "expressiveness"):
+            req.pop(clave, None)
+        v = json.loads(pedir(f"{API}/videos", k, json.dumps(req).encode(), {"Content-Type": "application/json"}))
     vid = (v.get("data") or v)["video_id"]
     print("pedido:", vid, flush=True)
     while True:
