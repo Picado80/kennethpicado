@@ -14,12 +14,12 @@ cuadro con Lemo-Opuscar (`node core/render/video.mjs <carpeta> --size 1080x1920`
   como ideas: son de pago y para After Effects, Premiere, DaVinci o Final Cut, que no usamos).
 - Todo lo que se lee va en la zona segura común de las 4 redes (`SEGURA` y `BOTONES`).
 
-## Lo que hay (26 efectos y la cámara)
+## Lo que hay (33 efectos y la cámara)
 
 | # | Efecto | Función | Para qué sirve |
 |---|---|---|---|
 | 1 | Snap zoom · tipografía de golpe | `frase`, `golpe` | Ganchos: la frase entra palabra por palabra y remata con un golpe de zoom |
-| 2 | Checklist pop | `lista` | Las 3 cosas para mañana; pasos |
+| 2 | Checklist pop | `lista` | Las 3 cosas para mañana; pasos (`tiempos` para que cada ítem salte con la voz) |
 | 3 | Growth curve | `curva` | El contador del reto |
 | 4 | Chat takeover | `chat` | Una conversación que crece hasta llenar la pantalla |
 | 5 | Phone mock-up | `telefono` | Mostrar respuestas o apps en un teléfono que entra girando |
@@ -44,6 +44,13 @@ cuadro con Lemo-Opuscar (`node core/render/video.mjs <carpeta> --size 1080x1920`
 | 24 | Fichas que saltan | `fichas` | Las 7 IAs, etiquetas |
 | 25 | Resaltador | `conResalte`, `resaltar` | Una palabra marcada en amarillo, con el trazo animado |
 | 26 | Cortes | `corte` (zoom, barrido, gira, golpe) | Entre escenas |
+| 27 | Brillo y temas de color | `brillo`, `TEMAS`, `usarTema` | Manchas de luz que flotan, un destello que cruza; 7 fondos con degradado (papel, cielo, menta, durazno, océano, noche, bosque) |
+| 28 | Burbuja que se escribe | `burbuja` | Los tres puntitos y el texto letra por letra (chats, pedidos) |
+| 29 | Barra de comentarios | `comentario` | El cierre que invita a comentar: cursor, texto que se escribe y el corazón |
+| 30 | Escenas encadenadas | `secuencia` | Cada escena con su tema y su corte (zoom, barrido, gira, golpe, portal, vidrio) |
+| 31 | Candado con PIN | `candado` | Se llenan los 4 puntos y el candado se cierra con un golpe: privacidad, seguridad |
+| 32 | Mapa con ruta | `ruta` | La línea avanza por las calles y cae el pin del destino |
+| 33 | Glitch | `glitch` | La imagen se corta, se corre y se separa en colores: «se escapó», una falla |
 | — | La cámara | `camara` | Acercar, alejar, ángulo en 3D, paneo, mano y desenfoque de movimiento |
 
 ## Por agregar (de a uno por video)
@@ -62,4 +69,3 @@ De prompt-motion.com y de Artlist:
 - **Transiciones de película y «sin señal»** (Artlist: Fast Film, No Signal).
 - **Títulos con pintura en aerosol, tinta que fluye, tipografía antigravedad** (Artlist).
 - **Lower thirds** con el nombre y el cargo para cuando hable alguien.
-- **Mapa con ruta** (estilo Vox) para historias de lugares.

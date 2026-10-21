@@ -245,7 +245,7 @@ export function telefono(padre, o) {
 }
 
 // ───────────────────────────────────────── 4 · la lista que aparece
-// o: { titulo, oro, items: [texto], inicio, cada, claro }
+// o: { titulo, oro, items: [texto], inicio, cada, tiempos (segundo de cada ítem, para ir con la voz), claro }
 export function lista(padre, o) {
   const claro = o.claro ?? true;
   const raiz = el('div', { position: 'absolute', inset: '0', background: claro ? K.fondo : C.tinta, color: claro ? K.tinta : C.vitela,
@@ -269,7 +269,7 @@ export function lista(padre, o) {
       const a = tramo(t, 0, .5);
       tit.style.opacity = a; tit.style.transform = `translateY(${(1 - E.sale(a)) * 40}px)`;
       filas.forEach(({ f, v }, i) => {
-        const ti = i0 + i * cada, p = tramo(t, ti, ti + .4);
+        const ti = o.tiempos?.[i] ?? i0 + i * cada, p = tramo(t, ti, ti + .4);
         f.style.opacity = p; f.style.transform = `translateX(${(Math.sin(t * 2 + i * 1.4) * 4 * p).toFixed(1)}px) scale(${mezcla(.6, 1, E.atras(p, 2.4))})`;
         v.setAttribute('stroke-dashoffset', 70 * (1 - E.sale(tramo(t, ti + .18, ti + .48))));
       });
@@ -1201,6 +1201,90 @@ export function comentario(padre, o) {
       const c = tramo(t, o.corazon ?? t0 + 1.5, (o.corazon ?? t0 + 1.5) + .3);
       corazon.style.transform = `scale(${(c > 0 ? mezcla(.3, 1, E.atras(c, 2.6)) : .8).toFixed(3)})`;
       corazon.style.color = c > 0 ? '#FF3B5C' : '#C9CDD6';
+    },
+  };
+}
+
+// ───────────────────────────────────────── 32 · el candado: se marcan los 4 puntos del PIN y el candado se cierra
+// o: { x, y, tam, t0 (cuando cierra), pin: true para los puntos, color }
+export function candado(padre, o) {
+  const tam = o.tam ?? 220, color = o.color ?? K.resalte;
+  const caja = el('div', { position: 'absolute', left: `${o.x ?? 430}px`, top: `${o.y ?? 560}px`, width: `${tam}px`, zIndex: 30 }, padre);
+  const g = svg('svg', { width: tam, height: tam * 1.25, viewBox: '0 0 100 125', style: 'overflow:visible;display:block' }, caja);
+  const arco = svg('path', { d: 'M28 58 V38 a22 22 0 0 1 44 0 V58', fill: 'none', stroke: color, 'stroke-width': 10, 'stroke-linecap': 'round' }, g);
+  svg('rect', { x: 14, y: 54, width: 72, height: 60, rx: 12, fill: color }, g);
+  svg('circle', { cx: 50, cy: 80, r: 8, fill: K.oscuro ? '#0B1B4D' : '#16233F' }, g);
+  svg('rect', { x: 46, y: 82, width: 8, height: 18, rx: 4, fill: K.oscuro ? '#0B1B4D' : '#16233F' }, g);
+  const puntos = o.pin === false ? [] : [0, 1, 2, 3].map(k => el('div', { position: 'absolute', top: `${tam * 1.25 + 30}px`, left: `${tam / 2 - 78 + k * 44}px`,
+    width: '26px', height: '26px', borderRadius: '50%', border: `3px solid ${color}`, boxSizing: 'border-box' }, caja));
+  const t0 = o.t0 ?? 1.2;
+  return {
+    pintar(t) {
+      const a = tramo(t, 0, .35);
+      caja.style.opacity = a; caja.style.transform = `scale(${mezcla(.7, 1, E.atras(a, 1.8)).toFixed(3)})`;
+      puntos.forEach((p, k) => { const on = t >= t0 - .8 + k * .18; p.style.background = on ? color : 'transparent';
+        p.style.transform = `scale(${on ? 1 + .3 * Math.max(0, 1 - (t - (t0 - .8 + k * .18)) / .15) : 1})`; });
+      const c = tramo(t, t0, t0 + .18);                     // el arco baja y cierra, con un rebote chico
+      arco.setAttribute('transform', `translate(0 ${(-12 * (1 - E.atras(c, 2.4))).toFixed(2)})`);
+      const golpe = t >= t0 ? Math.exp(-12 * (t - t0)) * Math.sin((t - t0) * 60) * 6 : 0;
+      g.style.transform = `translateX(${golpe.toFixed(1)}px)`;
+    },
+  };
+}
+
+// ───────────────────────────────────────── 33 · la ruta: un mapa simple, la línea se dibuja y cae el pin del destino
+// o: { t0 (empieza a dibujar), dur, destino (texto), d (el camino, en SVG), etiqueta: { dx, dy } (desde la punta), color }
+export function ruta(padre, o) {
+  const raiz = el('div', { position: 'absolute', inset: '0', overflow: 'hidden' }, padre);
+  const g = svg('svg', { width: FW, height: FH, style: 'position:absolute;left:0;top:0' }, raiz);
+  const r = azar(o.semilla ?? 12);
+  // calles: una cuadrícula torcida, tenue
+  for (let i = 0; i < 9; i++) {
+    const y = 360 + i * 110 + (r() - .5) * 30;
+    svg('path', { d: `M60 ${y} C 400 ${y + (r() - .5) * 80} 700 ${y + (r() - .5) * 80} 1020 ${y + (r() - .5) * 40}`, fill: 'none', stroke: K.tinta2, 'stroke-width': 6, opacity: .16 }, g);
+  }
+  for (let i = 0; i < 6; i++) {
+    const x = 160 + i * 150 + (r() - .5) * 30;
+    svg('path', { d: `M${x} 300 C ${x + (r() - .5) * 60} 700 ${x + (r() - .5) * 60} 1000 ${x + (r() - .5) * 40} 1300`, fill: 'none', stroke: K.tinta2, 'stroke-width': 6, opacity: .16 }, g);
+  }
+  const color = o.color ?? K.resalte;
+  const camino = svg('path', { d: o.d ?? 'M220 1120 C 260 980 420 960 470 860 S 560 640 700 600 S 760 470 690 430', fill: 'none', stroke: color,
+    'stroke-width': 14, 'stroke-linecap': 'round', 'stroke-linejoin': 'round' }, g);
+  const L = camino.getTotalLength(); camino.setAttribute('stroke-dasharray', `${L} ${L}`);
+  const ini = camino.getPointAtLength(0), fin = camino.getPointAtLength(L);
+  const desde = svg('circle', { cx: ini.x, cy: ini.y, r: 18, fill: K.blanco, stroke: color, 'stroke-width': 6 }, g);
+  const pin = el('div', { position: 'absolute', left: `${fin.x - 32}px`, top: `${fin.y - 84}px`, width: '64px', height: '84px', zIndex: 5 }, raiz,
+    `<svg width="64" height="84" viewBox="0 0 64 84"><path d="M32 82 C 32 82 4 50 4 30 a28 28 0 0 1 56 0 C 60 50 32 82 32 82 z" fill="${K.rojo}"/><circle cx="32" cy="30" r="11" fill="#fff"/></svg>`);
+  const etiqueta = el('div', { position: 'absolute', left: `${o.etiqueta ? fin.x + o.etiqueta.dx : Math.min(fin.x - 40, 560)}px`, top: `${fin.y + (o.etiqueta?.dy ?? -160)}px`, font: '700 32px/1.1 Archivo', color: '#16233F',
+    background: '#FFFFFF', border: `3px solid ${K.borde}`, borderRadius: '14px', padding: '10px 16px', whiteSpace: 'nowrap', zIndex: 6 }, raiz, o.destino ?? 'Destino');
+  const t0 = o.t0 ?? .4, d = o.dur ?? 1.6;
+  return {
+    pintar(t) {
+      const p = CURVAS.io(tramo(t, t0, t0 + d));
+      camino.setAttribute('stroke-dashoffset', (L * (1 - p)).toFixed(1));
+      desde.setAttribute('r', (18 + 6 * Math.abs(Math.sin(t * 4))).toFixed(1));
+      const c = tramo(t, t0 + d - .1, t0 + d + .3);
+      pin.style.opacity = c > 0 ? 1 : 0; pin.style.transform = `translateY(${((1 - E.atras(c, 2.2)) * -120).toFixed(1)}px)`;
+      const e = tramo(t, t0 + d + .2, t0 + d + .5);
+      etiqueta.style.opacity = e; etiqueta.style.transform = `scale(${mezcla(.7, 1, E.atras(e, 2)).toFixed(3)})`;
+    },
+  };
+}
+
+// ───────────────────────────────────────── 34 · el glitch: la imagen se corta, se corre y se separa en colores
+// Se aplica sobre un elemento ya armado, en una ventana corta. o: { t0, dur, fuerza }
+export function glitch(objetivo, o) {
+  const r = azar(o.semilla ?? 3);
+  const t0 = o.t0 ?? 0, d = o.dur ?? .5, f = o.fuerza ?? 1;
+  return {
+    pintar(t) {
+      if (t < t0 || t > t0 + d) { objetivo.style.filter = ''; objetivo.style.clipPath = ''; objetivo.style.translate = ''; return; }
+      const q = Math.floor(t * 24), rr = azar(q + 1);
+      const dx = (rr() - .5) * 40 * f, corte = rr() * 70, alto = 6 + rr() * 22;
+      objetivo.style.translate = `${dx.toFixed(1)}px 0`;
+      objetivo.style.filter = `drop-shadow(${(8 * f).toFixed(1)}px 0 0 rgba(255,0,80,.75)) drop-shadow(${(-8 * f).toFixed(1)}px 0 0 rgba(0,220,255,.75))`;
+      objetivo.style.clipPath = rr() > .5 ? `inset(${corte.toFixed(1)}% 0 ${(100 - corte - alto).toFixed(1)}% 0)` : '';
+      r();
     },
   };
 }
