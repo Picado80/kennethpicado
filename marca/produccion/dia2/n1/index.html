@@ -12,9 +12,10 @@ const L = SEGURA.izquierda + 10;
 const fondo = (r, bg) => el('div', { position: 'absolute', inset: '0', background: bg ?? K.fondo, color: K.tinta, overflow: 'hidden' }, r);
 const juntos = (...xs) => ({ pintar: t => xs.forEach(x => x.pintar(t)), listo: Promise.all(xs.map(x => x.listo).filter(Boolean)) });
 
+const BPM = 100;
 const S = F.secuencia(esc, [
   // 1 · 165 personas (papel Vox con grano, el número sube de a dos)
-  { dur: 3.4, tema: 'papel', hacer: r => {
+  { dur: 4.8, tema: 'papel', hacer: r => {
     const a = fondo(r);
     const blq = el('div', { position: 'absolute', left: '110px', top: '410px', width: '560px', height: '330px', background: K.resalte, clipPath: F.rasgado(5, 18, 2) }, a);
     const blq2 = el('div', { position: 'absolute', left: '520px', top: '700px', width: '310px', height: '170px', background: '#4D8BEE', clipPath: F.rasgado(8, 14, 2), transform: 'rotate(4deg)' }, a);
@@ -25,9 +26,9 @@ const S = F.secuencia(esc, [
       'personas, en 4 países.');
     const g = F.textura(a);
     return { pintar(t) { const q = F.aDos(t); rot.style.opacity = tramo(q, 0, .2);
-      num.textContent = miles(mezcla(0, 165, E.sale(tramo(q, .1, 1.3)))); blq.style.opacity = tramo(q, .2, .3); blq2.style.opacity = tramo(q, 1.1, 1.2);
-      num.style.transform = `rotate(${(q > 1.3 ? Math.sin(Math.floor(t * 6)) * .8 : 0).toFixed(2)}deg)`;
-      sub.style.opacity = tramo(q, 1.2, 1.4); g.pintar(t); } };
+      num.textContent = miles(mezcla(0, 165, E.sale(tramo(q, .4, 1.5)))); blq.style.opacity = tramo(q, .2, .3); blq2.style.opacity = tramo(q, 3.5, 3.6);
+      num.style.transform = `rotate(${(q > 1.5 ? Math.sin(Math.floor(t * 6)) * .8 : 0).toFixed(2)}deg)`;
+      sub.style.opacity = tramo(q, 2.6, 2.8); g.pintar(t); } };
   } },
   // 2 · hoy, 7 IAs (océano, con luz)
   { dur: 3.0, tema: 'oceano', entra: { tipo: 'zoom' }, hacer: r => {
@@ -38,50 +39,50 @@ const S = F.secuencia(esc, [
     return { pintar(t) { o.pintar(t); b.pintar(t); rot.style.opacity = tramo(t, 0, .2); } };
   } },
   // 3 · ¿qué cambió? (durazno)
-  { dur: 2.6, tema: 'durazno', entra: { tipo: 'barrido' }, hacer: r => juntos(F.frase(r, { texto: '¿Qué cambió? Casi nada.', oro: 'nada.', golpeEn: 1.5 }),
+  { dur: 2.4, tema: 'durazno', entra: { tipo: 'barrido' }, hacer: r => juntos(F.frase(r, { texto: '¿Qué cambió? Casi nada.', oro: 'nada.', golpeEn: 1.55, tiempos: [0, .18, 1.16, 1.5] }),
     F.brillo(r, { manchas: 2, z: 0, semilla: 31 })) },
   // 4 · las instrucciones (cielo): el chat con «Hacé un informe», tachado, y lo que hace falta
-  { dur: 7.0, tema: 'cielo', entra: { tipo: 'zoom' }, hacer: r => {
+  { dur: 9.6, tema: 'cielo', entra: { tipo: 'zoom' }, hacer: r => {
     const a = fondo(r), b = F.brillo(a, { manchas: 2, z: 0, semilla: 41 });
     const rot = el('div', { position: 'absolute', left: `${L}px`, top: '390px', fontSize: '28px', color: K.tinta2 }, a, 'A alguien nuevo no le decís:');
     rot.className = 'mono';
     const col = el('div', { position: 'absolute', left: `${L}px`, top: '446px', width: '650px' }, a);
-    const pedido = F.burbuja(col, { texto: 'Hacé un informe.', t0: .5, cps: 18, oscura: true, ancho: 520, estilo: { fontSize: '50px' } });
-    const raya = F.marcador(a, { trazos: [{ tipo: 'subraya', x: L + 20, y: 506, w: 470, h: 0, t0: 2.0, dur: .35, grosor: 12 }] });
+    const pedido = F.burbuja(col, { texto: 'Hacé un informe.', t0: 1.8, cps: 18, oscura: true, ancho: 520, estilo: { fontSize: '50px' } });
+    const raya = F.marcador(a, { trazos: [{ tipo: 'subraya', x: L + 20, y: 506, w: 470, h: 0, t0: 3.0, dur: .35, grosor: 12 }] });
     const items = ['+ para quién es', '+ qué tiene que decir', '+ para cuándo'].map((txt, i) => el('div', { position: 'absolute', left: `${L + 10}px`,
       top: `${640 + i * 96}px`, font: '68px/1 Marcador', color: K.rojo }, a, txt));
     const igual = el('div', { position: 'absolute', left: `${L}px`, right: `${BOTONES.derecha}px`, top: '960px', font: '400 88px/1.02 "Instrument Serif"',
       background: K.resalte, padding: '6px 22px 14px', borderRadius: '14px', display: 'inline-block', border: `3px solid ${K.borde}` }, a,
       F.conOro('Con una IA, igual.', 'igual.', K.oro));
-    const cam = F.camara(a, [{ t: 0, z: 1.05, ladea: 5 }, { t: 3, z: 1, curva: 's' }, { t: 7, z: 1.03, ladea: -3, curva: 'l' }]);
+    const cam = F.camara(a, [{ t: 0, z: 1.05, ladea: 5 }, { t: 3, z: 1, curva: 's' }, { t: 9.4, z: 1.04, ladea: -3, curva: 'l' }]);
     return { pintar(t) { b.pintar(t); cam.pintar(t); rot.style.opacity = tramo(t, 0, .3); pedido.pintar(t); raya.pintar(t);
-      items.forEach((e, i) => { const p = tramo(t, 2.5 + i * .55, 2.5 + i * .55 + .35); e.style.clipPath = `inset(-20px ${((1 - p) * 100).toFixed(1)}% -20px -10px)`;
+      items.forEach((e, i) => { const t0 = [3.9, 4.95, 6.15][i], p = tramo(t, t0, t0 + .35); e.style.clipPath = `inset(-20px ${((1 - p) * 100).toFixed(1)}% -20px -10px)`;
         e.style.transform = `translateY(${(Math.sin(t * 2.2 + i) * 3).toFixed(1)}px)`; });
-      const k = tramo(t, 5.0, 5.4); igual.style.opacity = k; igual.style.transform = `scale(${mezcla(1.3, 1, E.atras(k, 2)).toFixed(3)}) rotate(-1.5deg)`; } };
+      const k = tramo(t, 7.3, 7.7); igual.style.opacity = k; igual.style.transform = `scale(${mezcla(1.3, 1, E.atras(k, 2)).toFixed(3)}) rotate(-1.5deg)`; } };
   } },
   // 5 · repartir el trabajo y la regla (bosque, tarjetas de vidrio)
-  { dur: 6.0, tema: 'bosque', entra: { tipo: 'gira' }, hacer: r => {
+  { dur: 6.6, tema: 'bosque', entra: { tipo: 'gira' }, hacer: r => {
     const a = fondo(r), b = F.brillo(a, { manchas: 3, z: 0, semilla: 52 });
     const tarjeta = (titulo, quien, x, y, rot) => el('div', { position: 'absolute', left: `${x}px`, top: `${y}px`, width: '300px', padding: '26px 28px',
       boxSizing: 'border-box', background: K.blanco, color: K.tinta, borderRadius: '24px', boxShadow: `0 14px 0 -4px ${K.cielo}, 0 24px 50px ${K.sombra}`,
       transform: `rotate(${rot}deg)`, border: `2px solid ${K.borde}`, backdropFilter: 'blur(18px)' }, a,
       `<div class="mono" style="font-size:22px;color:${K.oro}">${quien}</div><div style="font:400 62px/1 'Instrument Serif';margin-top:10px">${titulo}</div>`);
     const t1 = tarjeta('Una escribe', 'MiniMax', 140, 400, -3), t2 = tarjeta('Otra revisa', 'Claude', 480, 560, 3);
-    const flecha = F.marcador(a, { trazos: [{ tipo: 'flecha', x: 330, y: 610, w: 140, h: 40, t0: 1.4, color: K.resalte }] });
+    const flecha = F.marcador(a, { trazos: [{ tipo: 'flecha', x: 330, y: 610, w: 140, h: 40, t0: 2.3, color: K.resalte }] });
     const regla = el('div', { position: 'absolute', left: `${L}px`, right: `${BOTONES.derecha}px`, top: '880px', font: '400 72px/1.04 "Instrument Serif"', color: K.tinta }, a,
       F.conOro('Nadie se revisa a sí mismo.', 'sí mismo.', K.oro));
-    const s = F.sello(a, { texto: 'Regla', x: 430, y: 1060, t0: 4.2, rot: -7, tam: 72, color: K.resalte });
+    const s = F.sello(a, { texto: 'Regla', x: 430, y: 1060, t0: 5.4, rot: -7, tam: 72, color: K.resalte });
     return { pintar(t) { b.pintar(t);
-      [t1, t2].forEach((c, i) => { const p = tramo(t, .1 + i * .5, .1 + i * .5 + .4); c.style.opacity = p;
+      [t1, t2].forEach((c, i) => { const p = tramo(t, 1.4 + i * 1.0, 1.4 + i * 1.0 + .4); c.style.opacity = p;
         c.style.translate = `0 ${((1 - E.atras(p, 1.6)) * 80 + Math.sin(t * 1.8 + i * 2) * 6 * p).toFixed(1)}px`; });
-      flecha.pintar(t); const k = E.sale(tramo(t, 2.8, 3.2)); regla.style.opacity = k; s.pintar(t); } };
+      flecha.pintar(t); const k = E.sale(tramo(t, 3.8, 4.2)); regla.style.opacity = k; s.pintar(t); } };
   } },
   // 6 · la tesis, en un documento (papel, Vox)
-  { dur: 5.4, tema: 'papel', entra: { tipo: 'vidrio', dur: .9 }, hacer: r => F.documento(r, { fuente: 'Lo que aprendí', titulo: 'No necesitás saber programar.', marcada: 4, t0: 1.8,
+  { dur: 5.4, tema: 'papel', entra: { tipo: 'vidrio', dur: .9 }, hacer: r => F.documento(r, { fuente: 'Lo que aprendí', titulo: 'No necesitás saber programar.', marcada: 4, t0: 3.7,
     lineas: ['Para trabajar con IA', 'no hace falta ser técnico.', 'Hace falta lo mismo que', 'con un equipo de personas:', 'saber dirigir.'] }) },
   // 7 · la portada (menta): DIRIGIR detrás de la cara
-  { dur: 3.4, tema: 'menta', entra: { tipo: 'portal', x: 504, y: 760, r: 40 }, hacer: r => {
-    const v = F.revista(r, { src: 'gemelo.jpg', cabecera: 'DIRIGIR', mayusculas: false,
+  { dur: 3.6, tema: 'menta', entra: { tipo: 'portal', x: 504, y: 760, r: 40 }, hacer: r => {
+    const v = F.revista(r, { src: 'gemelo.jpg', ventana: { x: 150, y: 372, w: 720, h: 870 }, cabecera: 'DIRIGIR', mayusculas: false,
       lineas: [{ n: '165', txt: 'personas' }, { n: '7', txt: 'IAs' }, { n: '0', txt: 'código' }] });
     return v;
   } },
@@ -91,7 +92,9 @@ const sello = el('div', { position: 'absolute', left: `${L}px`, top: `${SEGURA.a
 sello.className = 'mono';
 await S.listo;
 window.DUR = S.dur;
-window.render = t => S.pintar(t);
+// el cuadro late apenas en cada bombo (cada dos tiempos): los efectos van con el beat
+const PULSO = 60 / BPM * 2;
+window.render = t => { S.pintar(t); esc.style.transform = `scale(${(1 + .009 * Math.exp(-(t % PULSO) / .09)).toFixed(5)})`; };
 S.pintar(1);
 window.READY = true;
 </script></body></html>

@@ -13,10 +13,16 @@ const seg = await ImageSegmenter.createFromOptions(vision, {
   baseOptions: { modelAssetPath: 'https://storage.googleapis.com/mediapipe-models/image_segmenter/selfie_multiclass_256x256/float32/latest/selfie_multiclass_256x256.tflite' },
   outputCategoryMask: true, outputConfidenceMasks: true, runningMode: 'IMAGE' });
 const r = seg.segment(img);
-const fondo = r.confidenceMasks[0];                         // categoría 0: fondo
-const w = fondo.width, h = fondo.height, datos = fondo.getAsFloat32Array();
+// ?parte=cabeza: solo pelo (1) y cara (3), para dejar nítida la cabeza y desenfocar todo lo demás (modo retrato).
+// Sin parte: toda la persona (todo lo que no es fondo, categoría 0).
+const cabeza = q.get('parte') === 'cabeza';
+const m = r.confidenceMasks, w = m[0].width, h = m[0].height;
+const fondo = m[0].getAsFloat32Array(), pelo = m[1].getAsFloat32Array(), cara = m[3].getAsFloat32Array();
 const chico = new OffscreenCanvas(w, h), cc = chico.getContext('2d'), px = cc.createImageData(w, h);
-for (let i = 0; i < w * h; i++) { const v = Math.round(255 * Math.min(1, Math.max(0, (1 - datos[i] - .15) / .7))); px.data.set([v, v, v, 255], i * 4); }
+for (let i = 0; i < w * h; i++) {
+  const p = cabeza ? Math.min(1, pelo[i] + cara[i]) : 1 - fondo[i];
+  const v = Math.round(255 * Math.min(1, Math.max(0, (p - .15) / .7))); px.data.set([v, v, v, 255], i * 4);
+}
 cc.putImageData(px, 0, 0);
 const c = document.getElementById('c').getContext('2d');
 c.imageSmoothingEnabled = true; c.imageSmoothingQuality = 'high';

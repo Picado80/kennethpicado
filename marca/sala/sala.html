@@ -1,0 +1,128 @@
+<title>Sala de revisión</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;800&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@500&display=swap">
+<style>
+/* Sala de revisión de la marca: un contenido por vez, con su video, para qué es, lo que dice la voz y el texto de la
+   publicación. Los contenidos viven en la base de la página (colección «piezas»); Claude los carga sin republicar. */
+:root {
+  --bg: #0E1424; --bg2: #24345E; --carta: #172036; --fg: #EDEAE2; --suave: #A9B0C2; --oro: #FFD43B; --linea: rgba(237,234,226,.14);
+  --f-titulo: "Instrument Serif", Georgia, serif; --f-texto: "Archivo", system-ui, sans-serif; --f-dato: "JetBrains Mono", ui-monospace, monospace;
+  color-scheme: dark;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --bg: #0E1424; --bg2: #24345E; --carta: #172036; --fg: #EDEAE2; --suave: #A9B0C2; } }
+:root[data-theme="dark"] { --bg: #0E1424; --bg2: #24345E; --carta: #172036; --fg: #EDEAE2; --suave: #A9B0C2; }
+* { box-sizing: border-box; }
+body { margin: 0; background: radial-gradient(120% 80% at 20% 0%, var(--bg2), var(--bg) 60%); background-color: var(--bg); color: var(--fg);
+  font-family: var(--f-texto); min-height: 100vh; }
+.marco { max-width: 1060px; margin: 0 auto; padding: 22px 16px 40px; display: grid; grid-template-columns: minmax(0, 400px) minmax(0, 1fr); gap: 32px; align-items: start; }
+@media (max-width: 760px) { .marco { grid-template-columns: 1fr; gap: 20px; } }
+.pantalla { position: relative; }
+video { width: 100%; aspect-ratio: 9 / 16; display: block; border-radius: 18px; background: #000; box-shadow: 0 30px 80px rgba(0,0,0,.5); }
+.vacio { aspect-ratio: 9 / 16; border-radius: 18px; border: 1px dashed var(--linea); display: grid; place-items: center; color: var(--suave); text-align: center; padding: 24px; }
+.dato { font-family: var(--f-dato); font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: var(--suave); }
+.dias { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 10px; }
+.dias button { font: 500 11px var(--f-dato); letter-spacing: .1em; text-transform: uppercase; padding: 5px 10px; border-radius: 99px; }
+.dias button.si { border-color: var(--oro); color: var(--oro); }
+h1 { font-family: var(--f-titulo); font-weight: 400; font-size: clamp(34px, 5vw, 54px); line-height: 1.02; margin: 8px 0 12px; text-wrap: balance; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px 10px; margin-bottom: 14px; }
+.chip { font-family: var(--f-dato); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; border: 1px solid var(--linea); border-radius: 99px; padding: 3px 10px; color: var(--suave); }
+.chip.ia { border-color: var(--oro); color: var(--oro); }
+.caja { background: var(--carta); border: 1px solid var(--linea); border-radius: 12px; padding: 14px 16px; margin-top: 12px; font-size: 15px; line-height: 1.5; }
+.caja b { display: block; font-family: var(--f-dato); font-size: 11px; letter-spacing: .1em; text-transform: uppercase; font-weight: 500; color: var(--suave); margin-bottom: 6px; }
+.caja.para { border-color: rgba(255,212,59,.45); }
+.caja.para b { color: var(--oro); }
+.nav { display: flex; gap: 10px; margin-top: 18px; align-items: center; }
+button { font: 600 15px var(--f-texto); color: var(--fg); background: var(--carta); border: 1px solid var(--linea); border-radius: 10px; padding: 10px 16px; cursor: pointer; }
+button:hover { border-color: var(--oro); }
+.puntos { display: flex; gap: 8px; margin-left: auto; }
+.punto { width: 10px; height: 10px; border-radius: 50%; background: var(--linea); }
+.punto.si { background: var(--oro); }
+.efectos { margin: 0; padding: 0; list-style: none; display: grid; gap: 7px; }
+.efectos li { display: grid; grid-template-columns: 48px 1fr; gap: 10px; font-size: 14.5px; line-height: 1.4; }
+.efectos li span:first-child { font-family: var(--f-dato); font-size: 12px; color: var(--oro); padding-top: 2px; }
+.aviso { color: var(--suave); font-size: 13.5px; margin-top: 12px; }
+[hidden] { display: none !important; }
+</style>
+
+<div class="marco">
+  <div class="pantalla">
+    <video id="v" controls playsinline autoplay muted loop hidden></video>
+    <div class="vacio" id="vacio">Cargando los contenidos…</div>
+  </div>
+  <div>
+    <div class="dias" id="dias" hidden></div>
+    <div class="dato" id="cual">Sala de revisión</div>
+    <h1 id="titulo">Sala de revisión</h1>
+    <div class="chips" id="chips"></div>
+    <div class="caja para" id="cajaPara" hidden><b>Para qué es</b><span id="para"></span></div>
+    <div class="caja" id="cajaVoz" hidden><b>Lo que va a decir tu voz</b><span id="voz"></span></div>
+    <div class="caja" id="cajaEfectos" hidden><b>Los efectos, segundo a segundo</b><ul class="efectos" id="efectos"></ul></div>
+    <div class="caja" id="cajaTexto" hidden><b>Texto de la publicación</b><span id="texto"></span></div>
+    <p class="aviso" id="aviso"></p>
+    <div class="nav" id="nav" hidden><button id="ant">← Anterior</button><button id="sig">Siguiente →</button><div class="puntos" id="puntos"></div></div>
+  </div>
+</div>
+
+<script>
+const $ = id => document.getElementById(id);
+let piezas = [], dia = null, i = 0, conSonido = false;
+
+const deHash = () => { const m = location.hash.match(/^#d(\d+)-(\d+)$/); return m ? { dia: +m[1], i: +m[2] - 1 } : null; };
+
+function delDia() { return piezas.filter(p => p.dia === dia); }
+
+function mostrar() {
+  const lista = delDia();
+  if (!lista.length) {
+    $('v').hidden = true; $('vacio').hidden = false; $('vacio').textContent = 'Todavía no hay contenidos cargados.';
+    for (const id of ['cajaPara', 'cajaVoz', 'cajaTexto', 'nav']) $(id).hidden = true;
+    return;
+  }
+  i = (i + lista.length) % lista.length;
+  const x = lista[i];
+  const v = $('v');
+  if (v.dataset.src !== (x.video || '')) {
+    v.dataset.src = x.video || '';
+    v.src = x.video || ''; v.poster = x.portada || '';
+    v.muted = !conSonido; v.play().catch(() => {});
+  }
+  v.hidden = !x.video; $('vacio').hidden = !!x.video; if (!x.video) $('vacio').textContent = 'Este contenido todavía no tiene video.';
+  $('cual').textContent = [x.fecha ? `Día ${x.dia} · ${x.fecha}` : `Día ${x.dia}`, `${i + 1} de ${lista.length}`, x.hora].filter(Boolean).join(' · ');
+  $('titulo').textContent = x.titulo || '';
+  $('chips').replaceChildren(...[...(x.chips || []), ...(x.ia ? [x.ia] : [])].map(c => {
+    const s = document.createElement('span'); s.className = 'chip' + (c === x.ia ? ' ia' : ''); s.textContent = c; return s; }));
+  const caja = (id, val) => { $('caja' + id).hidden = !val; $(id.toLowerCase()).textContent = val || ''; };
+  caja('Para', x.para); caja('Voz', x.voz); caja('Texto', x.texto);
+  // los efectos: [«0:04», «Corte con zoom…»] o un texto suelto
+  const efs = Array.isArray(x.efectos) ? x.efectos : [];
+  $('cajaEfectos').hidden = !efs.length;
+  $('efectos').replaceChildren(...efs.map(e => { const li = document.createElement('li'); const a = document.createElement('span'), b = document.createElement('span');
+    const [seg, txt] = Array.isArray(e) ? e : ['', String(e)]; a.textContent = seg; b.textContent = txt; li.append(a, b); return li; }));
+  $('aviso').textContent = x.aviso || '';
+  $('nav').hidden = lista.length < 2 && piezas.length < 2;
+  $('puntos').replaceChildren(...lista.map((_, k) => { const d = document.createElement('div'); d.className = 'punto' + (k === i ? ' si' : ''); return d; }));
+  const dias = [...new Set(piezas.map(p => p.dia))];
+  $('dias').hidden = dias.length < 2;
+  $('dias').replaceChildren(...dias.map(d => { const b = document.createElement('button'); b.textContent = `Día ${d}`; b.className = d === dia ? 'si' : '';
+    b.onclick = () => { dia = d; i = 0; conSonido = true; mostrar(); }; return b; }));
+  history.replaceState(null, '', `#d${dia}-${i + 1}`);
+}
+
+$('ant').onclick = () => { i -= 1; conSonido = true; mostrar(); };
+$('sig').onclick = () => { i += 1; conSonido = true; mostrar(); };
+addEventListener('keydown', e => { if (e.key === 'ArrowRight') $('sig').click(); if (e.key === 'ArrowLeft') $('ant').click(); });
+
+(async () => {
+  const db = window.claude ? await window.claude.use('db') : null;
+  if (!db) { $('vacio').textContent = 'Abrí esta página desde claude.ai para ver los contenidos.'; return; }
+  db.collection('piezas').onSnapshot(snap => {
+    piezas = snap.docs.filter(d => d.exists).map(d => ({ id: d.id, ...d.data() }))
+      .sort((a, b) => (a.dia - b.dia) || ((a.orden ?? 0) - (b.orden ?? 0)));
+    const h = deHash();
+    const dias = [...new Set(piezas.map(p => p.dia))];
+    if (dia === null || !dias.includes(dia)) { dia = h && dias.includes(h.dia) ? h.dia : dias[dias.length - 1] ?? null; i = h && h.dia === dia ? h.i : 0; }
+    mostrar();
+  }, () => { $('vacio').textContent = 'No se pudieron leer los contenidos. Volvé a abrir la página.'; });
+})();
+</script>

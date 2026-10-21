@@ -666,58 +666,104 @@ export function dolly(padre, o) {
   };
 }
 
-// ───────────────────────────────────────── 17 · la portada de revista (magazine cover)
-// La tapa va nítida y un poco más chica que el cuadro; alrededor, la misma foto desenfocada y más oscura: así se lee como
-// una revista y no como letras encima de una cara (Kenneth, 21-oct). Al final se inclina como si estuviera sobre la mesa.
-// o: { src, cabecera, numero, lineas: [{ n, txt }], color (de la cabecera), mayusculas, persona (PNG recortado: la
-//      cabecera queda detrás de la cabeza), escala (tamaño de la tapa; .78 por omisión) }
-export function revista(padre, o) {
-  const raiz = el('div', { position: 'absolute', inset: '0', overflow: 'hidden', background: '#111', perspective: '2400px' }, padre);
-  const atras = el('img', { position: 'absolute', left: '-8%', top: '-8%', width: '116%', height: '116%', objectFit: 'cover',
-    filter: 'blur(34px) brightness(.6) saturate(1.2)' }, raiz);
-  atras.src = o.src;
-  const luz = brillo(raiz, { manchas: 2, z: 0, color: 'rgba(255,255,255,.35)' });
-  const tapa = el('div', { position: 'absolute', inset: '0', overflow: 'hidden', transformOrigin: '50% 47%', borderRadius: '6px',
-    boxShadow: '0 70px 140px rgba(0,0,0,.6), 0 0 0 3px rgba(255,255,255,.9)' }, raiz);
-  const foto = el('img', { position: 'absolute', inset: '0', width: '100%', height: '100%', objectFit: 'cover' }, tapa);
+// ───────────────────────────────────────── 17 · la portada de revista (magazine cover), en modo retrato
+// La cabeza nítida (o.nitida: el PNG que sale de marca/efectos/silueta con ?parte=cabeza) y todo lo demás de la foto muy
+// desenfocado y más oscuro, como un retrato de revista. La cabeza va a la derecha; la cabecera arriba y las líneas a la
+// izquierda, siempre sobre lo borroso: nada de letras encima de la cara (Kenneth, 21-oct).
+// o: { src, nitida, cabecera, numero, lineas: [{ n, txt }], color, mayusculas, desenfoque (px), caja: { x0, x1, y0, y1 }
+//      (dónde termina la cabeza en la foto: por omisión la del gemelo), escala }
+// Con o.ventana ({ x, y, w, h }): la foto no se mueve. El rectángulo es la tapa, con borde rojo como TIME; adentro todo
+// nítido y afuera la misma imagen desenfocada. Al principio se ve la foto entera nítida; después aparece el borde y lo de
+// afuera se desenfoca.
+function revistaVentana(padre, o) {
+  const V = o.ventana, rojo = o.color ?? '#E3141B';
+  const raiz = el('div', { position: 'absolute', inset: '0', overflow: 'hidden', background: '#000' }, padre);
+  const fuera = el('img', { position: 'absolute', inset: '0', width: '100%', height: '100%', objectFit: 'cover' }, raiz);
+  fuera.src = o.src;
+  const dentro = el('div', { position: 'absolute', inset: '0', clipPath: `inset(${V.y}px ${FW - V.x - V.w}px ${FH - V.y - V.h}px ${V.x}px)` }, raiz);
+  const foto = el('img', { position: 'absolute', inset: '0', width: '100%', height: '100%', objectFit: 'cover' }, dentro);
   foto.src = o.src;
-  el('div', { position: 'absolute', inset: '0', background: 'linear-gradient(rgba(0,0,0,.08), rgba(0,0,0,0) 30%, rgba(0,0,0,0) 45%, rgba(10,14,24,.62) 100%)' }, tapa);
+  const borde = el('div', { position: 'absolute', left: `${V.x}px`, top: `${V.y}px`, width: `${V.w}px`, height: `${V.h}px`, boxSizing: 'border-box',
+    border: `${o.grosor ?? 18}px solid ${rojo}`, boxShadow: '0 30px 90px rgba(0,0,0,.55)' }, raiz);
+  const fecha = el('div', { position: 'absolute', left: `${V.x + 34}px`, top: `${V.y + 30}px`, fontSize: '20px', color: '#FFFFFF', textShadow: '0 2px 8px rgba(0,0,0,.6)' }, raiz,
+    o.numero ?? 'N.º 1 · Octubre 2026');
+  fecha.className = 'mono';
+  const cab = el('div', { position: 'absolute', left: `${V.x + 18}px`, width: `${V.w - 36}px`, top: `${V.y + 56}px`, textAlign: 'center',
+    font: `400 ${o.tamCabecera ?? 196}px/.86 "Instrument Serif"`, letterSpacing: '-.02em', color: rojo, whiteSpace: 'nowrap', textShadow: '0 6px 20px rgba(0,0,0,.25)' }, raiz);
+  const letras = [...(o.cabecera ?? 'NEGOCIOS')].map(x => el('span', { display: 'inline-block' }, cab, x));
+  // las líneas, apiladas en una columna angosta a la izquierda (el número arriba, la palabra abajo): no tocan la cara
+  const lineas = (o.lineas ?? []).map((l, i) => el('div', { position: 'absolute', left: `${V.x + 34}px`, top: `${V.y + V.h - 330 + i * 100}px`, color: '#FFFFFF',
+    textShadow: '0 3px 14px rgba(0,0,0,.75)', lineHeight: '1' }, raiz,
+    `<div style="font:400 62px/.9 'Instrument Serif';color:#FFD43B;font-style:italic">${l.n}</div>` +
+    `<div style="font:800 28px/1.05 Archivo;text-transform:${o.mayusculas === false ? 'none' : 'uppercase'}">${l.txt}</div>`));
+  return {
+    listo: Promise.all([fuera, foto].map(x => x.decode().catch(() => {}))),
+    pintar(t) {
+      const b = E.sale(tramo(t, .2, .8));                                  // lo de afuera se desenfoca
+      fuera.style.filter = `blur(${(30 * b).toFixed(1)}px) brightness(${mezcla(1, .72, b).toFixed(3)})`;
+      const k = tramo(t, .15, .55);                                         // el borde aparece y se asienta
+      borde.style.opacity = k; borde.style.transform = `scale(${mezcla(1.08, 1, E.atras(k, 1.4)).toFixed(4)})`;
+      foto.style.transform = fuera.style.transform = `scale(${mezcla(1, 1.03, tramo(t, 0, 3.6)).toFixed(4)})`;
+      fecha.style.opacity = tramo(t, .6, .9);
+      letras.forEach((x, i) => { const p = tramo(t, .45 + i * .05, .45 + i * .05 + .35);
+        x.style.opacity = p; x.style.transform = `translateY(${((1 - E.atras(p, 1.8)) * -80).toFixed(1)}px)`; });
+      lineas.forEach((f, i) => { const p = tramo(t, 1.0 + i * .2, 1.4 + i * .2);
+        f.style.opacity = p; f.style.transform = `translateX(${((1 - E.sale(p)) * -60).toFixed(1)}px)`; });
+    },
+  };
+}
+
+export function revista(padre, o) {
+  if (o.ventana) return revistaVentana(padre, o);
+  const raiz = el('div', { position: 'absolute', inset: '0', overflow: 'hidden', background: '#0B0F18' }, padre);
+  const d = o.desenfoque ?? 30;
+  // 1 · la foto entera, desenfocada y oscura, más grande: tapa todo el cuadro
+  const ext = el('img', { position: 'absolute', left: '-10%', top: '-10%', width: '120%', height: '120%', objectFit: 'cover',
+    filter: `blur(${d * 1.7}px) brightness(.55) saturate(1.15)` }, raiz);
+  ext.src = o.src;
+  // 2 · la foto, más chica y corrida a la derecha: la versión borrosa (con los bordes fundidos) y la cabeza nítida encima
+  const c = o.caja ?? { x0: 120, x1: 810, y0: 180, y1: 1290 }, sc = o.escala ?? .75;
+  const tx = 928 - c.x1 * sc, ty = (o.arriba ?? 572) - c.y0 * sc;
+  const grupo = el('div', { position: 'absolute', left: '0', top: '0', width: `${FW}px`, height: `${FH}px`, transformOrigin: '0 0' }, raiz);
+  const borrosa = el('img', { position: 'absolute', inset: '0', width: '100%', height: '100%', objectFit: 'cover',
+    filter: `blur(${(d / sc).toFixed(1)}px) brightness(.62) saturate(1.15)`,
+    WebkitMaskImage: 'linear-gradient(90deg, transparent 0, #000 18%), linear-gradient(180deg, transparent 0, #000 14%)', WebkitMaskComposite: 'source-in' }, grupo);
+  borrosa.src = o.src;
+  const nitida = el('img', { position: 'absolute', inset: '0', width: '100%', height: '100%', objectFit: 'cover' }, grupo);
+  nitida.src = o.nitida ?? o.src;
+  const luz = brillo(raiz, { manchas: 2, z: 0, color: 'rgba(255,255,255,.18)' });
   const L = SEGURA.izquierda + 10;
-  const cab = el('div', { position: 'absolute', left: `${L - 6}px`, right: `${SEGURA.derecha}px`, top: '300px', font: '400 236px/.9 "Instrument Serif"',
-    letterSpacing: '-.03em', color: o.color ?? K.rojo, whiteSpace: 'nowrap', textShadow: '0 6px 24px rgba(0,0,0,.25)' }, tapa);
-  const letras = [...(o.cabecera ?? 'NEGOCIOS')].map(c => el('span', { display: 'inline-block' }, cab, c));
-  const yo = o.persona ? el('img', { position: 'absolute', inset: '0', width: '100%', height: '100%', objectFit: 'cover' }, tapa) : null;
-  if (yo) yo.src = o.persona;
-  const num = el('div', { position: 'absolute', left: `${L}px`, top: '520px', fontSize: '26px', color: '#16233F' }, tapa, o.numero ?? 'N.º 1 · Octubre 2026');
+  // 3 · la cabecera, arriba, sobre lo borroso
+  const cab = el('div', { position: 'absolute', left: `${L - 6}px`, right: `${SEGURA.derecha}px`, top: '364px', font: '400 186px/.88 "Instrument Serif"',
+    letterSpacing: '-.03em', color: o.color ?? '#FF4D5E', whiteSpace: 'nowrap', textShadow: '0 8px 30px rgba(0,0,0,.35)' }, raiz);
+  const letras = [...(o.cabecera ?? 'NEGOCIOS')].map(x => el('span', { display: 'inline-block' }, cab, x));
+  const num = el('div', { position: 'absolute', left: `${L}px`, top: '540px', fontSize: '24px', color: '#FFFFFF', opacity: .9 }, raiz, o.numero ?? 'N.º 1 · Octubre 2026');
   num.className = 'mono';
+  // 4 · las líneas, en una columna a la izquierda de la cabeza
   const lineas = (o.lineas ?? []).map((l, i) => {
-    const f = el('div', { position: 'absolute', left: `${L}px`, right: `${BOTONES.derecha + 40}px`, top: `${850 + i * 132}px`, color: '#FFFFFF' }, tapa,
-      `<span style="font:400 92px/1 'Instrument Serif';color:#FFD43B;font-style:italic;margin-right:16px">${l.n}</span>` +
-      `<span style="font:800 48px/1.1 Archivo;text-transform:${o.mayusculas === false ? 'none' : 'uppercase'};letter-spacing:.01em">${l.txt}</span>`);
-    f.style.textShadow = '0 4px 18px rgba(0,0,0,.45)';
+    const f = el('div', { position: 'absolute', left: `${L}px`, width: `${Math.max(200, c.x0 * sc + tx - L - 20)}px`, top: `${640 + i * 150}px`, color: '#FFFFFF',
+      textShadow: '0 4px 18px rgba(0,0,0,.5)' }, raiz,
+      `<div style="font:400 96px/.95 'Instrument Serif';color:#FFD43B;font-style:italic">${l.n}</div>` +
+      `<div style="font:800 40px/1.05 Archivo;text-transform:${o.mayusculas === false ? 'none' : 'uppercase'}">${l.txt}</div>`);
     return f;
   });
-  const codigo = el('div', { position: 'absolute', left: '640px', top: '1130px', width: '128px', height: '84px', background: '#FFFFFF', padding: '8px',
-    boxSizing: 'border-box', display: 'flex', gap: '2px', alignItems: 'stretch' }, tapa);
-  const r = azar(5); for (let i = 0; i < 26; i++) el('div', { flex: 'none', width: `${1 + Math.floor(r() * 3)}px`, background: '#111' }, codigo);
-  const s0 = o.escala ?? .78;
+  const codigo = el('div', { position: 'absolute', left: `${L}px`, top: '1120px', width: '128px', height: '84px', background: '#FFFFFF', padding: '8px',
+    boxSizing: 'border-box', display: 'flex', gap: '2px', alignItems: 'stretch' }, raiz);
+  const r = azar(5); for (let k = 0; k < 26; k++) el('div', { flex: 'none', width: `${1 + Math.floor(r() * 3)}px`, background: '#111' }, codigo);
   return {
-    listo: Promise.all([atras, foto, yo].filter(Boolean).map(x => x.decode().catch(() => {}))),
+    listo: Promise.all([ext, borrosa, nitida].map(x => x.decode().catch(() => {}))),
     pintar(t) {
-      atras.style.transform = `scale(${mezcla(1, 1.08, tramo(t, 0, 3.6)).toFixed(4)})`;
+      const a = E.sale(tramo(t, 0, 1.4));
+      ext.style.transform = `scale(${mezcla(1.08, 1, a).toFixed(4)})`;
+      const z = sc * mezcla(1.06, 1, a) + .015 * tramo(t, 1.4, 3.6);   // entra un poco más cerca y sigue acercándose despacio
+      grupo.style.transform = `translate(${(tx - (z - sc) * (c.x0 + c.x1) / 2).toFixed(1)}px, ${(ty - (z - sc) * c.y0).toFixed(1)}px) scale(${z.toFixed(4)})`;
       luz.pintar(t);
-      foto.style.transform = `scale(${mezcla(1.1, 1.0, E.sale(tramo(t, 0, 1.2))).toFixed(4)})`;
-      if (yo) yo.style.transform = foto.style.transform;
-      letras.forEach((x, i) => { const p = tramo(t, .15 + i * .05, .15 + i * .05 + .35);
+      letras.forEach((x, k) => { const p = tramo(t, .15 + k * .05, .15 + k * .05 + .35);
         x.style.opacity = p; x.style.transform = `translateY(${((1 - E.atras(p, 1.8)) * -90).toFixed(1)}px)`; });
-      num.style.opacity = tramo(t, .6, .9);
-      lineas.forEach((f, i) => { const p = tramo(t, .8 + i * .18, .8 + i * .18 + .4);
-        f.style.opacity = p; f.style.transform = `translateX(${((1 - E.sale(p)) * -80).toFixed(1)}px)`; });
-      codigo.style.opacity = tramo(t, 1.5, 1.7);
-      // entra un poco girada y se acomoda; al final se inclina como sobre una mesa
-      const a = E.sale(tramo(t, 0, .7)), k = CURVAS.io(tramo(t, 2.3, 3.4));
-      tapa.style.transform = `translateY(${((1 - a) * 90).toFixed(1)}px) scale(${(mezcla(.9, s0, a) - .05 * k).toFixed(4)}) ` +
-        `rotateY(${(-14 * k).toFixed(2)}deg) rotateX(${(6 * k).toFixed(2)}deg) rotateZ(${(mezcla(-4, -1, a) - 1.5 * k).toFixed(2)}deg)`;
+      num.style.opacity = .9 * tramo(t, .6, .9);
+      lineas.forEach((f, k) => { const p = tramo(t, .8 + k * .2, .8 + k * .2 + .4);
+        f.style.opacity = p; f.style.transform = `translateX(${((1 - E.sale(p)) * -70).toFixed(1)}px)`; });
+      codigo.style.opacity = tramo(t, 1.6, 1.8);
     },
   };
 }
