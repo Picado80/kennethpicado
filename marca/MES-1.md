@@ -181,24 +181,24 @@ Lo mismo está en la consola, como calendario. Se genera con `python marca/conso
 
 | Día | Fecha | V1 · el reto | V2 | V3 | Insignia |
 |---|---|---|---|---|---|
-| 1 | Mié 21 oct | `D1` El contador en el número real | `J1` «Prompt» son las instrucciones que le di | `P1` Si tu negocio no sobrevive a tus vacaciones, no es un negocio | `G0` «Kenneth no grabó este video»: el gemelo se presenta como IA y lanza el reto (Día 1) |
+| 1 | Mié 21 oct | `D1` El contador en el número real | `J1` «Prompt» son las instrucciones que le di | `P1` Si tu negocio no sobrevive a tus vacaciones, no es un negocio | `G0` «Kenneth no grabó este video»: el gemelo se presenta y lanza el reto (Día 1) |
 | 2 | Jue 22 oct | `D2` El plan de la oficina: quién hace qué | `PR1` 3 IAs de la oficina: el mismo pedido vago y después completo | `002b` Si tu cafetería recién abierta no sobrevive a tus vacaciones | — |
 | 3 | Vie 23 oct | `D3` El contador y lo que falló | `RN1` Las 3 noticias de IA de la semana | `L1` La reunión de los lunes en 15 minutos | `002` Si tu negocio no sobrevive a tus vacaciones (con el gancho nuevo) |
-| 4 | Sáb 24 oct | `D4` El comentario que se va a probar | `F1A` Un pit stop dura 2 segundos porque nadie es indispensable | `002c` Si tu restaurante recién abierto no sobrevive a tus vacaciones | — |
+| 4 | Sáb 24 oct | `D4` El comentario que se va a probar | `F1A` Un pit stop dura 2 segundos porque nadie es indispensable | `N1` 165 personas, 4 países | — |
 | 5 | Dom 25 oct | `D5` Resumen de los primeros 5 días | `PER1` Video personal | `Q1` ¿Le darías la caja a una IA? Sí o no. | `001` Mi empleado se calificó su propio examen |
-| 6 | Lun 26 oct | `D6` Lo que decidió la oficina el lunes | `R2` Un sistema que te necesita es una dependencia | `002d` Si acabás de emprender y tu negocio no sobrevive a tus vacaciones | — |
+| 6 | Lun 26 oct | `D6` Lo que decidió la oficina el lunes | `R5` Nada se hace dos veces | `Q2` ¿Qué tarea de tu negocio le darías mañana a una IA? | — |
 | 7 | Mar 27 oct | `D7` El contador | `NS1` La noticia de la semana, sin jerga | `P2` Tu mejor empleado es el que menos debería hacer | — |
 | 8 | Mié 28 oct | `D8` El contador: una semana | `J2` Un «agente» es un empleado de IA | `N2` 800 personas de capacidad, 25 % de uso | `003` Le prohibí trabajar a mi mejor empleado |
-| 9 | Jue 29 oct | `D9` El contador y lo que se probó | `PR2` ¿Una IA puede contar el inventario de una soda con una foto? | `N1` 165 personas, 4 países | — |
+| 9 | Jue 29 oct | `D9` El contador y lo que se probó | `PR2` ¿Una IA puede contar el inventario de una soda con una foto? | `002c` Si tu restaurante recién abierto no sobrevive a tus vacaciones | — |
 | 10 | Vie 30 oct | `D10` El comentario que se va a probar | `RN2` Las 3 noticias de IA de la semana | `L2` Las 3 cosas que solo vos sabés | `AMX` El escenario que va ganando, ahora con Kenneth |
 | 11 | Sáb 31 oct | `D11` El contador | `HAL` Lo que de verdad asusta en un negocio: que todo dependa de vos | `RC1` Respuesta a un comentario | — |
 | 12 | Dom 1 nov | `D12` Resumen de la semana 2 | `PER2` Video personal | `MR1` La mejor respuesta de la semana | `004` Un anfiteatro para 800 personas al 25 % |
-| 13 | Lun 2 nov | `D13` Lo que decidió la oficina el lunes | `R1` El que hace el trabajo no lo revisa | `Q2` ¿Qué tarea de tu negocio le darías mañana a una IA? | — |
+| 13 | Lun 2 nov | `D13` Lo que decidió la oficina el lunes | `R1` El que hace el trabajo no lo revisa | `002d` Si acabás de emprender y tu negocio no sobrevive a tus vacaciones | — |
 | 14 | Mar 3 nov | `D14` El contador | `NS2` La noticia de la semana, sin jerga | `P3` La IA no te va a quitar el trabajo: te lo va a quitar el compañero que la usa | — |
 | 15 | Mié 4 nov | `D15` Mitad del reto: cuánto falta | `J3` Un «modelo» es una IA | `A3` La reunión de los lunes | `DIA15` Mitad del reto: cuánto llevamos y qué cambió |
 | 16 | Jue 5 nov | `D16` El contador y lo que se probó | `PR3` Le pedí a la oficina el manual de apertura de una cafetería | `N4` 12 semanas, sin contratar a un gerente | — |
 | 17 | Vie 6 nov | `D17` El comentario que se va a probar | `RN3` Las 3 noticias de IA de la semana | `L3` Apertura y cierre del local | `005` La oficina me avisó tres veces |
-| 18 | Sáb 7 nov | `D18` El contador | `R5` Nada se hace dos veces | `RC2` Respuesta a un comentario | — |
+| 18 | Sáb 7 nov | `D18` El contador | `R2` Un sistema que te necesita es una dependencia | `RC2` Respuesta a un comentario | — |
 | 19 | Dom 8 nov | `D19` Resumen de la semana 3 | `PER3` Video personal | `MR2` La mejor respuesta de la semana | `TOP1` La pieza de volumen que más seguidores trajo, ahora con Kenneth |
 | 20 | Lun 9 nov | `D20` Lo que decidió la oficina el lunes | `R6` Lo que no se escribe no pasó | `Q3` ¿Cuál es la tarea que más odiás de tu negocio? La oficina prueba la más votada | — |
 | 21 | Mar 10 nov | `D21` El contador | `NS3` La noticia de la semana, sin jerga | `P4` Si tenés que estar para que funcione, no lo construiste: lo cargás | — |

@@ -636,55 +636,33 @@
           ]
         },
         {
-          "codigo": "002c",
-          "serie": "Amazon en la soda",
-          "formato": "Voz y motion graphics, unos 40 s",
-          "paso": "Pasarlo",
+          "codigo": "N1",
+          "serie": "El número",
+          "formato": "Imagen",
+          "paso": "Conocerte",
           "costo": "$0",
-          "titulo": "Si tu restaurante recién abierto no sobrevive a tus vacaciones",
+          "titulo": "165 personas, 4 países",
           "cuadros": [
             {
-              "t": "0–2 s",
+              "t": "única",
               "bloques": [
                 {
-                  "dice": "En Amazon nadie era indispensable. Ni el jefe.",
-                  "oro": "indispensable"
-                }
-              ]
-            },
-            {
-              "t": "2–10 s",
-              "bloques": [
-                {
-                  "toma": "sábado, la cocina llena"
+                  "dice": "165",
+                  "grande": true
                 },
                 {
-                  "dice": "Y todo el mundo te pregunta a vos."
-                }
-              ]
-            },
-            {
-              "t": "10–20 s",
-              "bloques": [
+                  "dice": "personas a cargo, en 4 países.",
+                  "oro": "4 países"
+                },
                 {
-                  "dice": "Si tu restaurante cierra el día que te enfermás, no tenés un negocio.",
-                  "oro": "negocio"
-                }
-              ]
-            },
-            {
-              "t": "20–40 s",
-              "bloques": [
-                {
-                  "dice": "1 hoja · 1 número · 15 min los lunes",
-                  "oro": "15 min"
+                  "dice": "Hoy dirijo 7 IAs. Te cuento qué cambió."
                 }
               ]
             }
           ],
           "pasa": [
-            "Guion completo en guiones/002c. El mismo video que el 002b con otro escenario.",
-            "Tu voz clonada, con la etiqueta «hecho con IA»."
+            "Dice quién es Kenneth sin presumir: un número verdadero del CANON.",
+            "Texto de la publicación: «¿Qué es más difícil de dirigir, gente o IAs?»."
           ]
         }
       ]
@@ -868,19 +846,19 @@
           ]
         },
         {
-          "codigo": "R2",
+          "codigo": "R5",
           "serie": "La regla",
           "formato": "Motion graphics, 15 s",
           "paso": "Pasarlo",
           "costo": "$0",
-          "titulo": "Un sistema que te necesita es una dependencia",
+          "titulo": "Nada se hace dos veces",
           "cuadros": [
             {
               "t": "0–2 s",
               "bloques": [
                 {
-                  "dice": "Si tu negocio se para cuando faltás…",
-                  "oro": "faltás"
+                  "dice": "Si en tu negocio algo se hace dos veces…",
+                  "oro": "dos veces"
                 }
               ]
             },
@@ -888,7 +866,7 @@
               "t": "2–8 s",
               "bloques": [
                 {
-                  "dice": "…no tenés un sistema."
+                  "dice": "…alguien no lo dejó escrito la primera."
                 }
               ]
             },
@@ -896,8 +874,8 @@
               "t": "8–15 s",
               "bloques": [
                 {
-                  "dice": "Tenés una dependencia.",
-                  "oro": "dependencia",
+                  "dice": "Nada se hace dos veces.",
+                  "oro": "dos veces",
                   "grande": true
                 },
                 {
@@ -907,59 +885,35 @@
             }
           ],
           "pasa": [
-            "Una regla corta que se guarda. Es el cierre del 002, solo."
+            "Una de las reglas de la oficina (CANON): cada una salió de un incidente real.",
+            "Ahorro que cualquier negocio entiende."
           ]
         },
         {
-          "codigo": "002d",
-          "serie": "Amazon en la soda",
-          "formato": "Voz y motion graphics, unos 40 s",
-          "paso": "Pasarlo",
+          "codigo": "Q2",
+          "serie": "Pregunta",
+          "formato": "Imagen",
+          "paso": "Reaccionar",
           "costo": "$0",
-          "titulo": "Si acabás de emprender y tu negocio no sobrevive a tus vacaciones",
+          "titulo": "¿Qué tarea de tu negocio le darías mañana a una IA?",
           "cuadros": [
             {
-              "t": "0–2 s",
+              "t": "única",
               "bloques": [
                 {
-                  "dice": "En Amazon nadie era indispensable. Ni el jefe.",
-                  "oro": "indispensable"
-                }
-              ]
-            },
-            {
-              "t": "2–10 s",
-              "bloques": [
-                {
-                  "toma": "11 de la noche, contestando mensajes"
+                  "dice": "¿Qué tarea de tu negocio le darías mañana a una IA?",
+                  "oro": "mañana",
+                  "grande": true
                 },
                 {
-                  "dice": "Arrancaste hace dos meses."
-                }
-              ]
-            },
-            {
-              "t": "10–20 s",
-              "bloques": [
-                {
-                  "dice": "Si tu emprendimiento se detiene cuando te enfermás, no tenés un negocio.",
-                  "oro": "negocio"
-                }
-              ]
-            },
-            {
-              "t": "20–40 s",
-              "bloques": [
-                {
-                  "dice": "1 hoja · 1 número · 15 min los lunes",
-                  "oro": "15 min"
+                  "dice": "Una sola. La más votada, la prueba la oficina."
                 }
               ]
             }
           ],
           "pasa": [
-            "Guion completo en guiones/002d. El tercer escenario de la prueba.",
-            "Tu voz clonada, con la etiqueta «hecho con IA»."
+            "Las respuestas alimentan las pruebas de los jueves.",
+            "Lunes: el día de la pregunta (MES-1 §3)."
           ]
         }
       ]

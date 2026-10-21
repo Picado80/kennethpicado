@@ -288,24 +288,24 @@
    "costo": 0,
    "orden": 12
   },
-  "p-d04-002c": {
+  "p-d04-N1": {
    "fecha": "2026-10-24",
    "dia": 4,
    "linea": "A",
    "tipo": "volumen",
-   "formato": "voz",
-   "formato_texto": "voz sobre animación",
-   "codigo": "002c",
-   "serie": "Amazon en la soda",
-   "titulo": "Si tu restaurante recién abierto no sobrevive a tus vacaciones",
-   "porque": "Prueba del escenario: restaurante. Voz y motion graphics, $0.",
+   "formato": "imagen",
+   "formato_texto": "imagen",
+   "codigo": "N1",
+   "serie": "El número",
+   "titulo": "165 personas, 4 países",
+   "porque": "Dice quién es Kenneth sin presumir.",
    "reto": false,
-   "objetivo": "Pasarlo",
-   "vara": "al menos 1 compartido o guardado por cada 1.000 vistas",
+   "objetivo": "Conocerte",
+   "vara": "más visitas al perfil que la pieza anterior del mismo tipo",
    "redes": [
     "tiktok"
    ],
-   "estado": "guion",
+   "estado": "por-hacer",
    "quien": "Claude",
    "costo": 0,
    "orden": 13
@@ -421,17 +421,17 @@
    "costo": 0,
    "orden": 18
   },
-  "p-d06-R2": {
+  "p-d06-R5": {
    "fecha": "2026-10-26",
    "dia": 6,
    "linea": "A",
    "tipo": "volumen",
    "formato": "motion",
    "formato_texto": "motion graphics",
-   "codigo": "R2",
+   "codigo": "R5",
    "serie": "La regla",
-   "titulo": "Un sistema que te necesita es una dependencia",
-   "porque": "Una regla que se guarda.",
+   "titulo": "Nada se hace dos veces",
+   "porque": "Ahorro que cualquier negocio entiende.",
    "reto": false,
    "objetivo": "Pasarlo",
    "vara": "al menos 1 compartido o guardado por cada 1.000 vistas",
@@ -443,24 +443,24 @@
    "costo": 0,
    "orden": 19
   },
-  "p-d06-002d": {
+  "p-d06-Q2": {
    "fecha": "2026-10-26",
    "dia": 6,
    "linea": "A",
    "tipo": "volumen",
-   "formato": "voz",
-   "formato_texto": "voz sobre animación",
-   "codigo": "002d",
-   "serie": "Amazon en la soda",
-   "titulo": "Si acabás de emprender y tu negocio no sobrevive a tus vacaciones",
-   "porque": "Prueba del escenario: quien acaba de emprender. Voz y motion graphics, $0.",
+   "formato": "imagen",
+   "formato_texto": "imagen",
+   "codigo": "Q2",
+   "serie": "Pregunta",
+   "titulo": "¿Qué tarea de tu negocio le darías mañana a una IA?",
+   "porque": "Las respuestas alimentan las pruebas.",
    "reto": false,
-   "objetivo": "Pasarlo",
-   "vara": "al menos 1 compartido o guardado por cada 1.000 vistas",
+   "objetivo": "Reaccionar",
+   "vara": "más comentarios por cada 1.000 vistas que el promedio de la cuenta",
    "redes": [
     "tiktok"
    ],
-   "estado": "guion",
+   "estado": "por-hacer",
    "quien": "Claude",
    "costo": 0,
    "orden": 20
@@ -664,24 +664,24 @@
    "costo": 0,
    "orden": 29
   },
-  "p-d09-N1": {
+  "p-d09-002c": {
    "fecha": "2026-10-29",
    "dia": 9,
    "linea": "A",
    "tipo": "volumen",
-   "formato": "imagen",
-   "formato_texto": "imagen",
-   "codigo": "N1",
-   "serie": "El número",
-   "titulo": "165 personas, 4 países",
-   "porque": "Dice quién es Kenneth sin presumir.",
+   "formato": "voz",
+   "formato_texto": "voz sobre animación",
+   "codigo": "002c",
+   "serie": "Amazon en la soda",
+   "titulo": "Si tu restaurante recién abierto no sobrevive a tus vacaciones",
+   "porque": "Prueba del escenario: restaurante. Voz y motion graphics, $0.",
    "reto": false,
-   "objetivo": "Conocerte",
-   "vara": "más visitas al perfil que la pieza anterior del mismo tipo",
+   "objetivo": "Pasarlo",
+   "vara": "al menos 1 compartido o guardado por cada 1.000 vistas",
    "redes": [
     "tiktok"
    ],
-   "estado": "por-hacer",
+   "estado": "guion",
    "quien": "Claude",
    "costo": 0,
    "orden": 30
@@ -974,24 +974,24 @@
    "costo": 0,
    "orden": 43
   },
-  "p-d13-Q2": {
+  "p-d13-002d": {
    "fecha": "2026-11-02",
    "dia": 13,
    "linea": "A",
    "tipo": "volumen",
-   "formato": "imagen",
-   "formato_texto": "imagen",
-   "codigo": "Q2",
-   "serie": "Pregunta",
-   "titulo": "¿Qué tarea de tu negocio le darías mañana a una IA?",
-   "porque": "Las respuestas alimentan las pruebas.",
+   "formato": "voz",
+   "formato_texto": "voz sobre animación",
+   "codigo": "002d",
+   "serie": "Amazon en la soda",
+   "titulo": "Si acabás de emprender y tu negocio no sobrevive a tus vacaciones",
+   "porque": "Prueba del escenario: quien acaba de emprender. Voz y motion graphics, $0.",
    "reto": false,
-   "objetivo": "Reaccionar",
-   "vara": "más comentarios por cada 1.000 vistas que el promedio de la cuenta",
+   "objetivo": "Pasarlo",
+   "vara": "al menos 1 compartido o guardado por cada 1.000 vistas",
    "redes": [
     "tiktok"
    ],
-   "estado": "por-hacer",
+   "estado": "guion",
    "quien": "Claude",
    "costo": 0,
    "orden": 44
@@ -1328,17 +1328,17 @@
    "costo": 0,
    "orden": 59
   },
-  "p-d18-R5": {
+  "p-d18-R2": {
    "fecha": "2026-11-07",
    "dia": 18,
    "linea": "A",
    "tipo": "volumen",
    "formato": "motion",
    "formato_texto": "motion graphics",
-   "codigo": "R5",
+   "codigo": "R2",
    "serie": "La regla",
-   "titulo": "Nada se hace dos veces",
-   "porque": "Ahorro que cualquier negocio entiende. Fin de semana del GP de São Paulo.",
+   "titulo": "Un sistema que te necesita es una dependencia",
+   "porque": "Una regla que se guarda.",
    "reto": false,
    "objetivo": "Pasarlo",
    "vara": "al menos 1 compartido o guardado por cada 1.000 vistas",

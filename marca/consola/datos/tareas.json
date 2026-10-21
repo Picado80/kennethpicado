@@ -25,10 +25,10 @@
    "orden": 2
   },
   "k-perfil": {
-   "titulo": "Poner nombre, bio y foto del perfil",
-   "detalle": "«Kenneth Picado · Dirijo una oficina de IAs». La bio está en ESTRATEGIA.md §7. La misma foto en las dos redes.",
+   "titulo": "Terminar el perfil desde el teléfono",
+   "detalle": "Ya están el nombre y la bio de TikTok y la bio de Instagram. Faltan: la foto de Payhip y el enlace trysemi.com en las dos redes (solo se cambian desde el teléfono), y el sí al nombre «Kenneth Picado» en Instagram (queda fijo 60 días).",
    "quien": "Kenneth",
-   "para": "2026-10-20",
+   "para": "2026-10-21",
    "hecho": false,
    "orden": 3
   },
@@ -42,18 +42,18 @@
   },
   "k-facebook": {
    "titulo": "Crear la página «Kenneth Picado» y conectarla en Buffer",
-   "detalle": "Es la tercera red gratis de Buffer. Avisame cuando esté y reviso qué canales ve.",
+   "detalle": "No es urgente. Es la tercera red gratis de Buffer y recibe lo mismo que Instagram. Crear la página lo tenés que hacer vos.",
    "quien": "Kenneth",
-   "para": "2026-10-21",
+   "para": "2026-10-28",
    "hecho": false,
    "orden": 5
   },
   "k-xli": {
    "titulo": "X y LinkedIn: ¿ya o en la fase 2?",
-   "detalle": "Ya cuesta unos $25 al mes en Buffer. La estrategia los deja para la fase 2.",
+   "detalle": "Decidido (20-oct): LinkedIn en la fase 2, con el perfil ya listo (trysemi.com y Fundador de SEMI). X también en la fase 2.",
    "quien": "Kenneth",
-   "para": "2026-10-21",
-   "hecho": false,
+   "para": "2026-10-20",
+   "hecho": true,
    "orden": 6
   },
   "k-bernal": {
@@ -82,10 +82,10 @@
   },
   "k-blob": {
    "titulo": "Crear el almacén Blob de la consola en Vercel",
-   "detalle": "Proyecto kennethpicado-consola → Storage → Blob, acceso Private. Sin eso, la consola de Vercel no guarda lo que marcás.",
+   "detalle": "Hecho el 19-oct: la consola de Vercel ya guarda lo que marcás.",
    "quien": "Kenneth",
-   "para": "2026-10-22",
-   "hecho": false,
+   "para": "2026-10-19",
+   "hecho": true,
    "orden": 10
   },
   "c-consola": {
@@ -113,40 +113,40 @@
    "orden": 13
   },
   "c-002": {
-   "titulo": "Rehacer el gancho del 002 hasta pasar la vara",
-   "detalle": "Los 3 ganchos nuevos están en el guion gráfico de la semana 1. Con tu sí van a la prueba: 70 de total, 60 de gancho y 90 de «sostiene» (el mejor intento sacó 56).",
+   "titulo": "El 002 sale con el gancho C",
+   "detalle": "Probé 4 ganchos nuevos (54, 50, 54 y 52) y ninguno le ganó a C (56). Detalle en marca/ganchos/002.md. Falta tu sí a la vara nueva de las insignias.",
    "quien": "Claude",
    "para": "2026-10-21",
    "hecho": false,
    "orden": 14
   },
   "c-g0": {
-   "titulo": "Prueba de gancho del G0",
-   "detalle": "Su boceto está en el guion gráfico de la semana 1. Con tu sí, la prueba y después el gemelo.",
+   "titulo": "Producir el G0 «Kenneth no grabó este video»",
+   "detalle": "Guion, voz y prueba de gancho primero ($0). El gemelo (unos $1.60) solo después de las 4 preguntas de REVISION-PROCESO.md.",
    "quien": "Claude",
    "para": "2026-10-21",
    "hecho": false,
    "orden": 15
   },
   "c-001": {
-   "titulo": "Prueba de gancho del 001",
-   "detalle": "Su boceto está en el guion gráfico de la semana 1. Con tu sí, la prueba y después el gemelo.",
+   "titulo": "Producir el 001 (Día 5)",
+   "detalle": "Guion gráfico listo. Prueba de gancho ($0) y las 4 preguntas antes de pagar el gemelo.",
    "quien": "Claude",
-   "para": "2026-10-22",
+   "para": "2026-10-23",
    "hecho": false,
    "orden": 16
   },
   "c-002bcd": {
-   "titulo": "Hacer el 002b, el 002c y el 002d",
-   "detalle": "Voz y motion graphics, $0, después de tu sí al guion gráfico. Gana el escenario con más seguidores por cada 1.000 vistas.",
+   "titulo": "Hacer el 002b (Día 2)",
+   "detalle": "Voz y motion graphics, $0. El 002c y el 002d se pasaron a los días 9 y 13 para no repetir la misma idea 6 veces en la semana 1.",
    "quien": "Claude",
-   "para": "2026-10-22",
+   "para": "2026-10-21",
    "hecho": false,
    "orden": 17
   },
   "c-reto": {
-   "titulo": "Plantilla del contador «Día N de 30»",
-   "detalle": "Un loop que se rehace cada día con el número, después de tu sí al guion gráfico.",
+   "titulo": "Contador «Día N de 30» con los números reales",
+   "detalle": "Con el efecto de la curva; cada mañana leo tus perfiles y se vuelve a armar.",
    "quien": "Claude",
    "para": "2026-10-21",
    "hecho": false,
@@ -160,13 +160,29 @@
    "hecho": false,
    "orden": 19
   },
+  "c-semana1": {
+   "titulo": "Producir el volumen de la semana 1",
+   "detalle": "Las 21 piezas, con las 4 preguntas cada una, listas para que las revisés una por una.",
+   "quien": "Claude",
+   "para": "2026-10-21",
+   "hecho": false,
+   "orden": 20
+  },
+  "c-ias": {
+   "titulo": "Contar las IAs activas de la oficina",
+   "detalle": "La bio y el reto dicen «7 IAs»: el CANON pide contarlas en TORRE antes de decirlo.",
+   "quien": "Claude",
+   "para": "2026-10-21",
+   "hecho": false,
+   "orden": 21
+  },
   "c-medicion": {
    "titulo": "Cargar los números a las 48 horas y a los 7 días",
    "detalle": "Seguidores nuevos por pieza y por semana, y la revisión de los lunes.",
    "quien": "Claude",
    "para": "2026-10-23",
    "hecho": false,
-   "orden": 20
+   "orden": 22
   }
  }
 }
