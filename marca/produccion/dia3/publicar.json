@@ -1,10 +1,13 @@
 {
   "etiqueta": "dia-03",
-  "nota": "Día 3 (viernes 23-oct-2026). Se programa solo después del sí de Kenneth en la Sala de revisión, con python marca/scripts/publicar.py marca/produccion/dia3/publicar.json --enviar. D3 (19:00) se suma el viernes con los números reales.",
+  "nota": "Día 3 (viernes 23-oct-2026). Se programa solo después del sí de Kenneth en la Sala de revisión, con python marca/scripts/publicar.py marca/produccion/dia3/publicar.json --enviar. D3 se vuelve a renderizar el viernes a la mañana con ?n=<seguidores reales> antes de programarlo.",
   "piezas": [
     {
       "codigo": "RN1",
-      "canales": ["tiktok", "instagram"],
+      "canales": [
+        "tiktok",
+        "instagram"
+      ],
       "archivo": "marca/salidas/dia3/rn1-dia3.mp4",
       "tipo": "video",
       "ia": true,
@@ -13,8 +16,24 @@
       "texto": "3 noticias de inteligencia artificial de esta semana: candado para tus chats en ChatGPT, Gemini en el carro y el documental de Netflix que exagera. ¿Cuál te sirve más? ¿O cuál te da más miedo? Cada viernes te traigo tres. Día 3 de 30. #inteligenciaartificial #ia #noticias #costarica"
     },
     {
+      "codigo": "D3",
+      "canales": [
+        "tiktok",
+        "instagram"
+      ],
+      "archivo": "marca/salidas/dia3/d3-dia3.mp4",
+      "tipo": "video",
+      "ia": true,
+      "cuando": "2026-10-23T19:00:00-06:00",
+      "instagram_tipo": "reel",
+      "texto": "Día 3 de 30. Así va el contador y esto es lo que me salió mal: mi voz clonada decía «ías», los primeros videos eran muy oscuros y le hablaba solo a dueños de negocio. ¿Qué querés que pruebe la semana que viene? #reto30dias #inteligenciaartificial #costarica"
+    },
+    {
       "codigo": "J2",
-      "canales": ["tiktok", "instagram"],
+      "canales": [
+        "tiktok",
+        "instagram"
+      ],
       "archivo": "marca/salidas/dia3/j2-dia3.mp4",
       "tipo": "video",
       "ia": true,

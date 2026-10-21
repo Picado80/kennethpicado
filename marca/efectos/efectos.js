@@ -1097,11 +1097,13 @@ export function secuencia(padre, escenas) {
   return {
     dur: acum, escenas: xs,
     listo: Promise.all(xs.map(x => x.ef.listo).filter(Boolean)),
+    // devuelve una promesa si alguna escena la devuelve (p. ej. un fotograma de video que todavía se está cargando)
     pintar(t) {
+      const esperas = [];
       for (const x of xs) { x.r.style.visibility = 'hidden'; x.r.style.transform = 'none'; x.r.style.filter = 'none'; x.r.style.clipPath = 'none'; }
       xs.forEach((x, i) => {
         const desde = x.t0 - media(x), hasta = x.t0 + x.dur + media(xs[i + 1]);
-        if (t >= desde && t < hasta) x.ef.pintar(Math.max(0, t - x.t0));
+        if (t >= desde && t < hasta) { const p = x.ef.pintar(Math.max(0, t - x.t0)); if (p) esperas.push(p); }
         if (t >= x.t0 && t < x.t0 + x.dur) x.r.style.visibility = 'visible';
       });
       xs.forEach((x, i) => {
@@ -1114,6 +1116,7 @@ export function secuencia(padre, escenas) {
         else corte(a, b, t, x.t0, { ...x.entra, dur: d });
       });
       xs.forEach(x => { if (x.vid && (t < x.t0 - .7 || t >= x.t0 + (x.entra.dur ?? .9))) x.vid.ocultar(); });
+      return esperas.length ? Promise.all(esperas) : undefined;
     },
   };
 }
@@ -1285,6 +1288,76 @@ export function glitch(objetivo, o) {
       objetivo.style.filter = `drop-shadow(${(8 * f).toFixed(1)}px 0 0 rgba(255,0,80,.75)) drop-shadow(${(-8 * f).toFixed(1)}px 0 0 rgba(0,220,255,.75))`;
       objetivo.style.clipPath = rr() > .5 ? `inset(${corte.toFixed(1)}% 0 ${(100 - corte - alto).toFixed(1)}% 0)` : '';
       r();
+    },
+  };
+}
+
+// ───────────────────────────────────────── 35 · la corrección: la palabra se equivoca, se marca como error y se corrige a mano
+// Como un corrector: en t1 la palabra cambia a la versión mala, tiembla y le sale el subrayado rojo ondulado; en t2 se
+// tacha y arriba se escribe la buena con marcador y un «^». o: { x, y, palabra, mal, bien, t0, t1, t2, tam, color }
+export function correccion(padre, o) {
+  const tam = o.tam ?? 190, color = o.color ?? K.rojo;
+  const caja = el('div', { position: 'absolute', left: `${o.x ?? SEGURA.izquierda + 10}px`, top: `${o.y ?? 700}px`, zIndex: 30 }, padre);
+  const pal = el('div', { position: 'relative', display: 'inline-block', font: `900 ${tam}px/1 Archivo`, letterSpacing: '-.03em', color: K.tinta,
+    whiteSpace: 'nowrap' }, caja, o.palabra);
+  const g = svg('svg', { width: 1, height: 60, style: 'position:absolute;left:0;overflow:visible' }, caja);
+  const onda = svg('path', { d: '', fill: 'none', stroke: color, 'stroke-width': 7, 'stroke-linecap': 'round' }, g);
+  const tacha = svg('path', { d: '', fill: 'none', stroke: color, 'stroke-width': 12, 'stroke-linecap': 'round' }, g);
+  const bien = el('div', { position: 'absolute', left: '0', top: `${-tam * .42}px`, font: `${Math.round(tam * .34)}px/1 Marcador`, color,
+    whiteSpace: 'nowrap', transform: 'rotate(-3deg)' }, caja, `^ ${o.bien}`);
+  const t0 = o.t0 ?? 0, t1 = o.t1 ?? 1, t2 = o.t2 ?? 2;
+  return {
+    caja,
+    pintar(t) {
+      const a = tramo(t, t0, t0 + .3);
+      caja.style.opacity = a; caja.style.transform = `scale(${mezcla(.8, 1, E.atras(a, 2)).toFixed(3)})`;
+      pal.textContent = t >= t1 ? o.mal : o.palabra;
+      const w = pal.offsetWidth, h = pal.offsetHeight;
+      const s = t >= t1 ? Math.exp(-10 * (t - t1)) * Math.sin((t - t1) * 60) * 12 : 0;      // tiembla al equivocarse
+      pal.style.transform = `translateX(${s.toFixed(1)}px)`;
+      g.setAttribute('width', w); g.style.top = `${h * .96}px`;
+      let d = 'M0 10'; for (let x = 0; x <= w; x += 18) d += ` Q${x + 9} ${x / 18 % 2 ? 22 : -2} ${x + 18} 10`;
+      onda.setAttribute('d', d);
+      const L1 = onda.getTotalLength(); onda.setAttribute('stroke-dasharray', `${L1} ${L1}`);
+      const po = tramo(t, t1 + .1, t1 + .5);
+      onda.setAttribute('stroke-dashoffset', (L1 * (1 - E.sale(po))).toFixed(1)); onda.style.opacity = po > 0 ? 1 : 0;   // sin el puntito del borde redondo
+      tacha.setAttribute('d', `M-10 ${(-h * .45).toFixed(1)} L${w + 10} ${(-h * .52).toFixed(1)}`);
+      const L2 = w + 20; tacha.setAttribute('stroke-dasharray', `${L2} ${L2}`);
+      const pt = tramo(t, t2, t2 + .3);
+      tacha.setAttribute('stroke-dashoffset', (L2 * (1 - E.sale(pt))).toFixed(1)); tacha.style.opacity = pt > 0 ? 1 : 0;
+      pal.style.opacity = mezcla(1, .45, tramo(t, t2 + .2, t2 + .5));
+      const b = tramo(t, t2 + .25, t2 + .9);
+      bien.style.clipPath = `inset(-20px ${((1 - b) * 100).toFixed(1)}% -20px -10px)`;
+    },
+  };
+}
+
+// ───────────────────────────────────────── 36 · antes y después: una línea barre la foto vieja y deja la nueva
+// Dos imágenes del mismo tamaño en una tarjeta; en t0 la manija cruza de derecha a izquierda. o: { x, y, w, h, antes, despues,
+// t0, dur, rotulos: [antes, después] }
+export function antesDespues(padre, o) {
+  const w = o.w ?? 420, h = o.h ?? 746;
+  const caja = el('div', { position: 'absolute', left: `${o.x ?? (FW - w) / 2}px`, top: `${o.y ?? 480}px`, width: `${w}px`, height: `${h}px`, zIndex: 20,
+    borderRadius: '26px', overflow: 'hidden', border: '6px solid #FFFFFF', boxShadow: `0 16px 0 -4px ${K.cielo}, 0 30px 60px ${K.sombra}` }, padre);
+  const foto = src => el('div', { position: 'absolute', inset: '0', background: `#16233F url(${src}) center/cover` }, caja);
+  foto(o.antes);
+  const nueva = foto(o.despues);
+  const manija = el('div', { position: 'absolute', top: '0', bottom: '0', width: '6px', marginLeft: '-3px', background: '#FFFFFF', zIndex: 2,
+    boxShadow: '0 0 18px rgba(0,0,0,.35)' }, caja,
+    '<div style="position:absolute;top:50%;left:50%;width:64px;height:64px;margin:-32px 0 0 -32px;border-radius:50%;background:#fff;display:grid;place-items:center;font:900 28px Archivo;color:#16233F">⇆</div>');
+  const rot = (txt, lado) => { const r = el('div', { position: 'absolute', top: '18px', [lado]: '18px', zIndex: 3, fontSize: '22px', padding: '8px 14px',
+    borderRadius: '99px', background: '#FFFFFF', color: '#16233F' }, caja, txt); r.className = 'mono'; return r; };
+  const r1 = rot(o.rotulos?.[0] ?? 'Antes', 'left'), r2 = rot(o.rotulos?.[1] ?? 'Ahora', 'right');
+  const t0 = o.t0 ?? 1, d = o.dur ?? .9;
+  return {
+    caja,
+    pintar(t) {
+      const a = tramo(t, 0, .35);
+      caja.style.opacity = a; caja.style.transform = `rotate(${mezcla(-6, -1.5, E.sale(a)).toFixed(2)}deg) scale(${mezcla(.85, 1, E.atras(a, 1.8)).toFixed(3)})`;
+      const p = CURVAS.io(tramo(t, t0, t0 + d)), x = (1 - p) * w;           // la manija va de la derecha a la izquierda
+      nueva.style.clipPath = `inset(0 0 0 ${x.toFixed(1)}px)`;
+      manija.style.left = `${x.toFixed(1)}px`; manija.style.opacity = p > 0 && p < 1 ? 1 : 0;
+      r1.style.opacity = 1 - tramo(t, t0 + d * .6, t0 + d); r2.style.opacity = tramo(t, t0 + d * .5, t0 + d);
     },
   };
 }

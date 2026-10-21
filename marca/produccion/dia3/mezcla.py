@@ -59,6 +59,20 @@ def j2():
     m.mezclar("j2", dur, v, g, bpm=bpm, fondo=FONDO, baja=BAJA)
 
 
+def d3():
+    s, dur, bpm = tiempos("d3")
+    v = [(voz("d3", k), t) for k, t in zip("abcdef", s)]
+    g = [W(t) for t in s[1:]]
+    g += [Pp(.05, .5), Pp(.4, .4), lambda b: teclas(b, 1.9, 2.9, 14), D(2.95)]
+    g += [Pp(s[1] + .5, .5), Pp(s[1] + 1.0, .5), T(s[1] + 1.5, .7), raya(s[1] + 1.52, .4)]
+    g += [Pp(s[2] + 2.7, .7), T(s[2] + 6.4, .5), raya(s[2] + 6.45, .3), raya(s[2] + 7.55, .35)]
+    g += [lambda b: teclas(b, s[2] + 7.8, s[2] + 8.4, 16), Pp(s[2] + 7.9, .7)]
+    g += [Pp(s[3] + .1, .6), T(s[3] + 2.6), raya(s[3] + 3.6, .7), D(s[3] + 4.6)]
+    g += [Pp(s[4] + 2.2, .6), raya(s[4] + 3.5, .4)] + [Pp(s[4] + 3.7 + k * .3, .5, pan=(-1) ** k * .3) for k in range(5)] + [T(s[4] + 6.35, .6)]
+    g += [Pp(s[5] + 2.1), Pp(s[5] + 3.55, .8), D(s[5] + 4.9)]
+    m.mezclar("d3", dur, v, g, bpm=bpm, fondo=FONDO, baja=BAJA)
+
+
 if __name__ == "__main__":
-    for p in sys.argv[2:] or ["rn1", "j2"]:
-        {"rn1": rn1, "j2": j2}[p]()
+    for p in sys.argv[2:] or ["rn1", "j2", "d3"]:
+        {"rn1": rn1, "j2": j2, "d3": d3}[p]()

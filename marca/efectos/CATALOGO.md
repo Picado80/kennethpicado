@@ -14,7 +14,7 @@ cuadro con Lemo-Opuscar (`node core/render/video.mjs <carpeta> --size 1080x1920`
   como ideas: son de pago y para After Effects, Premiere, DaVinci o Final Cut, que no usamos).
 - Todo lo que se lee va en la zona segura común de las 4 redes (`SEGURA` y `BOTONES`).
 
-## Lo que hay (33 efectos y la cámara)
+## Lo que hay (36 efectos y la cámara)
 
 | # | Efecto | Función | Para qué sirve |
 |---|---|---|---|
@@ -51,6 +51,9 @@ cuadro con Lemo-Opuscar (`node core/render/video.mjs <carpeta> --size 1080x1920`
 | 31 | Candado con PIN | `candado` | Se llenan los 4 puntos y el candado se cierra con un golpe: privacidad, seguridad |
 | 32 | Mapa con ruta | `ruta` | La línea avanza por las calles y cae el pin del destino |
 | 33 | Glitch | `glitch` | La imagen se corta, se corre y se separa en colores: «se escapó», una falla |
+| 34 | La corrección | `correccion` | La palabra se equivoca, tiembla, sale el subrayado rojo ondulado y se corrige a mano con «^» |
+| 35 | Antes y después | `antesDespues` | Dos imágenes en una tarjeta; la manija barre la vieja y deja la nueva |
+| 36 | El gemelo en la escena | `gemelo` (en `dia3/j2/index.html`) | Los cuadros del video de HeyGen detrás de los gráficos, con acercamiento lento |
 | — | La cámara | `camara` | Acercar, alejar, ángulo en 3D, paneo, mano y desenfoque de movimiento |
 
 ## Por agregar (de a uno por video)
