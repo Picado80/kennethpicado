@@ -100,5 +100,56 @@
       "output_tokens": 4961,
       "service_tier": "standard"
     }
+  },
+  "MiniMax:personal": {
+    "pedido": "Somos 4 en la casa, en San José. Haceme el menú de los almuerzos de lunes a viernes: comida tica, que se haga en menos de 30 minutos y que todo no pase de 25.000 colones la semana. Al final, la lista del súper.",
+    "texto": "# 🍽️ Menú Semanal - Almuerzos Ticos\n\n**Para 4 personas | San José, C.R.**\n\n---\n\n## 📅 Lunes: Arroz con pollo y ensalada\n**Tiempo:** 25 min | **Costo:** ₡4.200\n\nSofreír 1 pechuga de pollo deshuesada en cubos con cebolla, chile dulce, ajo y culantro. Agregar 2 tazas de arroz, 4 tazas de agua y cocinar tapado 18 min. Acompañar con ensalada de lechuga y tomate con limón.\n\n---\n\n## 📅 Martes: Picadillo de papa con huevo\n**Tiempo:** 20 min | **Costo:** ₡3.800\n\nHervir 6 papas en cubos. En otra sartén sofreír cebolla, chile dulce, tomate y culantro. Mezclar todo y agregar 4 huevos revueltos. Servir con arroz del día anterior.\n\n---\n\n## 📅 Miércoles: Sopa de pollo con fideos\n**Tiempo:** 25 min | **Costo:** ₡4.500\n\nHervir muslos de pollo (los más baratos) con cebolla, apio, culantro y sal por 15 min. Agregar fideos, zanahoria y chayote picados. Cocinar 8 min más y servir con limón.\n\n---\n\n## 📅 Jueves: Tacos ticos (chifrijo casero)\n**Tiempo:** 25 min | **Costo:** ₡5.200\n\nEn una sartén dorar 1 lb de carne molida con sal, pimienta y salsa Lizano. En cada tortilla de tortilla: capa de frijoles molidos, arroz del miércoles, la carne, pico de gallo (tomate, cebolla, culantro, limón) y un toque de natilla.\n\n---\n\n## 📅 Viernes: Arroz con atún y vegetales\n**Tiempo:** 20 min | **Costo:** ₡5.800\n\nSofreír cebolla, chile dulce, zanahoria rallada y chayote en cubos. Agregar 2 tazas de arroz y agua. A los 15 min, sumar 2 latas de atún, mezclar y terminar la cocción. Servir con limón y chile.\n\n---\n\n## 💰 Total semanal: ₡23.500\n\n---\n\n## 🛒 Lista del Súper\n\n### Carnes y lácteos (₡7.500)\n- 1 pechuga de pollo deshuesada\n- 2 lbs de pollo (muslos/alas)\n- 1 lb de carne molida\n- 4 huevos\n- 1 cajita de natilla (pequeña)\n\n### Granos y abarrotes (₡5.800)\n- 2 lbs de arroz\n- 1 lb de frijoles\n- 1 paquete de fideos (300 g)\n- 1 docena tortillas de tortilla\n- 2 latas de atún\n- Salsa Lizano, aceite, sal, ajo, pimienta\n\n### Vegetales (₡5.200)\n- 8 papas\n- 3 chayotes\n- 3 zanahorias\n- 2 lechugas\n- 6 tomates\n- 4 cebollas\n- 4 chiles dulces\n- Culantro, apio, ajo, limón (manojo)\n\n### Frutas y otros (₡5.000)\n- Limones\n- Chile picante (si gusta)\n\n**Total estimado: ₡23.500**\n\n---\n\n### 📝 Tips para ahorrar:\n- Comprá el pollo y la carne en carnicerías de barrio (sale mejor precio)\n- El arroz de un día se reutiliza el jueves\n- Guardá caldo del miércoles para cualquier imprevisto\n- El picadillo de papa es rendidor y económico\n\n¿Te gustaría que te ajuste algo? (por ejemplo, sin picante, más económico, o agregar cena)",
+    "segundos": 10.1,
+    "modelo": "MiniMax-M3",
+    "uso": {
+      "input_tokens": 96,
+      "output_tokens": 805,
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 128,
+      "service_tier": "standard"
+    }
+  },
+  "Kimi:personal": {
+    "pedido": "Somos 4 en la casa, en San José. Haceme el menú de los almuerzos de lunes a viernes: comida tica, que se haga en menos de 30 minutos y que todo no pase de 25.000 colones la semana. Al final, la lista del súper.",
+    "texto": "¡Con gusto! Aquí va un menú bien tico, rápido y dentro del presupuesto. Asumo que en la casa ya tenés aceite, sal, achiote y Salsa Lizano.\n\n## Menú de la semana (4 personas)\n\n**Lunes — Arroz con pollo + ensalada de repollo** *(~30 min)*\nSofrito de cebolla, chile y culantro, pollo en trocitos, arroz y zanahoria rallada. Todo en una sola olla.\n\n**Martes — Casado de huevo** *(~25 min)*\nArroz blanco, frijoles molidos (de lata, solo calentar), huevos fritos y tajadas de maduro.\n\n**Miércoles — Arroz con atún + picadillo de papa con vainicas** *(~25 min)*\nMientras se cocina el arroz, el picadillo hierve en 15 minutos. Clásico de la casa tica.\n\n**Jueves — Espagueti con carne molida + ensalada** *(~20 min)*\nCarne dorada con sofrito y salsa de tomate. El más rápido de la semana.\n\n**Viernes — Salchichón con papas + arroz y frijoles** *(~25 min)*\nPapas cocidas, salchichón en rodajas dorado con cebolla y salsa Lizano, arroz blanco y frijoles.\n\n## Lista del súper\n\n| Artículo | Cantidad | Precio aprox. |\n|---|---|---|\n| Arroz | 2 kg | ₡2.600 |\n| Frijoles negros | 3 latas | ₡2.400 |\n| Espagueti | 500 g | ₡950 |\n| Pollo (muslo o pechuga) | 700 g | ₡2.400 |\n| Atún | 2 latas | ₡2.300 |\n| Carne molida | 400 g | ₡2.300 |\n| Salchichón chino | 1 paquete | ₡1.700 |\n| Huevos | 12 | ₡2.200 |\n| Salsa de tomate | 1 pequeña | ₡700 |\n| Plátanos maduros | 4 | ₡1.000 |\n| Papas | 1 kg | ₡1.400 |\n| Vainicas | 250 g | ₡700 |\n| Zanahorias | ¼ kg | ₡400 |\n| Repollo pequeño | 1 | ₡900 |\n| Tomates | 2 | ₡500 |\n| Cebollas | 2 | ₡600 |\n| Chile dulce | 2 | ₡500 |\n| Culantro | 1 atado | ₡500 |\n| **Total** | | **≈ ₡24.050** |\n\n## Trucos para que funcione\n\n- **Frijoles de lata** en vez de secos: cuestan un poco más pero te ahorran una hora. Si tenés olla de presión y comprás secos, te ahorrás como ₡1.500.\n- Los precios son aproximados de supermercado tipo Palí o Más x Menos; las verduras en la **feria del agricultor** salen más baratas y te sobra plata para un aguacate o una natilla.\n- Picá cebolla, chile y culantro el lunes de una vez y guardalos en la refri: te baja 5-10 minutos cada día.\n\n¿Querés que te ajuste algo, como cambiar el salchichón por otra proteína o meter más picadillos?",
+    "segundos": 140.4,
+    "modelo": "kimi-k3",
+    "uso": {
+      "input_tokens": 158,
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 0,
+      "output_tokens": 4874,
+      "cache_creation": {
+        "ephemeral_5m_input_tokens": 0,
+        "ephemeral_1h_input_tokens": 0
+      },
+      "output_tokens_details": {
+        "thinking_tokens": 4013
+      },
+      "service_tier": "standard",
+      "inference_geo": "not_available",
+      "prompt_tokens": 158,
+      "cached_tokens": 0,
+      "completion_tokens": 4874,
+      "total_tokens": 5032
+    }
+  },
+  "DeepSeek:personal": {
+    "pedido": "Somos 4 en la casa, en San José. Haceme el menú de los almuerzos de lunes a viernes: comida tica, que se haga en menos de 30 minutos y que todo no pase de 25.000 colones la semana. Al final, la lista del súper.",
+    "texto": "Claro, acá va un menú de almuerzos de lunes a viernes para 4 personas, con comida tica, rápido y dentro de ₡25.000. Asumo que ya tenés sal, comino, orégano, aceite y salsa Lizano; si no, con el margen alcanza para una salsa pequeña.\n\n## Menú de almuerzos\n\n| Día | Almuerzo | Tiempo aprox. |\n|---|---|---|\n| Lunes | Arroz con pollo + ensalada de repollo con tomate y limón | 25–30 min |\n| Martes | Gallo pinto con huevo + plátano maduro | 15–20 min |\n| Miércoles | Picadillo de papa con huevo + tortillas + ensalada de repollo y zanahoria | 25 min |\n| Jueves | Macarrones con atún en salsa de tomate + ensalada de repollo y zanahoria | 20–25 min |\n| Viernes | Lentejas guisadas con arroz + plátano maduro | 25–30 min |\n\n**Tip para cumplir los 30 minutos:** cociná los frijoles el domingo y guardalos en refrigerador para el gallo pinto del martes. El lunes cociná 1 taza extra de arroz para usar el martes. Usá arrocera u olla de presión si tenés.\n\n## Lista del súper\n\n| Producto | Cantidad | Precio estimado |\n|---|---:|---:|\n| Arroz | 2 kg | ₡2.400 |\n| Frijoles negros | 500 g | ₡1.000 |\n| Lentejas | 500 g | ₡1.100 |\n| Huevos | 18 unidades | ₡3.200 |\n| Pollo (muslos/piernas) | 1 kg | ₡3.200 |\n| Atún en agua | 2 latas | ₡2.000 |\n| Pasta macarrones o espagueti | 500 g | ₡800 |\n| Tortillas de maíz | 12 unidades | ₡1.200 |\n| Papa | 1 kg | ₡1.000 |\n| Plátano maduro | 5 unidades | ₡1.500 |\n| Repollo | 1 mediano | ₡800 |\n| Tomate | 1 kg | ₡1.200 |\n| Cebolla | 1 kg | ₡1.000 |\n| Zanahoria | 500 g | ₡500 |\n| Chile dulce | 4 unidades | ₡800 |\n| Ajo | 1 cabeza | ₡300 |\n| Cilantro | 1 manojo | ₡300 |\n| Limón | 4 unidades | ₡400 |\n| Aceite | 500 ml | ₡1.300 |\n\n**Total estimado: ₡24.000**  \nPrecios estimados comprando en feria, Mercado Central o supermercado económico de San José. Pueden variar según el lugar. Si ya tenés aceite, el total baja a unos ₡22.700.",
+    "segundos": 38.8,
+    "modelo": "deepseek-flash",
+    "uso": {
+      "input_tokens": 99,
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 0,
+      "output_tokens": 7476,
+      "service_tier": "standard"
+    }
   }
 }

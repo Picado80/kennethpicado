@@ -1,0 +1,46 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><title>D2 · La oficina: quién hace qué</title></head>
+<body><div id="escenario" style="position:absolute;left:0;top:0;width:1080px;height:1920px;overflow:hidden"></div>
+<script type="module">
+// D2 · el reto: la oficina de 7 IAs y quién hace qué. Loop de ~10 s, en oscuro y elegante (noche y océano, con luz):
+// la órbita alrededor de Kenneth, los puestos como tarjetas que entran y el sello.
+import * as F from './efectos.js';
+const { el, K, E, tramo, SEGURA, BOTONES } = F;
+await F.instalar({ fondo: '#0B0A1A' });
+const esc = document.getElementById('escenario');
+const L = SEGURA.izquierda + 10;
+const fondo = r => el('div', { position: 'absolute', inset: '0', background: K.fondo, color: K.tinta, overflow: 'hidden' }, r);
+const PUESTOS = [['Claude', 'el gerente: decide y revisa'], ['Codex', 'el ingeniero'], ['MiniMax', 'el turno de día'], ['Kimi', 'el turno de noche'],
+  ['DeepSeek', 'el contratista'], ['Grok', 'la segunda opinión'], ['Antigravity', 'el practicante']];
+const S = F.secuencia(esc, [
+  { dur: 4.4, tema: 'noche', hacer: r => {
+    const o = F.orbita(r, { centro: 'Kenneth', items: PUESTOS.map(p => p[0]) });
+    const b = F.brillo(r, { manchas: 2, z: 5 });
+    const tit = el('div', { position: 'absolute', left: `${L}px`, top: '1010px', font: '600 34px/1 Archivo', color: K.tinta2, zIndex: 70 }, r, 'Mi oficina de 7 IAs');
+    return { pintar(t) { o.pintar(t); b.pintar(t); tit.style.opacity = tramo(t, .8, 1.2); } };
+  } },
+  { dur: 3.8, tema: 'oceano', entra: { tipo: 'zoom' }, hacer: r => {
+    const a = fondo(r), b = F.brillo(a, { manchas: 3, z: 0, semilla: 6 });
+    const tit = el('div', { position: 'absolute', left: `${L}px`, top: '390px', font: '400 84px/1 "Instrument Serif"' }, a, F.conOro('Quién hace qué', 'qué', K.oro));
+    const filas = PUESTOS.map(([n, rol], i) => el('div', { position: 'absolute', left: `${L}px`, top: `${510 + i * 84}px`, maxWidth: `${1080 - L - (i > 3 ? BOTONES.derecha : 200)}px`,
+      font: '400 34px/1.1 Archivo', color: K.tinta, background: K.blanco, border: `2px solid ${K.borde}`, borderRadius: '14px', padding: '12px 18px',
+      backdropFilter: 'blur(14px)', boxShadow: `0 12px 24px ${K.sombra}` }, a, `<b style="font-weight:900;color:${K.resalte}">${n}</b> · ${rol}`));
+    return { pintar(t) { b.pintar(t); tit.style.opacity = tramo(t, 0, .3);
+      filas.forEach((f, i) => { const p = tramo(t, .25 + i * .16, .25 + i * .16 + .3); f.style.opacity = p;
+        f.style.transform = `translateX(${((1 - E.atras(p, 1.8)) * -80 + Math.sin(t * 2 + i) * 3 * p).toFixed(1)}px)`; }); } };
+  } },
+  { dur: 2.0, tema: 'noche', entra: { tipo: 'golpe' }, hacer: r => {
+    const a = fondo(r), b = F.brillo(a, { manchas: 2, barrido: .7, z: 30, semilla: 2 });
+    const tx = el('div', { position: 'absolute', left: `${L}px`, top: '520px', font: '400 150px/1 "Instrument Serif"' }, a, F.conOro('Yo: apruebo.', 'apruebo.', K.oro));
+    const s = F.sello(a, { texto: 'Aprobado', x: 200, y: 830, t0: .55, tam: 78, sacude: tx, color: K.resalte });
+    return { pintar(t) { b.pintar(t); s.pintar(t); } };
+  } },
+]);
+const sello = el('div', { position: 'absolute', left: `${L}px`, top: `${SEGURA.arriba + 12}px`, fontSize: '26px', color: '#16233F', zIndex: 120,
+  background: 'rgba(255,255,255,.95)', border: '2px solid #16233F', padding: '10px 18px', borderRadius: '99px' }, esc, 'Día 2 de 30');
+sello.className = 'mono';
+await S.listo;
+window.DUR = S.dur;
+window.render = t => S.pintar(t);
+S.pintar(1);
+window.READY = true;
+</script></body></html>

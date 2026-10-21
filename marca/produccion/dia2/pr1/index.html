@@ -1,0 +1,87 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><title>PR1 · El mismo pedido a 3 IAs</title></head>
+<body><div id="escenario" style="position:absolute;left:0;top:0;width:1080px;height:1920px;overflow:hidden"></div>
+<script type="module">
+// PR1 · la prueba: «Haceme un menú» a 3 IAs, vago y después completo (para cualquiera: la casa, no un negocio).
+// Las respuestas son las reales del 21-oct (respuestas.json); se recortan, no se cambian. ~31 s, voz clonada encima.
+// Cada escena con su tema, colores fuertes, bordes, sombras y algo moviéndose siempre (Kenneth, 21-oct).
+import * as F from './efectos.js';
+const { el, K, E, tramo, SEGURA, BOTONES } = F;
+await F.instalar({ fondo: '#0B1B4D' });
+const esc = document.getElementById('escenario');
+const L = SEGURA.izquierda + 10;
+const fondo = r => el('div', { position: 'absolute', inset: '0', background: K.fondo, color: K.tinta, overflow: 'hidden' }, r);
+const juntos = (...xs) => ({ pintar: t => xs.forEach(x => x.pintar(t)), listo: Promise.all(xs.map(x => x.listo).filter(Boolean)) });
+
+const S = F.secuencia(esc, [
+  // 1 · el pedido vago, escrito (cielo)
+  { dur: 3.2, tema: 'cielo', hacer: r => {
+    const a = fondo(r), b = F.brillo(a, { manchas: 2, z: 0 });
+    const capa = el('div', { position: 'absolute', inset: '0' }, a);
+    const tit = el('div', { position: 'absolute', left: `${L}px`, right: `${SEGURA.derecha}px`, top: '440px', font: '400 100px/1.02 "Instrument Serif"' }, capa,
+      F.conOro('Le pedí lo mismo<br>a 3 IAs:', 'mismo', K.oro));
+    const caja = el('div', { position: 'absolute', left: `${L}px`, top: '730px', width: '650px', boxSizing: 'border-box', padding: '36px 40px',
+      background: K.blanco, borderRadius: '30px', border: `4px solid ${K.borde}`, boxShadow: `0 14px 0 -4px ${K.cielo}, 0 30px 60px ${K.sombra}` }, capa);
+    const m = F.maquina(caja, { texto: 'Haceme un menú.', t0: .7, cps: 14, estilo: { position: 'relative', left: '0', top: '0', width: 'auto', font: '500 56px/1.3 "JetBrains Mono"' } });
+    const cam = F.camara(capa, [{ t: 0, z: 1.08, ladea: 8 }, { t: 3.2, z: 1, ladea: -3, curva: 'l' }]);
+    return { pintar(t) { b.pintar(t); cam.pintar(t); tit.style.opacity = tramo(t, 0, .3); m.pintar(t); } };
+  } },
+  // 2 · lo que contestaron: un chat en el teléfono que se escribe solo, sobre océano con luz
+  { dur: 6.3, tema: 'oceano', entra: { tipo: 'zoom' }, hacer: r => {
+    const a = fondo(r), b = F.brillo(a, { manchas: 3, z: 0, semilla: 4 });
+    const caja = el('div', { position: 'absolute', inset: '0', transform: 'scale(.8)', transformOrigin: '540px 768px' }, a);
+    const tel = F.telefono(caja, { inicio: 0, fondo: 'transparent', llenar: pantalla => {
+      const col = el('div', { position: 'absolute', inset: '110px 26px 26px', display: 'flex', flexDirection: 'column', gap: '22px' }, pantalla);
+      const yo = F.burbuja(col, { texto: 'Haceme un menú.', t0: .45, cps: 30, oscura: true, ancho: 420, estilo: { alignSelf: 'flex-end', fontSize: '36px' } });
+      const R = [['MiniMax', 'Cena argentina para 4: asado de tira y Malbec.', 1.1], ['Kimi', 'Ojo de bife a la parrilla, empanadas y Malbec.', 2.5],
+        ['DeepSeek', 'Desayuno, merienda y cena… con gelatina light.', 3.9]];
+      const bs = R.map(([q, txt, t0]) => F.burbuja(col, { texto: txt, quien: q, t0, cps: 38, ancho: 500, estilo: { fontSize: '36px' } }));
+      return { pintar(t) { yo.pintar(t); bs.forEach(x => x.pintar(t)); } };
+    } });
+    const m = F.marcador(a, { notas: [{ texto: '¿Malbec?', x: 600, y: 330, t0: 3.6, rot: -7, tam: 70, color: K.resalte }] });
+    return juntos(b, tel, m);
+  } },
+  // 3 · lo que le faltaba (lo del J1), en menta
+  { dur: 3.0, tema: 'menta', entra: { tipo: 'barrido' }, hacer: r => juntos(
+    F.lista(r, { titulo: 'Lo que le faltaba:', oro: 'faltaba', inicio: .3, cada: .5, items: ['Para quién: somos 4', 'Qué: comida tica, en 30 min', 'Cuánto: ₡25.000 la semana'] }),
+    F.brillo(r, { manchas: 2, barrido: 1.9, z: 30 })) },
+  // 4 · las 3 respuestas completas: tarjetas de vidrio sobre noche
+  { dur: 6.5, tema: 'noche', entra: { tipo: 'zoom' }, hacer: r => juntos(
+    F.titulares(r, { destacado: 1, inicio: .2, foco: 3.4, items: [
+      { fuente: 'MiniMax', fecha: 'total ₡23.500', texto: 'Cinco almuerzos ticos y la lista del súper' },
+      { fuente: 'Kimi', fecha: 'total ₡24.050', texto: 'Y te manda a la feria: sale más barato' },
+      { fuente: 'DeepSeek', fecha: 'total ₡24.000', texto: 'Con tiempos y la lista del súper' }] }),
+    F.brillo(r, { manchas: 3, z: 0, semilla: 21 })) },
+  // 5 · el error: el documento con la línea marcada (papel, Vox)
+  { dur: 5.0, tema: 'papel', entra: { tipo: 'golpe' }, hacer: r => juntos(
+    F.documento(r, { fuente: 'MiniMax · respuesta real', titulo: 'Menú de la semana', marcada: 3, t0: 1.4, lineas: [
+      'Lunes: arroz con pollo', 'Martes: picadillo con huevo', 'Miércoles: sopa de pollo', 'Jueves: tacos ticos (chifrijo casero)', 'Viernes: arroz con atún'] }),
+    F.marcador(r, { trazos: [{ tipo: 'flecha', x: 260, y: 1120, w: 60, h: -170, t0: 2.4 }],
+      notas: [{ texto: '¡eso no es chifrijo!', x: 330, y: 1130, t0: 2.6, rot: -5, tam: 56 }] })) },
+  // 6 · por eso se revisa: el sello (durazno)
+  { dur: 3.4, tema: 'durazno', entra: { tipo: 'barrido' }, hacer: r => {
+    const a = fondo(r), b = F.brillo(a, { manchas: 2, z: 0, semilla: 13 });
+    const tit = el('div', { position: 'absolute', left: `${L}px`, right: `${SEGURA.derecha}px`, top: '390px', font: '400 88px/1.02 "Instrument Serif"' }, a,
+      F.conOro('Por eso siempre se revisa.', 'revisa', K.oro));
+    const hoja = el('div', { position: 'absolute', left: '190px', top: '600px', width: '580px', height: '580px', boxSizing: 'border-box', padding: '46px 44px',
+      background: '#FFFFFF', borderRadius: '18px', border: `4px solid ${K.borde}`, boxShadow: `0 16px 0 -4px ${K.cielo}, 0 30px 60px ${K.sombra}`, transform: 'rotate(-2deg)' }, a,
+      `<div style="font:400 54px/1.05 'Instrument Serif';color:#33110A">Menú de la semana</div><div class="mono" style="font-size:20px;color:${K.oro};margin:12px 0 6px">Lo hizo una IA</div>` +
+      [92, 78, 86, 64, 80, 70, 88].map(w => `<div style="height:16px;width:${w}%;border-radius:8px;background:rgba(51,17,10,.14);margin-top:20px"></div>`).join(''));
+    const s = F.sello(a, { texto: 'Revisado', x: 200, y: 880, t0: 1.1, tam: 78, sacude: hoja });
+    return { pintar(t) { b.pintar(t); tit.style.opacity = tramo(t, 0, .3); hoja.style.opacity = tramo(t, .1, .4);
+      hoja.style.rotate = `${(Math.sin(t * 1.6) * .8).toFixed(2)}deg`; s.pintar(t); } };
+  } },
+  // 7 · el cierre, en cielo con un destello
+  { dur: 3.6, tema: 'cielo', entra: { tipo: 'vidrio', dur: .9 }, hacer: r => juntos(
+    F.frase(r, { texto: 'La IA era la misma. Cambió el pedido.', oro: 'pedido.', golpeEn: 1.7 }),
+    F.brillo(r, { manchas: 2, barrido: 2.1, z: 30, semilla: 3 })) },
+]);
+// el sello del reto, siempre arriba (con sus propios colores: va sobre cualquier tema)
+const sello = el('div', { position: 'absolute', left: `${L}px`, top: `${SEGURA.arriba + 12}px`, fontSize: '26px', color: '#16233F', zIndex: 120,
+  background: 'rgba(255,255,255,.95)', border: '2px solid #16233F', padding: '10px 18px', borderRadius: '99px' }, esc, 'Día 2 de 30 · Voz con IA');
+sello.className = 'mono';
+await S.listo;
+window.DUR = S.dur;
+window.render = t => S.pintar(t);
+S.pintar(1);
+window.READY = true;
+</script></body></html>

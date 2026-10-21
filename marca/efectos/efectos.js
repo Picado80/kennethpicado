@@ -10,10 +10,35 @@ export const C = {
 // La paleta clara (Kenneth, 20-oct-2026: «el azul está muy oscuro; mejor colores más claros, a la gente le gusta más»).
 // Fondo de papel, texto en tinta, un celeste suave para no perder el azul de la marca y el amarillo de resaltador.
 // En fondo claro el oro de siempre no se lee: va el oro oscuro.
-export const K = {
-  papel: '#F7F4EC', crema: '#EEE7D8', celeste: '#DDE8F6', cielo: '#C3D6F0', tinta: '#16233F', tinta2: '#4A5675',
-  resalte: '#F5CF4E', oro: '#8A6A2A', rojo: '#C2364B', blanco: '#FFFFFF', sombra: 'rgba(22,35,63,.16)',
+// 21-oct: «más color, que sea variable». Siete temas, todos con degradado; cada pieza (y cada escena) elige el suyo con
+// usarTema(nombre) antes de armarse. K es siempre el tema activo. «blanco» es la superficie de las tarjetas: en los
+// temas oscuros es vidrio (translúcido, con desenfoque detrás).
+export const TEMAS = {
+  papel:   { fondo: 'linear-gradient(165deg, #FFF7E6 0%, #F7E3B8 60%, #EFCB86 100%)', papel: '#FBF1DC', crema: '#F3E2BC', celeste: '#E9EEF6', cielo: '#E0B65A',
+             tinta: '#1A1A2E', tinta2: '#5A4B32', resalte: '#FFD43B', oro: '#A0520F', rojo: '#D6334C', blanco: '#FFFFFF', sombra: 'rgba(60,40,10,.25)',
+             borde: '#1A1A2E', brillo: 'rgba(255,255,255,.95)', oscuro: false },
+  cielo:   { fondo: 'linear-gradient(160deg, #E3F0FF 0%, #9EC5FA 50%, #4D8BEE 100%)', papel: '#DCEBFF', crema: '#C7DDFB', celeste: '#B5D2FA', cielo: '#2F6FE0',
+             tinta: '#0A1C40', tinta2: '#2C4A7E', resalte: '#FFD43B', oro: '#1546B5', rojo: '#E0344F', blanco: '#FFFFFF', sombra: 'rgba(10,40,100,.28)',
+             borde: '#0A1C40', brillo: 'rgba(255,255,255,.95)', oscuro: false },
+  menta:   { fondo: 'linear-gradient(160deg, #DFF9EA 0%, #8FE3B5 50%, #34B97B 100%)', papel: '#D9F6E6', crema: '#BDEFD3', celeste: '#A8E8C4', cielo: '#14955C',
+             tinta: '#06281A', tinta2: '#245C42', resalte: '#FFE14A', oro: '#0B6A41', rojo: '#E0344F', blanco: '#FFFFFF', sombra: 'rgba(6,60,35,.26)',
+             borde: '#06281A', brillo: 'rgba(255,255,255,.92)', oscuro: false },
+  durazno: { fondo: 'linear-gradient(160deg, #FFEBDD 0%, #FFB88A 50%, #FF7F52 100%)', papel: '#FFE7D6', crema: '#FFD0B0', celeste: '#FFDCC6', cielo: '#E2562C',
+             tinta: '#33110A', tinta2: '#6B2D1C', resalte: '#FFE066', oro: '#B1300F', rojo: '#C21F3A', blanco: '#FFFFFF', sombra: 'rgba(110,35,10,.28)',
+             borde: '#33110A', brillo: 'rgba(255,255,255,.9)', oscuro: false },
+  oceano:  { fondo: 'radial-gradient(130% 85% at 25% 10%, #5A98FF 0%, #2155C4 38%, #0B1B4D 100%)', papel: '#163476', crema: '#1C3F8A', celeste: '#24489A',
+             cielo: '#8DB9FF', tinta: '#FFFFFF', tinta2: '#C6D8FA', resalte: '#FFD43B', oro: '#FFD43B', rojo: '#FF6F61', blanco: 'rgba(255,255,255,.14)',
+             sombra: 'rgba(0,0,0,.45)', borde: 'rgba(255,255,255,.55)', brillo: 'rgba(120,180,255,.75)', oscuro: true },
+  noche:   { fondo: 'radial-gradient(120% 80% at 78% 6%, #6A44C2 0%, #2A1F55 40%, #0B0A1A 100%)', papel: '#1A1636', crema: '#241E48', celeste: '#2E2758',
+             cielo: '#A98BFF', tinta: '#FFFFFF', tinta2: '#C9C0EA', resalte: '#FFD43B', oro: '#FFC94A', rojo: '#FF6B8A', blanco: 'rgba(255,255,255,.12)',
+             sombra: 'rgba(0,0,0,.55)', borde: 'rgba(255,255,255,.5)', brillo: 'rgba(255,201,74,.5)', oscuro: true },
+  bosque:  { fondo: 'radial-gradient(130% 90% at 20% 8%, #48C08E 0%, #17654A 42%, #06261C 100%)', papel: '#15503C', crema: '#1B5E47', celeste: '#226B52',
+             cielo: '#7FE3B5', tinta: '#FFFFFF', tinta2: '#BDEBD5', resalte: '#FFD43B', oro: '#9DF2C8', rojo: '#FF8A7A', blanco: 'rgba(255,255,255,.13)',
+             sombra: 'rgba(0,0,0,.45)', borde: 'rgba(255,255,255,.5)', brillo: 'rgba(127,227,181,.6)', oscuro: true },
 };
+export const K = { ...TEMAS.papel, tema: 'papel' };
+export function usarTema(nombre) { Object.assign(K, TEMAS[nombre] ?? TEMAS.papel); K.tema = nombre; return K; }
+const vidrioTarjeta = () => (K.oscuro ? 'blur(18px) saturate(1.4)' : 'none');
 export const FW = 1080, FH = 1920;
 // Zona segura común a TikTok, Instagram Reels, Facebook Reels y YouTube Shorts en 1080×1920, en píxeles (la medida en
 // píxeles es la fuente; ver la fila 202 del índice de TORRE). Sale de la guía de anuncios de cada red, la única publicada
@@ -76,7 +101,7 @@ export async function instalar(o = {}) {
   @font-face{font-family:"Marcador";src:url(fuentes/ArchitectsDaughter-Regular.ttf)}
   html,body{margin:0;width:${FW}px;height:${FH}px;overflow:hidden;background:${o.fondo || C.tinta}}
   .resalte{background-image:linear-gradient(${K.resalte},${K.resalte});background-repeat:no-repeat;background-position:0 88%;
-    background-size:0% 42%;padding:0 .06em;margin:0 -.06em}
+    background-size:0% 46%;padding:0 .06em;margin:0 -.06em}
   .mono{font-family:"JetBrains Mono",monospace;font-weight:500;text-transform:uppercase;letter-spacing:.14em}
   .serif{font-family:"Instrument Serif",serif;font-weight:400}
   .archivo{font-family:"Archivo",sans-serif;font-weight:600}`;
@@ -88,7 +113,7 @@ export async function instalar(o = {}) {
 // ───────────────────────────────────────── 1 · la curva de crecimiento (el contador del reto)
 // o: { valores: [seguidores por día], meta: número final, titulo, dia, ejemplo: true si los datos son de muestra }
 export function curva(padre, o) {
-  const P = o.oscuro ? { f: C.tinta, x: C.vitela, a: C.oro, s: C.gris } : { f: K.papel, x: K.tinta, a: K.oro, s: K.tinta2 };
+  const P = o.oscuro ? { f: C.tinta, x: C.vitela, a: C.oro, s: C.gris } : { f: K.fondo, x: K.tinta, a: K.oro, s: K.tinta2 };
   const v = o.valores, base = v[0], meta = o.meta, ult = v[v.length - 1];
   const raiz = el('div', { position: 'absolute', inset: '0', background: P.f, color: P.x }, padre);
   el('div', { position: 'absolute', left: '90px', top: '330px', fontSize: '30px', color: P.a }, raiz, o.titulo || 'Seguidores').className = 'mono';
@@ -147,7 +172,7 @@ export function curva(padre, o) {
 export function chat(padre, o) {
   const P = o.oscuro
     ? { fondo: C.noche, panel: C.vitela, cab: C.tinta, cabTxt: C.vitela, estado: C.oro, agente: C.tinta, agenteTxt: C.vitela, cliente: C.blanco, clienteTxt: C.grafito, sombra: '0 40px 90px rgba(0,0,0,.45)' }
-    : { fondo: `linear-gradient(160deg, ${K.papel}, ${K.celeste})`, panel: K.blanco, cab: K.papel, cabTxt: K.tinta, estado: K.oro, agente: K.tinta,
+    : { fondo: K.fondo, panel: K.oscuro ? K.crema : K.blanco, cab: K.papel, cabTxt: K.tinta, estado: K.oro, agente: K.tinta,
         agenteTxt: K.papel, cliente: '#EEF2F8', clienteTxt: K.tinta, sombra: '0 40px 90px rgba(22,35,63,.22)' };
   const raiz = el('div', { position: 'absolute', inset: '0', background: P.fondo }, padre);
   const PW = 860, PH = 1380;
@@ -199,7 +224,7 @@ export function chat(padre, o) {
 // ───────────────────────────────────────── 3 · el teléfono
 // o: { inicio, llenar(pantalla) -> { pintar(t) } para lo que va adentro }
 export function telefono(padre, o) {
-  const raiz = el('div', { position: 'absolute', inset: '0', background: o.fondo || C.vitela, perspective: '2200px' }, padre);
+  const raiz = el('div', { position: 'absolute', inset: '0', background: o.fondo || K.fondo, perspective: '2200px' }, padre);
   const TW = 640, TH = 1300;
   const cuerpo = el('div', { position: 'absolute', left: `${(FW - TW) / 2}px`, top: `${(FH - TH) / 2 + 60}px`, width: `${TW}px`,
     height: `${TH}px`, borderRadius: '96px', background: '#0b0d10', boxShadow: '0 60px 120px rgba(22,35,63,.45)',
@@ -223,19 +248,19 @@ export function telefono(padre, o) {
 // o: { titulo, oro, items: [texto], inicio, cada, claro }
 export function lista(padre, o) {
   const claro = o.claro ?? true;
-  const raiz = el('div', { position: 'absolute', inset: '0', background: claro ? C.vitela : C.tinta, color: claro ? C.tinta : C.vitela,
+  const raiz = el('div', { position: 'absolute', inset: '0', background: claro ? K.fondo : C.tinta, color: claro ? K.tinta : C.vitela,
     boxSizing: 'border-box' }, padre);
-  const tit = el('div', { position: 'absolute', left: '90px', right: `${SEGURA.derecha + 10}px`, top: '360px', font: '400 108px/1.02 "Instrument Serif"' },
-    raiz, conOro(o.titulo, o.oro));
+  const tit = el('div', { position: 'absolute', left: `${SEGURA.izquierda + 10}px`, right: `${SEGURA.derecha + 10}px`, top: '390px', font: '400 100px/1.02 "Instrument Serif"' },
+    raiz, conOro(o.titulo, o.oro, claro ? K.oro : C.oro));
   const filas = o.items.map((texto, i) => {
-    const f = el('div', { position: 'absolute', left: '90px', right: `${SEGURA.derecha + 10}px`, top: `${820 + i * 190}px`, display: 'flex',
+    const f = el('div', { position: 'absolute', left: `${SEGURA.izquierda + 10}px`, right: `${BOTONES.derecha}px`, top: `${(o.arriba ?? 740) + i * 160}px`, display: 'flex',
       alignItems: 'center', gap: '40px', transformOrigin: '0 50%' }, raiz);
     const s = svg('svg', { width: 84, height: 84, viewBox: '0 0 84 84', style: 'flex:none' }, f);
-    svg('rect', { x: 4, y: 4, width: 76, height: 76, rx: 14, fill: 'none', stroke: claro ? C.tinta : C.vitela, 'stroke-width': 6 }, s);
-    const v = svg('path', { d: 'M20 44 L36 60 L66 26', fill: 'none', stroke: C.oro, 'stroke-width': 10, 'stroke-linecap': 'round',
+    svg('rect', { x: 4, y: 4, width: 76, height: 76, rx: 14, fill: claro ? K.blanco : 'none', stroke: claro ? K.tinta : C.vitela, 'stroke-width': 6 }, s);
+    const v = svg('path', { d: 'M20 44 L36 60 L66 26', fill: 'none', stroke: claro ? K.oro : C.oro, 'stroke-width': 10, 'stroke-linecap': 'round',
       'stroke-linejoin': 'round' }, s);
     v.setAttribute('stroke-dasharray', '70 70');
-    el('div', { font: '600 54px/1.15 Archivo' }, f, texto);
+    el('div', { font: '600 46px/1.15 Archivo' }, f, texto);
     return { f, v };
   });
   const i0 = o.inicio ?? .5, cada = o.cada ?? .55;
@@ -245,7 +270,7 @@ export function lista(padre, o) {
       tit.style.opacity = a; tit.style.transform = `translateY(${(1 - E.sale(a)) * 40}px)`;
       filas.forEach(({ f, v }, i) => {
         const ti = i0 + i * cada, p = tramo(t, ti, ti + .4);
-        f.style.opacity = p; f.style.transform = `scale(${mezcla(.6, 1, E.atras(p, 2.4))})`;
+        f.style.opacity = p; f.style.transform = `translateX(${(Math.sin(t * 2 + i * 1.4) * 4 * p).toFixed(1)}px) scale(${mezcla(.6, 1, E.atras(p, 2.4))})`;
         v.setAttribute('stroke-dashoffset', 70 * (1 - E.sale(tramo(t, ti + .18, ti + .48))));
       });
     },
@@ -256,17 +281,18 @@ export function lista(padre, o) {
 // o: { items: [{ fuente, fecha, texto }], destacado: índice, inicio, foco (segundo del acercamiento) }
 export function titulares(padre, o) {
   const P = o.oscuro ? { fondo: C.tinta, tarjeta: C.vitela, sombra: '0 24px 50px rgba(0,0,0,.4)', acento: C.oro }
-    : { fondo: `linear-gradient(170deg, ${K.celeste}, ${K.papel})`, tarjeta: K.blanco, sombra: '0 24px 50px rgba(22,35,63,.18)', acento: K.resalte };
+    : { fondo: K.fondo, tarjeta: K.blanco, sombra: `0 24px 50px ${K.sombra}`, acento: K.resalte };
   const raiz = el('div', { position: 'absolute', inset: '0', background: P.fondo, overflow: 'hidden' }, padre);
   const mesa = el('div', { position: 'absolute', inset: '0', transformOrigin: '50% 50%' }, raiz);
   const r = azar(23), n = o.items.length;
   const tarjetas = o.items.map((it, i) => {
-    const c = el('div', { position: 'absolute', left: `${SEGURA.izquierda + 20}px`, width: `${FW - SEGURA.izquierda - 20 - SEGURA.derecha - 20}px`, padding: '36px 44px', boxSizing: 'border-box',
-      background: P.tarjeta, color: C.tinta, borderRadius: '10px', boxShadow: P.sombra }, mesa);
-    const m = el('div', { fontSize: '22px', color: C.rojo, marginBottom: '14px' }, c, `${it.fuente} · ${it.fecha}`);
+    const c = el('div', { position: 'absolute', left: `${SEGURA.izquierda + 20}px`, width: `${FW - SEGURA.izquierda - 20 - BOTONES.derecha}px`, padding: '32px 40px', boxSizing: 'border-box',
+      background: P.tarjeta, color: o.oscuro ? C.tinta : K.tinta, borderRadius: '16px', boxShadow: `0 14px 0 -4px ${K.cielo}, ${P.sombra}`, backdropFilter: vidrioTarjeta(),
+      border: `3px solid ${K.borde}` }, mesa);
+    const m = el('div', { fontSize: '22px', color: o.oscuro ? C.rojo : K.rojo, marginBottom: '14px' }, c, `${it.fuente} · ${it.fecha}`);
     m.className = 'mono';
     el('div', { font: '400 56px/1.08 "Instrument Serif"' }, c, it.texto);
-    const fin = { y: SEGURA.arriba + 60 + i * ((FH - SEGURA.arriba - SEGURA.abajo - 260) / Math.max(1, n - 1)), rot: (r() - .5) * 6, x: (r() - .5) * 30 };
+    const fin = { y: SEGURA.arriba + 110 + i * ((FH - SEGURA.arriba - SEGURA.abajo - 330) / Math.max(1, n - 1)), rot: (r() - .5) * 6, x: (r() - .5) * 30 };
     const ang = r() * Math.PI * 2;
     const desde = { x: Math.cos(ang) * 1400, y: Math.sin(ang) * 1700, rot: (r() - .5) * 60 };
     return { c, fin, desde };
@@ -277,7 +303,8 @@ export function titulares(padre, o) {
       tarjetas.forEach(({ c, fin, desde }, i) => {
         const p = E.expo(tramo(t, i0 + i * paso, i0 + i * paso + .7));
         c.style.top = `${fin.y}px`;
-        c.style.transform = `translate(${mezcla(desde.x, fin.x, p)}px, ${mezcla(desde.y, 0, p)}px) rotate(${mezcla(desde.rot, fin.rot, p)}deg)`;
+        const vive = Math.sin(t * 1.8 + i * 1.7) * 6 * p;   // flotan apenas cuando ya llegaron
+        c.style.transform = `translate(${mezcla(desde.x, fin.x, p)}px, ${mezcla(desde.y, 0, p) + vive}px) rotate(${mezcla(desde.rot, fin.rot, p) + Math.sin(t * 1.3 + i) * .6 * p}deg)`;
         c.style.opacity = tramo(t, i0 + i * paso, i0 + i * paso + .15);
         const k = E.sale(tramo(t, foco, foco + .6));
         c.style.filter = i === dest ? 'none' : o.oscuro ? `brightness(${1 - .55 * k})` : `blur(${(2.5 * k).toFixed(2)}px) opacity(${(1 - .5 * k).toFixed(3)})`;
@@ -294,7 +321,7 @@ export function titulares(padre, o) {
 // ───────────────────────────────────────── 6 · el recorte de papel que se sale del cuadro
 // o: { src: PNG con fondo transparente (si falta, una silueta de boceto), inicio, rotulo }
 export function recorte(padre, o) {
-  const raiz = el('div', { position: 'absolute', inset: '0', background: C.vitela }, padre);
+  const raiz = el('div', { position: 'absolute', inset: '0', background: K.fondo }, padre);
   const MX = 140, MY = 640, MW = 800, MH = 960;
   const marco = el('div', { position: 'absolute', left: `${MX}px`, top: `${MY}px`, width: `${MW}px`, height: `${MH}px`,
     background: o.marco ?? K.cielo, borderRadius: '6px' }, raiz);
@@ -354,7 +381,7 @@ export function golpe(objetivo, o) {
 // Tipografía de golpe: una frase que entra palabra por palabra y remata con el golpe de zoom en la palabra de oro
 // o: { texto, oro, cada, golpeEn, tiempos: [segundo en que entra cada palabra] (opcional, para colgarla de la voz) }
 export function frase(padre, o) {
-  const raiz = el('div', { position: 'absolute', inset: '0', background: (o.claro ?? true) ? K.papel : C.tinta, color: (o.claro ?? true) ? K.tinta : C.vitela,
+  const raiz = el('div', { position: 'absolute', inset: '0', background: (o.claro ?? true) ? K.fondo : C.tinta, color: (o.claro ?? true) ? K.tinta : C.vitela,
     display: 'flex', alignItems: 'center',
     padding: `0 ${BOTONES.derecha}px 0 ${SEGURA.izquierda + 10}px`, boxSizing: 'border-box' }, padre);
   const caja = el('div', { font: '400 128px/1.02 "Instrument Serif"', width: '100%' }, raiz);
@@ -473,13 +500,14 @@ export function broll(padre, o) {
 export function fichas(padre, o) {
   const caja = el('div', { display: 'flex', flexWrap: 'wrap', gap: '14px', ...o.estilo }, padre);
   const fs = o.items.map(txt => el('span', { font: '600 34px/1 Archivo', color: K.tinta, background: K.blanco, padding: '14px 22px',
-    borderRadius: '99px', boxShadow: `0 8px 20px ${K.sombra}`, border: `2px solid ${K.cielo}`, display: 'inline-block' }, caja, txt));
+    borderRadius: '99px', boxShadow: `0 10px 0 -2px ${K.cielo}, 0 16px 28px ${K.sombra}`, border: `3px solid ${K.borde}`, display: 'inline-block', backdropFilter: vidrioTarjeta() }, caja, txt));
   const i0 = o.inicio ?? 0, cada = o.cada ?? .12;
   return {
     caja,
     pintar(t, fuera = 1) {
       fs.forEach((f, i) => { const p = tramo(t, i0 + i * cada, i0 + i * cada + .35);
-        f.style.opacity = Math.min(1, p * 3) * fuera; f.style.transform = `scale(${mezcla(.4, 1, E.atras(p, 2.2))})`; });
+        f.style.opacity = Math.min(1, p * 3) * fuera;
+        f.style.transform = `translateY(${(Math.sin(t * 2.2 + i * 1.3) * 5 * p).toFixed(1)}px) scale(${mezcla(.4, 1, E.atras(p, 2.2))})`; });
     },
   };
 }
@@ -487,14 +515,14 @@ export function fichas(padre, o) {
 // ───────────────────────────────────────── 12 · órbita: palabras que giran alrededor de algo
 // o: { centro: html, items: [texto], cx, cy, rx, ry, vel (vueltas por segundo), inicio, fondo }
 export function orbita(padre, o) {
-  const raiz = el('div', { position: 'absolute', inset: '0', background: o.fondo ?? K.papel, color: K.tinta, overflow: 'hidden' }, padre);
-  const cx = o.cx ?? 480, cy = o.cy ?? 690, rx = o.rx ?? 300, ry = o.ry ?? 185;
+  const raiz = el('div', { position: 'absolute', inset: '0', background: o.fondo ?? K.fondo, color: K.tinta, overflow: 'hidden' }, padre);
+  const cx = o.cx ?? 504, cy = o.cy ?? 690, rx = o.rx ?? 280, ry = o.ry ?? 185;
   const g = svg('svg', { width: FW, height: FH, style: 'position:absolute;left:0;top:0' }, raiz);
-  const anillo = svg('ellipse', { cx, cy, rx, ry, fill: 'none', stroke: K.cielo, 'stroke-width': 3, 'stroke-dasharray': '4 14' }, g);
+  const anillo = svg('ellipse', { cx, cy, rx, ry, fill: 'none', stroke: K.cielo, 'stroke-width': 5, 'stroke-dasharray': '6 16' }, g);
   const centro = el('div', { position: 'absolute', left: `${cx}px`, top: `${cy}px`, zIndex: 50, font: '400 116px/1 "Instrument Serif"',
     textAlign: 'center', whiteSpace: 'nowrap' }, raiz, o.centro);
   const items = o.items.map(txt => el('div', { position: 'absolute', left: '0', top: '0', font: '600 40px/1 Archivo', color: K.tinta,
-    background: K.blanco, padding: '14px 22px', borderRadius: '99px', boxShadow: `0 10px 24px ${K.sombra}`, border: `2px solid ${K.cielo}`,
+    background: K.blanco, padding: '14px 22px', borderRadius: '99px', boxShadow: `0 10px 0 -2px ${K.cielo}, 0 18px 30px ${K.sombra}`, border: `3px solid ${K.borde}`, backdropFilter: vidrioTarjeta(),
     whiteSpace: 'nowrap' }, raiz, txt));
   const n = items.length, i0 = o.inicio ?? .3, vel = o.vel ?? .08;
   return {
@@ -523,7 +551,7 @@ export function orbita(padre, o) {
 // Un póster con foto y una palabra grande: la palabra crece y se sale del marco por arriba y por los lados; por abajo
 // sigue adentro. o: { src, palabra, t0, fondo }
 export function escapeMarco(padre, o) {
-  const raiz = el('div', { position: 'absolute', inset: '0', background: o.fondo ?? K.crema, overflow: 'hidden' }, padre);
+  const raiz = el('div', { position: 'absolute', inset: '0', background: o.fondo ?? K.fondo, overflow: 'hidden' }, padre);
   const capa = el('div', { position: 'absolute', inset: '0' }, raiz);
   const MX = 190, MY = 470, MW = 640, MH = 760, B = 22;
   const poster = el('div', { position: 'absolute', left: `${MX}px`, top: `${MY}px`, width: `${MW}px`, height: `${MH}px`, background: K.blanco,
@@ -569,10 +597,10 @@ export function portal(a, b, t, t0, o = {}) {
 // o: { html (lo que se presenta; por omisión, una hoja), ancho, alto }
 export function estudio(padre, o) {
   const raiz = el('div', { position: 'absolute', inset: '0', overflow: 'hidden', perspective: '2000px',
-    background: 'radial-gradient(ellipse at 50% 36%, #FFFFFF 0%, #EFEAE0 42%, #D8D0C1 100%)' }, padre);
+    background: K.oscuro ? 'radial-gradient(ellipse at 50% 36%, #46557E 0%, #1B2236 45%, #0A0D16 100%)' : 'radial-gradient(ellipse at 50% 36%, #FFFFFF 0%, #EFEAE0 42%, #D8D0C1 100%)' }, padre);
   const cx = 504, piso = 1080, W = o.ancho ?? 560, H = o.alto ?? 700;
   el('div', { position: 'absolute', left: '-10%', right: '-10%', top: `${piso}px`, bottom: '0',
-    background: 'linear-gradient(#E6DFD2, #CEC5B4)' }, raiz);
+    background: K.oscuro ? 'linear-gradient(#1C2338, #0E121D)' : 'linear-gradient(#E6DFD2, #CEC5B4)' }, raiz);
   const sombra = el('div', { position: 'absolute', left: `${cx - 300}px`, top: `${piso - 34}px`, width: '600px', height: '80px', borderRadius: '50%',
     background: 'radial-gradient(rgba(22,35,63,.38), rgba(22,35,63,0) 70%)' }, raiz);
   const html = o.html ?? `<div style="font:400 78px/1.02 'Instrument Serif';color:${K.tinta}">Manual<br>de apertura</div>` +
@@ -639,42 +667,57 @@ export function dolly(padre, o) {
 }
 
 // ───────────────────────────────────────── 17 · la portada de revista (magazine cover)
-// o: { src, cabecera, numero, lineas: [{ n, txt }], color (de la cabecera) }
+// La tapa va nítida y un poco más chica que el cuadro; alrededor, la misma foto desenfocada y más oscura: así se lee como
+// una revista y no como letras encima de una cara (Kenneth, 21-oct). Al final se inclina como si estuviera sobre la mesa.
+// o: { src, cabecera, numero, lineas: [{ n, txt }], color (de la cabecera), mayusculas, persona (PNG recortado: la
+//      cabecera queda detrás de la cabeza), escala (tamaño de la tapa; .78 por omisión) }
 export function revista(padre, o) {
-  const raiz = el('div', { position: 'absolute', inset: '0', overflow: 'hidden', background: K.crema, perspective: '2400px' }, padre);
-  const tapa = el('div', { position: 'absolute', inset: '0', overflow: 'hidden', transformOrigin: '50% 55%', boxShadow: '0 50px 100px rgba(22,35,63,.35)' }, raiz);
+  const raiz = el('div', { position: 'absolute', inset: '0', overflow: 'hidden', background: '#111', perspective: '2400px' }, padre);
+  const atras = el('img', { position: 'absolute', left: '-8%', top: '-8%', width: '116%', height: '116%', objectFit: 'cover',
+    filter: 'blur(34px) brightness(.6) saturate(1.2)' }, raiz);
+  atras.src = o.src;
+  const luz = brillo(raiz, { manchas: 2, z: 0, color: 'rgba(255,255,255,.35)' });
+  const tapa = el('div', { position: 'absolute', inset: '0', overflow: 'hidden', transformOrigin: '50% 47%', borderRadius: '6px',
+    boxShadow: '0 70px 140px rgba(0,0,0,.6), 0 0 0 3px rgba(255,255,255,.9)' }, raiz);
   const foto = el('img', { position: 'absolute', inset: '0', width: '100%', height: '100%', objectFit: 'cover' }, tapa);
   foto.src = o.src;
   el('div', { position: 'absolute', inset: '0', background: 'linear-gradient(rgba(0,0,0,.08), rgba(0,0,0,0) 30%, rgba(0,0,0,0) 45%, rgba(10,14,24,.62) 100%)' }, tapa);
   const L = SEGURA.izquierda + 10;
-  const cab = el('div', { position: 'absolute', left: `${L - 6}px`, right: `${SEGURA.derecha}px`, top: '290px', font: '400 178px/.9 "Instrument Serif"',
-    letterSpacing: '-.025em', color: o.color ?? K.rojo, whiteSpace: 'nowrap' }, tapa);
+  const cab = el('div', { position: 'absolute', left: `${L - 6}px`, right: `${SEGURA.derecha}px`, top: '300px', font: '400 236px/.9 "Instrument Serif"',
+    letterSpacing: '-.03em', color: o.color ?? K.rojo, whiteSpace: 'nowrap', textShadow: '0 6px 24px rgba(0,0,0,.25)' }, tapa);
   const letras = [...(o.cabecera ?? 'NEGOCIOS')].map(c => el('span', { display: 'inline-block' }, cab, c));
-  const num = el('div', { position: 'absolute', left: `${L}px`, top: '462px', fontSize: '22px', color: K.tinta }, tapa, o.numero ?? 'N.º 1 · Octubre 2026');
+  const yo = o.persona ? el('img', { position: 'absolute', inset: '0', width: '100%', height: '100%', objectFit: 'cover' }, tapa) : null;
+  if (yo) yo.src = o.persona;
+  const num = el('div', { position: 'absolute', left: `${L}px`, top: '520px', fontSize: '26px', color: '#16233F' }, tapa, o.numero ?? 'N.º 1 · Octubre 2026');
   num.className = 'mono';
   const lineas = (o.lineas ?? []).map((l, i) => {
-    const f = el('div', { position: 'absolute', left: `${L}px`, right: `${BOTONES.derecha + 40}px`, top: `${860 + i * 118}px`, color: K.blanco }, tapa,
-      `<span style="font:400 64px/1 'Instrument Serif';color:${K.resalte};font-style:italic;margin-right:14px">${l.n}</span>` +
-      `<span style="font:800 36px/1.1 Archivo;text-transform:uppercase;letter-spacing:.01em">${l.txt}</span>`);
+    const f = el('div', { position: 'absolute', left: `${L}px`, right: `${BOTONES.derecha + 40}px`, top: `${850 + i * 132}px`, color: '#FFFFFF' }, tapa,
+      `<span style="font:400 92px/1 'Instrument Serif';color:#FFD43B;font-style:italic;margin-right:16px">${l.n}</span>` +
+      `<span style="font:800 48px/1.1 Archivo;text-transform:${o.mayusculas === false ? 'none' : 'uppercase'};letter-spacing:.01em">${l.txt}</span>`);
     f.style.textShadow = '0 4px 18px rgba(0,0,0,.45)';
     return f;
   });
-  const codigo = el('div', { position: 'absolute', left: '640px', top: '1130px', width: '128px', height: '84px', background: K.blanco, padding: '8px',
+  const codigo = el('div', { position: 'absolute', left: '640px', top: '1130px', width: '128px', height: '84px', background: '#FFFFFF', padding: '8px',
     boxSizing: 'border-box', display: 'flex', gap: '2px', alignItems: 'stretch' }, tapa);
   const r = azar(5); for (let i = 0; i < 26; i++) el('div', { flex: 'none', width: `${1 + Math.floor(r() * 3)}px`, background: '#111' }, codigo);
+  const s0 = o.escala ?? .78;
   return {
+    listo: Promise.all([atras, foto, yo].filter(Boolean).map(x => x.decode().catch(() => {}))),
     pintar(t) {
-      foto.style.transform = `scale(${mezcla(1.12, 1.0, E.sale(tramo(t, 0, 1.2))).toFixed(4)})`;
-      letras.forEach((s, i) => { const p = tramo(t, .15 + i * .05, .15 + i * .05 + .35);
-        s.style.opacity = p; s.style.transform = `translateY(${((1 - E.atras(p, 1.8)) * -90).toFixed(1)}px)`; });
+      atras.style.transform = `scale(${mezcla(1, 1.08, tramo(t, 0, 3.6)).toFixed(4)})`;
+      luz.pintar(t);
+      foto.style.transform = `scale(${mezcla(1.1, 1.0, E.sale(tramo(t, 0, 1.2))).toFixed(4)})`;
+      if (yo) yo.style.transform = foto.style.transform;
+      letras.forEach((x, i) => { const p = tramo(t, .15 + i * .05, .15 + i * .05 + .35);
+        x.style.opacity = p; x.style.transform = `translateY(${((1 - E.atras(p, 1.8)) * -90).toFixed(1)}px)`; });
       num.style.opacity = tramo(t, .6, .9);
       lineas.forEach((f, i) => { const p = tramo(t, .8 + i * .18, .8 + i * .18 + .4);
         f.style.opacity = p; f.style.transform = `translateX(${((1 - E.sale(p)) * -80).toFixed(1)}px)`; });
       codigo.style.opacity = tramo(t, 1.5, 1.7);
-      // al final la portada se vuelve una revista sobre la mesa
-      const k = CURVAS.io(tramo(t, 2.3, 3.4));
-      tapa.style.transform = `scale(${mezcla(1, .8, k).toFixed(4)}) rotateY(${(-16 * k).toFixed(2)}deg) rotateX(${(7 * k).toFixed(2)}deg) rotateZ(${(-2 * k).toFixed(2)}deg)`;
-      tapa.style.borderRadius = `${(10 * k).toFixed(1)}px`;
+      // entra un poco girada y se acomoda; al final se inclina como sobre una mesa
+      const a = E.sale(tramo(t, 0, .7)), k = CURVAS.io(tramo(t, 2.3, 3.4));
+      tapa.style.transform = `translateY(${((1 - a) * 90).toFixed(1)}px) scale(${(mezcla(.9, s0, a) - .05 * k).toFixed(4)}) ` +
+        `rotateY(${(-14 * k).toFixed(2)}deg) rotateX(${(6 * k).toFixed(2)}deg) rotateZ(${(mezcla(-4, -1, a) - 1.5 * k).toFixed(2)}deg)`;
     },
   };
 }
@@ -689,7 +732,13 @@ export function vidrio(padre, o) {
   const brillo = el('div', { position: 'absolute', left: '12%', top: '8%', width: '55%', height: '32%', borderRadius: '50%',
     background: 'linear-gradient(160deg, rgba(255,255,255,.75), rgba(255,255,255,0))', filter: 'blur(4px)' }, lente);
   return {
+    ocultar() { lente.style.opacity = 0; },
     pintar(t) {
+      if (t < t0 - .7 || t >= t0 + d) {   // fuera del corte: sin lente y una sola escena a la vista
+        lente.style.opacity = 0; const despues = t >= t0 + d;
+        o.a.style.visibility = despues ? 'hidden' : 'visible'; o.b.style.visibility = despues ? 'visible' : 'hidden';
+        o.a.style.transform = o.b.style.transform = 'none'; return;
+      }
       const ent = tramo(t, t0 - .7, t0), cre = tramo(t, t0, t0 + d * .55), sal = tramo(t, t0 + d * .45, t0 + d);
       const s = E.atras(ent, 1.6) * Math.pow(9, cre * cre);
       lente.style.transform = `scale(${s.toFixed(4)})`;
@@ -710,7 +759,7 @@ export function vidrio(padre, o) {
 // Un video o foto en un cuadro con borde; el borde se rompe en pedazos y la imagen se agranda a pantalla completa.
 // o: { src, t0 }. Para video, cambiar img.src por cuadro desde afuera (devuelve img).
 export function rompeMarco(padre, o) {
-  const raiz = el('div', { position: 'absolute', inset: '0', overflow: 'hidden', background: o.fondo ?? K.papel }, padre);
+  const raiz = el('div', { position: 'absolute', inset: '0', overflow: 'hidden', background: o.fondo ?? K.fondo }, padre);
   const R0 = { x: 210, y: 470, w: 600, h: 760 }, B = 26;
   const caja = el('div', { position: 'absolute', overflow: 'hidden', background: '#000' }, raiz);
   const img = el('img', { width: '100%', height: '100%', objectFit: 'cover', display: 'block' }, caja);
@@ -878,19 +927,19 @@ export function rasgado(semilla = 3, dientes = 26, prof = 2.2) {
 // 23 · el documento con la frase resaltada (lo más Vox): un recorte de papel, la cámara va a la frase, el resaltador
 // la marca y lo demás se apaga. o: { titulo, fuente, lineas: [texto], marcada: índice, t0 (cuando marca) }
 export function documento(padre, o) {
-  const raiz = el('div', { position: 'absolute', inset: '0', overflow: 'hidden', background: o.fondo ?? '#E9E2D2' }, padre);
+  const raiz = el('div', { position: 'absolute', inset: '0', overflow: 'hidden', background: o.fondo ?? K.fondo }, padre);
   const capa = el('div', { position: 'absolute', inset: '0' }, raiz);
-  const hoja = el('div', { position: 'absolute', left: '150px', top: '360px', width: '780px', padding: '70px 64px 90px', boxSizing: 'border-box',
+  const hoja = el('div', { position: 'absolute', left: '150px', top: '420px', width: '700px', padding: '64px 56px 84px', boxSizing: 'border-box',
     background: '#FBF8F1', clipPath: rasgado(o.semilla ?? 4), transform: 'rotate(-2.2deg)' }, capa);
   el('div', { fontSize: '22px', color: K.rojo, marginBottom: '22px' }, hoja, o.fuente ?? 'Fuente · fecha').className = 'mono';
-  el('div', { font: '400 66px/1.04 "Instrument Serif"', color: K.tinta, marginBottom: '34px' }, hoja, o.titulo ?? '');
-  const filas = (o.lineas ?? []).map((txt, i) => el('div', { font: '400 34px/1.5 Georgia, serif', color: '#2a2f3c' }, hoja,
+  el('div', { font: '400 60px/1.04 "Instrument Serif"', color: K.tinta, marginBottom: '30px' }, hoja, o.titulo ?? '');
+  const filas = (o.lineas ?? []).map((txt, i) => el('div', { font: '400 32px/1.5 Georgia, serif', color: '#2a2f3c' }, hoja,
     i === o.marcada ? `<span class="resalte">${txt}</span>` : txt));
   const raya = hoja.querySelector('.resalte');
   if (raya) raya.style.backgroundSize = '0% 80%';
   const t0 = o.t0 ?? 1.2;
   const cam = camara(capa, o.claves ?? [{ t: 0, z: .86, giro: 4, y: 40 }, { t: t0 - .2, z: 1, curva: 's' },
-    { t: t0 + .6, z: 1.22, y: -60, x: 20, curva: 'io' }, { t: 4.5, z: 1.26, y: -70, x: 20, curva: 'l' }], { deriva: 0 });
+    { t: t0 + .6, z: 1.08, y: -30, x: -10, curva: 'io' }, { t: 5, z: 1.1, y: -36, x: -10, curva: 'l' }], { deriva: 0 });
   const grano = textura(raiz);
   return {
     hoja,
@@ -898,7 +947,9 @@ export function documento(padre, o) {
       cam.pintar(aDos(t));
       const p = tramo(t, t0, t0 + .5);
       if (raya) raya.style.backgroundSize = `${(E.sale(p) * 100).toFixed(1)}% 80%`;
-      filas.forEach((f, i) => { f.style.opacity = i === o.marcada ? 1 : mezcla(1, .35, tramo(t, t0 + .3, t0 + .8)); });
+      filas.forEach((f, i) => { const ap = tramo(t, .15 + i * .14, .3 + i * .14);
+        f.style.opacity = ap * (i === o.marcada ? 1 : mezcla(1, .35, tramo(t, t0 + .3, t0 + .8)));
+        f.style.transform = `translateY(${((1 - E.sale(ap)) * 14).toFixed(1)}px)`; });
       grano.pintar(t);
     },
   };
@@ -947,8 +998,8 @@ export function collage(padre, o) {
 export function sello(padre, o) {
   const color = o.color ?? K.rojo, rot = o.rot ?? -9;
   const s = el('div', { position: 'absolute', left: `${o.x ?? 300}px`, top: `${o.y ?? 760}px`, zIndex: 40, padding: '18px 34px 14px',
-    border: `9px solid ${color}`, borderRadius: '18px', color, font: '900 96px/1 Archivo', letterSpacing: '.06em', textTransform: 'uppercase',
-    opacity: 0, transformOrigin: '50% 50%', mixBlendMode: 'multiply',
+    border: `${Math.round((o.tam ?? 96) / 10.7)}px solid ${color}`, borderRadius: '18px', color, font: `900 ${o.tam ?? 96}px/1 Archivo`, letterSpacing: '.06em', textTransform: 'uppercase',
+    opacity: 0, transformOrigin: '50% 50%', mixBlendMode: K.oscuro ? 'normal' : 'multiply',
     WebkitMaskImage: 'url("data:image/svg+xml;utf8,' + encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" width="220" height="220"><filter id="m"><feTurbulence type="fractalNoise" baseFrequency=".75" numOctaves="2" seed="4"/><feColorMatrix values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -2.4 2.1"/></filter><rect width="220" height="220" filter="url(#m)"/></svg>') + '")' },
     padre, o.texto ?? 'Aprobado');
   const t0 = o.t0 ?? .6;
@@ -978,6 +1029,103 @@ export function maquina(padre, o) {
       const n = Math.max(0, Math.min(o.texto.length, Math.floor((t - t0) * cps)));
       txt.textContent = o.texto.slice(0, n);
       cursor.style.opacity = (n < o.texto.length || Math.floor(t * 2.4) % 2 === 0) ? 1 : 0;
+    },
+  };
+}
+
+// ───────────────────────────────────────── 27 · la secuencia: escenas una detrás de otra, con su corte de entrada
+// escenas: [{ dur, hacer(r) → { pintar(t), listo? }, entra: { tipo: 'zoom'|'barrido'|'gira'|'golpe'|'portal'|'vidrio', dur, dir, x, y, r } }]
+// Fuera de los cortes se ve una sola escena; en cada corte se pintan las dos y el corte decide cómo pasan.
+export function secuencia(padre, escenas) {
+  let acum = 0;
+  const xs = escenas.map(e => {
+    const r = el('div', { position: 'absolute', inset: '0', overflow: 'hidden', visibility: 'hidden' }, padre);
+    if (e.tema) usarTema(e.tema);
+    const ef = e.hacer(r);
+    const x = { r, ef, t0: acum, dur: e.dur, entra: e.entra };
+    acum += e.dur;
+    return x;
+  });
+  xs.forEach((x, i) => { if (i && x.entra?.tipo === 'vidrio') x.vid = vidrio(padre, { a: xs[i - 1].r, b: x.r, t0: x.t0, dur: x.entra.dur ?? .9, x: x.entra.x, y: x.entra.y }); });
+  const media = x => (x?.entra ? (x.entra.dur ?? (x.entra.tipo === 'portal' ? .9 : .42)) / 2 : 0);
+  return {
+    dur: acum, escenas: xs,
+    listo: Promise.all(xs.map(x => x.ef.listo).filter(Boolean)),
+    pintar(t) {
+      for (const x of xs) { x.r.style.visibility = 'hidden'; x.r.style.transform = 'none'; x.r.style.filter = 'none'; x.r.style.clipPath = 'none'; }
+      xs.forEach((x, i) => {
+        const desde = x.t0 - media(x), hasta = x.t0 + x.dur + media(xs[i + 1]);
+        if (t >= desde && t < hasta) x.ef.pintar(Math.max(0, t - x.t0));
+        if (t >= x.t0 && t < x.t0 + x.dur) x.r.style.visibility = 'visible';
+      });
+      xs.forEach((x, i) => {
+        if (!i || !x.entra) return;
+        const a = xs[i - 1].r, b = x.r, d = media(x) * 2, tipo = x.entra.tipo;
+        const ventana = tipo === 'portal' ? [x.t0, x.t0 + d] : tipo === 'vidrio' ? [x.t0 - .7, x.t0 + d] : [x.t0 - d / 2, x.t0 + d / 2];
+        if (t < ventana[0] || t >= ventana[1]) return;
+        if (tipo === 'portal') portal(a, b, t, x.t0, { ...x.entra, dur: d });
+        else if (tipo === 'vidrio') x.vid.pintar(t);
+        else corte(a, b, t, x.t0, { ...x.entra, dur: d });
+      });
+      xs.forEach(x => { if (x.vid && (t < x.t0 - .7 || t >= x.t0 + (x.entra.dur ?? .9))) x.vid.ocultar(); });
+    },
+  };
+}
+
+// ───────────────────────────────────────── 28 · el brillo: luces que flotan, un destello que barre y la viñeta
+// Va encima o debajo de lo que se quiera (z). o: { manchas (luces suaves), barrido (segundo en que pasa el destello),
+// vineta (0 a 1: oscurece los bordes), color, z, semilla }
+export function brillo(padre, o = {}) {
+  const raiz = el('div', { position: 'absolute', inset: '0', pointerEvents: 'none', zIndex: o.z ?? 25, overflow: 'hidden' }, padre);
+  const color = o.color ?? K.brillo, r = azar(o.semilla ?? 9), oscuro = K.oscuro;
+  const manchas = Array.from({ length: o.manchas ?? 2 }, () => el('div', { position: 'absolute', width: '1000px', height: '1000px', borderRadius: '50%',
+    left: `${(r() * 700 - 360).toFixed(0)}px`, top: `${(r() * 1300 - 200).toFixed(0)}px`,
+    background: `radial-gradient(circle, ${color} 0%, rgba(255,255,255,0) 62%)`, mixBlendMode: oscuro ? 'screen' : 'soft-light' }, raiz));
+  const barre = o.barrido != null ? el('div', { position: 'absolute', top: '-25%', height: '150%', width: '460px', left: '0',
+    background: 'linear-gradient(100deg, rgba(255,255,255,0) 0%, rgba(255,255,255,.6) 50%, rgba(255,255,255,0) 100%)',
+    mixBlendMode: oscuro ? 'screen' : 'overlay' }, raiz) : null;
+  const vin = o.vineta ? el('div', { position: 'absolute', inset: '0', boxShadow: `inset 0 0 300px rgba(0,0,0,${o.vineta})` }, raiz) : null;
+  return {
+    raiz,
+    pintar(t) {
+      manchas.forEach((m, i) => { m.style.transform = `translate(${(Math.sin(t * .35 + i * 2.1) * 150).toFixed(1)}px, ${(Math.cos(t * .27 + i) * 190).toFixed(1)}px)`; });
+      if (barre) { const p = tramo(t, o.barrido, o.barrido + .9); barre.style.opacity = p > 0 && p < 1 ? 1 : 0;
+        barre.style.transform = `translateX(${mezcla(-700, 1300, CURVAS.io(p)).toFixed(1)}px) rotate(14deg)`; }
+    },
+  };
+}
+
+// ───────────────────────────────────────── 29 · la persona recortada (para poner cosas detrás de la cara)
+// La silueta sale de marca/efectos/silueta (MediaPipe, en el mismo navegador): un PNG con fondo transparente, del mismo
+// tamaño que la foto. Lo que se arma ANTES de esta capa queda detrás de la cara; lo que se arma después, adelante.
+// o: { src, claves (las de camara), contorno: true para un borde de luz }
+export function persona(padre, o) {
+  const capa = el('div', { position: 'absolute', inset: '0', pointerEvents: 'none' }, padre);
+  const img = el('img', { position: 'absolute', inset: '0', width: '100%', height: '100%', objectFit: 'cover',
+    filter: `drop-shadow(0 30px 50px rgba(0,0,0,.35))${o.contorno ? ` drop-shadow(0 0 3px ${K.brillo})` : ''}` }, capa);
+  img.src = o.src;
+  const cam = camara(capa, o.claves ?? [{ t: 0, z: 1.04, y: 30 }, { t: 6, z: 1, curva: 's' }], { origen: '50% 40%' });
+  return { listo: img.decode().catch(() => {}), pintar(t) { cam.pintar(t); } };
+}
+
+// ───────────────────────────────────────── 30 · la burbuja que se escribe sola
+// Primero los tres puntitos («escribiendo…»), después el texto letra por letra. o: { texto, quien, t0, cps, oscura, ancho, estilo }
+export function burbuja(padre, o) {
+  const b = el('div', { position: o.posicion ?? 'relative', maxWidth: `${o.ancho ?? 560}px`, padding: '22px 28px', borderRadius: '30px',
+    background: o.oscura ? '#16233F' : '#FFFFFF', color: o.oscura ? '#F7F4EC' : '#16233F', border: `3px solid ${o.oscura ? '#16233F' : K.borde}`,
+    boxShadow: `0 10px 0 -2px ${K.cielo}, 0 18px 30px ${K.sombra}`, font: '600 38px/1.25 Archivo', ...o.estilo }, padre);
+  if (o.quien) el('div', { fontSize: '20px', color: o.oscura ? '#F5CF4E' : K.oro, marginBottom: '8px' }, b, o.quien).className = 'mono';
+  const txt = el('span', {}, b), puntos = el('span', { letterSpacing: '6px', fontSize: '44px' }, b, '•••');
+  const t0 = o.t0 ?? .4, cps = o.cps ?? 34;
+  return {
+    caja: b,
+    pintar(t) {
+      const a = tramo(t, t0 - .5, t0 - .3);
+      b.style.opacity = a; b.style.transform = `translateY(${((1 - E.atras(a, 1.6)) * 30).toFixed(1)}px) translateY(${(Math.sin(t * 2 + t0) * 3).toFixed(1)}px)`;
+      const n = Math.max(0, Math.min(o.texto.length, Math.floor((t - t0) * cps)));
+      txt.textContent = o.texto.slice(0, n);
+      puntos.style.display = t < t0 ? 'inline' : 'none';
+      puntos.style.opacity = .4 + .6 * Math.abs(Math.sin(t * 6));
     },
   };
 }
