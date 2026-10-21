@@ -42,7 +42,7 @@ def mp3(ruta):
     return np.frombuffer(crudo, np.float32).copy()
 
 
-def musica(dur, bpm=96, base=.22):
+def musica(dur, bpm=96, base=.17):
     """Arpegio de kalimba sobre Do · La menor · Fa · Sol (dos compases cada uno) y un bajo suave en la fundamental."""
     buf = np.zeros((int((dur + 2) * SR), 2), np.float32)
     acordes = [("C4", "E4", "G4", "C5"), ("A3", "C4", "E4", "A4"), ("F3", "A3", "C4", "F4"), ("G3", "B3", "D4", "G4")]
@@ -64,7 +64,7 @@ def musica(dur, bpm=96, base=.22):
     return buf
 
 
-def bateria(dur, bpm, base=.5):
+def bateria(dur, bpm, base=.4):
     """El beat: bombo en 1 y 3 (y un adelanto antes del 3 cada dos compases), palmas en 2 y 4, platillo cerrado en
     corcheas con acento a contratiempo. Todo sintetizado acá."""
     buf = np.zeros((int((dur + 2) * SR), 2), np.float32)
@@ -113,7 +113,7 @@ def mezclar(nombre, dur, voces, golpes, bpm=96):
     k = int(.25 * SR)
     env = np.convolve(env, np.ones(k) / k, mode="same")
     env = env / (env.max() + 1e-9)
-    mus *= (1 - .55 * np.clip(env * 3, 0, 1))[:, None]
+    mus *= (1 - .62 * np.clip(env * 3, 0, 1))[:, None]
     total = voz + sfx + mus
     fin = int(dur * SR)
     rampa = np.linspace(1, 0, int(.5 * SR))
@@ -150,40 +150,43 @@ def inicios(durs):
 
 
 def pr1():
-    s, dur = inicios([4.2, 6.0, 8.4, 7.8, 3.6, 2.4, 6.0])
-    v = [(os.path.join(AQUI, "pr1", "voz", f"{k}.mp3"), t) for k, t in zip("abcdefg", s)]
+    s, dur = inicios([6.0, 6.0, 8.4, 7.8, 3.6, 2.4, 4.2, 12.6])
+    v = [(os.path.join(AQUI, "pr1", "voz", f"{k}.mp3"), t) for k, t in zip("abcdefgh", s)]
     g = [W(t) for t in s[1:]]
-    g += [lambda b: teclas(b, 2.45, 3.3, 18)]
+    g += [lambda b: teclas(b, 4.25, 5.1, 18)]
     g += [Pp(s[1] + t, pan=p) for t, p in [(.45, .3), (.7, -.3), (1.6, -.3), (3.0, -.3)]]
     g += [Pp(s[2] + 1.9 + k * 1.95, .8) for k in range(3)]
     g += [Pp(s[3] + .2 + k * .3, .5) for k in range(3)] + [D(s[3] + 5.2)]
     g += [T(s[4], .6), raya(s[4] + 1.0, .5), raya(s[4] + 1.5, .3)]
-    g += [T(s[5] + 1.1)] + [D(s[6] + 2.32), Pp(s[6] + 3.2, .9)]
+    g += [T(s[5] + 1.1)] + [D(s[6] + 3.05)]
+    g += [Pp(s[7] + t, .8, pan=(-1) ** k * .3) for k, t in enumerate((4.0, 5.05, 6.2, 7.4))]
+    g += [T(s[7] + 8.95, .5), Pp(s[7] + 10.3, .7), Pp(s[7] + 11.6, .9), D(s[7] + 11.8)]
     mezclar("pr1", dur, v, g, bpm=100)
 
 
 def d2():
-    bpm = 16 * 60 / 10.2
-    s, dur = inicios([7 * 60 / bpm, 6 * 60 / bpm, 3 * 60 / bpm])
+    bpm = 100
+    s, dur = inicios([7 * .6, 6 * .6, 5 * .6])
+    v = [(os.path.join(AQUI, "d2", "voz", f"{k}.mp3"), t) for k, t in zip("abc", s)]
     g = [W(t) for t in s[1:]]
     g += [Pp(.3 + k * .08, .5, pan=(-1) ** k * .4) for k in range(7)]
     g += [Pp(s[1] + .25 + k * .16, .55) for k in range(7)]
     g += [T(s[2], .5), T(s[2] + .55)]
-    g += [Pp(s[2] + .9, .6)]
-    mezclar("d2", dur, [], g, bpm=bpm)
+    g += [Pp(s[2] + 1.6, .6)]
+    mezclar("d2", dur, v, g, bpm=bpm)
 
 
 def n1():
-    s, dur = inicios([4.8, 3.0, 2.4, 9.6, 6.6, 5.4, 3.6])
+    s, dur = inicios([6.0, 3.6, 2.4, 10.2, 6.6, 7.2, 3.6])
     v = [(os.path.join(AQUI, "n1", "voz", f"{k}.mp3"), t) for k, t in zip("abcdefg", s)]
     g = [W(t) for t in s[1:]]
-    g += [lambda b: [add(b, click(pitch=1.1, v=.4).astype(np.float32), .4 + k / 12, gain=.18) for k in range(13)]]
+    g += [lambda b: [add(b, click(pitch=1.1, v=.4).astype(np.float32), 1.6 + k / 12, gain=.18) for k in range(13)]]
     g += [Pp(s[1] + .1 + k * .08, .5, pan=(-1) ** k * .4) for k in range(7)]
     g += [T(s[2] + 1.55, .5)]
-    g += [lambda b: teclas(b, s[3] + 1.8, s[3] + 2.7, 18), raya(s[3] + 3.0)]
-    g += [Pp(s[3] + t, .7) for t in (3.9, 4.95, 6.15)] + [Pp(s[3] + 7.3, .9)]
+    g += [lambda b: teclas(b, s[3] + 1.9, s[3] + 2.8, 18), raya(s[3] + 3.0)]
+    g += [Pp(s[3] + t, .7) for t in (4.0, 5.1, 6.3)] + [Pp(s[3] + 7.5, .9)]
     g += [Pp(s[4] + 1.4, .7), Pp(s[4] + 2.4, .7), T(s[4] + 5.4)]
-    g += [raya(s[5] + 3.7, .5)]
+    g += [raya(s[5] + 5.4, .5)]
     g += [Pp(s[6] + .15 + k * .05, .4) for k in range(7)]
     mezclar("n1", dur, v, g, bpm=100)
 

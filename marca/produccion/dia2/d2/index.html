@@ -11,7 +11,7 @@ const L = SEGURA.izquierda + 10;
 const fondo = r => el('div', { position: 'absolute', inset: '0', background: K.fondo, color: K.tinta, overflow: 'hidden' }, r);
 const PUESTOS = [['Claude', 'el gerente: decide y revisa'], ['Codex', 'el ingeniero'], ['MiniMax', 'el turno de día'], ['Kimi', 'el turno de noche'],
   ['DeepSeek', 'el contratista'], ['Grok', 'la segunda opinión'], ['Antigravity', 'el practicante']];
-const BPM = 16 * 60 / 10.2;   // 16 tiempos justos en los 10,2 s del loop
+const BPM = 100;   // con voz: 7 + 6 + 5 tiempos
 const S = F.secuencia(esc, [
   { dur: 7 * 60 / BPM, tema: 'noche', hacer: r => {
     const o = F.orbita(r, { centro: 'Kenneth', items: PUESTOS.map(p => p[0]) });
@@ -29,7 +29,7 @@ const S = F.secuencia(esc, [
       filas.forEach((f, i) => { const p = tramo(t, .25 + i * .16, .25 + i * .16 + .3); f.style.opacity = p;
         f.style.transform = `translateX(${((1 - E.atras(p, 1.8)) * -80 + Math.sin(t * 2 + i) * 3 * p).toFixed(1)}px)`; }); } };
   } },
-  { dur: 3 * 60 / BPM, tema: 'noche', entra: { tipo: 'golpe' }, hacer: r => {
+  { dur: 5 * 60 / BPM, tema: 'noche', entra: { tipo: 'golpe' }, hacer: r => {
     const a = fondo(r), b = F.brillo(a, { manchas: 2, barrido: .7, z: 30, semilla: 2 });
     const tx = el('div', { position: 'absolute', left: `${L}px`, top: '520px', font: '400 150px/1 "Instrument Serif"' }, a, F.conOro('Yo: apruebo.', 'apruebo.', K.oro));
     const s = F.sello(a, { texto: 'Aprobado', x: 200, y: 830, t0: .55, tam: 78, sacude: tx, color: K.resalte });
@@ -37,11 +37,11 @@ const S = F.secuencia(esc, [
     const cta = el('div', { position: 'absolute', left: `${L}px`, right: `${BOTONES.derecha}px`, top: '1100px', fontSize: '28px', color: K.tinta, lineHeight: '1.5' }, a,
       'Seguí el reto:<br>¿llego a +1.000?');
     cta.className = 'mono';
-    return { pintar(t) { b.pintar(t); s.pintar(t); cta.style.opacity = tramo(t, .9, 1.1); } };
+    return { pintar(t) { b.pintar(t); s.pintar(t); cta.style.opacity = tramo(t, 1.6, 1.8); } };
   } },
 ]);
 const sello = el('div', { position: 'absolute', left: `${L}px`, top: `${SEGURA.arriba + 12}px`, fontSize: '26px', color: '#16233F', zIndex: 120,
-  background: 'rgba(255,255,255,.95)', border: '2px solid #16233F', padding: '10px 18px', borderRadius: '99px' }, esc, 'Día 2 de 30');
+  background: 'rgba(255,255,255,.95)', border: '2px solid #16233F', padding: '10px 18px', borderRadius: '99px' }, esc, 'Día 2 de 30 · Voz con IA');
 sello.className = 'mono';
 await S.listo;
 window.DUR = S.dur;

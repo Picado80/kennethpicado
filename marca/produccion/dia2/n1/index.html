@@ -15,23 +15,23 @@ const juntos = (...xs) => ({ pintar: t => xs.forEach(x => x.pintar(t)), listo: P
 const BPM = 100;
 const S = F.secuencia(esc, [
   // 1 · 165 personas (papel Vox con grano, el número sube de a dos)
-  { dur: 4.8, tema: 'papel', hacer: r => {
+  { dur: 6.0, tema: 'papel', hacer: r => {
     const a = fondo(r);
     const blq = el('div', { position: 'absolute', left: '110px', top: '410px', width: '560px', height: '330px', background: K.resalte, clipPath: F.rasgado(5, 18, 2) }, a);
     const blq2 = el('div', { position: 'absolute', left: '520px', top: '700px', width: '310px', height: '170px', background: '#4D8BEE', clipPath: F.rasgado(8, 14, 2), transform: 'rotate(4deg)' }, a);
-    const rot = el('div', { position: 'absolute', left: `${L}px`, top: '372px', fontSize: '28px', color: K.tinta2 }, a, 'Durante años dirigí');
+    const rot = el('div', { position: 'absolute', left: `${L}px`, top: '372px', fontSize: '28px', color: K.tinta2 }, a, 'Hace unos años llegué a dirigir');
     rot.className = 'mono';
     const num = el('div', { position: 'absolute', left: `${L - 8}px`, top: '430px', font: '900 300px/1 Archivo', letterSpacing: '-.05em', color: K.tinta }, a, '0');
     const sub = el('div', { position: 'absolute', left: `${L}px`, right: `${SEGURA.derecha}px`, top: '770px', font: '400 72px/1.05 "Instrument Serif"', color: K.tinta }, a,
-      'personas, en 4 países.');
+      'personas a la vez.');
     const g = F.textura(a);
     return { pintar(t) { const q = F.aDos(t); rot.style.opacity = tramo(q, 0, .2);
-      num.textContent = miles(mezcla(0, 165, E.sale(tramo(q, .4, 1.5)))); blq.style.opacity = tramo(q, .2, .3); blq2.style.opacity = tramo(q, 3.5, 3.6);
-      num.style.transform = `rotate(${(q > 1.5 ? Math.sin(Math.floor(t * 6)) * .8 : 0).toFixed(2)}deg)`;
-      sub.style.opacity = tramo(q, 2.6, 2.8); g.pintar(t); } };
+      num.textContent = miles(mezcla(0, 165, E.sale(tramo(q, 1.6, 2.6)))); blq.style.opacity = tramo(q, .2, .3); blq2.style.opacity = tramo(q, 4.3, 4.4);
+      num.style.transform = `rotate(${(q > 2.6 ? Math.sin(Math.floor(t * 6)) * .8 : 0).toFixed(2)}deg)`;
+      sub.style.opacity = tramo(q, 3.8, 4.0); g.pintar(t); } };
   } },
   // 2 · hoy, 7 IAs (océano, con luz)
-  { dur: 3.0, tema: 'oceano', entra: { tipo: 'zoom' }, hacer: r => {
+  { dur: 3.6, tema: 'oceano', entra: { tipo: 'zoom' }, hacer: r => {
     const o = F.orbita(r, { centro: '7 IAs', items: ['Claude', 'Codex', 'MiniMax', 'Kimi', 'DeepSeek', 'Grok', 'Antigravity'], inicio: .1, vel: .12 });
     const b = F.brillo(r, { manchas: 3, z: 5, semilla: 17 });
     const rot = el('div', { position: 'absolute', left: `${L}px`, top: '380px', fontSize: '28px', color: K.tinta2, zIndex: 70 }, r, 'Hoy dirijo');
@@ -42,23 +42,23 @@ const S = F.secuencia(esc, [
   { dur: 2.4, tema: 'durazno', entra: { tipo: 'barrido' }, hacer: r => juntos(F.frase(r, { texto: '¿Qué cambió? Casi nada.', oro: 'nada.', golpeEn: 1.55, tiempos: [0, .18, 1.16, 1.5] }),
     F.brillo(r, { manchas: 2, z: 0, semilla: 31 })) },
   // 4 · las instrucciones (cielo): el chat con «Hacé un informe», tachado, y lo que hace falta
-  { dur: 9.6, tema: 'cielo', entra: { tipo: 'zoom' }, hacer: r => {
+  { dur: 10.2, tema: 'cielo', entra: { tipo: 'zoom' }, hacer: r => {
     const a = fondo(r), b = F.brillo(a, { manchas: 2, z: 0, semilla: 41 });
     const rot = el('div', { position: 'absolute', left: `${L}px`, top: '390px', fontSize: '28px', color: K.tinta2 }, a, 'A alguien nuevo no le decís:');
     rot.className = 'mono';
     const col = el('div', { position: 'absolute', left: `${L}px`, top: '446px', width: '650px' }, a);
-    const pedido = F.burbuja(col, { texto: 'Hacé un informe.', t0: 1.8, cps: 18, oscura: true, ancho: 520, estilo: { fontSize: '50px' } });
+    const pedido = F.burbuja(col, { texto: 'Hacé un informe.', t0: 1.9, cps: 18, oscura: true, ancho: 520, estilo: { fontSize: '50px' } });
     const raya = F.marcador(a, { trazos: [{ tipo: 'subraya', x: L + 20, y: 506, w: 470, h: 0, t0: 3.0, dur: .35, grosor: 12 }] });
     const items = ['+ para quién es', '+ qué tiene que decir', '+ para cuándo'].map((txt, i) => el('div', { position: 'absolute', left: `${L + 10}px`,
       top: `${640 + i * 96}px`, font: '68px/1 Marcador', color: K.rojo }, a, txt));
     const igual = el('div', { position: 'absolute', left: `${L}px`, right: `${BOTONES.derecha}px`, top: '960px', font: '400 88px/1.02 "Instrument Serif"',
       background: K.resalte, padding: '6px 22px 14px', borderRadius: '14px', display: 'inline-block', border: `3px solid ${K.borde}` }, a,
       F.conOro('Con una IA, igual.', 'igual.', K.oro));
-    const cam = F.camara(a, [{ t: 0, z: 1.05, ladea: 5 }, { t: 3, z: 1, curva: 's' }, { t: 9.4, z: 1.04, ladea: -3, curva: 'l' }]);
+    const cam = F.camara(a, [{ t: 0, z: 1.05, ladea: 5 }, { t: 3, z: 1, curva: 's' }, { t: 10.2, z: 1.04, ladea: -3, curva: 'l' }]);
     return { pintar(t) { b.pintar(t); cam.pintar(t); rot.style.opacity = tramo(t, 0, .3); pedido.pintar(t); raya.pintar(t);
-      items.forEach((e, i) => { const t0 = [3.9, 4.95, 6.15][i], p = tramo(t, t0, t0 + .35); e.style.clipPath = `inset(-20px ${((1 - p) * 100).toFixed(1)}% -20px -10px)`;
+      items.forEach((e, i) => { const t0 = [4.0, 5.1, 6.3][i], p = tramo(t, t0, t0 + .35); e.style.clipPath = `inset(-20px ${((1 - p) * 100).toFixed(1)}% -20px -10px)`;
         e.style.transform = `translateY(${(Math.sin(t * 2.2 + i) * 3).toFixed(1)}px)`; });
-      const k = tramo(t, 7.3, 7.7); igual.style.opacity = k; igual.style.transform = `scale(${mezcla(1.3, 1, E.atras(k, 2)).toFixed(3)}) rotate(-1.5deg)`; } };
+      const k = tramo(t, 7.5, 7.9); igual.style.opacity = k; igual.style.transform = `scale(${mezcla(1.3, 1, E.atras(k, 2)).toFixed(3)}) rotate(-1.5deg)`; } };
   } },
   // 5 · repartir el trabajo y la regla (bosque, tarjetas de vidrio)
   { dur: 6.6, tema: 'bosque', entra: { tipo: 'gira' }, hacer: r => {
@@ -78,7 +78,7 @@ const S = F.secuencia(esc, [
       flecha.pintar(t); const k = E.sale(tramo(t, 3.8, 4.2)); regla.style.opacity = k; s.pintar(t); } };
   } },
   // 6 · la tesis, en un documento (papel, Vox)
-  { dur: 5.4, tema: 'papel', entra: { tipo: 'vidrio', dur: .9 }, hacer: r => F.documento(r, { fuente: 'Lo que aprendí', titulo: 'No necesitás saber programar.', marcada: 4, t0: 3.7,
+  { dur: 7.2, tema: 'papel', entra: { tipo: 'vidrio', dur: .9 }, hacer: r => F.documento(r, { fuente: 'Lo que aprendí', titulo: 'No necesitás saber programar.', marcada: 4, t0: 5.4,
     lineas: ['Para trabajar con IA', 'no hace falta ser técnico.', 'Hace falta lo mismo que', 'con un equipo de personas:', 'saber dirigir.'] }) },
   // 7 · la portada (menta): DIRIGIR detrás de la cara
   { dur: 3.6, tema: 'menta', entra: { tipo: 'portal', x: 504, y: 760, r: 40 }, hacer: r => {

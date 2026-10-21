@@ -1175,3 +1175,32 @@ export function burbuja(padre, o) {
     },
   };
 }
+
+// ───────────────────────────────────────── 31 · la barra de comentarios: invita a comentar
+// Como la de TikTok o Instagram: un avatar, «Agregá un comentario…» con el cursor y, si se pasa texto, se escribe solo;
+// al final salta un corazón. o: { x, y, ancho, t0, texto, cps, corazon (segundo), placeholder }
+export function comentario(padre, o) {
+  const caja = el('div', { position: 'absolute', left: `${o.x ?? SEGURA.izquierda + 10}px`, top: `${o.y ?? 900}px`, width: `${o.ancho ?? 650}px`,
+    boxSizing: 'border-box', display: 'flex', alignItems: 'center', gap: '18px', padding: '16px 22px', background: '#FFFFFF', borderRadius: '99px',
+    border: `3px solid ${K.borde}`, boxShadow: `0 12px 0 -3px ${K.cielo}, 0 24px 44px ${K.sombra}`, zIndex: 30 }, padre);
+  el('div', { flex: 'none', width: '64px', height: '64px', borderRadius: '50%', background: 'linear-gradient(135deg, #FFD43B, #FF6F61)' }, caja);
+  const txt = el('div', { flex: '1', minWidth: '0', font: '600 34px/1.2 Archivo', color: '#16233F', whiteSpace: 'nowrap', overflow: 'hidden' }, caja);
+  const escrito = el('span', {}, txt), ph = el('span', { color: '#8A92A6' }, txt, o.placeholder ?? 'Agregá un comentario…');
+  const cursor = el('span', { display: 'inline-block', width: '3px', height: '1em', marginLeft: '2px', verticalAlign: '-.12em', background: '#16233F' }, txt);
+  const corazon = el('div', { flex: 'none', font: '900 46px/1 Archivo', color: '#FF3B5C' }, caja, '♥');
+  const t0 = o.t0 ?? 0, cps = o.cps ?? 24;
+  return {
+    caja,
+    pintar(t) {
+      const a = tramo(t, t0, t0 + .35);
+      caja.style.opacity = a; caja.style.transform = `translateY(${((1 - E.atras(a, 1.8)) * 60).toFixed(1)}px)`;
+      const n = o.texto ? Math.max(0, Math.min(o.texto.length, Math.floor((t - t0 - .5) * cps))) : 0;
+      escrito.textContent = o.texto ? o.texto.slice(0, n) : '';
+      ph.style.display = n > 0 ? 'none' : 'inline';
+      cursor.style.opacity = Math.floor(t * 2.4) % 2 ? 0 : 1;
+      const c = tramo(t, o.corazon ?? t0 + 1.5, (o.corazon ?? t0 + 1.5) + .3);
+      corazon.style.transform = `scale(${(c > 0 ? mezcla(.3, 1, E.atras(c, 2.6)) : .8).toFixed(3)})`;
+      corazon.style.color = c > 0 ? '#FF3B5C' : '#C9CDD6';
+    },
+  };
+}
