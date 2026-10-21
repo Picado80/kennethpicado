@@ -35,7 +35,7 @@ debería poder terminar en «mandáselo a tu jefe» sin que suene forzado.
 1. **Dirigir IAs.** *La Oficina*: mi equipo no es humano.
 2. **Operar como Amazon, en chiquito.** *Amazon en la soda*.
 3. **La prueba.** *Sistema de la semana*: problema real, solución real, en horas reales.
-4. **Lo que la IA puede falsificar.** *¿Cuál soy yo?*: el gemelo, en dosis bajas.
+4. **Lo que la IA puede falsificar.** El gemelo, siempre dicho; *¿Cuál soy yo?* cuando el público ya conozca al real.
 
 ## La voz
 
@@ -119,13 +119,15 @@ es la regla aplicada a operar con IA.
 
 | | Por defecto | Cuándo se usa IA | Tope |
 |---|---|---|---|
-| **Cara** | Real, grabada con el celular | Gemelo de HeyGen solo en *¿Cuál soy yo?* y en las traducciones al inglés para LinkedIn | 1 de cada 5 videos, y **nunca antes del video 15** |
+| **Cara** | El gemelo de HeyGen en las insignias, desde el Día 1 (Kenneth, 20-oct). La cara real, cuando Kenneth sube algo suyo | Las insignias y las traducciones al inglés para LinkedIn | Siempre declarado: el gemelo se presenta como IA y la etiqueta va en todos |
 | **Voz de Kenneth** | Real | Clon de ElevenLabs para la voz en off de *Sistema de la semana* cuando no hay tiempo de grabar | Declarado siempre |
 | **Voces de las IAs** | Diseñadas en ElevenLabs | Los personajes de *La Oficina* dicen su línea | Voces sintéticas, que no imiten a nadie real |
 
-**Por qué el gemelo no va primero:** lo que vendés es confianza. Si la cara es falsa desde el
-primer día, el gemelo deja de ser una sorpresa y se convierte en una sospecha. El juego de
-*¿Cuál soy yo?* solo funciona cuando el público ya conoce al Kenneth real.
+**El gemelo va desde el primer día, pero dicho (Kenneth, 20-oct):** «yo no tengo tiempo para estar haciendo
+contenido; para eso estamos creando todo este proceso». La confianza se cuida con transparencia: el primer video
+(`G0`) es el gemelo diciendo que es la versión de IA de Kenneth, y ningún video lo esconde. El juego de
+*¿Cuál soy yo?* (adivinar cuál es el real) queda para cuando el público ya conozca al Kenneth real.
+*Antes (hasta el 20-oct):* el gemelo solo en *¿Cuál soy yo?* y nunca antes del video 15.
 
 **Etiqueta:** cualquier video con HeyGen o ElevenLabs se publica con la etiqueta «contenido
 generado por IA» de TikTok activada. Es la norma de la plataforma y es coherente con la marca.

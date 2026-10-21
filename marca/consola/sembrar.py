@@ -53,7 +53,7 @@ RETO_V1 = [
 NOT = "Una noticia real de IA, verificada en la fuente original y contada para un dueño de negocio: qué pasó y qué le cambia."
 RN = "Las 3 noticias de IA de la semana que le importan a un negocio, en 30 s, con fuente y fecha en pantalla."
 PRU = "Una prueba real que hace la oficina de IAs, con el resultado tal como salió."
-PER = "La cuenta sigue siendo de una persona. Lo sube Kenneth."
+PER = "La cuenta sigue siendo de una persona: si Kenneth sube algo suyo esa semana (F1, familia, cine), cuenta como el personal. No es una tarea suya."
 RES = "La audiencia ve su comentario en pantalla y vuelve a comentar."
 # V2 y V3, día por día: (codigo, serie, formato, titulo, porque, paso, estado)
 V2 = [
@@ -122,7 +122,7 @@ V3 = [
 ]
 # Insignias del mes: dia -> (codigo, serie, titulo, porque, paso, estado, reto)
 INSIGNIAS = {
-    1: ("G0", "¿Cuál soy yo?", "El gemelo se presenta y lanza el reto (Día 1)", "Dice qué es real y qué es IA desde el primer día. Va fijado en el perfil.", "Seguir", "por-hacer", True),
+    1: ("G0", "El gemelo", "«Kenneth no grabó este video»: el gemelo se presenta y lanza el reto (Día 1)", "Dice desde el primer segundo que es la IA de Kenneth: Kenneth no graba nada. Va fijado en el perfil.", "Seguir", "por-hacer", True),
     3: ("002", "Amazon en la soda", "Si tu negocio no sobrevive a tus vacaciones (con el gancho nuevo)", "El caso más cercano a lo que ya le funcionó a la cuenta: Amazon y Costa Rica.", "Pasarlo", "guion-grafico", False),
     5: ("001", "La Oficina", "Mi empleado se calificó su propio examen", "Presenta la serie insignia con el incidente más claro.", "Reaccionar", "guion", False),
     8: ("003", "La Oficina", "Le prohibí trabajar a mi mejor empleado", "El gancho con más puntaje del banco (20 de 20).", "Pasarlo", "guion", False),
@@ -194,7 +194,7 @@ TAREAS = [
     ("c-001", "Prueba de gancho del 001", "Su boceto está en el guion gráfico de la semana 1. Con tu sí, la prueba y después el gemelo.", "Claude", "2026-10-22", False),
     ("c-002bcd", "Hacer el 002b, el 002c y el 002d", "Voz y motion graphics, $0, después de tu sí al guion gráfico. Gana el escenario con más seguidores por cada 1.000 vistas.", "Claude", "2026-10-22", False),
     ("c-reto", "Plantilla del contador «Día N de 30»", "Un loop que se rehace cada día con el número, después de tu sí al guion gráfico.", "Claude", "2026-10-21", False),
-    ("c-buffer", "Programar en Buffer (E003)", "Con tu aprobación antes de cada publicación. Hasta que esté, se publica a mano.", "Claude", "2026-10-23", False),
+    ("c-buffer", "Programar en Buffer lo aprobado (E003)", "Lo que apruebes en el guion gráfico se programa solo en TikTok e Instagram: vos no publicás nada a mano. Va antes del Día 1.", "Claude", "2026-10-21", False),
     ("c-medicion", "Cargar los números a las 48 horas y a los 7 días", "Seguidores nuevos por pieza y por semana, y la revisión de los lunes.", "Claude", "2026-10-23", False),
 ]
 

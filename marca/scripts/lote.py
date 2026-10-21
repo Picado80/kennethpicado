@@ -38,7 +38,7 @@ body { width: 1080px; background: #101B33; color: #E8E6DE; font-family: "Archivo
 .cinco .cuadro { width: 128px; }
 .cinco .lienzo { height: 228px; }
 .lienzo { position: relative; width: 100%; height: 284px; border: 1.5px dashed rgba(232,230,222,0.45); border-radius: 6px;
-  background: #16233F; padding: 22px 9px 9px; display: flex; flex-direction: column; justify-content: center; gap: 7px; overflow: hidden; }
+  background: #16233F; padding: 50px 26px 76px 9px;  /* lo que dice va dentro de la zona segura (SEGURA) */ display: flex; flex-direction: column; justify-content: center; gap: 7px; overflow: hidden; }
 .lienzo.claro { background: #E8E6DE; color: #16233F; border-color: rgba(22,35,63,0.5); }
 .sello { position: absolute; top: 34px; left: 8px; font-size: 9px; color: #C9A45C; z-index: 2; }
 .zona { position: absolute; background: repeating-linear-gradient(45deg, rgba(178,43,63,.16) 0 4px, transparent 4px 9px); pointer-events: none; }
@@ -81,8 +81,10 @@ def cuadro(c, dia, claro):
         if b.get("toma"):
             partes.append(f'<div class="toma">[{html.escape(b["toma"])}]</div>')
         else:
-            clase = "dice grande" if b.get("grande") else "dice"
-            partes.append(f'<div class="{clase}">{con_oro(b["dice"], b.get("oro"))}</div>')
+            # El texto largo se achica para que entre en la zona segura: si a este tamaño no entra, tampoco va a entrar en el video
+            base = 27 if b.get("grande") else 20
+            tam = base if len(b["dice"]) <= 34 else max(13, round(base * (34 / len(b["dice"])) ** 0.6, 1))
+            partes.append(f'<div class="dice" style="font-size:{tam}px">{con_oro(b["dice"], b.get("oro"))}</div>')
     fondo = " claro" if c.get("claro", claro) else ""
     # Zonas que tapa TikTok (las mismas de marca/efectos/efectos.js, SEGURA, a la escala del boceto): rayadas en rojo
     zonas = ('<div class="zona" style="left:0;right:0;top:0;height:11.5%"></div>'

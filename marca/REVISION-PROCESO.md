@@ -21,7 +21,7 @@ escrita en la ficha de la pieza; no alcanza con decir que se revisó.
 
 | # | Problema | Pregunta que falla | Ajuste propuesto |
 |---|---|---|---|
-| 1 | **El gemelo choca con `CANON.md`.** La estrategia dice que «qué es real» sigue en el CANON, y el CANON dice: gemelo solo en *¿Cuál soy yo?*, nunca antes del video 15, porque «*¿Cuál soy yo?* solo funciona cuando el público ya conoce al Kenneth real». El plan pone el `G0` el Día 1 y el gemelo en las insignias de los días 3 y 5. La auditoría del 19-oct marcó el CANON como «alineado» sin ver esto | 1 y 4 | Kenneth decide: (a) el Día 1 y las insignias con su cara real grabada con el celular, y el `G0` después del video 15, o (b) cambiar el CANON y asumir el gemelo desde el día 1 |
+| 1 | **El gemelo choca con `CANON.md`.** La estrategia dice que «qué es real» sigue en el CANON, y el CANON dice: gemelo solo en *¿Cuál soy yo?*, nunca antes del video 15, porque «*¿Cuál soy yo?* solo funciona cuando el público ya conoce al Kenneth real». El plan pone el `G0` el Día 1 y el gemelo en las insignias de los días 3 y 5. La auditoría del 19-oct marcó el CANON como «alineado» sin ver esto | 1 y 4 | **Resuelto (Kenneth, 20-oct):** el gemelo va desde el Día 1, porque el proceso existe para que Kenneth no tenga que grabar. Se cambió el `G0`, no el plan: ya no es el juego de adivinar cuál es el real (eso pide grabarlo a él), sino el gemelo diciendo que es su IA. El CANON quedó al día |
 | 2 | **Una sola idea repetida.** 6 de las 24 piezas de la semana 1 dicen lo mismo («tu negocio no sobrevive a tus vacaciones» y «un sistema que te necesita es una dependencia»): `P1`, `002`, `002b`, `002c`, `002d` y `R2` | 2 y 4 | Dejar el `002` y una sola variante por semana; las otras dos, en las semanas 2 y 3. Cambiar `R2` por otra regla |
 | 3 | **Las zonas que tapa TikTok.** Ni los bocetos ni los efectos respetan la columna de botones de la derecha ni el texto de abajo. Ejemplo: el sello «Día N de 30» va abajo a la derecha, justo donde están los botones | 3 | Agregar las zonas seguras a `efectos.js` y a `lote.py` (como la fila 202 del índice de TORRE) y mover el sello arriba |
 | 4 | **«7 IAs» en la bio y en el reto.** El CANON pide contar los carriles vivos de TORRE antes de decir «siete» | 1 y 3 | Contarlos con `verificar.ps1` antes del Día 1 |
@@ -56,7 +56,7 @@ carpeta `Mercadeo` de la PC. No son de esta marca, pero el proceso es el mismo.
 
 ## Lo que decide Kenneth (de a uno)
 
-1. El gemelo y el CANON (problema 1).
+1. ~~El gemelo y el CANON~~ (resuelto el 20-oct).
 2. Repartir la idea de las vacaciones en 3 semanas (problema 2).
 3. La vara de las insignias (problema 5).
 4. El nuevo Día 1, cuando el lote esté aprobado (problema 6).

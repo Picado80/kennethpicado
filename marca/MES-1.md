@@ -26,7 +26,7 @@ Cada pieza declara qué paso de la cadena mueve: **ver → reaccionar → pasarl
 | 7:00 | **Radar y noticias:** lo que está creciendo afuera (`radar/`) y las noticias de IA del día, en las fuentes originales (§5) | Claude |
 | 8:00 | **El número del día:** los seguidores de TikTok e Instagram para el contador del reto, de los perfiles públicos. Quedan en `medicion/seguidores.csv` | Claude |
 | 9:00 | Se terminan las 3 piezas de volumen del día. Las del lote ya están aprobadas; la de noticias se aprueba ese día con un sí en la consola | Claude hace, Kenneth aprueba |
-| 12:00 a 13:00 o 19:00 a 21:00 | **Se publica.** TikTok lleva las 3 de volumen. Instagram, la de volumen que mejor le fue ayer en TikTok, más las insignias | A mano hasta que esté el script de Buffer |
+| 12:00 a 13:00 o 19:00 a 21:00 | **Se publica.** TikTok lleva las 3 de volumen. Instagram, la de volumen que mejor le fue ayer en TikTok, más las insignias | Claude, por Buffer, con lo aprobado en el lote. Kenneth no publica nada a mano (20-oct) |
 | A las 48 h y a los 7 días | Se leen los números de cada pieza y se cargan en la consola | Claude |
 
 **Las 3 piezas de volumen de cada día:**
@@ -114,7 +114,7 @@ En noviembre no hay feriados nacionales en Costa Rica.
 
 | Día | Insignia | Paso |
 |---|---|---|
-| 1 | `G0` El gemelo se presenta y lanza el reto | Seguir |
+| 1 | `G0` «Kenneth no grabó este video»: el gemelo dice que es la IA de Kenneth y lanza el reto | Seguir |
 | 3 | `002` Si tu negocio no sobrevive a tus vacaciones, con el gancho nuevo | Pasarlo |
 | 5 | `001` Mi empleado se calificó su propio examen | Reaccionar |
 | 8 | `003` Le prohibí trabajar a mi mejor empleado | Pasarlo |
@@ -181,7 +181,7 @@ Lo mismo está en la consola, como calendario. Se genera con `python marca/conso
 
 | Día | Fecha | V1 · el reto | V2 | V3 | Insignia |
 |---|---|---|---|---|---|
-| 1 | Mié 21 oct | `D1` El contador en el número real | `J1` «Prompt» son las instrucciones que le di | `P1` Si tu negocio no sobrevive a tus vacaciones, no es un negocio | `G0` El gemelo se presenta y lanza el reto (Día 1) |
+| 1 | Mié 21 oct | `D1` El contador en el número real | `J1` «Prompt» son las instrucciones que le di | `P1` Si tu negocio no sobrevive a tus vacaciones, no es un negocio | `G0` «Kenneth no grabó este video»: el gemelo se presenta como IA y lanza el reto (Día 1) |
 | 2 | Jue 22 oct | `D2` El plan de la oficina: quién hace qué | `PR1` 3 IAs de la oficina: el mismo pedido vago y después completo | `002b` Si tu cafetería recién abierta no sobrevive a tus vacaciones | — |
 | 3 | Vie 23 oct | `D3` El contador y lo que falló | `RN1` Las 3 noticias de IA de la semana | `L1` La reunión de los lunes en 15 minutos | `002` Si tu negocio no sobrevive a tus vacaciones (con el gancho nuevo) |
 | 4 | Sáb 24 oct | `D4` El comentario que se va a probar | `F1A` Un pit stop dura 2 segundos porque nadie es indispensable | `002c` Si tu restaurante recién abierto no sobrevive a tus vacaciones | — |

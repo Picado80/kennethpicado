@@ -153,10 +153,10 @@
    "orden": 18
   },
   "c-buffer": {
-   "titulo": "Programar en Buffer (E003)",
-   "detalle": "Con tu aprobación antes de cada publicación. Hasta que esté, se publica a mano.",
+   "titulo": "Programar en Buffer lo aprobado (E003)",
+   "detalle": "Lo que apruebes en el guion gráfico se programa solo en TikTok e Instagram: vos no publicás nada a mano. Va antes del Día 1.",
    "quien": "Claude",
-   "para": "2026-10-23",
+   "para": "2026-10-21",
    "hecho": false,
    "orden": 19
   },
