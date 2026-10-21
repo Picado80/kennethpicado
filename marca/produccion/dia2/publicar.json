@@ -1,0 +1,36 @@
+{
+  "etiqueta": "dia-02",
+  "nota": "Día 2 (jueves 22-oct-2026). Kenneth lo aprobó en la Sala de revisión el 21-oct («ya podemos subirlos y programarlos»). Se programa con python marca/scripts/publicar.py marca/produccion/dia2/publicar.json --enviar.",
+  "piezas": [
+    {
+      "codigo": "PR1",
+      "canales": ["tiktok", "instagram"],
+      "archivo": "marca/salidas/dia2/pr1-dia2.mp4",
+      "tipo": "video",
+      "ia": true,
+      "cuando": "2026-10-22T12:00:00-06:00",
+      "instagram_tipo": "reel",
+      "texto": "Le pedí lo mismo a 3 modelos de inteligencia artificial. Primero mal, después bien. ¿Qué le pedirías vos? Te leo en los comentarios y lo pruebo. Día 2 de 30. #inteligenciaartificial #ia #costarica #comidatica"
+    },
+    {
+      "codigo": "D2",
+      "canales": ["tiktok", "instagram"],
+      "archivo": "marca/salidas/dia2/d2-dia2.mp4",
+      "tipo": "video",
+      "ia": true,
+      "cuando": "2026-10-22T19:00:00-06:00",
+      "instagram_tipo": "reel",
+      "texto": "Día 2 de 30. Esta es la oficina que tiene que conseguirme 1.000 seguidores. Cada una tiene su puesto; yo solo apruebo. ¿Cuál contratarías vos? #reto30dias #inteligenciaartificial #costarica"
+    },
+    {
+      "codigo": "N1",
+      "canales": ["tiktok", "instagram"],
+      "archivo": "marca/salidas/dia2/n1-dia2.mp4",
+      "tipo": "video",
+      "ia": true,
+      "cuando": "2026-10-22T20:30:00-06:00",
+      "instagram_tipo": "reel",
+      "texto": "Hace unos años llegué a dirigir 165 personas a la vez. Hoy dirijo 7 modelos de inteligencia artificial. Lo que aprendí sirve para los dos. Día 2 de 30. #inteligenciaartificial #liderazgo #costarica"
+    }
+  ]
+}
