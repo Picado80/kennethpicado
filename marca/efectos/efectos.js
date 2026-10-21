@@ -7,6 +7,13 @@ export const C = {
   tinta: '#16233F', noche: '#101B33', vitela: '#E8E6DE', oro: '#C9A45C',
   grafito: '#23262A', rojo: '#B22B3F', gris: '#9AA3B5', blanco: '#FFFFFF',
 };
+// La paleta clara (Kenneth, 20-oct-2026: «el azul está muy oscuro; mejor colores más claros, a la gente le gusta más»).
+// Fondo de papel, texto en tinta, un celeste suave para no perder el azul de la marca y el amarillo de resaltador.
+// En fondo claro el oro de siempre no se lee: va el oro oscuro.
+export const K = {
+  papel: '#F7F4EC', crema: '#EEE7D8', celeste: '#DDE8F6', cielo: '#C3D6F0', tinta: '#16233F', tinta2: '#4A5675',
+  resalte: '#F5CF4E', oro: '#8A6A2A', rojo: '#C2364B', blanco: '#FFFFFF', sombra: 'rgba(22,35,63,.16)',
+};
 export const FW = 1080, FH = 1920;
 // Zona segura común a TikTok, Instagram Reels, Facebook Reels y YouTube Shorts en 1080×1920, en píxeles (la medida en
 // píxeles es la fuente; ver la fila 202 del índice de TORRE). Sale de la guía de anuncios de cada red, la única publicada
@@ -52,18 +59,23 @@ export function svg(tag, attrs = {}, padre = null) {
 export const miles = n => Math.round(n).toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
 
 // Texto con una sola palabra en oro e itálica (la regla del estilo Editorial)
-export const conOro = (texto, oro) => !oro ? texto
-  : texto.replace(oro, `<span style="color:${C.oro};font-style:italic">${oro}</span>`);
+export const conOro = (texto, oro, color = C.oro) => !oro ? texto
+  : texto.replace(oro, `<span style="color:${color};font-style:italic">${oro}</span>`);
+// Una palabra con resaltador amarillo; el trazo se anima con resaltar(span, p)
+export const conResalte = (texto, palabra) => !palabra ? texto : texto.replace(palabra, `<span class="resalte">${palabra}</span>`);
+export const resaltar = (span, p) => { span.style.backgroundSize = `${(E.sale(clamp(p)) * 100).toFixed(1)}% 42%`; };
 
 // Fuentes y estilos base. Las fuentes viven en ./fuentes (las copia preparar.sh desde marca/estilo/fuentes).
-export async function instalar() {
+export async function instalar(o = {}) {
   const css = `
   @font-face{font-family:"Instrument Serif";font-style:normal;src:url(fuentes/instrument-serif-latin-400-normal.woff2) format("woff2")}
   @font-face{font-family:"Instrument Serif";font-style:italic;src:url(fuentes/instrument-serif-latin-400-italic.woff2) format("woff2")}
   @font-face{font-family:"Archivo";font-weight:600;src:url(fuentes/archivo-latin-600-normal.woff2) format("woff2")}
   @font-face{font-family:"Archivo";font-weight:900;src:url(fuentes/archivo-latin-900-normal.woff2) format("woff2")}
   @font-face{font-family:"JetBrains Mono";font-weight:500;src:url(fuentes/jetbrains-mono-latin-500-normal.woff2) format("woff2")}
-  html,body{margin:0;width:${FW}px;height:${FH}px;overflow:hidden;background:${C.tinta}}
+  html,body{margin:0;width:${FW}px;height:${FH}px;overflow:hidden;background:${o.fondo || C.tinta}}
+  .resalte{background-image:linear-gradient(${K.resalte},${K.resalte});background-repeat:no-repeat;background-position:0 88%;
+    background-size:0% 42%;padding:0 .06em;margin:0 -.06em}
   .mono{font-family:"JetBrains Mono",monospace;font-weight:500;text-transform:uppercase;letter-spacing:.14em}
   .serif{font-family:"Instrument Serif",serif;font-weight:400}
   .archivo{font-family:"Archivo",sans-serif;font-weight:600}`;
@@ -328,13 +340,14 @@ export function golpe(objetivo, o) {
 // Tipografía de golpe: una frase que entra palabra por palabra y remata con el golpe de zoom en la palabra de oro
 // o: { texto, oro, cada, golpeEn, tiempos: [segundo en que entra cada palabra] (opcional, para colgarla de la voz) }
 export function frase(padre, o) {
-  const raiz = el('div', { position: 'absolute', inset: '0', background: C.tinta, color: C.vitela, display: 'flex', alignItems: 'center',
+  const raiz = el('div', { position: 'absolute', inset: '0', background: o.claro ? K.papel : C.tinta, color: o.claro ? K.tinta : C.vitela,
+    display: 'flex', alignItems: 'center',
     padding: `0 ${BOTONES.derecha}px 0 ${SEGURA.izquierda + 10}px`, boxSizing: 'border-box' }, padre);
   const caja = el('div', { font: '400 128px/1.02 "Instrument Serif"', width: '100%' }, raiz);
   const palabras = o.texto.split(' ').map(w => {
     const s = el('span', { display: 'inline-block', marginRight: '.24em' }, caja, w);
     const limpio = x => x.normalize('NFD').replace(/[^\p{L}\p{N}]/gu, '').toLowerCase();
-    if (o.oro && limpio(w) === limpio(o.oro)) { s.style.color = C.oro; s.style.fontStyle = 'italic'; }
+    if (o.oro && limpio(w) === limpio(o.oro)) { s.style.color = o.claro ? K.oro : C.oro; s.style.fontStyle = 'italic'; }
     return s;
   });
   const g = golpe(caja, { t0: o.golpeEn ?? 1.6, escala: 1.12, origen: '30% 50%', destello: raiz });
@@ -347,6 +360,112 @@ export function frase(padre, o) {
         s.style.opacity = p; s.style.transform = `translateY(${(1 - E.sale(p)) * 50}px)`;
       });
       g.pintar(t);
+    },
+  };
+}
+
+// ───────────────────────────────────────── 8 · la cámara: acercar, alejar, ángulos y movimiento
+// Mueve una capa como si fuera una cámara. claves: [{ t, x, y, z, giro, inclina, ladea, curva }] —x e y en px, z el zoom
+// (1 = normal; más es acercar), giro en el plano, inclina (rotateX) y ladea (rotateY) dan el ángulo en 3D.
+// curva: 'io' (por omisión), 's' (sale), 'e' (expo, para golpes), 'a' (con rebote) o 'l' (lineal).
+// o: { deriva: px de movimiento de mano, perspectiva, origen, desenfoque: true para el barrido cuando se mueve rápido }
+const CURVAS = { l: x => x, s: E.sale, e: E.expo, a: x => E.atras(x, 1.4),
+  io: x => (x < .5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2) };
+export function camara(capa, claves, o = {}) {
+  const ks = claves.map(k => ({ x: 0, y: 0, z: 1, giro: 0, inclina: 0, ladea: 0, curva: 'io', ...k }));
+  capa.style.transformOrigin = o.origen || '50% 50%';
+  if (capa.parentElement) capa.parentElement.style.perspective = `${o.perspectiva || 2400}px`;
+  const en = t => {
+    let i = 0; while (i < ks.length - 1 && t >= ks[i + 1].t) i++;
+    const a = ks[i], b = ks[Math.min(i + 1, ks.length - 1)];
+    const p = a === b ? 0 : CURVAS[b.curva](tramo(t, a.t, b.t));
+    const v = {}; for (const c of ['x', 'y', 'z', 'giro', 'inclina', 'ladea']) v[c] = mezcla(a[c], b[c], p);
+    const d = o.deriva || 0;   // la mano: una deriva lenta, siempre igual para el mismo t
+    v.x += d * Math.sin(t * .71 + .4); v.y += d * .8 * Math.cos(t * .53);
+    return v;
+  };
+  return {
+    en,
+    pintar(t) {
+      const v = en(t);
+      capa.style.transform = `translate(${v.x.toFixed(2)}px, ${v.y.toFixed(2)}px) scale(${v.z.toFixed(4)}) ` +
+        `rotateZ(${v.giro.toFixed(3)}deg) rotateX(${v.inclina.toFixed(3)}deg) rotateY(${v.ladea.toFixed(3)}deg)`;
+      if (o.desenfoque) {   // barrido: desenfoque según la velocidad, como un obturador de cine
+        const w = en(t - 1 / 30), vel = Math.hypot(v.x - w.x, v.y - w.y) + Math.abs(Math.log(v.z / w.z)) * 900;
+        capa.style.filter = vel > 6 ? `blur(${Math.min(9, vel / 9).toFixed(2)}px)` : 'none';
+      }
+    },
+  };
+}
+
+// ───────────────────────────────────────── 9 · los cortes entre escenas
+// Cambia de la escena a a la b en el segundo t0. Cada escena es una capa a pantalla completa (la cámara va adentro).
+// tipo: 'zoom' (se mete en a y sale en b, sin cortar el empuje), 'barrido' (paneo rápido de lado), 'gira' (ángulo en 3D)
+// o 'golpe' (corte seco con destello). o: { dur, dir: 1 o -1 }
+export function corte(a, b, t, t0, o = {}) {
+  const d = o.dur ?? .42, tipo = o.tipo || 'zoom', dir = o.dir ?? 1;
+  const p0 = tramo(t, t0 - d / 2, t0), p1 = tramo(t, t0, t0 + d / 2);
+  const antes = t < t0;
+  a.style.visibility = antes ? 'visible' : 'hidden';
+  b.style.visibility = antes ? 'hidden' : 'visible';
+  if (b.parentElement) b.parentElement.style.perspective = '2400px';
+  if (tipo === 'zoom') {
+    a.style.transform = `scale(${1 + 1.4 * E.entra(p0)})`; a.style.filter = `blur(${(14 * p0).toFixed(2)}px)`;
+    b.style.transform = `scale(${1.5 - .5 * E.sale(p1)})`; b.style.filter = `blur(${(14 * (1 - p1)).toFixed(2)}px)`;
+  } else if (tipo === 'barrido') {
+    a.style.transform = `translateX(${-dir * FW * E.entra(p0)}px)`; a.style.filter = `blur(${(18 * p0).toFixed(2)}px)`;
+    b.style.transform = `translateX(${dir * FW * (1 - E.sale(p1))}px)`; b.style.filter = `blur(${(18 * (1 - p1)).toFixed(2)}px)`;
+  } else if (tipo === 'gira') {
+    a.style.transformOrigin = dir > 0 ? '0 50%' : '100% 50%'; b.style.transformOrigin = dir > 0 ? '100% 50%' : '0 50%';
+    a.style.transform = `rotateY(${-dir * 80 * E.entra(p0)}deg) scale(${1 - .15 * p0})`;
+    b.style.transform = `rotateY(${dir * 80 * (1 - E.sale(p1))}deg) scale(${.85 + .15 * p1})`;
+    a.style.filter = b.style.filter = 'none';
+  } else {
+    a.style.transform = b.style.transform = 'none';
+    b.style.filter = `brightness(${1 + .6 * (1 - E.sale(tramo(t, t0, t0 + .18)))})`;
+  }
+  if (t >= t0 + d / 2) { b.style.transform = 'none'; b.style.filter = 'none'; }
+}
+
+// ───────────────────────────────────────── 10 · B-roll: una foto que se mueve sola
+// Llena el cuadro (o va en una ventana, «B-roll overlay») y se mueve: acercamiento lento, paneo o ángulo, con la cámara.
+// o: { src, claves (las de camara), marco: { left, top, width, height, radio } para la ventana, tono: filtro CSS opcional,
+//      entra: segundo en que aparece la ventana }. Antes de pintar, esperar .listo (la foto decodificada).
+export function broll(padre, o) {
+  const raiz = el('div', { position: 'absolute', overflow: 'hidden', ...(o.marco
+    ? { left: `${o.marco.left}px`, top: `${o.marco.top}px`, width: `${o.marco.width}px`, height: `${o.marco.height}px`,
+        borderRadius: `${o.marco.radio ?? 36}px`, boxShadow: `0 40px 80px ${K.sombra}, 0 0 0 10px ${K.blanco}` }
+    : { inset: '0' }) }, padre);
+  const capa = el('div', { position: 'absolute', inset: '-6%' }, raiz);   // margen para que el movimiento no muestre bordes
+  const img = el('img', { width: '100%', height: '100%', objectFit: 'cover', display: 'block', filter: o.tono || 'none' }, capa);
+  img.src = o.src;
+  const cam = camara(capa, o.claves || [{ t: 0, z: 1 }, { t: o.dur ?? 6, z: 1.12, curva: 'l' }], { deriva: o.deriva ?? 4 });
+  const e0 = o.entra;
+  return {
+    raiz, listo: img.decode().catch(() => {}),
+    pintar(t) {
+      cam.pintar(t);
+      if (o.marco && e0 != null) {
+        const p = tramo(t, e0, e0 + .5);
+        raiz.style.opacity = tramo(t, e0, e0 + .12);
+        raiz.style.transform = `translateY(${(1 - E.atras(p, 1.6)) * 140}px) scale(${mezcla(.86, 1, E.sale(p))}) rotate(${mezcla(-4, -1.2, E.sale(p))}deg)`;
+      }
+    },
+  };
+}
+
+// ───────────────────────────────────────── 11 · fichas que saltan (checklist pop en chiquito)
+// Etiquetas que entran una por una con rebote. o: { items: [texto], inicio, cada, estilo (de la caja) }
+export function fichas(padre, o) {
+  const caja = el('div', { display: 'flex', flexWrap: 'wrap', gap: '14px', ...o.estilo }, padre);
+  const fs = o.items.map(txt => el('span', { font: '600 34px/1 Archivo', color: K.tinta, background: K.blanco, padding: '14px 22px',
+    borderRadius: '99px', boxShadow: `0 8px 20px ${K.sombra}`, border: `2px solid ${K.cielo}`, display: 'inline-block' }, caja, txt));
+  const i0 = o.inicio ?? 0, cada = o.cada ?? .12;
+  return {
+    caja,
+    pintar(t, fuera = 1) {
+      fs.forEach((f, i) => { const p = tramo(t, i0 + i * cada, i0 + i * cada + .35);
+        f.style.opacity = Math.min(1, p * 3) * fuera; f.style.transform = `scale(${mezcla(.4, 1, E.atras(p, 2.2))})`; });
     },
   };
 }
