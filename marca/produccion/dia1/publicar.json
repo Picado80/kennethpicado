@@ -1,0 +1,21 @@
+{
+  "etiqueta": "dia-01",
+  "nota": "Día 1 (miércoles 21-oct-2026). Se programa con python marca/scripts/publicar.py marca/produccion/dia1/publicar.json --enviar, solo con el sí de Kenneth. El D1 se vuelve a armar a las 7 a. m. con los seguidores del día. El G0 entra cuando se decida el gemelo.",
+  "piezas": [
+    {
+      "codigo": "J1", "canales": ["tiktok"], "archivo": "marca/salidas/dia1/j1-dia1.mp4", "tipo": "video", "ia": true,
+      "cuando": "2026-10-21T12:00:00-06:00",
+      "texto": "«Prompt» suena a algo de ingenieros. Son las instrucciones que le das a una IA, igual que a alguien nuevo en tu negocio. Día 1 de 30 del reto. #inteligenciaartificial #prompt #emprendedores #costarica"
+    },
+    {
+      "codigo": "D1", "canales": ["tiktok", "instagram"], "archivo": "marca/salidas/dia1/d1-dia1.mp4", "tipo": "video", "ia": false,
+      "cuando": "2026-10-21T19:00:00-06:00", "instagram_tipo": "reel",
+      "texto": "Día 1 de 30. Mi oficina de 7 IAs tiene que conseguirme 1.000 seguidores en 30 días. Yo solo apruebo. ¿Llegamos? Seguí la cuenta para verlo. #reto30dias #inteligenciaartificial #emprendimiento #costarica"
+    },
+    {
+      "codigo": "P1", "canales": ["tiktok"], "archivo": "marca/salidas/dia1/p1-dia1.jpg", "tipo": "imagen", "ia": false,
+      "cuando": "2026-10-21T20:30:00-06:00",
+      "texto": "¿Cuántos días aguanta el tuyo sin vos? Sigo contando cómo se arma un negocio que funcione sin vos. Día 1 de 30. #emprendimiento #negocios #pymes #costarica"
+    }
+  ]
+}
