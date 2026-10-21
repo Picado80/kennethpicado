@@ -7,5 +7,6 @@ AQUI=$(cd "$(dirname "$0")" && pwd)
 DEST=${1:-$AQUI}
 mkdir -p "$DEST/fuentes"
 cp "$AQUI/../estilo/fuentes/"*.woff2 "$DEST/fuentes/"
+cp "$AQUI/../estilo/fuentes/"*.ttf "$DEST/fuentes/"
 [ "$DEST" = "$AQUI" ] || cp "$AQUI/efectos.js" "$DEST/"
 echo "listo: $DEST"
