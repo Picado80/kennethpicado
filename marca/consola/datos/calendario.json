@@ -752,25 +752,25 @@
    "costo": 0,
    "orden": 33
   },
-  "p-d10-AMX": {
+  "p-d10-005": {
    "fecha": "2026-10-30",
    "dia": 10,
    "linea": "B",
    "tipo": "insignia",
    "formato": "insignia",
    "formato_texto": "insignia con el gemelo",
-   "codigo": "AMX",
-   "serie": "Amazon en la soda",
-   "titulo": "El escenario que va ganando, ahora con Kenneth",
-   "porque": "Sale de la prueba del 002b, 002c y 002d: el que más seguidores trajo por cada 1.000 vistas.",
+   "codigo": "005",
+   "serie": "La Oficina",
+   "titulo": "La oficina me avisó tres veces",
+   "porque": "Kenneth se equivoca en público: da confianza.",
    "reto": false,
-   "objetivo": "Pasarlo",
-   "vara": "al menos 1 compartido o guardado por cada 1.000 vistas",
+   "objetivo": "Reaccionar",
+   "vara": "más comentarios por cada 1.000 vistas que el promedio de la cuenta",
    "redes": [
     "tiktok",
     "instagram"
    ],
-   "estado": "por-hacer",
+   "estado": "guion",
    "quien": "Claude",
    "costo": 3.0,
    "orden": 34
@@ -1283,25 +1283,25 @@
    "costo": 0,
    "orden": 57
   },
-  "p-d17-005": {
+  "p-d17-AMX": {
    "fecha": "2026-11-06",
    "dia": 17,
    "linea": "B",
    "tipo": "insignia",
    "formato": "insignia",
    "formato_texto": "insignia con el gemelo",
-   "codigo": "005",
-   "serie": "La Oficina",
-   "titulo": "La oficina me avisó tres veces",
-   "porque": "Kenneth se equivoca en público: da confianza.",
+   "codigo": "AMX",
+   "serie": "Amazon en la soda",
+   "titulo": "El escenario que va ganando, ahora con Kenneth",
+   "porque": "Sale de la prueba del 002b, 002c y 002d: el que más seguidores trajo por cada 1.000 vistas.",
    "reto": false,
-   "objetivo": "Reaccionar",
-   "vara": "más comentarios por cada 1.000 vistas que el promedio de la cuenta",
+   "objetivo": "Pasarlo",
+   "vara": "al menos 1 compartido o guardado por cada 1.000 vistas",
    "redes": [
     "tiktok",
     "instagram"
    ],
-   "estado": "guion",
+   "estado": "por-hacer",
    "quien": "Claude",
    "costo": 3.0,
    "orden": 58
@@ -2264,8 +2264,8 @@
    "formato": "",
    "codigo": "",
    "serie": "Marca",
-   "titulo": "Responder las 8 preguntas del arranque",
-   "porque": "Están en Pendientes. Sin ellas no arranca el Día 1.",
+   "titulo": "Terminar el perfil desde el teléfono",
+   "porque": "La foto de Payhip y el enlace trysemi.com en las dos redes. Lo demás ya está.",
    "objetivo": "",
    "vara": "",
    "estado": "pendiente",
@@ -2281,40 +2281,6 @@
    "formato": "",
    "codigo": "",
    "serie": "Marca",
-   "titulo": "Cargar unos $5 en HeyGen",
-   "porque": "Hecho: cargaste $15 el 19-oct y hay $17.88.",
-   "objetivo": "",
-   "vara": "",
-   "estado": "pendiente",
-   "quien": "Kenneth",
-   "costo": 0,
-   "orden": 101
-  },
-  "m-2026-10-20-2": {
-   "fecha": "2026-10-20",
-   "dia": 0,
-   "linea": "M",
-   "tipo": "accion",
-   "formato": "",
-   "codigo": "",
-   "serie": "Marca",
-   "titulo": "Poner nombre, bio y foto del perfil",
-   "porque": "ESTRATEGIA.md §7. Se hace una vez, antes del Día 1.",
-   "objetivo": "",
-   "vara": "",
-   "estado": "pendiente",
-   "quien": "Kenneth",
-   "costo": 0,
-   "orden": 102
-  },
-  "m-2026-10-20-3": {
-   "fecha": "2026-10-20",
-   "dia": 0,
-   "linea": "M",
-   "tipo": "accion",
-   "formato": "",
-   "codigo": "",
-   "serie": "Marca",
    "titulo": "Aprobar el lote de la semana 1",
    "porque": "Un guion gráfico con las 21 piezas de volumen.",
    "objetivo": "",
@@ -2322,9 +2288,9 @@
    "estado": "pendiente",
    "quien": "Kenneth",
    "costo": 0,
-   "orden": 103
+   "orden": 101
   },
-  "m-2026-10-21-4": {
+  "m-2026-10-21-2": {
    "fecha": "2026-10-21",
    "dia": 1,
    "linea": "M",
@@ -2339,9 +2305,9 @@
    "estado": "pendiente",
    "quien": "Claude",
    "costo": 0,
-   "orden": 104
+   "orden": 102
   },
-  "m-2026-10-25-5": {
+  "m-2026-10-25-3": {
    "fecha": "2026-10-25",
    "dia": 5,
    "linea": "M",
@@ -2356,9 +2322,9 @@
    "estado": "pendiente",
    "quien": "Kenneth",
    "costo": 0,
-   "orden": 105
+   "orden": 103
   },
-  "m-2026-10-26-6": {
+  "m-2026-10-26-4": {
    "fecha": "2026-10-26",
    "dia": 6,
    "linea": "M",
@@ -2373,9 +2339,9 @@
    "estado": "pendiente",
    "quien": "Kenneth y Claude",
    "costo": 0,
-   "orden": 106
+   "orden": 104
   },
-  "m-2026-10-26-7": {
+  "m-2026-10-26-5": {
    "fecha": "2026-10-26",
    "dia": 6,
    "linea": "M",
@@ -2390,26 +2356,26 @@
    "estado": "pendiente",
    "quien": "Kenneth",
    "costo": 0,
-   "orden": 107
+   "orden": 105
   },
-  "m-2026-10-29-8": {
-   "fecha": "2026-10-29",
-   "dia": 9,
+  "m-2026-11-05-6": {
+   "fecha": "2026-11-05",
+   "dia": 16,
    "linea": "M",
    "tipo": "accion",
    "formato": "",
    "codigo": "",
    "serie": "Marca",
    "titulo": "Elegir el escenario de Amazon en la soda",
-   "porque": "El 002b, el 002c o el 002d: el que más seguidores trajo por cada 1.000 vistas va con el gemelo el viernes.",
+   "porque": "El 002b, el 002c o el 002d (salen los días 2, 9 y 13): el que más seguidores trajo por cada 1.000 vistas va con el gemelo al día siguiente.",
    "objetivo": "",
    "vara": "",
    "estado": "pendiente",
    "quien": "Kenneth y Claude",
    "costo": 0,
-   "orden": 108
+   "orden": 106
   },
-  "m-2026-11-01-9": {
+  "m-2026-11-01-7": {
    "fecha": "2026-11-01",
    "dia": 12,
    "linea": "M",
@@ -2424,9 +2390,9 @@
    "estado": "pendiente",
    "quien": "Kenneth",
    "costo": 0,
-   "orden": 109
+   "orden": 107
   },
-  "m-2026-11-02-10": {
+  "m-2026-11-02-8": {
    "fecha": "2026-11-02",
    "dia": 13,
    "linea": "M",
@@ -2441,9 +2407,9 @@
    "estado": "pendiente",
    "quien": "Kenneth y Claude",
    "costo": 0,
-   "orden": 110
+   "orden": 108
   },
-  "m-2026-11-02-11": {
+  "m-2026-11-02-9": {
    "fecha": "2026-11-02",
    "dia": 13,
    "linea": "M",
@@ -2458,9 +2424,9 @@
    "estado": "pendiente",
    "quien": "Kenneth",
    "costo": 0,
-   "orden": 111
+   "orden": 109
   },
-  "m-2026-11-04-12": {
+  "m-2026-11-04-10": {
    "fecha": "2026-11-04",
    "dia": 15,
    "linea": "M",
@@ -2475,9 +2441,9 @@
    "estado": "pendiente",
    "quien": "Kenneth y Claude",
    "costo": 0,
-   "orden": 112
+   "orden": 110
   },
-  "m-2026-11-08-13": {
+  "m-2026-11-08-11": {
    "fecha": "2026-11-08",
    "dia": 19,
    "linea": "M",
@@ -2492,9 +2458,9 @@
    "estado": "pendiente",
    "quien": "Kenneth",
    "costo": 0,
-   "orden": 113
+   "orden": 111
   },
-  "m-2026-11-09-14": {
+  "m-2026-11-09-12": {
    "fecha": "2026-11-09",
    "dia": 20,
    "linea": "M",
@@ -2509,9 +2475,9 @@
    "estado": "pendiente",
    "quien": "Kenneth y Claude",
    "costo": 0,
-   "orden": 114
+   "orden": 112
   },
-  "m-2026-11-09-15": {
+  "m-2026-11-09-13": {
    "fecha": "2026-11-09",
    "dia": 20,
    "linea": "M",
@@ -2526,9 +2492,9 @@
    "estado": "pendiente",
    "quien": "Kenneth",
    "costo": 0,
-   "orden": 115
+   "orden": 113
   },
-  "m-2026-11-15-16": {
+  "m-2026-11-15-14": {
    "fecha": "2026-11-15",
    "dia": 26,
    "linea": "M",
@@ -2543,9 +2509,9 @@
    "estado": "pendiente",
    "quien": "Kenneth",
    "costo": 0,
-   "orden": 116
+   "orden": 114
   },
-  "m-2026-11-16-17": {
+  "m-2026-11-16-15": {
    "fecha": "2026-11-16",
    "dia": 27,
    "linea": "M",
@@ -2560,9 +2526,9 @@
    "estado": "pendiente",
    "quien": "Kenneth y Claude",
    "costo": 0,
-   "orden": 117
+   "orden": 115
   },
-  "m-2026-11-16-18": {
+  "m-2026-11-16-16": {
    "fecha": "2026-11-16",
    "dia": 27,
    "linea": "M",
@@ -2577,9 +2543,9 @@
    "estado": "pendiente",
    "quien": "Kenneth",
    "costo": 0,
-   "orden": 118
+   "orden": 116
   },
-  "m-2026-11-19-19": {
+  "m-2026-11-19-17": {
    "fecha": "2026-11-19",
    "dia": 30,
    "linea": "M",
@@ -2594,7 +2560,7 @@
    "estado": "pendiente",
    "quien": "Kenneth y Claude",
    "costo": 0,
-   "orden": 119
+   "orden": 117
   }
  },
  "arranque": {

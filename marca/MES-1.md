@@ -118,10 +118,10 @@ En noviembre no hay feriados nacionales en Costa Rica.
 | 3 | `002` Si tu negocio no sobrevive a tus vacaciones, con el gancho nuevo | Pasarlo |
 | 5 | `001` Mi empleado se calificó su propio examen | Reaccionar |
 | 8 | `003` Le prohibí trabajar a mi mejor empleado | Pasarlo |
-| 10 | `AMX` El escenario de *Amazon en la soda* que va ganando, con Kenneth | Pasarlo |
+| 10 | `005` La oficina me avisó tres veces | Reaccionar |
 | 12 | `004` Un anfiteatro para 800 personas al 25 % | Pasarlo |
 | 15 | `DIA15` Mitad del reto | Seguir |
-| 17 | `005` La oficina me avisó tres veces | Reaccionar |
+| 17 | `AMX` El escenario de *Amazon en la soda* que va ganando, con Kenneth | Pasarlo |
 | 19 | `TOP1` La pieza de volumen que más seguidores trajo, con Kenneth | Seguir |
 | 22 | `O6` Cuando el gerente se queda sin horas, ¿quién manda? | Reaccionar |
 | 26 | `TOP2` La segunda que más seguidores trajo, con Kenneth | Seguir |
@@ -135,7 +135,7 @@ el gancho, que es barato.
 | Cuándo | Qué se decide |
 |---|---|
 | Cada lunes (días 6, 13, 20 y 27) | La revisión de `ESTRATEGIA.md` §8: qué serie se duplica, cuál cambia de gancho, qué paso se trabaja y qué pieza se impulsa |
-| Día 9 | El escenario de *Amazon en la soda* que va con el gemelo el Día 10 |
+| Día 16 | El escenario de *Amazon en la soda* que va con el gemelo el Día 17 (ya salieron los tres: días 2, 9 y 13) |
 | Día 15 | La mitad del reto: qué series siguen en la segunda mitad |
 | Domingos (días 5, 12, 19 y 26) | Kenneth aprueba el lote de la semana siguiente |
 | Día 30 | El cierre: seguidores ganados, qué convirtió y el plan del mes 2 |
@@ -190,14 +190,14 @@ Lo mismo está en la consola, como calendario. Se genera con `python marca/conso
 | 7 | Mar 27 oct | `D7` El contador | `NS1` La noticia de la semana, sin jerga | `P2` Tu mejor empleado es el que menos debería hacer | — |
 | 8 | Mié 28 oct | `D8` El contador: una semana | `J2` Un «agente» es un empleado de IA | `N2` 800 personas de capacidad, 25 % de uso | `003` Le prohibí trabajar a mi mejor empleado |
 | 9 | Jue 29 oct | `D9` El contador y lo que se probó | `PR2` ¿Una IA puede contar el inventario de una soda con una foto? | `002c` Si tu restaurante recién abierto no sobrevive a tus vacaciones | — |
-| 10 | Vie 30 oct | `D10` El comentario que se va a probar | `RN2` Las 3 noticias de IA de la semana | `L2` Las 3 cosas que solo vos sabés | `AMX` El escenario que va ganando, ahora con Kenneth |
+| 10 | Vie 30 oct | `D10` El comentario que se va a probar | `RN2` Las 3 noticias de IA de la semana | `L2` Las 3 cosas que solo vos sabés | `005` La oficina me avisó tres veces |
 | 11 | Sáb 31 oct | `D11` El contador | `HAL` Lo que de verdad asusta en un negocio: que todo dependa de vos | `RC1` Respuesta a un comentario | — |
 | 12 | Dom 1 nov | `D12` Resumen de la semana 2 | `PER2` Video personal | `MR1` La mejor respuesta de la semana | `004` Un anfiteatro para 800 personas al 25 % |
 | 13 | Lun 2 nov | `D13` Lo que decidió la oficina el lunes | `R1` El que hace el trabajo no lo revisa | `002d` Si acabás de emprender y tu negocio no sobrevive a tus vacaciones | — |
 | 14 | Mar 3 nov | `D14` El contador | `NS2` La noticia de la semana, sin jerga | `P3` La IA no te va a quitar el trabajo: te lo va a quitar el compañero que la usa | — |
 | 15 | Mié 4 nov | `D15` Mitad del reto: cuánto falta | `J3` Un «modelo» es una IA | `A3` La reunión de los lunes | `DIA15` Mitad del reto: cuánto llevamos y qué cambió |
 | 16 | Jue 5 nov | `D16` El contador y lo que se probó | `PR3` Le pedí a la oficina el manual de apertura de una cafetería | `N4` 12 semanas, sin contratar a un gerente | — |
-| 17 | Vie 6 nov | `D17` El comentario que se va a probar | `RN3` Las 3 noticias de IA de la semana | `L3` Apertura y cierre del local | `005` La oficina me avisó tres veces |
+| 17 | Vie 6 nov | `D17` El comentario que se va a probar | `RN3` Las 3 noticias de IA de la semana | `L3` Apertura y cierre del local | `AMX` El escenario que va ganando, ahora con Kenneth |
 | 18 | Sáb 7 nov | `D18` El contador | `R2` Un sistema que te necesita es una dependencia | `RC2` Respuesta a un comentario | — |
 | 19 | Dom 8 nov | `D19` Resumen de la semana 3 | `PER3` Video personal | `MR2` La mejor respuesta de la semana | `TOP1` La pieza de volumen que más seguidores trajo, ahora con Kenneth |
 | 20 | Lun 9 nov | `D20` Lo que decidió la oficina el lunes | `R6` Lo que no se escribe no pasó | `Q3` ¿Cuál es la tarea que más odiás de tu negocio? La oficina prueba la más votada | — |
