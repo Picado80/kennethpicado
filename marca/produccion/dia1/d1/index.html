@@ -1,0 +1,45 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><title>D1 · El contador en el número real</title></head>
+<body><div id="escenario" style="position:absolute;left:0;top:0;width:1080px;height:1920px;overflow:hidden"></div>
+<script type="module">
+// D1 · el contador del reto. Loop de 6 s: el número sube de 0 a los seguidores reales, aparece la meta y la frase del reto.
+// ?n=<seguidores de hoy, TikTok + Instagram>&dia=1&meta=<seguidores del Día 30>. Todo dentro de la zona segura (SEGURA).
+// Render: node core/render/video.mjs <esta carpeta> --q "n=1659&dia=1&meta=2659" --fps 30 --size 1080x1920 --out …
+import * as F from './efectos.js';
+const { el, C, E, tramo, mezcla, miles, SEGURA } = F;
+const q = new URLSearchParams(location.search);
+const N = +(q.get('n') || 1659), DIA = +(q.get('dia') || 1), META = +(q.get('meta') || (N + 1000));
+await F.instalar();
+const r = el('div', { position: 'absolute', inset: '0', background: C.tinta, color: C.vitela }, document.getElementById('escenario'));
+const L = SEGURA.izquierda + 30, R = SEGURA.derecha + 30;
+const sello = el('div', { position: 'absolute', left: `${L}px`, top: `${SEGURA.arriba + 30}px`, fontSize: '30px', color: C.oro }, r, `Día ${DIA} de 30`);
+sello.className = 'mono';
+const rot = el('div', { position: 'absolute', left: `${L}px`, top: '540px', fontSize: '28px', color: C.gris }, r, 'Seguidores hoy · TikTok + Instagram');
+rot.className = 'mono';
+const num = el('div', { position: 'absolute', left: `${L - 8}px`, top: '590px', font: '900 270px/1 Archivo', letterSpacing: '-.045em',
+  fontVariantNumeric: 'tabular-nums' }, r, '0');
+const meta = el('div', { position: 'absolute', left: `${L}px`, right: `${R}px`, top: '900px', font: '400 84px/1.05 "Instrument Serif"' }, r,
+  F.conOro(`Meta: +${miles(META - N)} en 30 días`, `+${miles(META - N)}`));
+const ofi = el('div', { position: 'absolute', left: `${L}px`, right: `${R}px`, top: '1080px', font: '600 54px/1.2 Archivo' }, r,
+  'Lo consigue mi oficina de 7 IAs.');
+const yo = el('div', { position: 'absolute', left: `${L}px`, right: `${R}px`, top: '1160px', font: '400 76px/1.1 "Instrument Serif"' }, r,
+  'Yo solo apruebo.');
+// La razón para seguir, en pantalla (condición 4 del volumen «aceptable», ESTRATEGIA.md §4)
+const cta = el('div', { position: 'absolute', left: `${L}px`, right: `${R}px`, top: '1330px', fontSize: '30px', color: C.vitela }, r,
+  'Seguí la cuenta para ver si llega');
+cta.className = 'mono';
+const DUR = 6.0;
+window.DUR = DUR;
+window.render = t => {
+  const fuera = 1 - E.sale(tramo(t, 5.35, 5.9));                       // al final todo se apaga y el loop vuelve a 0
+  const p = E.expo(tramo(t, .2, 1.8));
+  num.textContent = miles(mezcla(0, N, p));
+  num.style.opacity = tramo(t, 0, .2) * fuera;
+  const ap = (e, a, b) => { const k = E.sale(tramo(t, a, b)); e.style.opacity = k * fuera; e.style.transform = `translateY(${(1 - k) * 36}px)`; };
+  ap(meta, 2.0, 2.45); ap(ofi, 3.0, 3.4); ap(yo, 3.6, 4.0); ap(cta, 4.3, 4.7);
+  // un golpe chico de zoom cuando el número llega
+  const g = tramo(t, 1.75, 1.95);
+  num.style.transform = `scale(${1 + .05 * Math.sin(g * Math.PI)})`; num.style.transformOrigin = '0 50%';
+};
+window.render(0);
+window.READY = true;
+</script></body></html>

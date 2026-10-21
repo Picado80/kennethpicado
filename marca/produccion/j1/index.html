@@ -1,10 +1,11 @@
 <!doctype html><html lang="es"><head><meta charset="utf-8"><title>J1 · «Prompt» son las instrucciones que le di</title><style>
 @font-face{font-family:'AD';src:url(fonts/ArchitectsDaughter-Regular.ttf)}
+@font-face{font-family:'JetBrains Mono';font-weight:500;src:url(fonts/jetbrains-mono-latin-500-normal.woff2)}
 html,body{margin:0;background:#000;overflow:hidden}canvas{display:block}</style></head>
 <body><canvas id="c" width="1080" height="1920"></canvas><script type="module">
 // Se renderiza siempre con --size 1080x1920.
 const F = await (await import('./film.js')).build();
-await document.fonts.load('46px AD');
+await document.fonts.load('46px AD'); await document.fonts.load('500 30px "JetBrains Mono"');
 const ctx = document.getElementById('c').getContext('2d');
 window.DUR = F.dur; window.EV = [...F.ev, { t: 0, type: 'cues', ...F.cues }]; window.SUBS = F.subs;
 window.render = t => F.render(ctx, t);

@@ -149,8 +149,8 @@ export async function build() {
     [at('b', 'ia') - .05, X, cy(2040, 1), 1, 0, 'io'],         // a quien recibe el pedido
     [atE('b', 'igual') + .05, X, cy(2042, 1.04), 1.04, 0, 'l'],
     [at('b', 'prompt') - .1, X, 2030, .55, 0, 'i'],            // la pizarra entera, de paso
-    [at('b', 'prompt') + .5, X, cy(770, 1), 1, 0, 'o'],        // y de vuelta a la palabra
-    [END, X, cy(772, 1.04), 1.04, 0, 'l'],
+    [at('b', 'prompt') + .5, X, cy(770, .88), .88, 0, 'o'],    // y de vuelta a la palabra (abierto: el círculo no entra bajo los botones de TikTok)
+    [END, X, cy(772, .9), .9, 0, 'l'],
   ]);
 
   const board = new W.Board(tl, { W: 2160, H: 4400, ghosts });
@@ -172,7 +172,7 @@ export async function build() {
         for (let i = 1; i < ws.length; i++) { const d = Math.abs(ctx.measureText(ws.slice(0, i).join(' ')).width - ctx.measureText(ws.slice(i).join(' ')).width); if (d < bd) { bd = d; best = i; } }
         rows = [ws.slice(0, best).join(' '), ws.slice(best).join(' ')];
       }
-      const w = Math.max(...rows.map(r => ctx.measureText(r).width)) + 64, h = 74 + (rows.length - 1) * 56, y0 = 1525 - h, cx = 500;
+      const w = Math.max(...rows.map(r => ctx.measureText(r).width)) + 64, h = 74 + (rows.length - 1) * 56, y0 = 1395 - h, cx = 490;
       ctx.globalAlpha = a * .92; ctx.fillStyle = '#fdfcf8'; ctx.shadowColor = 'rgba(30,30,40,.18)'; ctx.shadowBlur = 18; ctx.shadowOffsetY = 4;
       ctx.beginPath(); ctx.roundRect(cx - w / 2, y0, w, h, 14); ctx.fill();
       ctx.shadowColor = 'transparent'; ctx.globalAlpha = a;
@@ -182,6 +182,14 @@ export async function build() {
     }
   });
   if (q.has('nosubs')) board.overlays.length = 0;
+  // el sello del reto, arriba a la izquierda dentro de la zona segura: ?dia=1
+  if (q.has('dia')) board.overlays.push({ draw: ctx => {
+    const txt = `DÍA ${q.get('dia')} DE 30 · VOZ CON IA`;   // la voz es el clon de Kenneth: se dice en pantalla además de la etiqueta de TikTok (CANON)
+    ctx.font = '500 30px "JetBrains Mono"'; ctx.letterSpacing = '4px';
+    const w = ctx.measureText(txt).width;
+    ctx.globalAlpha = .94; ctx.fillStyle = '#fdfcf8'; ctx.beginPath(); ctx.roundRect(72, 236, w + 36, 58, 12); ctx.fill();   // papel detrás, por si pasa un dibujo
+    ctx.globalAlpha = .9; ctx.fillStyle = TINTA; ctx.textAlign = 'left'; ctx.textBaseline = 'top'; ctx.fillText(txt, 90, 250);
+  } });
 
   // ───────── cuadro: desenfoque de movimiento cuando la cámara corre
   const off = new OffscreenCanvas(FW, FH), oc = off.getContext('2d');

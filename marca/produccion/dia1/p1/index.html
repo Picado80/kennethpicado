@@ -1,0 +1,21 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><title>P1 · Si tu negocio no sobrevive a tus vacaciones</title></head>
+<body><div id="escenario" style="position:absolute;left:0;top:0;width:1080px;height:1920px;overflow:hidden"></div>
+<script type="module">
+// P1 · postura, imagen fija para el modo foto de TikTok. Todo dentro de la zona segura (SEGURA).
+// Render: node core/render/still.mjs <esta carpeta> 0 --size 1080x1920   (?dia=1)
+import * as F from './efectos.js';
+const { el, C, SEGURA } = F;
+const DIA = +(new URLSearchParams(location.search).get('dia') || 1);
+await F.instalar();
+const r = el('div', { position: 'absolute', inset: '0', background: C.tinta, color: C.vitela }, document.getElementById('escenario'));
+const L = SEGURA.izquierda + 30, R = SEGURA.derecha + 30;
+el('div', { position: 'absolute', left: `${L}px`, top: `${SEGURA.arriba + 30}px`, fontSize: '30px', color: C.oro }, r, `Día ${DIA} de 30`).className = 'mono';
+const caja = el('div', { position: 'absolute', left: `${L}px`, right: `${R}px`, top: '470px' }, r);
+el('div', { font: '400 120px/1.0 "Instrument Serif"' }, caja, F.conOro('Si tu negocio no sobrevive a tus vacaciones, no es un negocio.', 'vacaciones'));
+el('div', { font: '600 58px/1.15 Archivo', marginTop: '56px' }, caja, 'Es un trabajo con local.');
+el('div', { position: 'absolute', left: `${L}px`, right: `${R}px`, top: '1340px', fontSize: '26px', color: C.gris }, r,
+  'Kenneth Picado · 14 años en Amazon').className = 'mono';
+window.DUR = 1;
+window.render = () => {};
+window.READY = true;
+</script></body></html>
