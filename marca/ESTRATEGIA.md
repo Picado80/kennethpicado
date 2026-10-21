@@ -133,7 +133,8 @@ La controversia trae comentarios, y los comentarios traen alcance. **Se discute 
 
 ## 7. El perfil (se arma una vez, antes del Día 1)
 
-- **Nombre visible:** «Kenneth Picado · Dirijo una oficina de IAs».
+- **Nombre visible:** «Kenneth González Picado» (Kenneth, 20-oct: es su nombre; no «Kenneth Picado»). Sin «14 años en
+  Amazon» como firma: salió hace unos 2 años y medio y no quiere presentarse así.
 - **Bio (borrador):** «Dirijo una oficina de 7 IAs. 14 años en Amazon. Te cuento cómo, sin jerga. 🇨🇷
   Reto: 1.000 en 30 días.»
 - **3 videos fijados:** el gemelo presentándose (`G0`), el Día 1 del reto y la mejor insignia.

@@ -1,0 +1,46 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><title>P1 · Cerrado por vacaciones</title>
+<style>@font-face{font-family:'Marcador';src:url(ArchitectsDaughter-Regular.ttf)}</style></head>
+<body><div id="escenario" style="position:absolute;left:0;top:0;width:1080px;height:1920px;overflow:hidden;background:#222"></div>
+<script type="module">
+// P1 como video corto al estilo TikTok (8 s): la foto de una soda cerrada (MiniMax, recortada para que no se vea el
+// letrero con letras sin sentido), «Cerrado por vacaciones» escrito en el cartón y el texto en cajas, como lo pone la gente.
+// La foto es de IA: se publica con la etiqueta de IA. Todo lo que se lee va dentro de la zona segura (SEGURA).
+import * as F from './efectos.js';
+const { el, E, tramo, SEGURA } = F;
+await F.instalar();
+await document.fonts.load("70px Marcador");
+const esc = document.getElementById('escenario');
+// La foto (720×1280) a 1404×2496, corrida 499 px hacia arriba: arriba quedaba un letrero con letras sin sentido
+const S = 1404 / 720, IW = 1404, IH = 2496, OX = -162, OY = -499;
+const cuadro = el('div', { position: 'absolute', left: `${OX}px`, top: `${OY}px`, width: `${IW}px`, height: `${IH}px` }, esc);
+const foto = el('img', { position: 'absolute', inset: '0', width: '100%', height: '100%' }, cuadro);
+foto.src = 'foto.jpg'; await foto.decode();
+// El cartón pegado a la cortina (medido en la foto de 720×1280: x 170–560, y 480–580)
+const carton = el('div', { position: 'absolute', left: `${170 * S}px`, top: `${480 * S}px`, width: `${390 * S}px`, height: `${100 * S}px`,
+  display: 'flex', alignItems: 'center', justifyContent: 'center', textAlign: 'center', font: "86px/1.0 Marcador", color: '#1d1d1d',
+  textShadow: '0 0 1px #1d1d1d, 0 0 1px #1d1d1d', transform: 'rotate(-1.5deg)' }, cuadro, 'CERRADO POR<br>VACACIONES');
+// El texto en cajas, como el de TikTok
+const L = SEGURA.izquierda + 20, R = SEGURA.derecha + 20;
+const caja = (txt, top, dorado) => {
+  const d = el('div', { position: 'absolute', left: `${L}px`, right: `${R}px`, top: `${top}px`, textAlign: 'center' }, esc);
+  el('span', { display: 'inline', font: '800 62px/1.32 Archivo', color: dorado ? '#16233F' : '#fff', background: dorado ? '#F2C94C' : '#111',
+    padding: '6px 18px', borderRadius: '12px', boxDecorationBreak: 'clone', WebkitBoxDecorationBreak: 'clone' }, d, txt);
+  return d;
+};
+const t1 = caja('Si tu negocio no sobrevive a tus vacaciones…', 800, false);
+const t2 = caja('no es un negocio.', 1100, true);
+const t3 = caja('Es un trabajo con local.', 1210, false);
+const t4 = caja('¿Cuántos días aguanta el tuyo sin vos?', 960, false);
+window.DUR = 8;
+window.render = t => {
+  // empuje lento hacia el cartón
+  const z = 1 + .07 * E.sale(tramo(t, 0, 8));
+  cuadro.style.transformOrigin = `${365 * S}px ${530 * S}px`; cuadro.style.transform = `scale(${z})`;
+  carton.style.opacity = tramo(t, .2, .6);
+  const ve = (e, a, b) => { const k = tramo(t, a, a + .2) * (1 - tramo(t, b, b + .2)); e.style.opacity = k;
+    e.style.transform = `scale(${.94 + .06 * E.atras(tramo(t, a, a + .25), 2)})`; };
+  ve(t1, .6, 5.2); ve(t2, 2.6, 5.2); ve(t3, 3.6, 5.2); ve(t4, 5.4, 9);
+};
+window.render(5);
+window.READY = true;
+</script></body></html>

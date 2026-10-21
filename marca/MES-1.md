@@ -155,7 +155,7 @@ mata. Después de 30 piezas de volumen sin rechazos, el volumen se publica sin p
     trajo cada publicación y las visitas al perfil.
   - Crear las dos cuentas de desarrollador le toca a Kenneth. Lo demás lo arma Claude.
 - **Mientras tanto,** Kenneth pasa los dos números cada mañana (TikTok Studio e Instagram): 30 segundos.
-- **Facebook** entra como tercera red de Buffer cuando exista la página «Kenneth Picado».
+- **Facebook** entra como tercera red de Buffer cuando exista la página «Kenneth González Picado».
 
 ## 10. El presupuesto del mes
 

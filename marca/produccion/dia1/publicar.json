@@ -44,9 +44,9 @@
       "canales": [
         "tiktok"
       ],
-      "archivo": "marca/salidas/dia1/p1-dia1.jpg",
-      "tipo": "imagen",
-      "ia": false,
+      "archivo": "marca/salidas/dia1/p1-dia1.mp4",
+      "tipo": "video",
+      "ia": true,
       "cuando": "2026-10-21T20:30:00-06:00",
       "texto": "¿Cuántos días aguanta el tuyo sin vos? Sigo contando cómo se arma un negocio que funcione sin vos. Día 1 de 30. #emprendimiento #negocios #pymes #costarica"
     }
