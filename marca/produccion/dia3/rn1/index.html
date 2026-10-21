@@ -1,9 +1,10 @@
 <!doctype html><html lang="es"><head><meta charset="utf-8"><title>RN1 · 3 noticias de IA de la semana</title></head>
 <body><div id="escenario" style="position:absolute;left:0;top:0;width:1080px;height:1920px;overflow:hidden"></div>
 <script type="module">
-// RN1 · las 3 noticias de inteligencia artificial de la semana, sin jerga (viernes 23-oct-2026). Cada una con su fuente y
+// RN1 · las 3 noticias de inteligencia artificial de la semana (viernes 23-oct-2026). Cada una con su fuente y
 // fecha en pantalla. Verificadas en la fuente el 21-oct: TechCrunch (candado en ChatGPT), 9to5Google (Gemini en Android
 // Auto) y TechCrunch (el documental de Netflix). Cada efecto cae en la palabra de la voz (voz/palabras.json).
+// Kenneth, 21-oct: nada de «sin jerga» (es cosa nuestra, al que mira no le importa).
 import * as F from './efectos.js';
 const { el, K, E, tramo, mezcla, SEGURA, BOTONES } = F;
 await F.instalar({ fondo: '#0B0A1A' });
@@ -21,17 +22,14 @@ const entra = (e, t, a, dy = 40, giro = 0) => { const p = tramo(t, a, a + .32); 
 const donde = (span, x0, y0) => ({ x: x0 + span.offsetLeft, y: y0 + span.offsetTop, w: span.offsetWidth, h: span.offsetHeight });
 
 const S = F.secuencia(esc, [
-  // 1 · el gancho: los 3 titulares caen y, en «sin jerga», golpea el sello
+  // 1 · el gancho: los 3 titulares caen y la cámara va al primero, que es la noticia que sigue
   { dur: T.dur[0], tema: 'noche', hacer: r => {
-    const capa = el('div', { position: 'absolute', inset: '0' }, r);
-    const tit = F.titulares(capa, { destacado: 0, inicio: .1, foco: 99, items: [
+    const tit = F.titulares(r, { destacado: 0, inicio: .1, foco: 2.3, items: [
       { fuente: 'TechCrunch', fecha: '20 oct', texto: 'ChatGPT deja ponerle candado a tus chats' },
       { fuente: '9to5Google', fecha: '20 oct', texto: 'Gemini usa tu correo y tu calendario en el carro' },
       { fuente: 'TechCrunch', fecha: '20 oct', texto: 'El documental de Netflix sobre una IA que se escapó' }] });
     const b = F.brillo(r, { manchas: 2, z: 0 });
-    const s = F.sello(r, { texto: 'Sin jerga', x: 190, y: 700, t0: 3.35, tam: 84, rot: -6, color: K.resalte });
-    return { pintar(t) { tit.pintar(t); b.pintar(t); s.pintar(t); const k = tramo(t, 3.15, 3.35);
-      capa.style.filter = k ? `brightness(${mezcla(1, .5, k).toFixed(3)}) blur(${(k * 2).toFixed(2)}px)` : ''; } };
+    return { pintar(t) { tit.pintar(t); b.pintar(t); } };
   } },
   // 2 · uno: el candado en ChatGPT (los 4 puntos del PIN y se cierra en «candado»)
   { dur: T.dur[1], tema: 'cielo', entra: { tipo: 'zoom' }, hacer: r => {
@@ -108,7 +106,7 @@ const S = F.secuencia(esc, [
     const com = F.comentario(a, { y: 860, t0: 2.0, corazon: 5.2 });
     const sig = el('div', { position: 'absolute', left: `${L}px`, right: `${BOTONES.derecha}px`, top: '1050px', font: '800 36px/1.2 Archivo', color: '#0A1C40',
       background: '#FFD43B', border: '3px solid #0A1C40', borderRadius: '16px', padding: '14px 22px', boxShadow: `0 12px 0 -3px ${K.cielo}`, zIndex: 40 }, a,
-      'Cada viernes, 3 noticias sin jerga. Seguime.');
+      'Cada viernes, 3 noticias de IA. Seguime.');
     return { pintar(t) { b.pintar(t); q.style.opacity = tramo(t, 0, .3); q2.style.opacity = tramo(t, 1.4, 1.7); com.pintar(t);
       const k2 = tramo(t, 3.3, 3.6); sig.style.opacity = k2; sig.style.transform = `translateY(${((1 - E.atras(k2, 1.8)) * 50).toFixed(1)}px) rotate(-1.5deg)`; } };
   } },

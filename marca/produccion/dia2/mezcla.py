@@ -99,7 +99,8 @@ def teclas(buf, desde, hasta, cps):
         t += 1 / cps
 
 
-def mezclar(nombre, dur, voces, golpes, bpm=96):
+def mezclar(nombre, dur, voces, golpes, bpm=96, fondo=1.0, baja=.62):
+    """fondo: cuánto suena la música (1 = como el Día 2); baja: cuánto baja cuando hablás (0 a 1)."""
     n = int((dur + 1.5) * SR)
     voz = np.zeros((n, 2), np.float32)
     for ruta, t in voces:
@@ -107,13 +108,17 @@ def mezclar(nombre, dur, voces, golpes, bpm=96):
     sfx = np.zeros((n, 2), np.float32)
     for g in golpes:
         g(sfx)
-    mus = (musica(dur, bpm) + bateria(dur, bpm))[:n]
+    mus = (musica(dur, bpm) + bateria(dur, bpm))[:n] * fondo
     # la música baja cuando hablás (envolvente de la voz, suavizada)
     env = np.abs(voz[:, 0])
     k = int(.25 * SR)
     env = np.convolve(env, np.ones(k) / k, mode="same")
     env = env / (env.max() + 1e-9)
-    mus *= (1 - .62 * np.clip(env * 3, 0, 1))[:, None]
+    mus *= (1 - baja * np.clip(env * 3, 0, 1))[:, None]
+    # cuánto queda la música por debajo de la voz mientras hablás (para no adivinar)
+    habla = env > .05
+    rms = lambda x: 20 * np.log10(np.sqrt(np.mean(x ** 2)) + 1e-9)
+    print(f"  voz {rms(voz[habla]):.1f} dB · música bajo la voz {rms(mus[habla]):.1f} dB · música sola {rms(mus[~habla][:int(dur * SR)]):.1f} dB")
     total = voz + sfx + mus
     fin = int(dur * SR)
     rampa = np.linspace(1, 0, int(.5 * SR))

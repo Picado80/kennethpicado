@@ -15,6 +15,8 @@ m = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(m)
 m.AQUI = AQUI                       # las mezclas se escriben en dia3/<pieza>/mezcla.wav
 W, Pp, T, D, raya, teclas = m.W, m.Pp, m.T, m.D, m.raya, m.teclas
+# Kenneth, 21-oct: «que la música sea algo que se escucha de fondo». Un quinto del Día 2 y baja 85 % cuando hablás: queda unos 17 dB bajo la voz.
+FONDO, BAJA = .2, .85
 
 
 def tiempos(pieza):
@@ -32,7 +34,7 @@ def rn1():
     # la frase «e» (Netflix y lo que dice el jefe) cruza dos escenas; la «f» va con el cierre
     v = [(voz("rn1", k), s[i]) for k, i in zip("abcdef", (0, 1, 2, 3, 4, 6))]
     g = [W(t) for t in s[1:]]
-    g += [Pp(.1 + k * .3, .5, pan=(-1) ** k * .3) for k in range(3)] + [T(3.35)]
+    g += [Pp(.1 + k * .3, .5, pan=(-1) ** k * .3) for k in range(3)] + [Pp(2.3, .4)]
     g += [Pp(s[1] + 1.9 + k * .18, .4) for k in range(4)] + [T(s[1] + 2.7, .7), Pp(s[1] + 4.1)]
     g += [raya(s[2] + 1.85), Pp(s[2] + 3.7), raya(s[2] + 5.8)]
     g += [Pp(s[3] + 4.4 + k * .85, .55, pan=(-1) ** k * .3) for k in range(3)] + [Pp(s[3] + 7.0)]
@@ -40,7 +42,7 @@ def rn1():
     g += [raya(s[4] + 4.6, .5), raya(s[4] + 4.7, .5), raya(s[4] + 6.0, .3)]
     g += [T(s[5] + 1.5), Pp(s[5] + 3.35), Pp(s[5] + 4.75), raya(s[5] + 5.7, .45)]
     g += [Pp(s[6] + 1.4, .5), Pp(s[6] + 2.0), Pp(s[6] + 3.3, .8), D(s[6] + 5.2)]
-    m.mezclar("rn1", dur, v, g, bpm=bpm)
+    m.mezclar("rn1", dur, v, g, bpm=bpm, fondo=FONDO, baja=BAJA)
 
 
 def j2():
@@ -54,7 +56,7 @@ def j2():
     g += [Pp(s[3] + .3), Pp(s[3] + 3.5), raya(s[3] + 5.1), T(s[3] + 5.9)]
     g += [Pp(s[4] + t, .7) for t in (2.45, 4.35, 5.2)]
     g += [Pp(s[5] + 2.4), Pp(s[5] + 3.9, .8), D(s[5] + 5.0)]
-    m.mezclar("j2", dur, v, g, bpm=bpm)
+    m.mezclar("j2", dur, v, g, bpm=bpm, fondo=FONDO, baja=BAJA)
 
 
 if __name__ == "__main__":
