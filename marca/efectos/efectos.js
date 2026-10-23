@@ -938,7 +938,8 @@ export function marcador(padre, o) {
   });
   return {
     pintar(t) {
-      trazos.forEach(z => z.p.setAttribute('stroke-dashoffset', (z.L * (1 - E.sale(tramo(t, z.t0, z.t0 + z.dur)))).toFixed(1)));
+      trazos.forEach(z => { const k = tramo(t, z.t0, z.t0 + z.dur);   // sin dibujar, oculto: el borde redondo dejaba un puntito
+        z.p.setAttribute('stroke-dashoffset', (z.L * (1 - E.sale(k))).toFixed(1)); z.p.style.opacity = k > 0 ? 1 : 0; });
       notas.forEach(n => { const p = tramo(t, n.t0, n.t0 + .6);
         n.e.style.clipPath = `inset(-20px ${((1 - p) * 100).toFixed(1)}% -20px -10px)`; });
     },

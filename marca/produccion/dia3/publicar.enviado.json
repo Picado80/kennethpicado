@@ -1,0 +1,32 @@
+{
+  "RN1:tiktok": {
+    "id": "6adb5cbc91ffb6bdb08583f6",
+    "status": "scheduled",
+    "dueAt": "2026-10-23T18:00:00.000Z"
+  },
+  "RN1:instagram": {
+    "id": "6adb5cbd10223fea5664b050",
+    "status": "scheduled",
+    "dueAt": "2026-10-23T18:00:00.000Z"
+  },
+  "D3:tiktok": {
+    "id": "6adb5cbe6bf37011a376e736",
+    "status": "scheduled",
+    "dueAt": "2026-10-24T01:00:00.000Z"
+  },
+  "D3:instagram": {
+    "id": "6adb5cbe10223fea5664b0e9",
+    "status": "scheduled",
+    "dueAt": "2026-10-24T01:00:00.000Z"
+  },
+  "J2:tiktok": {
+    "id": "6adb5cbf91ffb6bdb085850a",
+    "status": "scheduled",
+    "dueAt": "2026-10-24T02:30:00.000Z"
+  },
+  "J2:instagram": {
+    "id": "6adb5cc0ce9fbd2e3b4a0873",
+    "status": "scheduled",
+    "dueAt": "2026-10-24T02:30:00.000Z"
+  }
+}
