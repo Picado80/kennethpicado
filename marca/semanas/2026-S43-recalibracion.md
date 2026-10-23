@@ -80,3 +80,21 @@ respiro. **Lo tico:** voseo, colones, WhatsApp, SINPE, soda, feria, pulpería; v
 | Lun 26 | #3 La IA me organizó la semana desde un audio de WhatsApp | #3 El siguiente más votado | #3 ¿La IA puede hacerte una canción del cumpleaños de tu mamá? + el resumen de la semana 1 |
 
 Costo: el gemelo 3–5 s por pieza, unos $1,20 por día (saldo de HeyGen: $15,13); voz e imágenes con los planes fijos.
+
+## 5. Lo que ajustó Kenneth (23-oct) y cómo quedó
+
+- **El anime es la serie de los sábados** («Costa Rica en anime»), no diaria: los votos se juntan durante la semana y
+  el sábado sale el lugar más pedido. El #1 es el Arenal (no la Avenida Central).
+- **El gemelo, en una ventana chica abajo**, al principio, en el medio y al final, solo mientras habla (efecto
+  `ventanaGemelo`). Kenneth va a mandar videos de referencia con persona y gráficos.
+- **«¿La IA puede decirte si una foto es falsa?»** va para personas mayores (65+): título de portada «5 señales de que
+  una foto es falsa», etiquetas para ellos y cierre «Mandáselo a tus papás».
+- **Nada de cumpleaños** (Kenneth no los celebra): la canción va para un aniversario.
+- **El paseo del domingo** solo si el foco es cómo planearlo y con qué herramientas; se revisa el concepto antes.
+- El audio de WhatsApp del lunes lo graba Kenneth (texto en la carpeta de Drive del Día 06).
+
+| Día | 12:00 Lo probé por vos | 19:00 | 20:30 ¿La IA puede…? |
+|---|---|---|---|
+| Sáb 24 | #1 Cobrarle a un compa (hecho) | Costa Rica en anime #1: el Arenal (hecho) | #1 ¿Habla tico? (hecho) |
+| Dom 25 | #2 El paseo del domingo: el pedido exacto, la respuesta y lo que hubo que revisar | Un truco en 20 s #1: «explicame este papel» (contrato, recibo, receta) | #2 5 señales de que una foto es falsa (65+) |
+| Lun 26 | #3 La semana organizada desde un audio de WhatsApp | Un truco en 20 s #2: lo que nunca le tenés que contar a la IA | #3 ¿Te hace una canción de aniversario? |

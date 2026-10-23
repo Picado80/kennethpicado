@@ -1295,7 +1295,7 @@ export function glitch(objetivo, o) {
 
 // ───────────────────────────────────────── 35 · la corrección: la palabra se equivoca, se marca como error y se corrige a mano
 // Como un corrector: en t1 la palabra cambia a la versión mala, tiembla y le sale el subrayado rojo ondulado; en t2 se
-// tacha y arriba se escribe la buena con marcador y un «^». o: { x, y, palabra, mal, bien, t0, t1, t2, tam, color }
+// tacha y arriba se escribe la buena con marcador y un «^». o: { x, y, palabra, mal, bien, t0, t1, t2, tam, tamBien, color }
 export function correccion(padre, o) {
   const tam = o.tam ?? 190, color = o.color ?? K.rojo;
   const caja = el('div', { position: 'absolute', left: `${o.x ?? SEGURA.izquierda + 10}px`, top: `${o.y ?? 700}px`, zIndex: 30 }, padre);
@@ -1304,7 +1304,8 @@ export function correccion(padre, o) {
   const g = svg('svg', { width: 1, height: 60, style: 'position:absolute;left:0;overflow:visible' }, caja);
   const onda = svg('path', { d: '', fill: 'none', stroke: color, 'stroke-width': 7, 'stroke-linecap': 'round' }, g);
   const tacha = svg('path', { d: '', fill: 'none', stroke: color, 'stroke-width': 12, 'stroke-linecap': 'round' }, g);
-  const bien = el('div', { position: 'absolute', left: '0', top: `${-tam * .42}px`, font: `${Math.round(tam * .34)}px/1 Marcador`, color,
+  const tb = o.tamBien ?? Math.max(40, Math.round(tam * .34));   // la corrección a mano: nunca más chica que 40 px
+  const bien = el('div', { position: 'absolute', left: '0', top: `${-tb * 1.25}px`, font: `${tb}px/1 Marcador`, color,
     whiteSpace: 'nowrap', transform: 'rotate(-3deg)' }, caja, `^ ${o.bien}`);
   const t0 = o.t0 ?? 0, t1 = o.t1 ?? 1, t2 = o.t2 ?? 2;
   return {
@@ -1359,6 +1360,36 @@ export function antesDespues(padre, o) {
       nueva.style.clipPath = `inset(0 0 0 ${x.toFixed(1)}px)`;
       manija.style.left = `${x.toFixed(1)}px`; manija.style.opacity = p > 0 && p < 1 ? 1 : 0;
       r1.style.opacity = 1 - tramo(t, t0 + d * .6, t0 + d); r2.style.opacity = tramo(t, t0 + d * .5, t0 + d);
+    },
+  };
+}
+
+// ───────────────────────────────────────── 37 · el gemelo en una ventana chica (abajo), solo mientras habla
+// Kenneth, 23-oct: «no tengo que estar en toda la cámara, puedo estar abajito», al principio, en el medio y al final.
+// Los cuadros salen de <carpeta>/0001.jpg… (30 por segundo, del video de HeyGen). o: { carpeta, desde (segundo del
+// video del gemelo donde empieza la frase), dur (lo que dura la frase), nf (cuadros), x, y, w, h, escala, cx, cy (centro
+// de la cara en el cuadro original), rotulo }. Aparece con rebote, se va al terminar la frase; pintar devuelve la carga.
+export function ventanaGemelo(padre, o) {
+  const w = o.w ?? 360, h = o.h ?? 400, s = o.escala ?? .44, cx = o.cx ?? 485, cy = o.cy ?? 760;
+  const caja = el('div', { position: 'absolute', left: `${o.x ?? SEGURA.izquierda + 10}px`, top: `${o.y ?? 840}px`, width: `${w}px`, height: `${h}px`, zIndex: 60,
+    borderRadius: '30px', overflow: 'hidden', border: '6px solid #FFFFFF', background: '#16233F', boxSizing: 'border-box',
+    boxShadow: `0 14px 0 -4px ${K.cielo}, 0 26px 50px rgba(0,0,0,.35)`, transformOrigin: '30% 100%', opacity: 0 }, padre);
+  const img = el('img', { position: 'absolute', width: `${1080 * s}px`, height: `${1920 * s}px`, left: `${w / 2 - cx * s}px`, top: `${h / 2 - cy * s}px` }, caja);
+  const rot = el('div', { position: 'absolute', left: '12px', bottom: '12px', fontSize: '18px', padding: '6px 10px', borderRadius: '99px',
+    background: 'rgba(255,255,255,.92)', color: '#16233F' }, caja, o.rotulo ?? 'Gemelo IA');
+  rot.className = 'mono';
+  const cuadro = t => `${o.carpeta ?? 'gemelo'}/${String(Math.min(o.nf ?? 99999, 1 + Math.floor((o.desde + Math.max(0, Math.min(t, o.dur))) * 30))).padStart(4, '0')}.jpg`;
+  let ultimo = cuadro(0);
+  img.src = ultimo;
+  return {
+    caja,
+    pintar(t) {
+      const a = tramo(t, 0, .3), b = tramo(t, o.dur + .05, o.dur + .3);
+      caja.style.opacity = Math.min(a, 1 - b);
+      caja.style.transform = `scale(${(mezcla(.6, 1, E.atras(a, 2)) * mezcla(1, .7, E.entra(b))).toFixed(3)}) rotate(${mezcla(-6, -2, E.sale(a)).toFixed(2)}deg)`;
+      if (t > o.dur + .3) return;
+      const src = cuadro(t);
+      if (src !== ultimo) { ultimo = src; img.src = src; return img.decode().catch(() => {}); }
     },
   };
 }
