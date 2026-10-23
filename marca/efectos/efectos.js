@@ -1394,3 +1394,81 @@ export function ventanaGemelo(padre, o) {
     },
   };
 }
+
+// ───────────────────────────────────────── 38 · fondos nuevos (Kenneth, 23-oct: «no los mismos degradados»)
+// cuadricula: papel claro con cuadrícula fina, como de cuaderno (referencia @artofthepossible.ai).
+// puntos: crema con trama de puntos (referencia @chanti.dev). o: { color, linea, paso }
+export function fondoCuadricula(padre, o = {}) {
+  const paso = o.paso ?? 54, linea = o.linea ?? 'rgba(22,35,63,.07)';
+  return el('div', { position: 'absolute', inset: '0', background: o.color ?? '#F4F2EC',
+    backgroundImage: `linear-gradient(${linea} 1.5px, transparent 1.5px), linear-gradient(90deg, ${linea} 1.5px, transparent 1.5px)`,
+    backgroundSize: `${paso}px ${paso}px`, backgroundPosition: 'center' }, padre);
+}
+export function fondoPuntos(padre, o = {}) {
+  const paso = o.paso ?? 36;
+  return el('div', { position: 'absolute', inset: '0', background: o.color ?? '#F8EFE2',
+    backgroundImage: `radial-gradient(${o.punto ?? 'rgba(120,80,40,.16)'} 2px, transparent 2.5px)`, backgroundSize: `${paso}px ${paso}px` }, padre);
+}
+
+// ───────────────────────────────────────── 39 · subtítulos palabra por palabra (la que se dice, marcada)
+// De a 3 palabras como máximo; la que suena va en caja. o: { palabras: [{t, s}] (de voz/palabras.json, s en segundos
+// desde el inicio de la frase), t0 (cuándo empieza la frase en la escena), y, x, ancho, tam, color, marca, fondoMarca, caja (fondo de la línea) }
+export function subtitulos(padre, o) {
+  const ps = o.palabras.map(p => ({ txt: (p.t ?? p.palabra ?? '').replace(/^[«"¿¡(]+|[»".,:;!?)]+$/g, ''), s: p.s }));
+  const grupos = []; for (let i = 0; i < ps.length; i += o.cada ?? 3) grupos.push(ps.slice(i, i + (o.cada ?? 3)));
+  const caja = el('div', { position: 'absolute', left: `${o.x ?? 0}px`, width: `${o.ancho ?? FW}px`, top: `${o.y ?? 1100}px`, zIndex: 80,
+    display: 'flex', justifyContent: 'center', flexWrap: 'wrap', gap: '.28em', font: `900 ${o.tam ?? 58}px/1.15 Archivo`, letterSpacing: '-.01em',
+    color: o.color ?? '#FFFFFF', textShadow: o.sombra ?? '0 4px 14px rgba(0,0,0,.55)', textTransform: o.mayus ? 'uppercase' : 'none' }, padre);
+  const linea = el('div', { display: 'inline-flex', flexWrap: 'wrap', justifyContent: 'center', gap: '.28em', padding: o.caja ? '.18em .45em' : '0',
+    borderRadius: '.4em', background: o.caja ?? 'transparent' }, caja);
+  const t0 = o.t0 ?? 0;
+  return {
+    pintar(t) {
+      const tl = t - t0;
+      const g = grupos.findIndex((gr, k) => tl >= gr[0].s - .05 && (k === grupos.length - 1 || tl < grupos[k + 1][0].s - .05));
+      // display y no visibility: un hijo «visible» se vería aunque la escena esté escondida
+      linea.style.display = g < 0 || tl > ps[ps.length - 1].s + 1.2 ? 'none' : 'inline-flex';
+      if (g < 0 || tl > ps[ps.length - 1].s + 1.2) { linea.replaceChildren(); return; }
+      linea.replaceChildren(...grupos[g].map((p, i) => {
+        const e = el('span', { padding: '0 .14em', borderRadius: '.18em' }, null, p.txt);
+        const sig = grupos[g][i + 1]?.s ?? (grupos[g + 1]?.[0].s ?? 1e9);
+        if (tl >= p.s && tl < sig) { e.style.background = o.fondoMarca ?? '#FFFFFF'; e.style.color = o.marca ?? '#111111'; e.style.textShadow = 'none'; }
+        return e;
+      }));
+    },
+  };
+}
+
+// ───────────────────────────────────────── 40 · el gemelo recortado (sin fondo), sobre cualquier fondo
+// Los cuadros PNG con alfa salen de la máscara de silueta/video.html (30 por segundo). o: { carpeta, desde (segundo en
+// esa carpeta), dur, nf, escala, x (centro), abajo (px desde el borde de abajo), sombra }
+export function gemeloRecorte(padre, o) {
+  const s = o.escala ?? .66, w = 1080 * s, h = 1920 * s;
+  const img = el('img', { position: 'absolute', width: `${w}px`, height: `${h}px`, left: `${(o.x ?? FW / 2) - w / 2}px`, top: `${FH - h + (o.abajo ?? 0)}px`,
+    zIndex: o.z ?? 50, filter: o.sombra ? 'drop-shadow(0 18px 30px rgba(0,0,0,.28))' : 'none', transformOrigin: '50% 100%',   // sin sombra: con el difuminado hace neblina
+    // el cuadro original corta los hombros: sin esto se ven dos bordes rectos; se difuminan a los lados y abajo
+    maskImage: o.bordes === false ? 'none' : 'linear-gradient(to right, transparent 0%, #000 12%, #000 88%, transparent 100%), linear-gradient(to bottom, #000 86%, transparent 100%)',
+    maskComposite: 'intersect', WebkitMaskComposite: 'source-in' }, padre);
+  const cuadro = t => `${o.carpeta ?? 'recorte'}/${String(Math.min(o.nf ?? 99999, 1 + Math.floor((o.desde + Math.max(0, Math.min(t, o.dur))) * 30))).padStart(4, '0')}.png`;
+  let ultimo = cuadro(0); img.src = ultimo;
+  return {
+    img,
+    pintar(t) {
+      const a = tramo(t, 0, .3);
+      img.style.opacity = a; img.style.transform = `translateY(${((1 - E.sale(a)) * 60).toFixed(1)}px) scale(${(1 + .02 * Math.min(1, t / 4)).toFixed(4)})`;
+      const src = cuadro(t);
+      if (src !== ultimo) { ultimo = src; img.src = src; return img.decode().catch(() => {}); }
+    },
+  };
+}
+
+// ───────────────────────────────────────── 41 · el título en caja negra (referencia @fvayas): letras gruesas, mayúsculas
+// o: { texto, y, t0, tam, ancho }
+export function tituloCaja(padre, o) {
+  const e = el('div', { position: 'absolute', left: '50%', top: `${o.y ?? 900}px`, zIndex: 90, maxWidth: `${o.ancho ?? 820}px`, boxSizing: 'border-box',
+    background: '#0B0B0B', color: '#FFFFFF', padding: '14px 26px 16px', font: `900 ${o.tam ?? 56}px/1.08 Archivo`, textTransform: 'uppercase',
+    letterSpacing: '-.01em', textAlign: 'center', transformOrigin: '50% 50%' }, padre, o.texto);
+  const t0 = o.t0 ?? 0;
+  return { caja: e, pintar(t) { const k = tramo(t, t0, t0 + .22); e.style.opacity = k;
+    e.style.transform = `translate(-50%, 0) scale(${mezcla(1.25, 1, E.atras(k, 2.4)).toFixed(3)})`; } };
+}

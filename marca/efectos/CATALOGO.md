@@ -14,7 +14,7 @@ cuadro con Lemo-Opuscar (`node core/render/video.mjs <carpeta> --size 1080x1920`
   como ideas: son de pago y para After Effects, Premiere, DaVinci o Final Cut, que no usamos).
 - Todo lo que se lee va en la zona segura común de las 4 redes (`SEGURA` y `BOTONES`).
 
-## Lo que hay (36 efectos y la cámara)
+## Lo que hay (41 efectos y la cámara)
 
 | # | Efecto | Función | Para qué sirve |
 |---|---|---|---|
@@ -54,6 +54,11 @@ cuadro con Lemo-Opuscar (`node core/render/video.mjs <carpeta> --size 1080x1920`
 | 34 | La corrección | `correccion` | La palabra se equivoca, tiembla, sale el subrayado rojo ondulado y se corrige a mano con «^» |
 | 35 | Antes y después | `antesDespues` | Dos imágenes en una tarjeta; la manija barre la vieja y deja la nueva |
 | 36 | El gemelo en la escena | `gemelo` (en `dia3/j2/index.html`) | Los cuadros del video de HeyGen detrás de los gráficos, con acercamiento lento |
+| 37 | Ventana chica del gemelo | `ventanaGemelo` | Forma 5: el gemelo abajo en una tarjeta, solo mientras habla |
+| 38 | Fondos nuevos | `fondoCuadricula`, `fondoPuntos` | Cuadrícula clara (artofthepossible.ai) y crema con puntos (chanti.dev), para no repetir degradados |
+| 39 | Subtítulos palabra por palabra | `subtitulos` | De a 3 palabras, la que suena en caja; con `caja` para leer sobre imágenes |
+| 40 | Gemelo recortado | `gemeloRecorte` (+ `silueta/video.html`) | Formas 1 y 4: sin fondo, en la mitad de abajo o delante de un lugar |
+| 41 | Título en caja negra | `tituloCaja` | Forma 2: en la unión de la pantalla dividida (fvayas) |
 | — | La cámara | `camara` | Acercar, alejar, ángulo en 3D, paneo, mano y desenfoque de movimiento |
 
 ## Por agregar (de a uno por video)
@@ -72,3 +77,16 @@ De prompt-motion.com y de Artlist:
 - **Transiciones de película y «sin señal»** (Artlist: Fast Film, No Signal).
 - **Títulos con pintura en aerosol, tinta que fluye, tipografía antigravedad** (Artlist).
 - **Lower thirds** con el nombre y el cargo para cuando hable alguien.
+
+## Las 6 formas de presentar al gemelo (23-oct, `produccion/catalogo-gemelo/`)
+
+1. **Recortado abajo, cuadrícula** (@artofthepossible.ai): el gemelo sin fondo en la mitad de abajo; arriba, tarjetas que cambian cada segundo.
+2. **Pantalla dividida** (@fvayas): arriba el lugar o el video; abajo el gemelo; el título en caja negra en la unión.
+3. **Tarjeta grande, crema** (@chanti.dev): el gemelo en una tarjeta redondeada abajo; arriba, letras grandes en 3D.
+4. **Recortado frente al lugar**: el gemelo como presentador delante de la imagen (el Mercado Central en anime).
+5. **Ventana chica**: el gemelo chiquito abajo, gráficos grandes arriba.
+6. **Pantalla completa**: la cara entera, con subtítulos grandes sobre la camisa.
+
+Cómo se recorta: los cuadros del gemelo a jpg → `silueta/video.html` (máscara cuadro por cuadro, con video.mjs) →
+`ffmpeg … alphamerge` a PNG con alfa → `gemeloRecorte`.
+

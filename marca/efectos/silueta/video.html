@@ -1,0 +1,31 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><title>Silueta · máscara cuadro por cuadro</title></head>
+<body style="margin:0;background:#000"><canvas id="c" width="1080" height="1920" style="display:block"></canvas>
+<script type="module">
+// La máscara de la persona en cada cuadro de un video ya sacado a jpg (?carpeta=<cuadros>&desde=<n>&n=<cuántos>):
+// blanco = persona, negro = fondo. Se renderiza con video.mjs y después ffmpeg la pega como canal alfa:
+//   ffmpeg -i cuadros/%04d.jpg -i mascara.mp4 -filter_complex "[1]format=gray[m];[0][m]alphamerge" recorte/%04d.png
+// Así el gemelo sale recortado y se puede poner sobre cualquier fondo (cuadrícula, video, gráficos).
+import { FilesetResolver, ImageSegmenter } from 'https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.14/vision_bundle.mjs';
+const q = new URLSearchParams(location.search);
+const CARPETA = q.get('carpeta') || 'cuadros', DESDE = +(q.get('desde') || 1), N = +(q.get('n') || 30);
+const vision = await FilesetResolver.forVisionTasks('https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.14/wasm');
+const seg = await ImageSegmenter.createFromOptions(vision, {
+  baseOptions: { modelAssetPath: 'https://storage.googleapis.com/mediapipe-models/image_segmenter/selfie_multiclass_256x256/float32/latest/selfie_multiclass_256x256.tflite' },
+  outputCategoryMask: false, outputConfidenceMasks: true, runningMode: 'IMAGE' });
+const c = document.getElementById('c').getContext('2d');
+c.imageSmoothingEnabled = true; c.imageSmoothingQuality = 'high';
+const img = new Image();
+window.DUR = N / 30;
+window.render = async t => {
+  const k = DESDE + Math.min(N - 1, Math.floor(t * 30 + 1e-6));
+  img.src = `${CARPETA}/${String(k).padStart(4, '0')}.jpg`; await img.decode();
+  const r = seg.segment(img), m = r.confidenceMasks, w = m[0].width, h = m[0].height, fondo = m[0].getAsFloat32Array();
+  const chico = new OffscreenCanvas(w, h), cc = chico.getContext('2d'), px = cc.createImageData(w, h);
+  for (let i = 0; i < w * h; i++) { const v = Math.round(255 * Math.min(1, Math.max(0, ((1 - fondo[i]) - .2) / .6))); px.data.set([v, v, v, 255], i * 4); }
+  cc.putImageData(px, 0, 0); r.close?.();
+  c.filter = 'none'; c.fillStyle = '#000'; c.fillRect(0, 0, 1080, 1920);
+  c.filter = 'blur(2px)'; c.drawImage(chico, 0, 0, 1080, 1920);
+};
+await window.render(0);
+window.READY = true;
+</script></body></html>
