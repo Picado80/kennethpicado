@@ -1368,16 +1368,17 @@ export function antesDespues(padre, o) {
 // Kenneth, 23-oct: «no tengo que estar en toda la cámara, puedo estar abajito», al principio, en el medio y al final.
 // Los cuadros salen de <carpeta>/0001.jpg… (30 por segundo, del video de HeyGen). o: { carpeta, desde (segundo del
 // video del gemelo donde empieza la frase), dur (lo que dura la frase), nf (cuadros), x, y, w, h, escala, cx, cy (centro
-// de la cara en el cuadro original), rotulo }. Aparece con rebote, se va al terminar la frase; pintar devuelve la carga.
+// de la cara en el cuadro original), rotulo (opcional) }. Aparece con rebote, se va al terminar la frase; pintar devuelve la carga.
 export function ventanaGemelo(padre, o) {
   const w = o.w ?? 360, h = o.h ?? 400, s = o.escala ?? .44, cx = o.cx ?? 485, cy = o.cy ?? 760;
   const caja = el('div', { position: 'absolute', left: `${o.x ?? SEGURA.izquierda + 10}px`, top: `${o.y ?? 840}px`, width: `${w}px`, height: `${h}px`, zIndex: 60,
     borderRadius: '30px', overflow: 'hidden', border: '6px solid #FFFFFF', background: '#16233F', boxSizing: 'border-box',
     boxShadow: `0 14px 0 -4px ${K.cielo}, 0 26px 50px rgba(0,0,0,.35)`, transformOrigin: '30% 100%', opacity: 0 }, padre);
   const img = el('img', { position: 'absolute', width: `${1080 * s}px`, height: `${1920 * s}px`, left: `${w / 2 - cx * s}px`, top: `${h / 2 - cy * s}px` }, caja);
-  const rot = el('div', { position: 'absolute', left: '12px', bottom: '12px', fontSize: '18px', padding: '6px 10px', borderRadius: '99px',
-    background: 'rgba(255,255,255,.92)', color: '#16233F' }, caja, o.rotulo ?? 'Gemelo IA');
-  rot.className = 'mono';
+  // sin rótulo por defecto (Kenneth, 23-oct: «no quiero que etiquetes todo como hecho con IA… que disfruten, no que se
+  // centren en cómo está hecho»); la etiqueta de IA de la red va en la publicación, no en el video
+  if (o.rotulo) el('div', { position: 'absolute', left: '12px', bottom: '12px', fontSize: '18px', padding: '6px 10px', borderRadius: '99px',
+    background: 'rgba(255,255,255,.92)', color: '#16233F' }, caja, o.rotulo).className = 'mono';
   const cuadro = t => `${o.carpeta ?? 'gemelo'}/${String(Math.min(o.nf ?? 99999, 1 + Math.floor((o.desde + Math.max(0, Math.min(t, o.dur))) * 30))).padStart(4, '0')}.jpg`;
   let ultimo = cuadro(0);
   img.src = ultimo;

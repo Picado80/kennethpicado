@@ -96,8 +96,24 @@ const S = F.secuencia(esc, [
     return { pintar(t) { b.pintar(t); q.style.opacity = tramo(t, 0, .3); s.pintar(t); entra(si, t, 3.35); entra(no, t, 4.75);
       no.style.opacity = tramo(t, 4.75, 5.07) * mezcla(1, .7, tramo(t, 5.9, 6.3)); m.pintar(t); } };
   } },
-  // 7 · el cierre: la pregunta, la barra de comentarios y la serie de los viernes
-  { dur: T.dur[6], tema: 'durazno', entra: { tipo: 'vidrio', dur: .9 }, hacer: r => {
+  // 7 · ¿ya lo viste? (Kenneth, 23-oct): la pregunta del documental, las dos respuestas y la barra de comentarios
+  { dur: T.dur[6], tema: 'noche', entra: { tipo: 'zoom' }, hacer: r => {
+    const a = fondo(r), b = F.brillo(a, { manchas: 2, z: 0, semilla: 12 });
+    const q = el('div', { position: 'absolute', left: `${L}px`, right: `${SEGURA.derecha}px`, top: '420px', font: '400 108px/1.0 "Instrument Serif"', opacity: 0 }, a,
+      F.conOro('¿Ya lo viste?', 'viste', K.oro));
+    const sub = el('div', { position: 'absolute', left: `${L}px`, top: '560px', fontSize: '26px', color: K.tinta2, opacity: 0 }, a, '«AI Gone Rogue» · Netflix');
+    sub.className = 'mono';
+    const op = (txt, x, t0) => ({ t0, e: el('div', { position: 'absolute', left: `${x}px`, top: '660px', font: '800 36px/1 Archivo', color: '#16233F', opacity: 0,
+      background: '#FFFFFF', padding: '20px 26px', borderRadius: '99px', boxShadow: `0 12px 0 -3px ${K.cielo}, 0 20px 40px rgba(0,0,0,.35)` }, a, txt) });
+    const ops = [op('👀 Ya lo vi', L, .3), op('🍿 Lo voy a ver', L + 300, 1.5)];
+    const com = F.comentario(a, { y: 880, t0: 2.9, texto: 'Ya lo vi y…', cps: 14, corazon: 4.2 });
+    return { pintar(t) { b.pintar(t); const k = tramo(t, 0, .3); q.style.opacity = k; q.style.transform = `scale(${mezcla(1.15, 1, E.atras(k, 2)).toFixed(3)})`;
+      q.style.transformOrigin = '0 50%'; sub.style.opacity = tramo(t, .2, .5);
+      ops.forEach(({ e, t0 }) => { const p = tramo(t, t0, t0 + .32); e.style.opacity = p; e.style.transform = `scale(${mezcla(.5, 1, E.atras(p, 2.2)).toFixed(3)})`; });
+      com.pintar(t); } };
+  } },
+  // 8 · el cierre: la pregunta, la barra de comentarios y la serie de los viernes
+  { dur: T.dur[7], tema: 'durazno', entra: { tipo: 'vidrio', dur: .9 }, hacer: r => {
     const a = fondo(r), b = F.brillo(a, { manchas: 2, barrido: 1.2, z: 0, semilla: 4 });
     const q = el('div', { position: 'absolute', left: `${L}px`, right: `${SEGURA.derecha}px`, top: '420px', font: '400 100px/1.0 "Instrument Serif"' }, a,
       F.conOro('¿Cuál te sirve más?', 'sirve', K.oro));

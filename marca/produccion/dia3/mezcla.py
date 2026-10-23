@@ -32,7 +32,8 @@ def voz(pieza, k):
 def rn1():
     s, dur, bpm = tiempos("rn1")
     # la frase «e» (Netflix y lo que dice el jefe) cruza dos escenas; la «f» va con el cierre
-    v = [(voz("rn1", k), s[i]) for k, i in zip("abcdef", (0, 1, 2, 3, 4, 6))]
+    # «e2» (¿ya viste el documental?, Kenneth 23-oct) va en su escena; la «f» con el cierre
+    v = [(voz("rn1", k), s[i]) for k, i in zip(["a", "b", "c", "d", "e", "e2", "f"], (0, 1, 2, 3, 4, 6, 7))]
     g = [W(t) for t in s[1:]]
     g += [Pp(.1 + k * .3, .5, pan=(-1) ** k * .3) for k in range(3)] + [Pp(2.3, .4)]
     g += [Pp(s[1] + 1.9 + k * .18, .4) for k in range(4)] + [T(s[1] + 2.7, .7), Pp(s[1] + 4.1)]
@@ -41,7 +42,8 @@ def rn1():
     g += [lambda b: teclas(b, s[3] + 9.0, s[3] + 10.0, 18), D(s[3] + 10.5), Pp(s[3] + 10.8, .5)]
     g += [raya(s[4] + 4.6, .5), raya(s[4] + 4.7, .5), raya(s[4] + 6.0, .3)]
     g += [T(s[5] + 1.5), Pp(s[5] + 3.35), Pp(s[5] + 4.75), raya(s[5] + 5.7, .45)]
-    g += [Pp(s[6] + 1.4, .5), Pp(s[6] + 2.0), Pp(s[6] + 3.3, .8), D(s[6] + 5.2)]
+    g += [Pp(s[6] + .05, .5), Pp(s[6] + .3, .6), Pp(s[6] + 1.5, .6), Pp(s[6] + 2.9, .5), lambda b: teclas(b, s[6] + 3.4, s[6] + 4.2, 14), D(s[6] + 4.2)]
+    g += [Pp(s[7] + 1.4, .5), Pp(s[7] + 2.0), Pp(s[7] + 3.3, .8), D(s[7] + 5.2)]
     m.mezclar("rn1", dur, v, g, bpm=bpm, fondo=FONDO, baja=BAJA)
 
 

@@ -1,16 +1,55 @@
 {
   "_nota": "Una fila por pieza publicada: título corto y duración en segundos, para el tablero (marca/scripts/tablero.py).",
-  "J1": {"titulo": "Qué es un prompt", "duracion_s": 24.6},
-  "D1": {"titulo": "Arranca el reto", "duracion_s": 6.0},
-  "G0": {"titulo": "Mi gemelo de IA", "duracion_s": 19.8},
-  "P1": {"titulo": "Cuántos días aguanta sin vos", "duracion_s": 8.0},
-  "PR1": {"titulo": "Lo mismo a 3 modelos", "duracion_s": 51.0},
-  "D2": {"titulo": "La oficina", "duracion_s": 10.8},
-  "N1": {"titulo": "De 165 personas a 7 modelos", "duracion_s": 39.6},
-  "RN1": {"titulo": "3 noticias de IA de la semana", "duracion_s": 52.2},
-  "D3": {"titulo": "El contador y lo que me salió mal", "duracion_s": 47.4},
-  "J2": {"titulo": "Qué es un agente (con gemelo)", "duracion_s": 41.4},
-  "LP1": {"titulo": "Lo probé por vos #1: cobrarle a un compa", "duracion_s": 29.4},
-  "AN1": {"titulo": "Costa Rica en anime #1: el Arenal", "duracion_s": 19.8},
-  "IP1": {"titulo": "¿La IA puede hablar tico?", "duracion_s": 33.0}
+  "J1": {
+    "titulo": "Qué es un prompt",
+    "duracion_s": 24.6
+  },
+  "D1": {
+    "titulo": "Arranca el reto",
+    "duracion_s": 6.0
+  },
+  "G0": {
+    "titulo": "Mi gemelo de IA",
+    "duracion_s": 19.8
+  },
+  "P1": {
+    "titulo": "Cuántos días aguanta sin vos",
+    "duracion_s": 8.0
+  },
+  "PR1": {
+    "titulo": "Lo mismo a 3 modelos",
+    "duracion_s": 51.0
+  },
+  "D2": {
+    "titulo": "La oficina",
+    "duracion_s": 10.8
+  },
+  "N1": {
+    "titulo": "De 165 personas a 7 modelos",
+    "duracion_s": 39.6
+  },
+  "RN1": {
+    "titulo": "3 noticias de IA de la semana",
+    "duracion_s": 57.0
+  },
+  "D3": {
+    "titulo": "El contador y lo que me salió mal",
+    "duracion_s": 47.4
+  },
+  "J2": {
+    "titulo": "Qué es un agente (con gemelo)",
+    "duracion_s": 41.4
+  },
+  "LP1": {
+    "titulo": "Lo probé por vos #1: cobrarle a un compa",
+    "duracion_s": 29.4
+  },
+  "AN1": {
+    "titulo": "Costa Rica en anime #1: el Arenal",
+    "duracion_s": 19.8
+  },
+  "IP1": {
+    "titulo": "¿La IA puede hablar tico?",
+    "duracion_s": 33.0
+  }
 }
