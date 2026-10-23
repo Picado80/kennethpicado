@@ -1,0 +1,280 @@
+<style>
+  .rt { display: grid; gap: var(--cds-gap-lg); font-family: var(--font-anthropic-sans); }
+  .rt-head h1 { font-family: var(--font-anthropic-serif); font-weight: 400; font-size: var(--cds-font-size-title); margin: 0; text-wrap: balance; }
+  .rt-head p { margin: var(--cds-gap-xs) 0 0; color: var(--color-fg-muted); font-size: var(--cds-font-size-body); max-width: 70ch; }
+  .rt-tiles { display: grid; gap: var(--cds-gap-md); grid-template-columns: repeat(auto-fit, minmax(min(100%, 13rem), 1fr)); }
+  .rt-card { background: var(--color-panel); border: 1px solid var(--color-border-line); border-radius: var(--cds-radius); padding: var(--cds-pad-lg); min-width: 0; }
+  .rt-tile .lab { font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); }
+  .rt-tile .big { font-family: var(--font-anthropic-serif); font-weight: 400; font-size: var(--cds-font-size-title); font-variant-numeric: tabular-nums; margin: var(--cds-gap-xs) 0; }
+  .rt-tile .sub { font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); font-variant-numeric: tabular-nums; }
+  .rt-tile .meta { color: var(--color-fg); }
+  .rt-grid { display: grid; gap: var(--cds-gap-md); grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr)); }
+  .rt-card h2 { font-size: var(--cds-font-size-heading); font-weight: var(--cds-font-weight-medium); margin: 0; }
+  .rt-card .nota { font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); margin: var(--cds-gap-xs) 0 var(--cds-gap-md); }
+  .rt-chart { position: relative; min-height: 240px; }
+  .rt-tip { position: absolute; pointer-events: none; background: var(--cds-surface-popover); border: 1px solid var(--cds-border); border-radius: var(--cds-radius);
+    box-shadow: var(--cds-shadow-popover); padding: var(--cds-pad-xs) var(--cds-pad-sm); font-size: var(--cds-font-size-caption); white-space: nowrap; z-index: 2; }
+  .rt-tip .t { color: var(--cds-text-secondary); }
+  .rt-sw { display: inline-block; width: .6rem; height: .6rem; border-radius: 2px; margin-right: .35rem; }
+  .rt-legend { display: flex; gap: var(--cds-gap-md); font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); margin-bottom: var(--cds-gap-sm); flex-wrap: wrap; }
+  .rt-table-wrap { max-height: 32rem; overflow: auto; }
+  .rt-table { width: 100%; border-collapse: collapse; font-size: var(--cds-font-size-caption); font-variant-numeric: tabular-nums; }
+  .rt-table th, .rt-table td { padding: var(--cds-pad-xs) var(--cds-pad-sm); border-bottom: 1px solid var(--color-border-line); text-align: left; }
+  .rt-table th { position: sticky; top: 0; background: var(--color-panel); font-weight: var(--cds-font-weight-medium); }
+  .rt-table th button { all: unset; cursor: pointer; }
+  .rt-table th button:focus-visible { outline: 2px solid var(--cds-chart-reference); }
+  .rt-table .n { text-align: right; }
+  .rt-bar { display: inline-block; height: .45rem; border-radius: 3px; background: var(--cds-chart-muted); margin-left: .4rem; vertical-align: middle; }
+  .rt-pill { display: inline-block; padding: 0 .45rem; border-radius: 99px; border: 1px solid var(--color-border-line); }
+  .rt-fb { font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); }
+  [data-dash-source-state=empty] { color: transparent; }
+  [data-dash-source-state=refreshing] { opacity: .5; transition: opacity var(--cds-dur-slow); }
+  @media (max-width: 40rem) { .rt-table .opt { display: none; } }
+</style>
+
+<div class="rt">
+  <header class="rt-head" id="resumen">
+    <h1>Reto 30 días · Vistas y seguidores</h1>
+    <p id="rt-takeaway"><span class="dash-skeleton">—</span></p>
+  </header>
+
+  <section class="rt-tiles" id="cifras">
+    <div class="rt-card rt-tile">
+      <div class="lab">Vistas totales · TikTok + Instagram</div>
+      <div class="big dash-skeleton" data-source="resumen" data-field="vistas_total" data-row="0">—</div>
+      <div class="sub">TikTok <span data-source="resumen" data-field="vistas_tiktok" data-row="0">—</span> · Instagram <span data-source="resumen" data-field="vistas_instagram" data-row="0">—</span></div>
+    </div>
+    <div class="rt-card rt-tile">
+      <div class="lab">Vistas promedio por video</div>
+      <div class="big"><span class="dash-skeleton" data-source="resumen" data-field="prom_tiktok" data-row="0">—</span> <span class="sub">en TikTok</span></div>
+      <div class="sub">Instagram: <span data-source="resumen" data-field="prom_instagram" data-row="0">—</span> por video</div>
+    </div>
+    <div class="rt-card rt-tile">
+      <div class="lab">Seguidores hoy · TikTok + Instagram</div>
+      <div class="big dash-skeleton" data-source="resumen" data-field="seguidores_hoy" data-row="0">—</div>
+      <div class="sub"><span class="meta" data-source="resumen" data-field="nuevos" data-row="0">—</span> desde el inicio · faltan <span data-source="resumen" data-field="faltan" data-row="0">—</span> para 2.659</div>
+    </div>
+    <div class="rt-card rt-tile">
+      <div class="lab">Seguidores nuevos por cada 1.000 vistas</div>
+      <div class="big dash-skeleton" data-source="resumen" data-field="por_mil" data-row="0">—</div>
+      <div class="sub">Más vistas = más seguidores: a este ritmo, la meta pide <span data-source="resumen" data-field="vistas_para_meta" data-row="0">—</span> vistas</div>
+    </div>
+  </section>
+
+  <section class="rt-grid">
+    <div class="rt-card" id="vistas-por-dia">
+      <h2>Vistas por día de publicación</h2>
+      <p class="nota">Suma de las vistas de lo que salió cada día, por red. Lo nuevo sigue sumando vistas por varios días.</p>
+      <div class="rt-legend" id="ley-dia"></div>
+      <div class="rt-chart" id="chart-dia" data-source="vistas_por_dia"></div>
+    </div>
+    <div class="rt-card" id="crecimiento-vistas">
+      <h2>Crecimiento de las vistas</h2>
+      <p class="nota">Vistas acumuladas de todo lo publicado, en cada medición. Una medición por día.</p>
+      <div class="rt-legend" id="ley-hist"></div>
+      <div class="rt-chart" id="chart-hist" data-source="historial"></div>
+    </div>
+    <div class="rt-card" id="seguidores">
+      <h2>Seguidores contra la meta</h2>
+      <p class="nota">TikTok + Instagram. La línea punteada es el camino a 2.659 el Día 30 (19 de noviembre).</p>
+      <div class="rt-chart" id="chart-seg" data-source="seguidores"></div>
+    </div>
+  </section>
+
+  <section class="rt-card" id="publicaciones">
+    <h2>Cada publicación</h2>
+    <p class="nota">«Visto» es el tiempo promedio visto sobre lo que dura el video (más de 100 %: lo vieron más de una vez). Tocá un encabezado para ordenar.</p>
+    <div class="rt-table-wrap">
+      <table class="rt-table" data-source="publicaciones" data-row-key="codigo,red">
+        <thead><tr>
+          <th data-field="fecha"><button data-k="fecha">Fecha</button></th>
+          <th data-field="pieza"><button data-k="pieza">Pieza</button></th>
+          <th data-field="red"><button data-k="red">Red</button></th>
+          <th data-field="vistas" class="n"><button data-k="vistas">Vistas</button></th>
+          <th data-field="visto" class="n"><button data-k="visto">Visto</button></th>
+          <th data-field="reacciones" class="n opt"><button data-k="reacciones">Reacciones</button></th>
+          <th data-field="compartidos" class="n opt"><button data-k="compartidos">Compartidos</button></th>
+          <th data-field="comentarios" class="n opt"><button data-k="comentarios">Comentarios</button></th>
+        </tr></thead>
+        <tbody id="rt-filas"></tbody>
+      </table>
+    </div>
+    <p class="rt-fb">Facebook todavía no está conectado en Buffer: cuando se conecte, sus números entran acá.</p>
+  </section>
+</div>
+
+<script>
+  window.rtFmt = d3.formatLocale({ decimal: ',', thousands: '.', grouping: [3], currency: ['₡', ''] });
+
+  dash.calc('resumen', {
+    title: 'Resumen del reto',
+    description: 'Totales y promedios de vistas por red, seguidores de la última medición contra el inicio (1.659) y la meta (2.659).',
+    inputs: ['publicaciones', 'seguidores'],
+    fn: (publicaciones, seguidores) => {
+      const red = (r) => publicaciones.filter((p) => p.red === r);
+      const suma = (xs) => xs.reduce((s, p) => s + Number(p.vistas), 0);
+      const tt = red('TikTok'), ig = red('Instagram');
+      const ultimo = seguidores.slice().sort((a, b) => (a.fecha < b.fecha ? -1 : 1)).pop() || {};
+      const total = suma(publicaciones), hoy = Number(ultimo.total), nuevos = hoy - 1659;
+      const mejor = publicaciones.slice().sort((a, b) => b.vistas - a.vistas)[0] || {};
+      const porMil = total ? (nuevos / total) * 1000 : 0;
+      return [{
+        vistas_total: total, vistas_tiktok: suma(tt), vistas_instagram: suma(ig),
+        prom_tiktok: tt.length ? Math.round(suma(tt) / tt.length) : 0, prom_instagram: ig.length ? Math.round(suma(ig) / ig.length) : 0,
+        seguidores_hoy: hoy, nuevos, faltan: 2659 - hoy, por_mil: Math.round(porMil * 10) / 10,
+        vistas_para_meta: porMil > 0 ? Math.round((1000 / porMil) * 1000) : null,
+        mejor_pieza: mejor.pieza, mejor_red: mejor.red, mejor_vistas: mejor.vistas, fecha_seguidores: ultimo.fecha,
+      }];
+    },
+  });
+
+  dash.calc('vistas_por_dia', {
+    title: 'Vistas por día y red',
+    description: 'Suma de vistas de las publicaciones de cada día de publicación, separada por red.',
+    inputs: ['publicaciones'],
+    fn: (publicaciones) => {
+      const m = new Map();
+      publicaciones.forEach((p) => { const k = p.fecha + '|' + p.red; m.set(k, (m.get(k) || 0) + Number(p.vistas)); });
+      return [...m].map(([k, vistas]) => ({ fecha: k.split('|')[0], red: k.split('|')[1], vistas }));
+    },
+  });
+</script>
+
+<script>
+  // Las referencias del reto (las puso Kenneth): empezamos en 1.659 el 21 de octubre y la meta es 2.659 el 19 de noviembre.
+  const INICIO = 1659, META = 2659, DIA1 = '2026-10-21', DIA30 = '2026-11-19';
+  const F = window.rtFmt, n = F.format(',d'), dec = F.format(',.1f'), pct = d3.format('.0%');
+  const REDES = ['TikTok', 'Instagram'];
+  const color = (r) => dash.colors[REDES.indexOf(r) >= 0 ? REDES.indexOf(r) : 2];
+  const fechaCorta = (s) => { const d = new Date(s + 'T12:00:00'); return d.getDate() + ' ' + ['ene', 'feb', 'mar', 'abr', 'may', 'jun', 'jul', 'ago', 'sep', 'oct', 'nov', 'dic'][d.getMonth()]; };
+  const falla = (el) => { el.innerHTML = ''; const p = document.createElement('div');
+    p.style.cssText = 'display:flex;align-items:center;justify-content:center;min-height:inherit;gap:.4rem;font-size:var(--cds-font-size-caption);color:var(--color-fg-muted)';
+    const dot = document.createElement('span'); dot.style.cssText = 'width:.375rem;height:.375rem;border-radius:50%;background:var(--color-bad)';
+    p.append(dot, 'Failed to load'); el.append(p); };
+  const leyenda = (el) => { el.replaceChildren(...REDES.map((r) => { const s = document.createElement('span');
+    const sw = document.createElement('span'); sw.className = 'rt-sw'; sw.style.background = color(r); s.append(sw, r); return s; })); };
+  const tip = (box) => { let t = box.querySelector('.rt-tip'); if (!t) { t = document.createElement('div'); t.className = 'rt-tip'; t.hidden = true; box.append(t); } return t; };
+  const ejes = (g) => g.attr('font-size', null).attr('font-family', null).call((s) => s.selectAll('text').attr('fill', 'var(--color-fg-muted)').style('font-size', 'var(--cds-font-size-caption)'))
+    .call((s) => s.select('.domain').attr('stroke', 'var(--cds-chart-axis)')).call((s) => s.selectAll('.tick line').attr('stroke', 'var(--cds-chart-grid)'));
+
+  function textos() {
+    const r = dash.data('resumen');
+    const p = document.getElementById('rt-takeaway');
+    p.replaceChildren();
+    if (r.status !== 'ok' || !r.data.length) { const s = document.createElement('span'); s.className = 'dash-skeleton'; s.textContent = '—'; p.append(s); return; }
+    const x = r.data[0];
+    const mk = (field, txt) => { const s = document.createElement('b'); s.dataset.source = 'resumen'; s.dataset.field = field; s.dataset.row = '0'; s.textContent = txt; return s; };
+    p.append('Llevamos ', mk('vistas_total', n(x.vistas_total)), ' vistas y ', mk('nuevos', (x.nuevos >= 0 ? '+' : '') + n(x.nuevos)), ' seguidores. La que más se vio: ',
+      mk('mejor_pieza', x.mejor_pieza), ' en ', mk('mejor_red', x.mejor_red), ' (', mk('mejor_vistas', n(x.mejor_vistas)), '). El objetivo es subir las vistas: los seguidores vienen de ahí.');
+    document.querySelectorAll('[data-source="resumen"][data-field]').forEach((el) => {
+      if (el.closest('#rt-takeaway')) return;
+      const v = x[el.dataset.field]; el.classList.remove('dash-skeleton');
+      if (v == null) { el.textContent = '—'; return; }
+      el.textContent = el.dataset.field === 'por_mil' ? dec(v) : el.dataset.field === 'nuevos' ? (v >= 0 ? '+' : '') + n(v) : n(v);
+    });
+  }
+
+  function barras() {
+    const box = document.getElementById('chart-dia'), d = dash.data('vistas_por_dia');
+    leyenda(document.getElementById('ley-dia'));
+    if (d.status === 'error') { falla(box); return; }
+    box.querySelector('svg')?.remove();
+    if (d.status !== 'ok') return;
+    const rows = d.data, W = Math.max(280, box.clientWidth), H = 240;
+    const fechas = [...new Set(rows.map((r) => r.fecha))].sort();
+    const y = d3.scaleLinear([0, d3.max(rows, (r) => r.vistas) || 1], [H - 28, 12]).nice();
+    const svg = d3.select(box).append('svg').attr('width', '100%').attr('viewBox', `0 0 ${W} ${H}`);
+    const gy = svg.append('g').call(d3.axisLeft(y).ticks(4).tickFormat(n).tickSize(-W)).call(ejes);
+    const ancho = d3.max(gy.selectAll('text').nodes(), (t) => t.getComputedTextLength()) || 20, ML = ancho + 10;
+    gy.attr('transform', `translate(${ML},0)`).call(d3.axisLeft(y).ticks(4).tickFormat(n).tickSize(-(W - ML))).call(ejes).select('.domain').remove();
+    const x0 = d3.scaleBand(fechas, [ML, W - 4]).padding(0.25), x1 = d3.scaleBand(REDES, [0, x0.bandwidth()]).padding(0.12);
+    svg.append('g').attr('transform', `translate(0,${H - 28})`).call(d3.axisBottom(x0).tickFormat(fechaCorta).tickSize(0)).call(ejes).call((g) => g.select('.domain').remove());
+    const t = tip(box);
+    svg.append('g').selectAll('rect').data(rows).join('rect')
+      .attr('x', (r) => x0(r.fecha) + x1(r.red)).attr('width', Math.min(32, x1.bandwidth())).attr('y', (r) => y(r.vistas)).attr('height', (r) => y(0) - y(r.vistas))
+      .attr('rx', 4).attr('fill', (r) => color(r.red))
+      .on('mousemove', (ev, r) => { const [mx, my] = d3.pointer(ev, box); t.hidden = false; t.replaceChildren();
+        const a = document.createElement('div'); a.className = 't'; a.textContent = fechaCorta(r.fecha);
+        const b = document.createElement('div'); const sw = document.createElement('span'); sw.className = 'rt-sw'; sw.style.background = color(r.red); b.append(sw, `${r.red}: ${n(r.vistas)} vistas`);
+        t.append(a, b); t.style.left = Math.min(mx + 12, box.clientWidth - t.offsetWidth) + 'px'; t.style.top = Math.max(0, my - 40) + 'px'; })
+      .on('mouseleave', () => { t.hidden = true; });
+  }
+
+  function lineas(boxId, d, series, opciones) {
+    const box = document.getElementById(boxId);
+    if (d.status === 'error') { falla(box); return; }
+    box.querySelector('svg')?.remove();
+    if (d.status !== 'ok') return;
+    const W = Math.max(280, box.clientWidth), H = 240;
+    const pts = series.flatMap((s) => s.puntos);
+    const xs = pts.map((p) => p.x).concat(opciones.xExtra || []);
+    const x = d3.scaleUtc(d3.extent(xs), [0, 1]);
+    const yMax = d3.max(pts.map((p) => p.y).concat(opciones.yExtra || [])) || 1, yMin = opciones.yMin ?? 0;
+    const y = d3.scaleLinear([yMin, yMax], [H - 28, 12]).nice();
+    const svg = d3.select(box).append('svg').attr('width', '100%').attr('viewBox', `0 0 ${W} ${H}`);
+    const gy = svg.append('g').call(d3.axisLeft(y).ticks(4).tickFormat(n)).call(ejes);
+    const ML = (d3.max(gy.selectAll('text').nodes(), (t) => t.getComputedTextLength()) || 20) + 10;
+    const etiquetas = series.map((s) => (s.nombre ? s.nombre + ' ' + n(s.puntos[s.puntos.length - 1]?.y ?? 0) : ''));
+    const prueba = svg.append('text').style('font-size', 'var(--cds-font-size-caption)');
+    const MR = d3.max(etiquetas, (e) => (prueba.text(e), prueba.node().getComputedTextLength())) + 12; prueba.remove();
+    x.range([ML, W - Math.max(16, MR)]);
+    gy.attr('transform', `translate(${ML},0)`).call(d3.axisLeft(y).ticks(4).tickFormat(n).tickSize(-(W - ML - Math.max(16, MR)))).call(ejes).select('.domain').remove();
+    svg.append('g').attr('transform', `translate(0,${H - 28})`).call(d3.axisBottom(x).ticks(Math.max(2, Math.floor(W / 110))).tickFormat((t) => fechaCorta(d3.utcFormat('%Y-%m-%d')(t))).tickSize(0)).call(ejes).call((g) => g.select('.domain').remove());
+    if (opciones.meta) svg.append('line').attr('x1', x(opciones.meta[0].x)).attr('y1', y(opciones.meta[0].y)).attr('x2', x(opciones.meta[1].x)).attr('y2', y(opciones.meta[1].y))
+      .attr('stroke', 'var(--cds-chart-reference)').attr('stroke-width', 1.5).attr('stroke-dasharray', '5 4');
+    series.forEach((s, i) => {
+      const c = s.color;
+      svg.append('path').datum(s.puntos).attr('fill', 'none').attr('stroke', c).attr('stroke-width', 2).attr('stroke-linecap', 'round').attr('stroke-linejoin', 'round')
+        .attr('d', d3.line((p) => x(p.x), (p) => y(p.y)));
+      svg.append('g').selectAll('circle').data(s.puntos).join('circle').attr('cx', (p) => x(p.x)).attr('cy', (p) => y(p.y)).attr('r', 3.5).attr('fill', c);
+      const ult = s.puntos[s.puntos.length - 1];
+      if (ult && etiquetas[i]) svg.append('text').attr('x', x(ult.x) + 8).attr('y', y(ult.y) + 4 + (i ? 12 : 0) * (series.length > 1 && Math.abs(y(series[0].puntos.at(-1).y) - y(ult.y)) < 14 ? 1 : 0))
+        .attr('fill', c).style('font-size', 'var(--cds-font-size-caption)').text(etiquetas[i]);
+    });
+  }
+
+  function historial() {
+    const d = dash.data('historial');
+    leyenda(document.getElementById('ley-hist'));
+    const series = REDES.map((r) => ({ nombre: r, color: color(r), puntos: (d.status === 'ok' ? d.data : []).filter((h) => h.red === r)
+      .map((h) => ({ x: new Date(h.medido), y: Number(h.vistas) })).sort((a, b) => a.x - b.x) }));
+    lineas('chart-hist', d, series, {});
+  }
+
+  function seguidores() {
+    const d = dash.data('seguidores');
+    const puntos = (d.status === 'ok' ? d.data : []).map((s) => ({ x: new Date(s.fecha + 'T12:00:00'), y: Number(s.total) })).sort((a, b) => a.x - b.x);
+    const a = new Date(DIA1 + 'T12:00:00'), b = new Date(DIA30 + 'T12:00:00');
+    lineas('chart-seg', d, [{ nombre: 'Seguidores', color: dash.colors[0], puntos }],
+      { xExtra: [b], yExtra: [META], yMin: 1600, meta: [{ x: a, y: INICIO }, { x: b, y: META }] });
+  }
+
+  let orden = { k: 'vistas', dir: -1 };
+  document.querySelectorAll('.rt-table th button').forEach((b) => b.addEventListener('click', () => {
+    orden = { k: b.dataset.k, dir: orden.k === b.dataset.k ? -orden.dir : (['fecha', 'pieza', 'red'].includes(b.dataset.k) ? 1 : -1) };
+    tabla();
+  }));
+  function tabla() {
+    const d = dash.data('publicaciones'), body = document.getElementById('rt-filas');
+    body.replaceChildren();
+    document.querySelectorAll('.rt-table th').forEach((th) => th.setAttribute('aria-sort', th.dataset.field === orden.k ? (orden.dir > 0 ? 'ascending' : 'descending') : 'none'));
+    if (d.status !== 'ok') return;
+    const max = d3.max(d.data, (r) => Number(r.vistas)) || 1;
+    const rows = d.data.slice().sort((a, b) => { const va = a[orden.k], vb = b[orden.k];
+      return (typeof va === 'number' || typeof vb === 'number' ? (Number(va ?? -1) - Number(vb ?? -1)) : String(va).localeCompare(String(vb))) * orden.dir; });
+    rows.forEach((r) => {
+      const tr = document.createElement('tr');
+      tr.dataset.key = encodeURIComponent(r.codigo) + ',' + encodeURIComponent(r.red);
+      const td = (txt, cls) => { const c = document.createElement('td'); if (cls) c.className = cls; c.textContent = txt; tr.append(c); return c; };
+      td(fechaCorta(r.fecha) + ' ' + r.hora);
+      td(r.pieza);
+      const cr = td(''); const pill = document.createElement('span'); pill.className = 'rt-pill'; pill.textContent = r.red; pill.style.borderColor = color(r.red); cr.append(pill);
+      const cv = td(n(r.vistas), 'n'); const bar = document.createElement('span'); bar.className = 'rt-bar'; bar.style.width = (3 * r.vistas / max) + 'rem'; bar.style.background = color(r.red); cv.append(bar);
+      td(r.visto == null ? '—' : pct(r.visto), 'n');
+      td(n(r.reacciones), 'n opt'); td(n(r.compartidos), 'n opt'); td(n(r.comentarios), 'n opt');
+      body.append(tr);
+    });
+  }
+
+  dash.onData(() => { textos(); barras(); historial(); seguidores(); tabla(); });
+</script>
