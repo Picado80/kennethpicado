@@ -1,0 +1,102 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><title>Catálogo · cómo presentar al gemelo</title></head>
+<body><div id="escenario" style="position:absolute;left:0;top:0;width:1080px;height:1920px;overflow:hidden"></div>
+<script type="module">
+// Catálogo de formas de presentar al gemelo (Kenneth, 23-oct): en vez de un solo cuadro, seis maneras, con fondos
+// distintos y subtítulos palabra por palabra. Referencias: @artofthepossible.ai (recortado en la mitad de abajo sobre
+// cuadrícula, gráficos arriba), @fvayas (pantalla dividida con título en caja negra), @chanti.dev (tarjeta grande abajo
+// sobre crema con puntos, letras en 3D arriba). Cada forma lleva su número arriba para nombrarla.
+import * as F from './efectos.js';
+const { el, K, E, tramo, mezcla, SEGURA, BOTONES } = F;
+await F.instalar({ fondo: '#F4F2EC' });
+const esc = document.getElementById('escenario');
+const L = SEGURA.izquierda + 10;
+const T = await (await fetch('tiempos.json')).json();
+const P = await (await fetch('palabras.json')).json();
+const pal = id => P[id].map(w => ({ t: w[0], s: w[1] }));
+const NF = T.cuadros, OF = T.offsets, DU = T.dur;     // offsets y duraciones de cada frase en la carpeta de cuadros
+const etiqueta = (r, n, txt) => { const e = el('div', { position: 'absolute', left: `${L}px`, top: '372px', zIndex: 120, fontSize: '22px', padding: '8px 14px',
+  borderRadius: '99px', background: '#16233F', color: '#FFD43B' }, r, `Forma ${n} · ${txt}`); e.className = 'mono'; return e; };
+// el gemelo con su propio fondo (sin recortar), a un tamaño y posición dados
+const cuadroGemelo = (r, id, c) => {
+  const img = el('img', { position: 'absolute', width: `${1080 * c.s}px`, height: `${1920 * c.s}px`, left: `${c.x}px`, top: `${c.y}px` }, r);
+  const src = t => `cuadros/${String(Math.min(NF, 1 + Math.floor((OF[id] + Math.max(0, Math.min(t, DU[id]))) * 30))).padStart(4, '0')}.jpg`;
+  let u = src(0); img.src = u;
+  return { pintar(t) { const s = src(t); if (s !== u) { u = s; img.src = s; return img.decode().catch(() => {}); } } };
+};
+const imagen = (r, src, z0, z1, d) => { const i = el('img', { position: 'absolute', left: '0', top: '0', width: '1080px', height: '1920px', objectFit: 'cover' }, r);
+  i.src = src; return { pintar(t) { i.style.transform = `scale(${mezcla(z0, z1, Math.min(1, t / d)).toFixed(4)})`; } }; };
+const tarjetaUI = (r, html, top, t0) => { const e = el('div', { position: 'absolute', left: `${L}px`, right: `${SEGURA.derecha}px`, top: `${top}px`, boxSizing: 'border-box',
+  background: '#FFFFFF', borderRadius: '22px', padding: '20px 24px', boxShadow: '0 2px 0 rgba(0,0,0,.06), 0 18px 40px rgba(22,35,63,.12)', border: '1px solid rgba(22,35,63,.08)',
+  font: '600 30px/1.25 Archivo', color: '#16233F', opacity: 0 }, r, html); return { e, t0 }; };
+const entra = (e, t, a, dy = 40) => { const p = tramo(t, a, a + .3); e.style.opacity = p; e.style.transform = `translateY(${((1 - E.atras(p, 1.8)) * dy).toFixed(1)}px)`; };
+
+const S = F.secuencia(esc, [
+  // 1 · recortado en la mitad de abajo, sobre cuadrícula; arriba, tarjetas que cambian (artofthepossible.ai)
+  { dur: T.dur_escenas[0], hacer: r => {
+    F.fondoCuadricula(r);
+    const et = etiqueta(r, 1, 'Recortado abajo, cuadrícula');
+    const c1 = tarjetaUI(r, '<div class="mono" style="font-size:18px;color:#128C7E">WhatsApp · Compa 🤝</div>Te debe <b style="color:#C0392B;font-size:44px">₡15.000</b> desde hace 2 meses', 440, .3);
+    const c2 = tarjetaUI(r, '<div class="mono" style="font-size:18px;color:#6B7280">3 modelos de IA</div>MiniMax · DeepSeek · <b>Kimi</b>', 610, 2.4);
+    const g = F.gemeloRecorte(r, { carpeta: 'recorte', desde: OF.a, dur: DU.a, nf: NF, escala: .64, abajo: 40 });
+    const sub = F.subtitulos(r, { palabras: pal('a'), y: 780, tam: 54, color: '#16233F', sombra: 'none', fondoMarca: '#FFD43B' });
+    return { pintar(t) { et.style.opacity = 1; [c1, c2].forEach(({ e, t0 }) => entra(e, t, t0)); sub.pintar(t); return g.pintar(t); } };
+  } },
+  // 2 · pantalla dividida: arriba el lugar (B-roll), abajo el gemelo, título en caja negra en la unión (fvayas)
+  { dur: T.dur_escenas[1], entra: { tipo: 'barrido' }, hacer: r => {
+    const arriba = el('div', { position: 'absolute', left: '0', top: '0', width: '1080px', height: '960px', overflow: 'hidden' }, r);
+    const b = imagen(arriba, 'img/anime-avenida.jpg', 1.15, 1.0, T.dur_escenas[1]);
+    const abajo = el('div', { position: 'absolute', left: '0', top: '960px', width: '1080px', height: '960px', overflow: 'hidden', background: '#1a1a1a' }, r);
+    const g = cuadroGemelo(abajo, 'd', { s: 1, x: 0, y: -120 });   // a todo el ancho: sin bandas a los lados
+    const t = F.tituloCaja(r, { texto: 'El truco: que suene a tico', y: 900, t0: .2, tam: 54 });
+    const et = etiqueta(r, 2, 'Pantalla dividida');
+    const sub = F.subtitulos(r, { palabras: pal('d'), y: 1140, tam: 50 });
+    return { pintar(tt) { b.pintar(tt); t.pintar(tt); sub.pintar(tt); return g.pintar(tt); } };
+  } },
+  // 3 · tarjeta grande abajo sobre crema con puntos; arriba, letras en 3D (chanti.dev)
+  { dur: T.dur_escenas[2], entra: { tipo: 'zoom' }, hacer: r => {
+    F.fondoPuntos(r);
+    const et = etiqueta(r, 3, 'Tarjeta grande, crema');
+    const titulo = el('div', { position: 'absolute', left: '0', right: '0', top: '470px', textAlign: 'center', font: '900 92px/1 Archivo', color: '#F2552C',
+      letterSpacing: '-.02em', textTransform: 'uppercase', textShadow: '0 3px 0 #16233F, 0 6px 0 #16233F, 0 9px 0 #16233F, 0 14px 20px rgba(0,0,0,.25)', opacity: 0 }, r, '¿Lo mandarías?');
+    const card = el('div', { position: 'absolute', left: '60px', top: '700px', width: '960px', height: '1000px', borderRadius: '44px', overflow: 'hidden',
+      border: '6px solid #16233F', boxShadow: '0 22px 50px rgba(0,0,0,.25)', background: '#222' }, r);
+    const g = cuadroGemelo(card, 'e', { s: .82, x: 480 - 485 * .82, y: 430 - 700 * .82 });
+    const sub = F.subtitulos(r, { palabras: pal('e'), y: 600, tam: 50, color: '#16233F', sombra: 'none', fondoMarca: '#FFD43B' });   // entre el título y la tarjeta
+    return { pintar(t) { const k = tramo(t, 0, .25); titulo.style.opacity = k; titulo.style.transform = `scale(${mezcla(1.4, 1, E.atras(k, 2.2)).toFixed(3)})`;
+      sub.pintar(t); return g.pintar(t); } };
+  } },
+  // 4 · recortado delante del lugar: el gemelo como presentador frente al Mercado Central en anime
+  { dur: T.dur_escenas[3], entra: { tipo: 'gira' }, hacer: r => {
+    const b = imagen(r, 'img/anime-mercado-entrada.jpg', 1.0, 1.12, T.dur_escenas[3]);
+    el('div', { position: 'absolute', left: '0', right: '0', bottom: '0', height: '900px', background: 'linear-gradient(180deg, rgba(0,0,0,0), rgba(0,0,0,.35))' }, r);
+    const et = etiqueta(r, 4, 'Recortado frente al lugar');
+    const g = F.gemeloRecorte(r, { carpeta: 'recorte', desde: OF.a, dur: DU.a, nf: NF, escala: .66, x: 470, abajo: 170 });
+    const sub = F.subtitulos(r, { palabras: pal('a'), y: 840, tam: 52, caja: 'rgba(11,12,20,.72)' });   // con fondo: sobre la imagen se pierde
+    return { pintar(t) { b.pintar(t); sub.pintar(t); return g.pintar(t); } };
+  } },
+  // 5 · ventana chica abajo y gráficos grandes (la de ahora, sin rótulo)
+  { dur: T.dur_escenas[4], entra: { tipo: 'vidrio', dur: .8 }, hacer: r => {
+    F.fondoCuadricula(r, { color: '#EEF3FB', linea: 'rgba(30,80,160,.08)' });
+    const et = etiqueta(r, 5, 'Ventana chica');
+    const big = el('div', { position: 'absolute', left: `${L}px`, right: `${SEGURA.derecha}px`, top: '450px', font: '400 104px/1.0 "Instrument Serif"', color: '#16233F', opacity: 0 }, r,
+      F.conOro('Decile que sos tico', 'tico', '#E8572A'));
+    const g = F.ventanaGemelo(r, { carpeta: 'cuadros', desde: OF.d, dur: DU.d, nf: NF });
+    const sub = F.subtitulos(r, { palabras: pal('d'), x: 510, ancho: 400, y: 900, tam: 40, color: '#16233F', sombra: 'none', fondoMarca: '#FFD43B' });
+    return { pintar(t) { entra(big, t, 0, 50); sub.pintar(t); return g.pintar(t); } };
+  } },
+  // 6 · a pantalla completa, con los subtítulos grandes sobre la camisa
+  { dur: T.dur_escenas[5], entra: { tipo: 'zoom' }, hacer: r => {
+    el('div', { position: 'absolute', inset: '0', background: '#0B0C14' }, r);
+    const g = cuadroGemelo(r, 'e', { s: 1, x: 0, y: -170 });
+    const et = etiqueta(r, 6, 'Pantalla completa');
+    const sub = F.subtitulos(r, { palabras: pal('e'), y: 1120, tam: 64, mayus: true, fondoMarca: '#FFD43B' });
+    return { pintar(t) { sub.pintar(t); return g.pintar(t); } };
+  } },
+]);
+await S.listo;
+window.DUR = S.dur;
+const PULSO = 60 / T.bpm * 2;
+window.render = async t => { const p = S.pintar(t); esc.style.transform = `scale(${(1 + .006 * Math.exp(-(t % PULSO) / .09)).toFixed(5)})`; await p; };
+await window.render(1);
+window.READY = true;
+</script></body></html>

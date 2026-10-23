@@ -1,0 +1,13 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><title>Efectos · carrete de muestra</title></head>
+<body><div id="escenario" style="position:absolute;left:0;top:0;width:1080px;height:1920px;overflow:hidden"></div>
+<script type="module">
+// Se renderiza con Lemo-Opuscar a 1080×1920: node core/render/video.mjs <esta carpeta> --size 1080x1920
+// También se abre en cualquier navegador (servida, no como archivo): ?t=2.5 muestra ese segundo.
+import { armar } from './demo.js';
+const D = await armar(document.getElementById('escenario'));
+window.DUR = D.dur;
+window.render = t => D.pintar(t);
+const t = new URLSearchParams(location.search).get('t');
+D.pintar(t ? +t : 0);
+window.READY = true;
+</script></body></html>

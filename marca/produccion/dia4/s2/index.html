@@ -1,0 +1,80 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><title>Costa Rica en anime #1 · El Arenal</title></head>
+<body><div id="escenario" style="position:absolute;left:0;top:0;width:1080px;height:1920px;overflow:hidden"></div>
+<script type="module">
+// «Costa Rica en anime #1» (sábado 24-oct-2026, 19:00): el Arenal y sus alrededores rehechos con IA en anime (MiniMax
+// image-01, img/imagenes.json). Serie de los sábados (Kenneth, 23-oct): los comentarios eligen el lugar del próximo
+// sábado. El gemelo abre y cierra en la ventana chica de abajo; en el medio, las imágenes con cámara.
+import * as F from './efectos.js';
+const { el, K, E, tramo, mezcla, SEGURA, BOTONES } = F;
+await F.instalar({ fondo: '#0B1B12' });
+const esc = document.getElementById('escenario');
+const L = SEGURA.izquierda + 10;
+const T = await (await fetch('tiempos.json')).json();
+const G = await (await fetch('gemelo.json')).json();
+const gemelo = (r, id) => F.ventanaGemelo(r, { desde: G.offsets[id], dur: G.dur[id], nf: G.cuadros });
+const serie = r => { const e = el('div', { position: 'absolute', left: `${L}px`, top: '372px', fontSize: '24px', padding: '8px 16px', borderRadius: '99px', zIndex: 50,
+  background: '#16233F', color: '#FFD43B' }, r, 'Costa Rica en anime #1'); e.className = 'mono'; return e; };
+// una imagen a pantalla completa con la cámara: de (z0, x0, y0) a (z1, x1, y1) en la escena
+const cuadro = (r, src, c) => {
+  const caja = el('div', { position: 'absolute', inset: '0', overflow: 'hidden', background: '#0B1B12' }, r);
+  const img = el('img', { position: 'absolute', left: '0', top: '0', width: '1080px', height: '1920px', objectFit: 'cover', objectPosition: c.pos ?? '50% 50%',
+    transformOrigin: c.origen ?? '50% 50%' }, caja);
+  img.src = `img/${src}.jpg`;
+  el('div', { position: 'absolute', left: '0', right: '0', top: '0', height: '700px', background: 'linear-gradient(180deg, rgba(0,0,0,.45), rgba(0,0,0,0))' }, caja);
+  return { pintar(t, d) { const p = CURVA(Math.min(1, t / d)); img.style.transform = `translate(${mezcla(c.x0 ?? 0, c.x1 ?? 0, p).toFixed(1)}px, ${mezcla(c.y0 ?? 0, c.y1 ?? 0, p).toFixed(1)}px) scale(${mezcla(c.z0, c.z1, p).toFixed(4)})`; },
+    listo: img.decode().catch(() => {}) };
+};
+const CURVA = x => x < .5 ? 2 * x * x : 1 - (-2 * x + 2) ** 2 / 2;
+const rotulo = (r, txt) => el('div', { position: 'absolute', left: `${L}px`, top: '1130px', font: '800 40px/1.1 Archivo', color: '#16233F', zIndex: 40, opacity: 0,
+  background: '#FFFFFF', padding: '14px 22px', borderRadius: '16px', boxShadow: '0 14px 30px rgba(0,0,0,.35)', transform: 'rotate(-2deg)' }, r, txt);
+const lugar = (src, txt, c) => r => {
+  const q = cuadro(r, src, c), ro = rotulo(r, txt);
+  return { pintar(t) { q.pintar(t, c.d); const k = tramo(t, .15, .4); ro.style.opacity = k; ro.style.translate = `${((1 - E.atras(k, 1.8)) * -60).toFixed(1)}px 0`; }, listo: q.listo };
+};
+
+const S = F.secuencia(esc, [
+  // 1 · el gancho: el Arenal en anime detrás y el gemelo abajo
+  { dur: T.dur[0], hacer: r => {
+    const q = cuadro(r, 'arenal', { z0: 1.12, z1: 1.0, y0: 40, y1: 0 });
+    const se = serie(r);
+    const ti = el('div', { position: 'absolute', left: `${L}px`, right: `${SEGURA.derecha}px`, top: '440px', font: '400 104px/1.0 "Instrument Serif"', color: '#FFFFFF',
+      textShadow: '0 4px 24px rgba(0,0,0,.55)', opacity: 0 }, r, 'Costa Rica, <i style="color:#FFD43B">en anime</i>');
+    const g = gemelo(r, 'a');
+    return { pintar(t) { q.pintar(t, T.dur[0]); se.style.opacity = tramo(t, 0, .3);
+      const k = tramo(t, 2.4, 2.8); ti.style.opacity = k; ti.style.transform = `scale(${mezcla(1.2, 1, E.atras(k, 2)).toFixed(3)})`; ti.style.transformOrigin = '0 50%';
+      return g.pintar(t); }, listo: q.listo };
+  } },
+  // 2–5 · los lugares, uno por palabra, cada uno con su cámara
+  { dur: T.dur[1], entra: { tipo: 'zoom' }, hacer: lugar('arenal', 'Volcán Arenal', { d: T.dur[1], z0: 1.5, z1: 1.35, y0: 200, y1: 240, origen: '50% 40%' }) },
+  { dur: T.dur[2], entra: { tipo: 'zoom' }, hacer: lugar('catarata', 'Catarata La Fortuna', { d: T.dur[2], z0: 1.18, z1: 1.04, y0: -60, y1: 20 }) },
+  { dur: T.dur[3], entra: { tipo: 'barrido' }, hacer: lugar('puentes', 'Puentes colgantes', { d: T.dur[3], z0: 1.05, z1: 1.2, x0: 20, x1: -40 }) },
+  { dur: T.dur[4], entra: { tipo: 'gira' }, hacer: lugar('casado', 'El casado de la soda', { d: T.dur[4], z0: 1.35, z1: 1.2, y0: -150, y1: -90, origen: '50% 75%' }) },
+  // 6 · el cierre: los cuatro como fotos, la pregunta y el gemelo
+  { dur: T.dur[5], tema: 'papel', entra: { tipo: 'vidrio', dur: .9 }, hacer: r => {
+    const a = el('div', { position: 'absolute', inset: '0', background: K.fondo }, r), b = F.brillo(a, { manchas: 2, z: 0, semilla: 9 });
+    const fotos = ['arenal', 'catarata', 'puentes', 'casado'].map((s, k) => el('div', { position: 'absolute', left: `${L + k * 150}px`, top: '395px', width: '120px', height: '200px',
+      padding: '8px 8px 26px', background: '#FFFFFF', boxShadow: '0 12px 26px rgba(0,0,0,.25)', opacity: 0, boxSizing: 'content-box' }, a,
+      `<div style="width:120px;height:200px;background:url(img/${s}.jpg) center/cover"></div>`));
+    const q = el('div', { position: 'absolute', left: `${L}px`, right: `${SEGURA.derecha}px`, top: '660px', font: '400 64px/1.02 "Instrument Serif"', opacity: 0 }, a,
+      F.conOro('¿Qué lugar sigue el sábado que viene?', 'sigue', K.oro));
+    const c = el('div', { position: 'absolute', left: '510px', width: '270px', top: '930px', font: '800 40px/1.15 Archivo', color: '#0A1C40', opacity: 0, boxSizing: 'border-box',
+      background: '#FFD43B', border: '3px solid #0A1C40', borderRadius: '18px', padding: '16px 20px', boxShadow: `0 12px 0 -3px ${K.cielo}` }, a, 'Comentalo 👇<div class="mono" style="font:500 20px/1.3 \'JetBrains Mono\';margin-top:8px">El más votado sale el sábado</div>');
+    const g = gemelo(a, 'c');
+    return { pintar(t) { b.pintar(t);
+      fotos.forEach((f, k) => { const p = tramo(t, .1 + k * .15, .45 + k * .15); f.style.opacity = p;
+        f.style.transform = `translateY(${((1 - E.atras(p, 1.8)) * 80).toFixed(1)}px) rotate(${[-6, 4, -3, 5][k]}deg)`; });
+      const k = tramo(t, .3, .6); q.style.opacity = k; q.style.transform = `translateY(${((1 - E.atras(k, 1.8)) * 40).toFixed(1)}px)`;
+      const k2 = tramo(t, 3.0, 3.3); c.style.opacity = k2; c.style.transform = `translateY(${((1 - E.atras(k2, 1.8)) * 40).toFixed(1)}px) rotate(-2deg)`;
+      return g.pintar(t); } };
+  } },
+]);
+const sello = el('div', { position: 'absolute', left: `${L}px`, top: `${SEGURA.arriba + 12}px`, fontSize: '26px', color: '#16233F', zIndex: 120,
+  background: 'rgba(255,255,255,.95)', border: '2px solid #16233F', padding: '10px 18px', borderRadius: '99px' }, esc, 'Día 4 de 30');
+sello.className = 'mono';
+await S.listo;
+window.DUR = S.dur;
+const PULSO = 60 / T.bpm * 2;
+window.render = async t => { const p = S.pintar(t); esc.style.transform = `scale(${(1 + .009 * Math.exp(-(t % PULSO) / .09)).toFixed(5)})`; await p; };
+await window.render(1);
+window.READY = true;
+</script></body></html>

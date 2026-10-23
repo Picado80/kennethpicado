@@ -1,0 +1,89 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><title>D1 · El contador en el número real</title></head>
+<body><div id="escenario" style="position:absolute;left:0;top:0;width:1080px;height:1920px;overflow:hidden"></div>
+<script type="module">
+// D1 · el contador del reto, en claro (Kenneth, 20-oct: «el azul está muy oscuro», «más cambios y elementos», «zoom in o
+// out, ángulos, movimiento»). Loop de 6 s: abre de cerca y en ángulo sobre el número que sube, la cámara se aleja y
+// muestra la meta con resaltador, saltan las 7 IAs, golpe de zoom en «Yo solo apruebo» y vuelve a acercarse para el loop.
+// ?n=<seguidores de hoy, TikTok + Instagram>&dia=1&meta=<seguidores del Día 30>. Todo dentro de la zona segura (SEGURA).
+// Render: node core/render/video.mjs <esta carpeta> --q "n=1659&dia=1&meta=2659" --fps 30 --size 1080x1920 --out …
+import * as F from './efectos.js';
+const { el, K, E, tramo, mezcla, miles, SEGURA, BOTONES } = F;
+const q = new URLSearchParams(location.search);
+const N = +(q.get('n') || 1659), DIA = +(q.get('dia') || 1), META = +(q.get('meta') || (N + 1000));
+await F.instalar({ fondo: K.papel });
+const esc = document.getElementById('escenario');
+esc.style.background = K.papel;
+
+// el fondo: papel con una mancha celeste que se mueve lento y una trama de puntos; se mueve menos que el frente (paralaje)
+const fondo = el('div', { position: 'absolute', inset: '-10%' }, esc);
+const mancha = el('div', { position: 'absolute', width: '1100px', height: '1100px', borderRadius: '50%', left: '420px', top: '120px',
+  background: `radial-gradient(circle, ${K.celeste} 0%, rgba(221,232,246,.55) 45%, rgba(221,232,246,0) 70%)` }, fondo);
+el('div', { position: 'absolute', inset: '0', opacity: .55,
+  backgroundImage: 'radial-gradient(rgba(22,35,63,.10) 2px, transparent 2.5px)', backgroundSize: '44px 44px' }, fondo);
+
+// el frente: todo lo que se lee, en una capa que mueve la cámara
+const capa = el('div', { position: 'absolute', inset: '0', color: K.tinta }, esc);
+const L = SEGURA.izquierda + 10, R = SEGURA.derecha + 10, RB = BOTONES.derecha;   // RB: margen derecho de y 840 para abajo
+const sello = el('div', { position: 'absolute', left: `${L}px`, top: `${SEGURA.arriba + 12}px`, fontSize: '28px', color: K.tinta,
+  background: K.blanco, border: `2px solid ${K.cielo}`, padding: '10px 18px', borderRadius: '99px' }, capa, `Día ${DIA} de 30`);
+sello.className = 'mono';
+const rot = el('div', { position: 'absolute', left: `${L}px`, top: '410px', fontSize: '26px', color: K.tinta2 }, capa, 'Seguidores hoy · TikTok + IG');   // corto: de cerca (×1,32) tiene que entrar en la zona
+rot.className = 'mono';
+const num = el('div', { position: 'absolute', left: `${L - 6}px`, top: '450px', font: '900 210px/1 Archivo', letterSpacing: '-.045em',
+  fontVariantNumeric: 'tabular-nums', transformOrigin: '0 60%' }, capa, '0');
+const meta = el('div', { position: 'absolute', left: `${L}px`, right: `${R}px`, top: '680px', font: '400 70px/1.05 "Instrument Serif"' }, capa,
+  F.conResalte(`Meta: +${miles(META - N)} en 30 días`, `+${miles(META - N)}`));
+const raya = meta.querySelector('.resalte');
+const ofi = el('div', { position: 'absolute', left: `${L}px`, right: `${R}px`, top: '780px', font: '600 40px/1.2 Archivo' }, capa,
+  'Lo consigue mi oficina de 7 IAs:');
+const ias = F.fichas(capa, { items: ['Claude', 'Codex', 'MiniMax', 'Kimi', 'DeepSeek', 'Grok', 'Antigravity'], inicio: 2.75, cada: .1,
+  estilo: { position: 'absolute', left: `${L}px`, right: `${RB}px`, top: '848px' } });
+const yo = el('div', { position: 'absolute', left: `${L}px`, right: `${RB}px`, top: '1050px', font: '400 66px/1.1 "Instrument Serif"',
+  transformOrigin: '0 50%' }, capa, F.conOro('Yo solo apruebo.', 'apruebo', K.oro));
+// La razón para seguir, en pantalla (condición 4 del volumen «aceptable», ESTRATEGIA.md §4)
+const cta = el('div', { position: 'absolute', left: `${L}px`, right: `${RB}px`, top: '1150px', fontSize: '26px', lineHeight: '1.5', color: K.tinta2 }, capa,
+  'Seguí la cuenta<br>para ver si llega');
+cta.className = 'mono';
+
+// La cámara. Un punto P de la capa queda en O + z·(P − O) + (x, y), con O = (540, 960). Para abrir con el número
+// (centro en 410, 555) en el centro de la zona segura (504, 700) a z: x = −36 + 130·z, y = −260 + 405·z.
+const cerca = z => ({ x: -36 + 130 * z, y: -260 + 405 * z, z });
+const cam = F.camara(capa, [
+  { t: 0, ...cerca(1.26), ladea: 12, inclina: 4 },
+  { t: 1.55, ...cerca(1.38), ladea: 6, inclina: 2, curva: 'l' },        // de cerca y en ángulo mientras sube el número
+  { t: 2.25, x: 0, y: 0, z: 1, curva: 'e' },                           // se aleja: aparece todo
+  // con todo a la vista el zoom no pasa de 1,025 (el sello y el pie quedan en la zona): el movimiento es de ángulo
+  { t: 3.75, x: 0, y: 4, z: 1.012, ladea: -2.5, curva: 'l' },           // gira lento, como alrededor del texto
+  { t: 3.9, x: 0, y: 8, z: 1.025, ladea: -1, curva: 'e' },              // golpe chico con «Yo solo apruebo»
+  { t: 5.25, x: 0, y: 6, z: 1.015, ladea: 2.5, curva: 'l' },
+  { t: 6.0, ...cerca(1.26), ladea: 12, inclina: 4, curva: 'io' },       // vuelve al cuadro del principio: el loop no se nota
+], { deriva: 3, perspectiva: 2000 });
+
+const DUR = 6.0;
+window.DUR = DUR;
+window.render = t => {
+  cam.pintar(t);
+  const v = cam.en(t);   // paralaje: el fondo sigue a la cámara a un tercio
+  fondo.style.transform = `translate(${(v.x * .3).toFixed(1)}px, ${(v.y * .3).toFixed(1)}px) scale(${(1 + (v.z - 1) * .3).toFixed(4)})`;
+  mancha.style.transform = `translate(${(Math.sin(t / DUR * Math.PI * 2) * 40).toFixed(1)}px, ${(Math.cos(t / DUR * Math.PI * 2) * 30).toFixed(1)}px)`;
+  // el corte del loop: desenfoque al irse y al volver, como un zoom que atraviesa
+  const corte = Math.max(1 - tramo(t, 0, .3), tramo(t, 5.6, 6.0));
+  capa.style.filter = corte > 0 ? `blur(${(10 * corte).toFixed(2)}px)` : 'none';
+  const fuera = 1 - E.sale(tramo(t, 5.35, 5.85));                        // al final se apaga lo de abajo y el loop vuelve a 0
+  const p = E.expo(tramo(t, .25, 1.75));
+  num.textContent = miles(mezcla(0, N, p));
+  num.style.opacity = Math.min(tramo(t, 0, .2), 1 - tramo(t, 5.75, 6.0) * .6);
+  const g = tramo(t, 1.7, 1.92);                                          // el número «llega» con un golpe
+  num.style.transform = `scale(${1 + .07 * Math.sin(g * Math.PI)})`;
+  rot.style.opacity = tramo(t, .3, .6) * fuera;
+  sello.style.opacity = tramo(t, 1.9, 2.3) * fuera;
+  const ap = (e, a, b, dy = 36) => { const k = E.sale(tramo(t, a, b)); e.style.opacity = k * fuera; e.style.transform = `translateY(${(1 - k) * dy}px)`; };
+  ap(meta, 2.0, 2.4); ap(ofi, 2.5, 2.85); ap(cta, 4.35, 4.75);
+  F.resaltar(raya, tramo(t, 2.35, 2.85));
+  ias.pintar(t, fuera);
+  const ky = E.sale(tramo(t, 3.75, 4.05));
+  yo.style.opacity = ky * fuera; yo.style.transform = `scale(${mezcla(1.25, 1, E.atras(ky, 2))})`;
+};
+window.render(3);
+window.READY = true;
+</script></body></html>

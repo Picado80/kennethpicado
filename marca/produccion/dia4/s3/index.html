@@ -1,0 +1,99 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><title>¿La IA puede…? #1 · Hablar tico</title></head>
+<body><div id="escenario" style="position:absolute;left:0;top:0;width:1080px;height:1920px;overflow:hidden"></div>
+<script type="module">
+// «¿La IA puede…? #1» (sábado 24-oct-2026, 20:30): el examen de tico a 3 modelos. Respuestas reales en
+// respuestas.json (23-oct): MiniMax dijo «friend» y entendió «se me rompió la camioneta»; DeepSeek y Kimi, bien.
+// El gemelo abre y cierra en la ventana chica de abajo; cierre para comentar una palabra tica.
+import * as F from './efectos.js';
+const { el, K, E, tramo, mezcla, SEGURA, BOTONES } = F;
+await F.instalar({ fondo: '#F7F4EC' });
+const esc = document.getElementById('escenario');
+const L = SEGURA.izquierda + 10;
+const T = await (await fetch('tiempos.json')).json();
+const G = await (await fetch('gemelo.json')).json();
+const gemelo = (r, id) => F.ventanaGemelo(r, { desde: G.offsets[id], dur: G.dur[id], nf: G.cuadros });
+const fondo = r => el('div', { position: 'absolute', inset: '0', background: K.fondo, color: K.tinta, overflow: 'hidden' }, r);
+const entra = (e, t, a, dy = 40) => { const p = tramo(t, a, a + .32); e.style.opacity = p; e.style.transform = `translateY(${((1 - E.atras(p, 1.8)) * dy).toFixed(1)}px)`; };
+const serie = r => { const e = el('div', { position: 'absolute', left: `${L}px`, top: '372px', fontSize: '24px', padding: '8px 16px', borderRadius: '99px', zIndex: 50,
+  background: '#16233F', color: '#FFD43B' }, r, '¿La IA puede…? #1'); e.className = 'mono'; return e; };
+const tarjeta = (r, quien, html, top, color) => el('div', { position: 'absolute', left: `${L}px`, width: '650px', top: `${top}px`, boxSizing: 'border-box', opacity: 0,
+  padding: '16px 20px', borderRadius: '20px', background: '#FFFFFF', color: '#16233F', font: '500 29px/1.3 Georgia, serif', border: `4px solid ${color}`,
+  boxShadow: `0 10px 0 -2px ${K.cielo}, 0 18px 30px ${K.sombra}` }, r,
+  `<div class="mono" style="font-size:19px;color:${color};margin-bottom:6px">${quien}</div>${html}`);
+const marca = (r, span, t0, tipo, color, grosor = 8) => {
+  let x = span.offsetLeft, y = span.offsetTop; for (let p = span.offsetParent; p && p !== r; p = p.offsetParent) { x += p.offsetLeft; y += p.offsetTop; }
+  const w = span.offsetWidth, h = span.offsetHeight;
+  return F.marcador(r, { trazos: [tipo === 'circulo' ? { tipo, x: x - 12, y: y - 6, w: w + 24, h: h + 12, t0, color, grosor }
+    : { tipo: 'subraya', x, y: y + h - 2, w, h: 0, t0, color, grosor }] });
+};
+
+const S = F.secuencia(esc, [
+  // 1 · el gancho con el gemelo: el examen de tico a tres
+  { dur: T.dur[0], tema: 'cielo', hacer: r => {
+    const a = fondo(r), b = F.brillo(a, { manchas: 2, z: 0 });
+    const se = serie(a);
+    const ti = el('div', { position: 'absolute', left: `${L}px`, right: `${SEGURA.derecha}px`, top: '440px', font: '400 100px/1.0 "Instrument Serif"', opacity: 0 }, a,
+      F.conOro('¿La IA puede hablar tico?', 'tico', K.oro));
+    const ch = F.fichas(a, { items: ['MiniMax', 'DeepSeek', 'Kimi'], inicio: 2.9, cada: .2, estilo: { position: 'absolute', left: '510px', width: '280px', top: '880px' } });
+    const s = F.sello(a, { texto: 'Examen', x: 300, y: 690, t0: 3.4, tam: 64, rot: -7 });
+    const g = gemelo(a, 'a');
+    return { pintar(t) { b.pintar(t); se.style.opacity = tramo(t, 0, .3); entra(ti, t, 0, 50); ch.pintar(t); s.pintar(t); return g.pintar(t); } };
+  } },
+  // 2 · primera prueba: la frase para pasar a tico (papel, estilo Vox)
+  { dur: T.dur[1], tema: 'papel', entra: { tipo: 'golpe' }, hacer: r => {
+    const d = F.documento(r, { fuente: 'Prueba 1 · pasalo a tico', titulo: 'La frase', marcada: 1, t0: 1.9, lineas: [
+      '«Hola amigo, ¿cómo estás?', 'Este fin de semana vamos a la playa,', 'va a estar genial. Trae dinero', 'para la comida y no llegues tarde.»'] });
+    return d;
+  } },
+  // 3 · las tres respuestas: «friend» se encierra en rojo; lo tico se subraya en dorado
+  { dur: T.dur[2], tema: 'menta', entra: { tipo: 'barrido' }, hacer: r => {
+    const a = fondo(r), b = F.brillo(a, { manchas: 2, z: 0, semilla: 6 });
+    const t1 = tarjeta(a, 'MiniMax ✗', '¡Hola, <span>friend</span>! ¿Cómo estás? Este finde vamos a la playa, va a estar buenísimo. Lleva plata para la comida y no llegues tarde.', 400, '#C0392B');
+    const t2 = tarjeta(a, 'DeepSeek ✓', 'Hola mae, ¿cómo está? Este fin de semana nos vamos para la playa, va a estar <span>pichudísimo</span>. Traiga plata para la comida y no se atrase.', 640, '#2E7D5B');
+    const t3 = tarjeta(a, 'Kimi ✓', '¡Mae, qué es la vara! ¿Cómo está? Diay mae, este fin nos vamos pa\' la playa, va a estar <span>rajado</span>. Traiga <span>harina</span> pa\' la comida y no llegue tarde.', 880, '#C9A227');
+    const m1 = marca(a, t1.querySelector('span'), .85, 'circulo', '#C0392B', 9);
+    const m2 = marca(a, t2.querySelector('span'), 3.82, 'subraya', K.oro, 9);
+    const m3 = [...t3.querySelectorAll('span')].map((s, k) => marca(a, s, [5.08, 5.88][k], 'subraya', K.oro, 9));
+    return { pintar(t) { b.pintar(t); entra(t1, t, .1, 40); entra(t2, t, 1.85, 40); entra(t3, t, 2.3, 40);
+      m1.pintar(t); m2.pintar(t); m3.forEach(m => m.pintar(t)); } };
+  } },
+  // 4 · segunda prueba: ¿qué significa? (la frase en una burbuja que se escribe sola)
+  { dur: T.dur[3], tema: 'durazno', entra: { tipo: 'gira' }, hacer: r => {
+    const a = fondo(r), b = F.brillo(a, { manchas: 2, z: 0, semilla: 7 });
+    const ti = el('div', { position: 'absolute', left: `${L}px`, top: '420px', font: '400 84px/1 "Instrument Serif"', opacity: 0 }, a, F.conOro('Prueba 2: ¿qué significa?', 'significa', K.oro));
+    const fr = F.burbuja(a, { texto: 'Mae, qué sal, se me fue la buseta y ando sin un cinco. ¿Me hace el favor y me jala?', t0: 1.5, cps: 30, oscura: true, ancho: 650,
+      estilo: { position: 'absolute', left: `${L}px`, top: '640px', fontSize: '40px' } });
+    return { pintar(t) { b.pintar(t); entra(ti, t, 0, 40); fr.pintar(t); } };
+  } },
+  // 5 · MiniMax se equivoca (la corrección: «camioneta rota» → «se me fue el bus»); las otras dos, bien; la nota
+  { dur: T.dur[4], tema: 'noche', entra: { tipo: 'zoom' }, hacer: r => {
+    const a = fondo(r), b = F.brillo(a, { manchas: 2, z: 0, semilla: 8 });
+    const lab = el('div', { position: 'absolute', left: `${L}px`, top: '420px', fontSize: '24px', color: K.tinta2 }, a, 'MiniMax entendió:'); lab.className = 'mono';
+    const c = F.correccion(a, { x: L, y: 640, palabra: '«la buseta»', mal: '«camioneta rota»', bien: 'se me fue el bus', t0: .1, t1: 1.9, t2: 2.6, tam: 72, color: '#FF6B6B' });
+    const nota = el('div', { position: 'absolute', left: `${L}px`, right: `${BOTONES.derecha}px`, top: '900px', font: '700 40px/1.35 Archivo', color: '#FFFFFF', opacity: 0 }, a,
+      'MiniMax <b style="color:#FF6B6B">0 de 2</b><br>DeepSeek <b style="color:#7CE0A3">2 de 2</b><br>Kimi <b style="color:#FFD43B">2 de 2</b>');
+    return { pintar(t) { b.pintar(t); lab.style.opacity = tramo(t, 0, .3); c.pintar(t); entra(nota, t, 3.4, 40); } };
+  } },
+  // 6 · el cierre con el gemelo: la palabra tica para el próximo examen
+  { dur: T.dur[5], tema: 'papel', entra: { tipo: 'vidrio', dur: .9 }, hacer: r => {
+    const a = fondo(r), b = F.brillo(a, { manchas: 2, z: 0, semilla: 9 });
+    const q = el('div', { position: 'absolute', left: `${L}px`, right: `${SEGURA.derecha}px`, top: '420px', font: '400 92px/1.0 "Instrument Serif"', opacity: 0 }, a,
+      F.conOro('¿Qué palabra tica no se sabría?', 'tica', K.oro));
+    const com = F.comentario(a, { y: 700, t0: 2.2, texto: 'chunche', cps: 10, corazon: 3.4 });
+    const card = el('div', { position: 'absolute', left: '510px', width: '270px', top: '880px', font: '800 34px/1.15 Archivo', color: '#0A1C40', opacity: 0, boxSizing: 'border-box',
+      background: '#FFD43B', border: '3px solid #0A1C40', borderRadius: '18px', padding: '14px 18px', boxShadow: `0 12px 0 -3px ${K.cielo}` }, a,
+      'Va al próximo examen. Seguime.');
+    const g = gemelo(a, 'f');
+    return { pintar(t) { b.pintar(t); entra(q, t, 0, 40); com.pintar(t); entra(card, t, 3.3, 40); card.style.rotate = '-2deg'; return g.pintar(t); } };
+  } },
+]);
+const sello = el('div', { position: 'absolute', left: `${L}px`, top: `${SEGURA.arriba + 12}px`, fontSize: '26px', color: '#16233F', zIndex: 120,
+  background: 'rgba(255,255,255,.95)', border: '2px solid #16233F', padding: '10px 18px', borderRadius: '99px' }, esc, 'Día 4 de 30');
+sello.className = 'mono';
+await S.listo;
+window.DUR = S.dur;
+const PULSO = 60 / T.bpm * 2;
+window.render = async t => { const p = S.pintar(t); esc.style.transform = `scale(${(1 + .009 * Math.exp(-(t % PULSO) / .09)).toFixed(5)})`; await p; };
+await window.render(1);
+window.READY = true;
+</script></body></html>

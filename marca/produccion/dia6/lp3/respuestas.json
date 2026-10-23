@@ -1,0 +1,53 @@
+{
+  "MiniMax:semana": {
+    "pedido": "Esto es un audio de WhatsApp que me mandé, pasado a texto por la IA (puede tener errores de transcripción): «Madia y te cuento lo de esta semana porque ando con la cabeza a mil el martes a las 3 tengo cita en el dentista tengo que apagar la luz el internet antes del miércoles el jueves en la mañana viene el técnico a arreglar la red y a revisar 8 y 9 hay que comprarle comida al perro llama aquí y no tiene comida hay que darle duro como para el miércoles el viernes a las 10 tengo reunión virtual con el contador para ajustar cuentas y el sábado tempranito tengo que ir a la feria llamar a mi mamá porque no la he llamado tengo que enviarle plata también ayúdame a acomodar esto». Ayudame a acomodar todo esto en mi semana: decime qué hago cada día, en orden, corto y claro, para verlo en el celular. Soy de Costa Rica.",
+    "texto": "### Tu semana\n\n**Hoy**\n- Llamar al perro y darle comida.\n- Revisar si falta comida y comprar lo necesario.\n\n**Martes**\n- 3:00 p. m.: cita en el dentista.\n- Antes de las 3:00: apagar la luz y el internet.\n- Dejar lista la comida del perro para el miércoles.\n\n**Miércoles**\n- Estar pendiente del técnico: llega a arreglar la red y a revisar la red (8 y 9, según la transcripción).\n- Darle comida al perro.\n- Revisar que la comida alcance hasta el jueves.\n\n**Jueves**\n- Atender al técnico si todavía sigue pendiente.\n- Revisar que la red esté funcionando.\n- Llamar a tu mamá.\n- Enviarle el dinero.\n\n**Viernes**\n- 10:00 a. m.: reunión virtual con el contador para ajustar cuentas.\n- Revisar que todo esté listo para la reunión.\n\n**Sábado**\n- Temprano: ir a la feria.\n- Llamar a tu mamá, si no la llamaste el jueves.\n- Enviarle la plata, si no la enviaste el jueves.\n\n### Pendientes urgently\n- **_llama aquí y no tiene comida_**: parece que el perro se llama **Llamita** o **Llahuita**. Confirmá su nombre y dále comida hoy mismo.\n- La transcripción menciona “8 y 9”, pero no queda claro si son **8:00 y 9:00**, dos equipos o las direcciones 8 y 9. Confirmá con el técnico antes del miércoles.",
+    "segundos": 5.3,
+    "modelo": "MiniMax-M3",
+    "uso": {
+      "input_tokens": 200,
+      "output_tokens": 329,
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 170,
+      "service_tier": "standard"
+    }
+  },
+  "Kimi:semana": {
+    "pedido": "Esto es un audio de WhatsApp que me mandé, pasado a texto por la IA (puede tener errores de transcripción): «Madia y te cuento lo de esta semana porque ando con la cabeza a mil el martes a las 3 tengo cita en el dentista tengo que apagar la luz el internet antes del miércoles el jueves en la mañana viene el técnico a arreglar la red y a revisar 8 y 9 hay que comprarle comida al perro llama aquí y no tiene comida hay que darle duro como para el miércoles el viernes a las 10 tengo reunión virtual con el contador para ajustar cuentas y el sábado tempranito tengo que ir a la feria llamar a mi mamá porque no la he llamado tengo que enviarle plata también ayúdame a acomodar esto». Ayudame a acomodar todo esto en mi semana: decime qué hago cada día, en orden, corto y claro, para verlo en el celular. Soy de Costa Rica.",
+    "texto": "¡Listo! Acá tenés tu semana ordenada:\n\n**Lunes**\n• Pagar la luz y el internet (vencen antes del miércoles)\n\n**Martes**\n• 3:00 p.m. — Cita en el dentista\n• De paso, comprar la comida del perro (así no queda para el miércoles)\n\n**Miércoles**\n• Día libre (campo por si algo se atrasó)\n\n**Jueves**\n• 8:00–9:00 a.m. — Técnico de internet en la casa\n\n**Viernes**\n• 10:00 a.m. — Reunión virtual con el contador\n\n**Sábado**\n• Tempranito: ir a la feria\n\n**Domingo**\n• Llamar a mamá y enviarle la plata de una vez (por SINPE)\n\nOjo: entendí \"pagar\" la luz y el internet (no \"apagar\"), y que el técnico viene entre 8 y 9 de la mañana. Si algo de eso era diferente, me decís y lo ajusto.",
+    "segundos": 50.7,
+    "modelo": "kimi-k3",
+    "uso": {
+      "input_tokens": 92,
+      "cache_creation_input_tokens": 256,
+      "cache_read_input_tokens": 0,
+      "output_tokens": 2633,
+      "cache_creation": {
+        "ephemeral_5m_input_tokens": 256,
+        "ephemeral_1h_input_tokens": 0
+      },
+      "output_tokens_details": {
+        "thinking_tokens": 2357
+      },
+      "service_tier": "standard",
+      "inference_geo": "not_available",
+      "prompt_tokens": 348,
+      "cached_tokens": 0,
+      "completion_tokens": 2633,
+      "total_tokens": 2981
+    }
+  },
+  "DeepSeek:semana": {
+    "pedido": "Esto es un audio de WhatsApp que me mandé, pasado a texto por la IA (puede tener errores de transcripción): «Madia y te cuento lo de esta semana porque ando con la cabeza a mil el martes a las 3 tengo cita en el dentista tengo que apagar la luz el internet antes del miércoles el jueves en la mañana viene el técnico a arreglar la red y a revisar 8 y 9 hay que comprarle comida al perro llama aquí y no tiene comida hay que darle duro como para el miércoles el viernes a las 10 tengo reunión virtual con el contador para ajustar cuentas y el sábado tempranito tengo que ir a la feria llamar a mi mamá porque no la he llamado tengo que enviarle plata también ayúdame a acomodar esto». Ayudame a acomodar todo esto en mi semana: decime qué hago cada día, en orden, corto y claro, para verlo en el celular. Soy de Costa Rica.",
+    "texto": "Te lo dejo por día. Tomé “apagar” como **pagar luz e internet** (porque suele ser pago). Lo de **“8 y 9”** lo dejé como pendiente por confirmar.\n\n## Lunes\n- Comprar comida para el perro. **Si ya no tiene, hacelo primero.**\n- Pagar **luz e internet** antes del miércoles.\n- Llamar a mamá y enviarle la plata.\n\n## Martes\n- Revisar que el perro tenga comida y agua.\n- **3:00 p. m. — Cita en el dentista.**\n- Si quedó algo pendiente de pagos, terminarlo hoy.\n\n## Miércoles\n- Confirmar con el técnico la visita del jueves y anotar qué revisar de **“8 y 9”**.\n- Preparar papeles/cuentas para el contador.\n- Revisar que la comida del perro alcance.\n\n## Jueves\n- **Mañana — Viene el técnico** a arreglar la red y revisar “8 y 9”. Tener disponibilidad.\n- Después: probar el internet y avisar si algo queda fallando.\n- Dejar listo lo de la reunión del viernes.\n\n## Viernes\n- **10:00 a. m. — Reunión virtual con el contador** para ajustar cuentas.\n- Anotar acuerdos y pendientes.\n\n## Sábado\n- **Temprano — Ir a la feria.**\n- Revisar que no falte nada: perro con comida, mamá llamada/plata enviada, pagos hechos y cuentas al día.\n\n**Orden clave:** primero comida del perro y pagos; luego citas; al final revisión. Si hoy ya pasó lunes o martes, hacé esos pendientes hoy mismo.",
+    "segundos": 22.3,
+    "modelo": "deepseek-flash",
+    "uso": {
+      "input_tokens": 269,
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 0,
+      "output_tokens": 3563,
+      "service_tier": "standard"
+    }
+  }
+}

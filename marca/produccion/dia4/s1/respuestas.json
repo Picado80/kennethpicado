@@ -1,0 +1,53 @@
+{
+  "MiniMax:cobrar": {
+    "pedido": "Un compa me debe 15.000 colones desde hace dos meses y no me los ha pagado. Escribime un mensaje de WhatsApp corto para cobrarle sin quedar mal y sin que se enoje. Somos de Costa Rica.",
+    "texto": "¡Hola! 😊 Quería recordarte que me quedan pendientes los ₡15.000 que me debés desde hace dos meses. Cuando puedas me hacés la transferencia, por favor. ¡Gracias!",
+    "segundos": 1.5,
+    "modelo": "MiniMax-M3",
+    "uso": {
+      "input_tokens": 98,
+      "output_tokens": 42,
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 128,
+      "service_tier": "standard"
+    }
+  },
+  "Kimi:cobrar": {
+    "pedido": "Un compa me debe 15.000 colones desde hace dos meses y no me los ha pagado. Escribime un mensaje de WhatsApp corto para cobrarle sin quedar mal y sin que se enoje. Somos de Costa Rica.",
+    "texto": "Acá te va una opción con el toque tico:\n\n> Mae, ¿cómo va todo? 😄 Te quería recordar lo de los 15 rojos de hace un par de meses, es que ando medio justo de plata esta quincena. Cuando podás me los pasás por SINPE, y si ocupás más tiempo no hay bronca, solo avisame. ¡Pura vida! 🙌\n\n¿Por qué funciona? Le estás dando una salida fácil (asumís que se le olvidó o que anda tallado, no que no quiere pagar), le facilitás la vuelta con lo del SINPE, y el \"no hay bronca, solo avisame\" quita la presión pero igual deja claro que esperás respuesta.\n\nSi no te contesta en unos días, ya ahí sí podés mandarle un segundo mensaje un toque más directo.",
+    "segundos": 56.0,
+    "modelo": "kimi-k3",
+    "uso": {
+      "input_tokens": 142,
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 0,
+      "output_tokens": 1673,
+      "cache_creation": {
+        "ephemeral_5m_input_tokens": 0,
+        "ephemeral_1h_input_tokens": 0
+      },
+      "output_tokens_details": {
+        "thinking_tokens": 1441
+      },
+      "service_tier": "standard",
+      "inference_geo": "not_available",
+      "prompt_tokens": 142,
+      "cached_tokens": 0,
+      "completion_tokens": 1673,
+      "total_tokens": 1815
+    }
+  },
+  "DeepSeek:cobrar": {
+    "pedido": "Un compa me debe 15.000 colones desde hace dos meses y no me los ha pagado. Escribime un mensaje de WhatsApp corto para cobrarle sin quedar mal y sin que se enoje. Somos de Costa Rica.",
+    "texto": "Mae, pura vida. ¿Cómo va todo? Ahí te recuerdo suave los 15 mil de hace dos meses; cuando puedas me los pasás, sin presión, solo para ordenarme. ¡Gracias, mae!",
+    "segundos": 5.1,
+    "modelo": "deepseek-flash",
+    "uso": {
+      "input_tokens": 85,
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 0,
+      "output_tokens": 533,
+      "service_tier": "standard"
+    }
+  }
+}

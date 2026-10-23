@@ -53,7 +53,7 @@ RETO_V1 = [
 NOT = "Una noticia real de IA, verificada en la fuente original y contada para un dueño de negocio: qué pasó y qué le cambia."
 RN = "Las 3 noticias de IA de la semana que le importan a un negocio, en 30 s, con fuente y fecha en pantalla."
 PRU = "Una prueba real que hace la oficina de IAs, con el resultado tal como salió."
-PER = "La cuenta sigue siendo de una persona. Lo sube Kenneth."
+PER = "La cuenta sigue siendo de una persona: si Kenneth sube algo suyo esa semana (F1, familia, cine), cuenta como el personal. No es una tarea suya."
 RES = "La audiencia ve su comentario en pantalla y vuelve a comentar."
 # V2 y V3, día por día: (codigo, serie, formato, titulo, porque, paso, estado)
 V2 = [
@@ -62,7 +62,7 @@ V2 = [
     ("RN1", "3 noticias en 30 s", "voz", "Las 3 noticias de IA de la semana", RN, "Ver", "por-hacer"),
     ("F1A", "Fecha del mes", "motion", "Un pit stop dura 2 segundos porque nadie es indispensable", "Fin de semana del GP de Austin (23 al 25 de octubre): la F1 es del mundo de Kenneth.", "Ver", "por-hacer"),
     ("PER1", "Personal", "personal", "Video personal", PER, "Conocerte", "por-hacer"),
-    ("R2", "La regla", "motion", "Un sistema que te necesita es una dependencia", "Una regla que se guarda.", "Pasarlo", "por-hacer"),
+    ("R5", "La regla", "motion", "Nada se hace dos veces", "Ahorro que cualquier negocio entiende.", "Pasarlo", "por-hacer"),
     ("NS1", "La noticia sin jerga", "voz", "La noticia de la semana, sin jerga", NOT, "Pasarlo", "por-hacer"),
     ("J2", "IA sin jerga", "motion", "Un «agente» es un empleado de IA", "Prepara La Oficina. Coincide con GitHub Universe (28 y 29 de octubre).", "Ver", "por-hacer"),
     ("PR2", "La prueba", "voz", "¿Una IA puede contar el inventario de una soda con una foto?", PRU, "Pasarlo", "por-hacer"),
@@ -74,7 +74,7 @@ V2 = [
     ("J3", "IA sin jerga", "motion", "Un «modelo» es una IA", "Una palabra que se oye todos los días.", "Ver", "por-hacer"),
     ("PR3", "La prueba", "voz", "Le pedí a la oficina el manual de apertura de una cafetería", PRU + " Conecta con el 002b.", "Pasarlo", "por-hacer"),
     ("RN3", "3 noticias en 30 s", "voz", "Las 3 noticias de IA de la semana", RN, "Ver", "por-hacer"),
-    ("R5", "La regla", "motion", "Nada se hace dos veces", "Ahorro que cualquier negocio entiende. Fin de semana del GP de São Paulo.", "Pasarlo", "por-hacer"),
+    ("R2", "La regla", "motion", "Un sistema que te necesita es una dependencia", "Una regla que se guarda.", "Pasarlo", "por-hacer"),
     ("PER3", "Personal", "personal", "Video personal", PER, "Conocerte", "por-hacer"),
     ("R6", "La regla", "motion", "Lo que no se escribe no pasó", "La regla de la bitácora.", "Pasarlo", "por-hacer"),
     ("NS3", "La noticia sin jerga", "voz", "La noticia de la semana, sin jerga", NOT + " Semana de Web Summit y Adobe MAX.", "Pasarlo", "por-hacer"),
@@ -92,16 +92,16 @@ V3 = [
     ("P1", "Postura", "imagen", "Si tu negocio no sobrevive a tus vacaciones, no es un negocio", "Opinión fuerte que divide: trae comentarios. Sale del 002.", "Reaccionar", "por-hacer"),
     ("002b", "Amazon en la soda", "voz", "Si tu cafetería recién abierta no sobrevive a tus vacaciones", "Prueba del escenario: cafetería. Voz y motion graphics, $0.", "Pasarlo", "guion"),
     ("L1", "La lista", "carrusel", "La reunión de los lunes en 15 minutos", "Algo que se usa el lunes siguiente: se guarda.", "Pasarlo", "por-hacer"),
-    ("002c", "Amazon en la soda", "voz", "Si tu restaurante recién abierto no sobrevive a tus vacaciones", "Prueba del escenario: restaurante. Voz y motion graphics, $0.", "Pasarlo", "guion"),
+    ("N1", "El número", "imagen", "165 personas, 4 países", "Dice quién es Kenneth sin presumir.", "Conocerte", "por-hacer"),
     ("Q1", "Pregunta", "imagen", "¿Le darías la caja a una IA? Sí o no.", "Obliga a tomar partido en los comentarios.", "Reaccionar", "por-hacer"),
-    ("002d", "Amazon en la soda", "voz", "Si acabás de emprender y tu negocio no sobrevive a tus vacaciones", "Prueba del escenario: quien acaba de emprender. Voz y motion graphics, $0.", "Pasarlo", "guion"),
+    ("Q2", "Pregunta", "imagen", "¿Qué tarea de tu negocio le darías mañana a una IA?", "Las respuestas alimentan las pruebas.", "Reaccionar", "por-hacer"),
     ("P2", "Postura", "imagen", "Tu mejor empleado es el que menos debería hacer", "Opinión que divide y Kenneth puede defender.", "Reaccionar", "por-hacer"),
     ("N2", "El número", "imagen", "800 personas de capacidad, 25 % de uso", "Un dato real que hace preguntar quién es este.", "Conocerte", "por-hacer"),
-    ("N1", "El número", "imagen", "165 personas, 4 países", "Dice quién es Kenneth sin presumir.", "Conocerte", "por-hacer"),
+    ("002c", "Amazon en la soda", "voz", "Si tu restaurante recién abierto no sobrevive a tus vacaciones", "Prueba del escenario: restaurante. Voz y motion graphics, $0.", "Pasarlo", "guion"),
     ("L2", "La lista", "carrusel", "Las 3 cosas que solo vos sabés", "Sale del 002: lo que hay que dejar escrito.", "Pasarlo", "por-hacer"),
     ("RC1", "Respuesta a un comentario", "voz", "Respuesta a un comentario", RES, "Reaccionar", "por-hacer"),
     ("MR1", "La mejor respuesta", "imagen", "La mejor respuesta de la semana", RES, "Reaccionar", "por-hacer"),
-    ("Q2", "Pregunta", "imagen", "¿Qué tarea de tu negocio le darías mañana a una IA?", "Las respuestas alimentan las pruebas.", "Reaccionar", "por-hacer"),
+    ("002d", "Amazon en la soda", "voz", "Si acabás de emprender y tu negocio no sobrevive a tus vacaciones", "Prueba del escenario: quien acaba de emprender. Voz y motion graphics, $0.", "Pasarlo", "guion"),
     ("P3", "Postura", "imagen", "La IA no te va a quitar el trabajo: te lo va a quitar el compañero que la usa", "Opinión que divide (ESTRATEGIA.md §5).", "Reaccionar", "por-hacer"),
     ("A3", "Amazon en la soda", "voz", "La reunión de los lunes", "Un método de Amazon que un negocio copia el lunes siguiente.", "Pasarlo", "por-hacer"),
     ("N4", "El número", "imagen", "12 semanas, sin contratar a un gerente", "Cierra el caso del anfiteatro.", "Conocerte", "por-hacer"),
@@ -122,14 +122,14 @@ V3 = [
 ]
 # Insignias del mes: dia -> (codigo, serie, titulo, porque, paso, estado, reto)
 INSIGNIAS = {
-    1: ("G0", "¿Cuál soy yo?", "El gemelo se presenta y lanza el reto (Día 1)", "Dice qué es real y qué es IA desde el primer día. Va fijado en el perfil.", "Seguir", "por-hacer", True),
+    1: ("G0", "El gemelo", "«Kenneth no grabó este video»: el gemelo se presenta y lanza el reto (Día 1)", "Dice desde el primer segundo que es la IA de Kenneth: Kenneth no graba nada. Va fijado en el perfil.", "Seguir", "por-hacer", True),
     3: ("002", "Amazon en la soda", "Si tu negocio no sobrevive a tus vacaciones (con el gancho nuevo)", "El caso más cercano a lo que ya le funcionó a la cuenta: Amazon y Costa Rica.", "Pasarlo", "guion-grafico", False),
     5: ("001", "La Oficina", "Mi empleado se calificó su propio examen", "Presenta la serie insignia con el incidente más claro.", "Reaccionar", "guion", False),
     8: ("003", "La Oficina", "Le prohibí trabajar a mi mejor empleado", "El gancho con más puntaje del banco (20 de 20).", "Pasarlo", "guion", False),
-    10: ("AMX", "Amazon en la soda", "El escenario que va ganando, ahora con Kenneth", "Sale de la prueba del 002b, 002c y 002d: el que más seguidores trajo por cada 1.000 vistas.", "Pasarlo", "por-hacer", False),
+    10: ("005", "La Oficina", "La oficina me avisó tres veces", "Kenneth se equivoca en público: da confianza.", "Reaccionar", "guion", False),
     12: ("004", "Amazon en la soda", "Un anfiteatro para 800 personas al 25 %", "El caso real más fuerte: prueba que el método funciona.", "Pasarlo", "guion", False),
     15: ("DIA15", "Reto · Día N de 30", "Mitad del reto: cuánto llevamos y qué cambió", "El punto medio, con el número real.", "Seguir", "por-hacer", True),
-    17: ("005", "La Oficina", "La oficina me avisó tres veces", "Kenneth se equivoca en público: da confianza.", "Reaccionar", "guion", False),
+    17: ("AMX", "Amazon en la soda", "El escenario que va ganando, ahora con Kenneth", "Sale de la prueba del 002b, 002c y 002d: el que más seguidores trajo por cada 1.000 vistas.", "Pasarlo", "por-hacer", False),
     19: ("TOP1", "El más seguido", "La pieza de volumen que más seguidores trajo, ahora con Kenneth", "Regla del lunes (ESTRATEGIA.md §8.4): se paga el gemelo en lo que ya demostró que hace seguir.", "Seguir", "por-hacer", False),
     22: ("O6", "La Oficina", "Cuando el gerente se queda sin horas, ¿quién manda?", "Todo dueño se pregunta quién manda si él falta.", "Reaccionar", "por-hacer", False),
     26: ("TOP2", "El más seguido", "La segunda pieza que más seguidores trajo, ahora con Kenneth", "Misma regla del lunes.", "Seguir", "por-hacer", False),
@@ -151,15 +151,13 @@ FORMATOS = {"loop": "loop de 3 a 8 s", "imagen": "imagen", "carrusel": "carrusel
 LUNES = ("Seguidores nuevos contra la semana anterior, seguidores por cada 1.000 vistas por serie y tipo, qué paso empuja "
          "a seguir y una sola decisión (ESTRATEGIA.md §8).")
 ACCIONES = [
-    (0, "Responder las 8 preguntas del arranque", "Están en Pendientes. Sin ellas no arranca el Día 1.", "Kenneth"),
-    (0, "Cargar unos $5 en HeyGen", "Lo de las 3 insignias de la semana 1 (unos $7.60); quedan $2.88.", "Kenneth"),
-    (0, "Poner nombre, bio y foto del perfil", "ESTRATEGIA.md §7. Se hace una vez, antes del Día 1.", "Kenneth"),
+    (0, "Terminar el perfil desde el teléfono", "La foto de Payhip y el enlace trysemi.com en las dos redes. Lo demás ya está.", "Kenneth"),
     (0, "Aprobar el lote de la semana 1", "Un guion gráfico con las 21 piezas de volumen.", "Kenneth"),
     (1, "Leer los seguidores del Día 1 en TikTok e Instagram", "De los perfiles públicos. Es el número del contador y la vara del mes.", "Claude"),
     (5, "Aprobar el lote de la semana siguiente", "El domingo, un solo guion gráfico con las 21 piezas.", "Kenneth"),
     (6, "Revisión del lunes", LUNES, "Kenneth y Claude"),
     (6, "Impulsar la pieza que más seguidores trajo", "TikTok Promote, objetivo «más seguidores», $5.", "Kenneth"),
-    (9, "Elegir el escenario de Amazon en la soda", "El 002b, el 002c o el 002d: el que más seguidores trajo por cada 1.000 vistas va con el gemelo el viernes.", "Kenneth y Claude"),
+    (16, "Elegir el escenario de Amazon en la soda", "El 002b, el 002c o el 002d (salen los días 2, 9 y 13): el que más seguidores trajo por cada 1.000 vistas va con el gemelo al día siguiente.", "Kenneth y Claude"),
     (12, "Aprobar el lote de la semana siguiente", "Un solo guion gráfico con las 21 piezas.", "Kenneth"),
     (13, "Revisión del lunes", LUNES, "Kenneth y Claude"),
     (13, "Impulsar la pieza que más seguidores trajo", "TikTok Promote, $5.", "Kenneth"),
@@ -176,25 +174,27 @@ ACCIONES = [
 # id, titulo, detalle, quien, para, hecho
 TAREAS = [
     ("k-reto", "Sí al reto de 30 días, a 1.000 seguidores", "La meta de la fase 1, contada en público. El G0 pasa por guion gráfico.", "Kenneth", "2026-10-20", True),
-    ("k-heygen", "Cargar unos $5 en HeyGen", "Lo de las 3 insignias de la semana 1 (unos $7.60); quedan $2.88. Se carga por semana, solo lo de sus insignias.", "Kenneth", "2026-10-20", False),
+    ("k-heygen", "Cargar unos $5 en HeyGen", "Cargaste $15 el 19-oct: hay $17.88. Se carga por semana, solo lo de sus insignias.", "Kenneth", "2026-10-20", True),
     ("k-dia1", "Seguidores de hoy en TikTok e Instagram", "Ya no hace falta que los pases: los leo de los perfiles públicos. 19-oct: TikTok 1.080, Instagram 578.", "Kenneth", "2026-10-20", True),
-    ("k-perfil", "Poner nombre, bio y foto del perfil", "«Kenneth Picado · Dirijo una oficina de IAs». La bio está en ESTRATEGIA.md §7. La misma foto en las dos redes.", "Kenneth", "2026-10-20", False),
+    ("k-perfil", "Terminar el perfil desde el teléfono", "Ya está la bio de TikTok y de Instagram. El nombre de las dos redes pasa a «Picado | IA para negocios» (sí de Kenneth, 20-oct): Instagram ya, TikTok desde el 26-oct. Faltan: la foto de Payhip y el enlace trysemi.com en las dos redes (solo se cambian desde el teléfono), y el sí al nombre «Kenneth Picado» en Instagram (queda fijo 60 días).", "Kenneth", "2026-10-21", False),
     ("k-lote", "Sí a aprobar en lote, con guion gráfico primero", "Siempre un guion gráfico barato primero; el contenido real, solo cuando lo aprobás.", "Kenneth", "2026-10-20", True),
-    ("k-facebook", "Crear la página «Kenneth Picado» y conectarla en Buffer", "Es la tercera red gratis de Buffer. Avisame cuando esté y reviso qué canales ve.", "Kenneth", "2026-10-21", False),
-    ("k-xli", "X y LinkedIn: ¿ya o en la fase 2?", "Ya cuesta unos $25 al mes en Buffer. La estrategia los deja para la fase 2.", "Kenneth", "2026-10-21", False),
+    ("k-facebook", "Crear la página «Kenneth González Picado» y conectarla en Buffer", "No es urgente. Es la tercera red gratis de Buffer y recibe lo mismo que Instagram. Crear la página lo tenés que hacer vos.", "Kenneth", "2026-10-28", False),
+    ("k-xli", "X y LinkedIn: ¿ya o en la fase 2?", "Decidido (20-oct): LinkedIn en la fase 2, con el perfil ya listo (trysemi.com y Fundador de SEMI). X también en la fase 2.", "Kenneth", "2026-10-20", True),
     ("k-bernal", "Hablar con Bernal", "Pasarle el carrusel de aires (es terreno de Cawhi) y consultarle la idea A8, que toca ventas.", "Kenneth", "2026-10-23", False),
     ("k-arranca", "Decir «arranca»", "El Día 1 es el miércoles 21 de octubre.", "Kenneth", "2026-10-20", True),
     ("k-j1", "Aprobar el J1 en estilo pizarra", "Está hecho; va en el Día 1. Si no te convence el estilo, se cambia antes de hacer los otros.", "Kenneth", "2026-10-20", False),
-    ("k-blob", "Crear el almacén Blob de la consola en Vercel", "Proyecto kennethpicado-consola → Storage → Blob, acceso Private. Sin eso, la consola de Vercel no guarda lo que marcás.", "Kenneth", "2026-10-22", False),
+    ("k-blob", "Crear el almacén Blob de la consola en Vercel", "Hecho el 19-oct: la consola de Vercel ya guarda lo que marcás.", "Kenneth", "2026-10-19", True),
     ("c-consola", "Alinear la consola con la estrategia", "Seguidores nuevos como meta, la cadena, volumen e insignias, y la semana 1.", "Claude", "2026-10-19", True),
     ("c-costeo", "Alinear el costeo", "Costo por seguidor nuevo de cada insignia.", "Claude", "2026-10-19", True),
     ("c-lote", "Guion gráfico de la semana 1", "Las 21 piezas de volumen y las 3 insignias, en bocetos de $0. Está en Guiones.", "Claude", "2026-10-19", True),
-    ("c-002", "Rehacer el gancho del 002 hasta pasar la vara", "Los 3 ganchos nuevos están en el guion gráfico de la semana 1. Con tu sí van a la prueba: 70 de total, 60 de gancho y 90 de «sostiene» (el mejor intento sacó 56).", "Claude", "2026-10-21", False),
-    ("c-g0", "Prueba de gancho del G0", "Su boceto está en el guion gráfico de la semana 1. Con tu sí, la prueba y después el gemelo.", "Claude", "2026-10-21", False),
-    ("c-001", "Prueba de gancho del 001", "Su boceto está en el guion gráfico de la semana 1. Con tu sí, la prueba y después el gemelo.", "Claude", "2026-10-22", False),
-    ("c-002bcd", "Hacer el 002b, el 002c y el 002d", "Voz y motion graphics, $0, después de tu sí al guion gráfico. Gana el escenario con más seguidores por cada 1.000 vistas.", "Claude", "2026-10-22", False),
-    ("c-reto", "Plantilla del contador «Día N de 30»", "Un loop que se rehace cada día con el número, después de tu sí al guion gráfico.", "Claude", "2026-10-21", False),
-    ("c-buffer", "Programar en Buffer (E003)", "Con tu aprobación antes de cada publicación. Hasta que esté, se publica a mano.", "Claude", "2026-10-23", False),
+    ("c-002", "El 002 sale con el gancho C", "Probé 4 ganchos nuevos (54, 50, 54 y 52) y ninguno le ganó a C (56). Detalle en marca/ganchos/002.md. Falta tu sí a la vara nueva de las insignias.", "Claude", "2026-10-21", False),
+    ("c-g0", "Producir el G0 «Kenneth no grabó este video»", "Guion, voz y prueba de gancho primero ($0). El gemelo (unos $1.60) solo después de las 4 preguntas de REVISION-PROCESO.md.", "Claude", "2026-10-21", False),
+    ("c-001", "Producir el 001 (Día 5)", "Guion gráfico listo. Prueba de gancho ($0) y las 4 preguntas antes de pagar el gemelo.", "Claude", "2026-10-23", False),
+    ("c-002bcd", "Hacer el 002b (Día 2)", "Voz y motion graphics, $0. El 002c y el 002d se pasaron a los días 9 y 13 para no repetir la misma idea 6 veces en la semana 1.", "Claude", "2026-10-21", False),
+    ("c-reto", "Contador «Día N de 30» con los números reales", "Con el efecto de la curva; cada mañana leo tus perfiles y se vuelve a armar.", "Claude", "2026-10-21", False),
+    ("c-buffer", "Programar en Buffer lo aprobado (E003)", "Lo que apruebes en el guion gráfico se programa solo en TikTok e Instagram: vos no publicás nada a mano. Va antes del Día 1.", "Claude", "2026-10-21", False),
+    ("c-semana1", "Producir el volumen de la semana 1", "Las 21 piezas, con las 4 preguntas cada una, listas para que las revisés una por una.", "Claude", "2026-10-21", False),
+    ("c-ias", "Contar las IAs activas de la oficina", "La bio y el reto dicen «7 IAs»: el CANON pide contarlas en TORRE antes de decirlo.", "Claude", "2026-10-21", False),
     ("c-medicion", "Cargar los números a las 48 horas y a los 7 días", "Seguidores nuevos por pieza y por semana, y la revisión de los lunes.", "Claude", "2026-10-23", False),
 ]
 
@@ -209,6 +209,11 @@ GUIONES = {
         "nota": "Las 21 piezas de volumen y las 3 insignias de la semana, una página por día, en bocetos de $0. Con tu sí se hace el contenido real; si algo no te gusta, decime qué pieza y qué cambiar.",
         "comentario": "", "paginas": [f"guiones/lote-s1-dia-{d}.webp" for d in range(1, 8)], "orden": 0,
     },
+    "efectos-v1": {
+        "titulo": "Efectos de motion graphics · los 7 de la semana 1", "version": "v1 · carrete", "estado": "por-aprobar",
+        "nota": "La biblioteca de efectos en el estilo de la marca: la curva del contador, la tipografía de golpe, el chat que toma la pantalla, el teléfono, la lista que aparece, los titulares que llueven y el recorte de papel. Cada uno dice dónde se usa. Datos y titulares de ejemplo; el recorte es una silueta hasta tener el del gemelo. El video de 29 s te lo mandé aparte.",
+        "comentario": "", "paginas": ["guiones/efectos-v1-1.webp", "guiones/efectos-v1-2.webp"], "orden": 1,
+    },
     "002-v4": {
         "titulo": "002 · Si tu negocio no sobrevive a tus vacaciones", "version": "v4", "estado": "por-aprobar",
         "nota": "Insignia del Día 3. El video existe; el gancho se rehace hasta pasar la vara de la estrategia (70 / 60 / 90) antes de pagar el gemelo.",
@@ -219,7 +224,7 @@ GUIONES = {
 CONEXIONES = {
     "tiktok": {"nombre": "TikTok", "tipo": "red", "estado": "conectada", "detalle": "@picado80, por Buffer. 3 piezas de volumen por día y las insignias.", "orden": 1},
     "instagram": {"nombre": "Instagram", "tipo": "red", "estado": "conectada", "detalle": "@picado80, por Buffer. 1 por día (la de volumen que mejor le fue el día anterior en TikTok) y las insignias.", "orden": 2},
-    "facebook": {"nombre": "Facebook", "tipo": "red", "estado": "falta", "detalle": "Falta crear la página «Kenneth Picado» y conectarla en Buffer: es la tercera red gratis. Recibe lo mismo que Instagram.", "orden": 3},
+    "facebook": {"nombre": "Facebook", "tipo": "red", "estado": "falta", "detalle": "Falta crear la página «Kenneth González Picado» y conectarla en Buffer: es la tercera red gratis. Recibe lo mismo que Instagram.", "orden": 3},
     "x": {"nombre": "X", "tipo": "red", "estado": "despues", "detalle": "Fase 2, o ya por unos $25 al mes en Buffer: espera tu respuesta.", "orden": 4},
     "linkedin": {"nombre": "LinkedIn", "tipo": "red", "estado": "despues", "detalle": "Fase 2, o ya por unos $25 al mes en Buffer: espera tu respuesta.", "orden": 5},
     "youtube": {"nombre": "YouTube", "tipo": "red", "estado": "despues", "detalle": "Kenneth crea el canal cuando pueda.", "orden": 6},
@@ -232,7 +237,7 @@ CONEXIONES = {
 }
 
 SALDOS = {
-    "heygen": {"nombre": "HeyGen", "valor": "$2.88", "detalle": "No alcanza para las 3 insignias de la semana 1 (unos $7.60). Faltan unos $5.", "alerta": True, "orden": 1},
+    "heygen": {"nombre": "HeyGen", "valor": "$17.88", "detalle": "Alcanza para las 3 insignias de la semana 1 (unos $7.60) y buena parte de la 2.", "alerta": False, "orden": 1},
     "elevenlabs": {"nombre": "ElevenLabs", "valor": "313 de 186.000", "detalle": "Caracteres del mes. Plan fijo de $22.", "alerta": False, "orden": 2},
     "higgsfield": {"nombre": "Higgsfield", "valor": "200 créditos", "detalle": "La prueba de gancho no gasta créditos.", "alerta": False, "orden": 3},
     "claude": {"nombre": "Claude", "valor": "Plan Max", "detalle": "Sin cobros extra.", "alerta": False, "orden": 4},

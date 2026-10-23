@@ -1,0 +1,113 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><title>G0 · Kenneth no grabó este video</title></head>
+<body><div id="escenario" style="position:absolute;left:0;top:0;width:1080px;height:1920px;overflow:hidden"></div>
+<script type="module">
+// G0 · el gemelo se presenta y lanza el reto. Fondo: el video del gemelo cuadro por cuadro (?fondo=<carpeta>&nf=<cuadros>,
+// 30 por segundo); encima, el gancho en tipografía, subtítulos de una línea (27 caracteres como máximo), el sello con
+// «hecho con IA» y, al final, el contador del Día 1 (?n=). Todo dentro de la zona segura (SEGURA).
+// En claro y con más movimiento (Kenneth, 20-oct): apertura sobre papel, tarjetas blancas en vez del degradé azul,
+// acercamientos al gemelo en cada frase y las 7 IAs que saltan cuando las nombra.
+import * as F from './efectos.js';
+const { el, K, E, tramo, mezcla, miles, SEGURA, BOTONES } = F;
+const q = new URLSearchParams(location.search);
+const FONDO = q.get('fondo') || 'fondo', NF = +(q.get('nf') || 1), N = +(q.get('n') || 1659), DIA = +(q.get('dia') || 1);
+await F.instalar({ fondo: K.papel });
+const T = await (await fetch('tiempos.json')).json();
+const W = T.palabras, off = T.offsets;
+const esc = document.getElementById('escenario');
+const img = el('img', { position: 'absolute', inset: '0', width: '1080px', height: '1920px', objectFit: 'cover' }, esc);
+const L = SEGURA.izquierda + 10, R = BOTONES.derecha;   // los textos van debajo de y 840: hasta x 780
+const sello = el('div', { position: 'absolute', left: `${L}px`, top: `${SEGURA.arriba + 12}px`, fontSize: '26px', color: K.tinta,
+  background: 'rgba(255,255,255,.94)', border: `2px solid ${K.cielo}`, padding: '10px 18px', borderRadius: '99px', zIndex: 10 }, esc,
+  `Día ${DIA} de 30 · Hecho con IA`);
+sello.className = 'mono';
+
+// 0 · apertura a pantalla completa (?apertura=tipo): la frase sola sobre papel, como el inicio C del 002 (el que mejor
+//     puntuó), y al terminar entra el gemelo con un golpe de zoom
+const tipo = q.get('apertura') === 'tipo';
+const capaTipo = tipo ? F.frase(el('div', { position: 'absolute', inset: '0', zIndex: 5 }, esc), {
+  texto: 'Kenneth no grabó este video.', oro: 'grabó', claro: true,
+  tiempos: W.filter(w => w.tramo === 'a').map(w => Math.max(0, w.s - .06)),
+  golpeEn: W.filter(w => w.tramo === 'a')[2].s }) : null;
+const raizTipo = tipo ? esc.lastChild : null;
+
+// 1 · el gancho sobre el gemelo (sin apertura), palabra por palabra con la voz
+const gancho = el('div', { position: 'absolute', left: `${L}px`, right: `${R}px`, top: '905px', font: '400 92px/1.0 "Instrument Serif"', color: K.tinta,
+  background: 'rgba(247,244,236,.94)', padding: '20px 28px', borderRadius: '28px' }, esc);
+const wa = W.filter(w => w.tramo === 'a');
+const spans = wa.map(w => { const s = el('span', { display: 'inline-block', marginRight: '.24em' }, gancho, w.t);
+  if (/grab/i.test(w.t) || /^no$/i.test(w.t)) { s.style.color = K.oro; s.style.fontStyle = 'italic'; } return s; });
+if (tipo) gancho.style.display = 'none';
+
+// Las tarjetas van a la altura de la barba (la boca queda libre) y los subtítulos debajo, todo antes de y 1248
+const tarjeta = html => {
+  const c = el('div', { position: 'absolute', left: `${L}px`, top: '905px', maxWidth: `${1080 - L - R}px`, color: K.tinta,
+    background: 'rgba(247,244,236,.96)', padding: '22px 30px 24px', borderRadius: '30px', boxShadow: `0 24px 50px rgba(22,35,63,.28)`,
+    transformOrigin: '0 100%' }, esc, html);
+  return c;
+};
+const quien = (re, tr) => W.find(w => w.tramo === tr && re.test(w.t));
+// 2 · el reto, cuando dice «El reto: en 30 días»
+const wReto = quien(/^reto/i, 'c'), wDias = quien(/^d[ií]as/i, 'c');
+const reto = tarjeta(`<div class="mono" style="font-size:26px;color:${K.tinta2}">El reto</div><div style="font:400 120px/1 'Instrument Serif'">30 <span style="color:${K.oro};font-style:italic">días</span></div>`);
+// 3 · el número de la meta, cuando se dice «1.000»
+const wMil = W.find(w => w.tramo === 'c' && /1\.?000|mil/i.test(w.t));
+const mil = tarjeta(`<div style="font:400 130px/1 'Instrument Serif';color:${K.oro};font-style:italic"><span class="resalte">+1.000</span></div><div class="mono" style="font-size:28px;margin-top:12px">seguidores en 30 días</div>`);
+const rayaMil = mil.querySelector('.resalte');
+// 4 · el contador del Día N, cuando dice «día uno»
+const wUno = W.find(w => w.tramo === 'd' && /uno/i.test(w.t));
+const cont = tarjeta(`<div class="mono" style="font-size:26px;color:${K.tinta2}">Seguidores hoy</div><div style="font:900 150px/1 Archivo;letter-spacing:-.045em">${miles(N)}</div>`);
+// 5 · las 7 IAs, cuando dice «una oficina de siete IAs»
+const wSiete = quien(/^siete/i, 'b'), wCara = quien(/^cara/i, 'b');
+const ias = F.fichas(esc, { items: ['Claude', 'Codex', 'MiniMax', 'Kimi', 'DeepSeek', 'Grok', 'Antigravity'], inicio: wSiete.s - .1, cada: .09,
+  estilo: { position: 'absolute', left: `${L}px`, right: `${R}px`, top: '915px' } });
+
+// 6 · subtítulos de una línea, de hasta 27 caracteres, desde el segundo tramo: en blanco, como los de TikTok
+const lineas = []; let cur = null;
+for (const w of W.filter(w => w.tramo !== 'a')) {
+  const t = w.t.replace(/^1\.000$/, 'mil');
+  if (!cur || (cur.txt + ' ' + t).length > 27 || cur.tramo !== w.tramo || /[.,:]$/.test(cur.txt)) { cur = { txt: t, s: w.s, e: w.e, tramo: w.tramo }; lineas.push(cur); }
+  else { cur.txt += ' ' + t; cur.e = w.e; }
+}
+lineas.forEach((l, i) => { const sig = lineas[i + 1]; l.hasta = sig ? Math.min(sig.s, l.e + .6) : l.e + .8; });
+const sub = el('div', { position: 'absolute', left: `${L}px`, width: `${1080 - L - R}px`, top: '1168px', textAlign: 'center' }, esc);
+const pill = el('span', { display: 'inline-block', font: '600 42px/1.2 Archivo', color: K.tinta, background: 'rgba(255,255,255,.96)',
+  padding: '12px 26px', borderRadius: '14px', boxShadow: '0 10px 26px rgba(22,35,63,.25)' }, sub);
+
+// 7 · la cámara sobre el gemelo: entra con zoom después de la apertura y en cada frase cambia de plano (abierto ↔ cerrado),
+//     con un corte rápido, como lo edita la gente. Acerca sobre la cara (origen a la altura de los ojos).
+const fin = off.b - .05;
+const ini = re => (quien(re, 'b') || quien(re, 'c') || quien(re, 'd')).s;
+const cortes = [[ini(/^[ÉE]l$/), 1.13], [ini(/^y$/), 1.0], [quien(/^El$/, 'c').s, 1.12], [quien(/^la$/, 'c').s, 1.0],
+  [quien(/^[ÉE]l$/, 'c').s, 1.11], [quien(/^Hoy/, 'd').s, 1.0]];
+const claves = [{ t: 0, z: 1.18 }, { t: fin, z: 1.18 }, { t: fin + .45, z: 1, curva: 's' }];
+let zAnt = 1;
+for (const [t0, z] of cortes) { claves.push({ t: t0 - .06, z: zAnt + .02, curva: 'l' }, { t: t0 + .08, z, curva: 'e' }); zAnt = z; }
+claves.push({ t: T.total, z: zAnt + .06, curva: 'l' });
+const cam = F.camara(img, claves, { origen: '50% 31%', deriva: 0 });
+
+window.DUR = T.total;
+window.render = async t => {
+  img.src = `${FONDO}/${String(Math.min(NF, 1 + Math.floor(t * 30))).padStart(4, '0')}.jpg`;
+  await img.decode();
+  cam.pintar(t);
+  if (capaTipo) {
+    capaTipo.pintar(t);
+    raizTipo.style.opacity = 1 - tramo(t, fin, fin + .18);
+  }
+  spans.forEach((s, i) => { const p = tramo(t, wa[i].s - .06, wa[i].s + .16); s.style.opacity = p * (1 - tramo(t, fin, fin + .3));
+    s.style.transform = `translateY(${(1 - E.sale(p)) * 40}px)`; });
+  gancho.style.opacity = tipo ? 0 : 1 - tramo(t, fin, fin + .3);
+  // las tarjetas entran con rebote y se van con un fundido
+  const entra = (c, a, b) => { const p = tramo(t, a, a + .4), k = tramo(t, a, a + .12) * (1 - tramo(t, b, b + .25));
+    c.style.opacity = k; c.style.transform = `translateY(${((1 - E.atras(p, 1.8)) * 60).toFixed(1)}px) scale(${mezcla(.9, 1, E.sale(p)).toFixed(3)})`; };
+  entra(reto, wReto.s - .05, wDias.e + .35);
+  entra(mil, wMil.s - .05, wMil.s + 1.9);
+  F.resaltar(rayaMil, tramo(t, wMil.s + .15, wMil.s + .6));
+  entra(cont, wUno.s - .05, T.total + 1);
+  ias.pintar(t, 1 - tramo(t, wCara.e + .1, wCara.e + .35));
+  const l = lineas.find(l => t >= l.s - .05 && t < l.hasta);
+  sub.style.opacity = l ? 1 : 0; if (l) pill.textContent = l.txt;
+};
+await window.render(0);
+window.READY = true;
+</script></body></html>

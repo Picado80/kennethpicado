@@ -45,10 +45,14 @@ A las 4 semanas, los números de la cuenta confirman o corrigen esta hipótesis 
 
 ## 2. Lo que no se hace en esta fase
 
-- **No se vende.** Ni SEMI, ni RedTurn, ni «escribime». SEMI no aparece ni como «lo que construyo»
-  hasta la fase 3 (§9). El límite 1 de `CANON.md` se endurece.
+- **No se vende en el contenido.** Ni SEMI, ni RedTurn, ni «escribime». SEMI no aparece en las piezas ni como
+  «lo que construyo» hasta la fase 3 (§9). El límite 1 de `CANON.md` se endurece.
+- **Los perfiles sí muestran SEMI (Kenneth, 19-oct).** El enlace de todas las redes es trysemi.com y LinkedIn dice
+  «Fundador · SEMI», con Cawhi como trabajo. El que entra al perfil ve qué construye Kenneth; el contenido sigue sin
+  vender. La hoja de ruta de SEMI como marca está en §14.
 - **No se busca a empresas.** Si alguna escribe, se atiende con `VENTA.md`, pero no se persigue.
-- **No hay LinkedIn, X ni anuncios de venta.** Lo de `ANUNCIOS.md` es para SEMI y espera.
+- **No se publica en LinkedIn ni en X, y no hay anuncios de venta.** El perfil de LinkedIn queda listo para la fase 2.
+  Lo de `ANUNCIOS.md` es para SEMI y espera.
 
 ## 3. El modelo: volumen que atrae, insignias que retienen
 
@@ -129,9 +133,11 @@ La controversia trae comentarios, y los comentarios traen alcance. **Se discute 
 
 ## 7. El perfil (se arma una vez, antes del Día 1)
 
-- **Nombre visible:** «Kenneth Picado · Dirijo una oficina de IAs».
-- **Bio (borrador):** «Dirijo una oficina de 7 IAs. 14 años en Amazon. Te cuento cómo, sin jerga. 🇨🇷
-  Reto: 1.000 en 30 días.»
+- **Nombre en las redes:** «Picado | IA para negocios» (Kenneth, 20-oct; 25 caracteres, TikTok e Instagram aceptan 30).
+  En las piezas y los textos, su nombre es «Kenneth González Picado» (no «Kenneth Picado»). En LinkedIn, el titular
+  lleva la versión larga: «Consultoría en IA y Transformación Digital». Sin «14 años en Amazon» como firma: salió hace
+  unos 2 años y medio y no quiere presentarse así.
+- **Bio (borrador):** «Dirijo una oficina de 7 IAs. Te cuento cómo, sin jerga. 🇨🇷 Reto: 1.000 en 30 días.»
 - **3 videos fijados:** el gemelo presentándose (`G0`), el Día 1 del reto y la mejor insignia.
 - **La misma foto** en TikTok e Instagram.
 
@@ -225,3 +231,18 @@ Salen de la semana 1 y pasan a la 2: el carrusel `A7`, las 3 reglas de la oficin
    - el guion gráfico de las 21 piezas de volumen de la semana 1;
    - las 3 insignias con su prueba de gancho;
    - los ajustes de la consola y de `costeo` (§12).
+
+## 14. Hoja de ruta: SEMI como marca (Kenneth, 19-oct)
+
+> Kenneth: «debemos mostrar en website a SEMI, no a Cawhi, y abramos una nueva experiencia como fundador de SEMI […]
+> no sé si hay que crear una página para SEMI ahí y después en otras redes para ir creando la marca. Pongámoslo en
+> el roadmap y dejémoslo como parte de las estrategias de grabar contenido».
+
+| Cuándo | Qué |
+|---|---|
+| **Ya (19-oct)** | trysemi.com es el enlace de todas las redes. LinkedIn: sitio web trysemi.com y la experiencia «Fundador · SEMI» (qué es, con lo que dice trysemi.com). Cawhi sigue como trabajo |
+| **Fase 2** (1.000 nuevos) | Kenneth empieza a publicar en LinkedIn: lo que mejor funcionó en TikTok, adaptado. Se crea la página de SEMI en LinkedIn y la experiencia de Kenneth se cuelga de ella |
+| **Fase 3** (10.000 nuevos) | SEMI aparece en 1 de cada 10 piezas como «lo que construyo» (§9). Se abren las cuentas de SEMI en Instagram y TikTok, que arrancan con lo que más convirtió en la cuenta de Kenneth |
+| **Desde ya, al grabar** | Cada toma y cada caso real de la oficina (sin nombres de clientes) se guarda también pensando en SEMI: el día que SEMI tenga cuentas, ya tiene material |
+
+Lo que no cambia: en la fase 1 el contenido no nombra SEMI. Los perfiles lo muestran; las piezas, no.

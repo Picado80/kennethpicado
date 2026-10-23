@@ -1,0 +1,104 @@
+{
+  "MiniMax:traducir": {
+    "pedido": "Pasá esto al español de Costa Rica, como lo diría un tico cualquiera en la calle: «Hola amigo, ¿cómo estás? Este fin de semana vamos a la playa, va a estar genial. Trae dinero para la comida y no llegues tarde.»",
+    "texto": "—¡Hola, friend! ¿Cómo estás? Este finde vamos a la playa, va a estar buenísimo. Lleva plata para la comida y no llegues tarde.",
+    "segundos": 1.2,
+    "modelo": "MiniMax-M3",
+    "uso": {
+      "input_tokens": 102,
+      "output_tokens": 37,
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 128,
+      "service_tier": "standard"
+    }
+  },
+  "MiniMax:entender": {
+    "pedido": "¿Qué significa esto que me dijo un amigo en Costa Rica? «Mae, qué sal, se me fue la buseta y ando sin un cinco. ¿Me hace el favor y me jala?»",
+    "texto": "Significa: **“Amigo, qué，失營 ¿qué pérdida! Se me rompió la camioneta y estoy sin una moneda de cinco colones. ¿Me hace el favor y me presta una?”**\n\nAquí **“la buseta”** es la camioneta o carro, y **“un cinco”** se refiere informalmente a una **moneda de 5 colones**. **“Jalar”** significa prestar o ayudar con algo.",
+    "segundos": 3.8,
+    "modelo": "MiniMax-M3",
+    "uso": {
+      "input_tokens": 90,
+      "output_tokens": 91,
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 128,
+      "service_tier": "standard"
+    }
+  },
+  "DeepSeek:traducir": {
+    "pedido": "Pasá esto al español de Costa Rica, como lo diría un tico cualquiera en la calle: «Hola amigo, ¿cómo estás? Este fin de semana vamos a la playa, va a estar genial. Trae dinero para la comida y no llegues tarde.»",
+    "texto": "Hola mae, ¿cómo está? Este fin de semana nos vamos para la playa, va a estar pichudísimo. Traiga plata para la comida y no se atrase.",
+    "segundos": 5.2,
+    "modelo": "deepseek-flash",
+    "uso": {
+      "input_tokens": 94,
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 0,
+      "output_tokens": 566,
+      "service_tier": "standard"
+    }
+  },
+  "DeepSeek:entender": {
+    "pedido": "¿Qué significa esto que me dijo un amigo en Costa Rica? «Mae, qué sal, se me fue la buseta y ando sin un cinco. ¿Me hace el favor y me jala?»",
+    "texto": "Tu amigo te está hablando en **pachuco/costarriqueñismo** y te está pidiendo un ride. Traducción:\n\n> “Mae, qué mala suerte, se me fue el bus y no tengo ni un cinco. ¿Me harías el favor de llevarme?”\n\nDesglose:\n\n- **Mae**: compa, bro, maje, güey (muy común en Costa Rica entre amigos).\n- **Qué sal**: qué mala suerte / qué salado. Viene de “salado” = desafortunado.\n- **Se me fue la buseta**: se me pasó / perdí el bus.\n- **Ando sin un cinco**: no tengo nada de plata, no tengo ni cinco.\n- **¿Me hace el favor y me jala?**: ¿me hacés el favor de llevarme? / ¿me das un ride?\n\nAsí que en resumen: **te está diciendo que perdió el bus, no tiene dinero y te pide que lo lleves en carro**. Es informal y amistoso, no es ofensivo.",
+    "segundos": 8.4,
+    "modelo": "deepseek-flash",
+    "uso": {
+      "input_tokens": 75,
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 0,
+      "output_tokens": 1047,
+      "service_tier": "standard"
+    }
+  },
+  "Kimi:traducir": {
+    "pedido": "Pasá esto al español de Costa Rica, como lo diría un tico cualquiera en la calle: «Hola amigo, ¿cómo estás? Este fin de semana vamos a la playa, va a estar genial. Trae dinero para la comida y no llegues tarde.»",
+    "texto": "Aquí va, bien tico:\n\n**«¡Mae, qué es la vara! ¿Cómo está? Diay mae, este fin nos vamos pa' la playa, va a estar rajado. Traiga harina pa' la comida y no llegue tarde, mop.»**\n\nPara que se entienda bien:\n\n- **Mae / mop** → la palabra tica por excelencia para \"amigo\" o \"compa\". Se usa en cada frase, literalmente.\n- **Qué es la vara** → \"¿qué pasa?\", \"¿cómo va todo?\"\n- **Diay** → muletilla muy común, como \"bueno/pues\"\n- **Rajado** → genial, increíble (también sirve **tuanis** o **pichudo**)\n- **Harina** → plata, dinero\n- **Usted en vez de tú** → en Costa Rica se habla de usted hasta con los compas de toda la vida, aunque también se usa el **vos** (\"traé harina... no llegués tarde\")\n\nY si quiere sonar aún más tico, puede cerrar con un **\"¡Pura vida!\"** al final. 😎",
+    "segundos": 24.8,
+    "modelo": "kimi-k3",
+    "uso": {
+      "input_tokens": 158,
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 0,
+      "output_tokens": 2016,
+      "cache_creation": {
+        "ephemeral_5m_input_tokens": 0,
+        "ephemeral_1h_input_tokens": 0
+      },
+      "output_tokens_details": {
+        "thinking_tokens": 1717
+      },
+      "service_tier": "standard",
+      "inference_geo": "not_available",
+      "prompt_tokens": 158,
+      "cached_tokens": 0,
+      "completion_tokens": 2016,
+      "total_tokens": 2174
+    }
+  },
+  "Kimi:entender": {
+    "pedido": "¿Qué significa esto que me dijo un amigo en Costa Rica? «Mae, qué sal, se me fue la buseta y ando sin un cinco. ¿Me hace el favor y me jala?»",
+    "texto": "¡Es puro español tico! Tu amigo te está pidiendo ayuda. En español estándar, la frase sería algo como:\n\n> \"Amigo, qué mala suerte, perdí el autobús y no tengo ni un centavo. ¿Me haces el favor de venir a recogerme?\"\n\n**Desglose de las expresiones:**\n\n- **Mae**: la palabra más icónica de Costa Rica. Equivale a \"tipo\", \"amigo\", \"brother\". Los ticos la usan constantemente.\n- **Qué sal**: \"qué mala suerte\" o \"qué mala pata\". En Costa Rica, la *sal* simboliza la mala fortuna; de hecho, a alguien con mala suerte le dicen \"salado\".\n- **Se me fue la buseta**: el bus se le fue, es decir, no alcanzó a subirse. \"Buseta\" es una forma común de referirse al autobús.\n- **Ando sin un cinco**: \"no tengo dinero\", estoy sin plata. El \"cinco\" hace referencia a una moneda de poco valor de antaño, así que la frase equivale a \"no tengo ni un centavo\".\n- **¿Me jala?**: aunque \"jalar\" literalmente significa tirar de algo, aquí significa \"¿me recoges?\" o \"¿me das un ride?\". Es muy común decir \"paso jalándolo\" para decir \"paso a recogerte\".\n\n**En resumen:** tu amigo perdió el bus, no tiene dinero para otro transporte y te está pidiendo que vayas por él. 😄",
+    "segundos": 80.8,
+    "modelo": "kimi-k3",
+    "uso": {
+      "input_tokens": 137,
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 0,
+      "output_tokens": 2467,
+      "cache_creation": {
+        "ephemeral_5m_input_tokens": 0,
+        "ephemeral_1h_input_tokens": 0
+      },
+      "output_tokens_details": {
+        "thinking_tokens": 2054
+      },
+      "service_tier": "standard",
+      "inference_geo": "not_available",
+      "prompt_tokens": 137,
+      "cached_tokens": 0,
+      "completion_tokens": 2467,
+      "total_tokens": 2604
+    }
+  }
+}

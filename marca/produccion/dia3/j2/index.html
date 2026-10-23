@@ -1,0 +1,133 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><title>J2 · Qué es un agente de IA</title></head>
+<body><div id="escenario" style="position:absolute;left:0;top:0;width:1080px;height:1920px;overflow:hidden"></div>
+<script type="module">
+// J2 · ¿Qué es un agente de inteligencia artificial? Sigue al PR1 («ya hay agentes que llaman por vos…»): un chat te
+// contesta, un agente hace. Con la experiencia de Kenneth: un agente es un empleado al que le das permiso, instrucciones,
+// límites y revisión. Cada efecto cae en la palabra de la voz (voz/palabras.json).
+import * as F from './efectos.js';
+const { el, K, E, tramo, mezcla, SEGURA, BOTONES } = F;
+await F.instalar({ fondo: '#0B1B4D' });
+const esc = document.getElementById('escenario');
+const L = SEGURA.izquierda + 10;
+const T = await (await fetch('tiempos.json')).json();
+const fondo = r => el('div', { position: 'absolute', inset: '0', background: K.fondo, color: K.tinta, overflow: 'hidden' }, r);
+const juntos = (...xs) => ({ pintar: t => xs.forEach(x => x.pintar(t)), listo: Promise.all(xs.map(x => x.listo).filter(Boolean)) });
+const tarjeta = (a, html, x, y, w) => el('div', { position: 'absolute', left: `${x}px`, top: `${y}px`, width: `${w}px`, boxSizing: 'border-box', opacity: 0,
+  padding: '24px 26px', background: K.blanco, color: K.tinta, border: `3px solid ${K.borde}`, borderRadius: '24px', backdropFilter: 'blur(16px)',
+  boxShadow: `0 14px 0 -4px ${K.cielo}, 0 26px 50px ${K.sombra}` }, a, html);
+const entra = (e, t, a, dy = 50) => { const p = tramo(t, a, a + .35); e.style.opacity = p; e.style.transform = `translateY(${((1 - E.atras(p, 1.8)) * dy).toFixed(1)}px)`; };
+// dónde quedó una palabra (sin transformaciones), para que el marcador la encuentre
+const donde = (span, x0, y0) => ({ x: x0 + span.offsetLeft, y: y0 + span.offsetTop, w: span.offsetWidth, h: span.offsetHeight });
+// el gemelo: los fotogramas de gemelo.mp4 (gemelo/0001.jpg…, 30 por segundo). La voz del gemelo es la misma pista de la
+// mezcla: «a» desde el segundo 0 y «f» desde T.gemelo.f. Se acerca despacio (zoom) para que no quede quieto.
+const NG = T.gemelo.cuadros;
+function gemelo(r, desde, zoom) {
+  // subido 170 px: la boca queda bien arriba de los textos de abajo; lo que sobra abajo es negro, como la camisa
+  r.style.background = '#0B0C14';
+  const img = el('img', { position: 'absolute', left: '0', top: '-170px', width: '1080px', height: '1920px', objectFit: 'cover', transformOrigin: '50% 35%' }, r);
+  const sombra = el('div', { position: 'absolute', left: '0', right: '0', bottom: '0', height: '980px',
+    background: 'linear-gradient(180deg, rgba(10,12,20,0) 0%, rgba(10,12,20,.55) 100%)' }, r);
+  let ultimo = `gemelo/${String(1 + Math.floor(desde * 30)).padStart(4, '0')}.jpg`;
+  img.src = ultimo;   // el primer cuadro ya cargado (el vidrio lo muestra antes de que empiece la escena)
+  return { pintar(t) {
+    const src = `gemelo/${String(Math.min(NG, 1 + Math.floor((desde + t) * 30))).padStart(4, '0')}.jpg`;
+    img.style.transform = `scale(${(1 + zoom * Math.min(1, t / 7)).toFixed(4)})`;
+    if (src !== ultimo) { ultimo = src; img.src = src; return img.decode().catch(() => {}); }
+  } };
+}
+const ICONO = {
+  chat: '<svg width="64" height="64" viewBox="0 0 60 60" fill="none" stroke="currentColor" stroke-width="5" stroke-linejoin="round"><path d="M8 12 h44 v28 h-24 l-12 10 v-10 h-8 z"/></svg>',
+  mano: '<svg width="64" height="64" viewBox="0 0 60 60" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 32 l12 12 l28 -28"/></svg>',
+  llave: '<svg width="64" height="64" viewBox="0 0 60 60" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round"><circle cx="20" cy="30" r="11"/><path d="M31 30 h22 M45 30 v8 M52 30 v6"/></svg>',
+};
+
+const S = F.secuencia(esc, [
+  // 1 · el gancho, con el gemelo (Kenneth, 21-oct: «necesito aparecer… puedo aparecer 10 segundos»): la portada del
+  //     video del menú, lo que hacen los agentes cuando lo dice y la pregunta (se encierra «agente»). Todo abajo, sobre la
+  //     camisa, para no taparle la cara.
+  { dur: T.dur[0], tema: 'papel', hacer: r => {
+    const g = gemelo(r, 0, .04);
+    const tapa = el('div', { position: 'absolute', left: `${L}px`, top: '1000px', width: '130px', height: '231px', borderRadius: '16px', overflow: 'hidden',
+      border: '4px solid #FFFFFF', boxShadow: '0 16px 40px rgba(0,0,0,.45)', background: '#16233F url(pr1.jpg) center/cover', opacity: 0 }, r);
+    const dijo = el('div', { position: 'absolute', left: `${L + 160}px`, right: `${BOTONES.derecha}px`, top: '1060px', font: '700 38px/1.2 Archivo', color: '#FFFFFF',
+      textShadow: '0 2px 12px rgba(0,0,0,.6)', opacity: 0 }, r, 'En el video del menú…');
+    const ch = F.fichas(r, { items: ['Llaman por vos', 'Hacen el pedido', 'Agendan la cita', 'Te reservan la mesa'], inicio: 2.4, cada: .3,
+      estilo: { position: 'absolute', left: `${L}px`, right: `${BOTONES.derecha}px`, top: '1010px' } });
+    const q = el('div', { position: 'absolute', left: `${L}px`, width: '650px', top: '1010px', boxSizing: 'border-box', padding: '14px 24px 18px',
+      background: '#FFFFFF', color: '#16233F', borderRadius: '22px', font: '400 80px/1.0 "Instrument Serif"', transformOrigin: '0 50%', opacity: 0,
+      boxShadow: `0 12px 0 -3px ${K.cielo}, 0 24px 44px rgba(0,0,0,.4)` }, r, '¿Qué es un <span>agente</span>?');
+    const sp = q.querySelector('span');
+    const m = F.marcador(r, { trazos: [{ tipo: 'circulo', x: L + sp.offsetLeft - 12, y: 1010 + sp.offsetTop - 4, w: sp.offsetWidth + 24, h: sp.offsetHeight + 8, t0: 5.2 }] });
+    return { pintar(t) { const listo = g.pintar(t);
+      const ap = tramo(t, .3, .6), va = tramo(t, 1.9, 2.2);
+      tapa.style.opacity = dijo.style.opacity = Math.min(ap, 1 - va);
+      tapa.style.transform = `rotate(${mezcla(-10, -4, E.sale(ap)).toFixed(2)}deg) scale(${mezcla(.7, 1, E.atras(ap, 1.8)).toFixed(3)})`;
+      ch.pintar(t, 1 - tramo(t, 3.9, 4.1));
+      const k = tramo(t, 4.1, 4.4); q.style.opacity = k; q.style.transform = `scale(${mezcla(1.15, 1, E.atras(k, 2)).toFixed(3)})`;
+      m.pintar(t); return listo; } };
+  } },
+  // 2 · un chat contesta, un agente hace
+  { dur: T.dur[1], tema: 'noche', entra: { tipo: 'gira' }, hacer: r => {
+    const a = fondo(r), b = F.brillo(a, { manchas: 2, z: 0, semilla: 5 });
+    const c1 = tarjeta(a, `<div style="color:${K.tinta2}">${ICONO.chat}</div><div class="mono" style="font-size:22px;color:${K.tinta2};margin-top:14px">Un chat</div><div style="font:400 70px/1 'Instrument Serif';margin-top:8px">te contesta</div>`, L, 520, 310);
+    const c2 = tarjeta(a, `<div style="color:${K.resalte}">${ICONO.mano}</div><div class="mono" style="font-size:22px;color:${K.resalte};margin-top:14px">Un agente</div><div style="font:400 70px/1 'Instrument Serif';margin-top:8px">hace</div>`, L + 340, 520, 310);
+    return { pintar(t) { b.pintar(t); entra(c1, t, .1); entra(c2, t, 1.95);
+      const g = tramo(t, 2.65, 2.9); c2.style.scale = (1 + .08 * Math.sin(g * Math.PI)).toFixed(3); } };
+  } },
+  // 3 · el ejemplo: la reserva (el chat te da un número; el agente llama, pide y confirma)
+  { dur: T.dur[2], tema: 'menta', entra: { tipo: 'zoom' }, hacer: r => {
+    const a = fondo(r), b = F.brillo(a, { manchas: 2, z: 0, semilla: 6 });
+    const pedido = F.burbuja(a, { texto: 'Una mesa para 4, el sábado', t0: .5, cps: 30, oscura: true, ancho: 560, estilo: { position: 'absolute', left: `${L + 90}px`, top: '380px', fontSize: '36px' } });
+    const rc = el('div', { position: 'absolute', left: `${L}px`, top: '540px', fontSize: '22px', color: K.tinta2 }, a, 'El chat:'); rc.className = 'mono';
+    const chat = F.burbuja(a, { texto: 'Acá está el número del restaurante.', quien: 'Chat', t0: 3.0, cps: 34, ancho: 600, estilo: { position: 'absolute', left: `${L}px`, top: '580px', fontSize: '34px' } });
+    const ra = el('div', { position: 'absolute', left: `${L}px`, top: '800px', fontSize: '22px', color: K.tinta2 }, a, 'El agente:'); ra.className = 'mono';
+    const pasos = [['Llamando al restaurante…', 5.6], ['Mesa para 4, sábado 7 p. m.', 6.4], ['Te mandé la confirmación', 7.5]].map(([txt, t0], k) => ({
+      e: el('div', { position: 'absolute', left: `${L}px`, right: `${BOTONES.derecha}px`, top: `${840 + k * 100}px`, display: 'flex', alignItems: 'center', gap: '16px',
+        font: '700 36px/1.1 Archivo', color: K.tinta, opacity: 0 }, a, `<span style="flex:none;width:52px;height:52px;border-radius:50%;background:${K.oro};color:#fff;display:grid;place-items:center;font:900 30px Archivo">✓</span>${txt}`), t0 }));
+    return { pintar(t) { b.pintar(t); pedido.pintar(t); rc.style.opacity = tramo(t, 2.6, 2.9); chat.pintar(t); ra.style.opacity = tramo(t, 5.1, 5.4);
+      pasos.forEach(({ e, t0 }) => entra(e, t, t0, 30)); } };
+  } },
+  // 4 · tu experiencia: alguien que te dice cómo vs. un empleado con permiso (se subraya «permiso», golpea el sello)
+  { dur: T.dur[3], tema: 'durazno', entra: { tipo: 'barrido' }, hacer: r => {
+    const a = fondo(r), b = F.brillo(a, { manchas: 2, z: 0, semilla: 7 });
+    const c1 = tarjeta(a, `<div class="mono" style="font-size:22px;color:${K.tinta2}">Alguien que</div><div style="font:400 64px/1.02 'Instrument Serif';margin-top:8px">te dice cómo hacerlo</div>`, L, 420, 650);
+    const c2 = tarjeta(a, `<div style="display:flex;gap:18px;align-items:center"><div style="color:${K.oro}">${ICONO.llave}</div><div><div class="mono" style="font-size:22px;color:${K.tinta2}">Un empleado</div><div style="font:400 64px/1.02 'Instrument Serif';margin-top:8px">con <span style="color:${K.oro};font-style:italic">permiso</span> para hacerlo</div></div></div>`, L, 700, 650);
+    const pm = c2.querySelector('span');
+    let m = null;
+    const s = F.sello(a, { texto: 'Agente', x: 360, y: 1030, t0: 5.9, tam: 66, rot: -6 });
+    return { pintar(t) { b.pintar(t); entra(c1, t, .3); entra(c2, t, 3.5);
+      if (!m) { let x = pm.offsetLeft, y = pm.offsetTop; for (let p = pm.offsetParent; p && p !== c2; p = p.offsetParent) { x += p.offsetLeft; y += p.offsetTop; }
+        m = F.marcador(a, { trazos: [{ tipo: 'subraya', x: L + x, y: 700 + y + pm.offsetHeight - 2, w: pm.offsetWidth, h: 0, t0: 5.1, grosor: 9 }] }); }
+      m.pintar(t); s.pintar(t); } };
+  } },
+  // 5 · como a cualquier empleado nuevo: cada punto aparece cuando lo decís
+  { dur: T.dur[4], tema: 'bosque', entra: { tipo: 'golpe' }, hacer: r => juntos(
+    F.lista(r, { titulo: 'Como a cualquier empleado nuevo:', oro: 'nuevo:', tiempos: [2.45, 4.35, 5.2], items: ['Instrucciones claras', 'Límites', 'Revisás lo que hizo'] }),
+    F.brillo(r, { manchas: 3, z: 0, semilla: 8 })) },
+  // 6 · el cierre, con el gemelo: la pregunta, la barra de comentarios y la razón para seguir (abajo, sin taparle la cara)
+  { dur: T.dur[5], tema: 'papel', entra: { tipo: 'vidrio', dur: .9 }, hacer: r => {
+    const g = gemelo(r, T.gemelo.f, .03);
+    const q = el('div', { position: 'absolute', left: `${L}px`, width: '650px', top: '1000px', boxSizing: 'border-box', padding: '16px 24px',
+      background: 'rgba(255,255,255,.96)', color: '#16233F', borderRadius: '22px', font: '400 62px/1.02 "Instrument Serif"', opacity: 0,
+      boxShadow: `0 12px 0 -3px ${K.cielo}, 0 24px 44px rgba(0,0,0,.4)` }, r, F.conOro('¿Qué tarea le darías vos a un agente?', 'vos', K.oro));
+    const com = F.comentario(r, { y: 1015, t0: 2.4, corazon: 5.0 });
+    const sig = el('div', { position: 'absolute', left: `${L}px`, right: `${BOTONES.derecha}px`, top: '1132px', font: '800 34px/1.2 Archivo', color: '#0A1C40', zIndex: 40,
+      background: '#FFD43B', border: '3px solid #0A1C40', borderRadius: '16px', padding: '12px 20px', boxShadow: `0 12px 0 -3px ${K.cielo}`, opacity: 0 }, r,
+      'La más pedida la pruebo. Seguime.');
+    return { pintar(t) { const listo = g.pintar(t);
+      const k = tramo(t, .1, .4) * (1 - tramo(t, 2.1, 2.4)); q.style.opacity = k; q.style.transform = `translateY(${((1 - E.atras(tramo(t, .1, .4), 1.8)) * 40).toFixed(1)}px)`;
+      com.pintar(t);
+      const k2 = tramo(t, 3.9, 4.2); sig.style.opacity = k2; sig.style.transform = `translateY(${((1 - E.atras(k2, 1.8)) * 50).toFixed(1)}px) rotate(-1.5deg)`;
+      return listo; } };
+  } },
+]);
+const sello = el('div', { position: 'absolute', left: `${L}px`, top: `${SEGURA.arriba + 12}px`, fontSize: '26px', color: '#16233F', zIndex: 120,
+  background: 'rgba(255,255,255,.95)', border: '2px solid #16233F', padding: '10px 18px', borderRadius: '99px' }, esc, 'Día 3 de 30 · Hecho con IA');
+sello.className = 'mono';
+await S.listo;
+window.DUR = S.dur;
+const PULSO = 60 / T.bpm * 2;
+window.render = async t => { const p = S.pintar(t); esc.style.transform = `scale(${(1 + .009 * Math.exp(-(t % PULSO) / .09)).toFixed(5)})`; await p; };
+await window.render(1);
+window.READY = true;
+</script></body></html>

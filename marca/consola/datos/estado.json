@@ -19,7 +19,7 @@
    "nombre": "Facebook",
    "tipo": "red",
    "estado": "falta",
-   "detalle": "Falta crear la página «Kenneth Picado» y conectarla en Buffer: es la tercera red gratis. Recibe lo mismo que Instagram.",
+   "detalle": "Falta crear la página «Kenneth González Picado» y conectarla en Buffer: es la tercera red gratis. Recibe lo mismo que Instagram.",
    "orden": 3
   },
   "x": {
@@ -92,9 +92,9 @@
  "saldos": {
   "heygen": {
    "nombre": "HeyGen",
-   "valor": "$2.88",
-   "detalle": "No alcanza para las 3 insignias de la semana 1 (unos $7.60). Faltan unos $5.",
-   "alerta": true,
+   "valor": "$17.88",
+   "detalle": "Alcanza para las 3 insignias de la semana 1 (unos $7.60) y buena parte de la 2.",
+   "alerta": false,
    "orden": 1
   },
   "elevenlabs": {

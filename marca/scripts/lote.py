@@ -38,9 +38,10 @@ body { width: 1080px; background: #101B33; color: #E8E6DE; font-family: "Archivo
 .cinco .cuadro { width: 128px; }
 .cinco .lienzo { height: 228px; }
 .lienzo { position: relative; width: 100%; height: 284px; border: 1.5px dashed rgba(232,230,222,0.45); border-radius: 6px;
-  background: #16233F; padding: 22px 9px 9px; display: flex; flex-direction: column; justify-content: center; gap: 7px; overflow: hidden; }
+  background: #16233F; padding: 46px 46px 100px 20px;  /* lo que dice va dentro de la zona segura común (SEGURA) */ display: flex; flex-direction: column; justify-content: center; gap: 7px; overflow: hidden; }
 .lienzo.claro { background: #E8E6DE; color: #16233F; border-color: rgba(22,35,63,0.5); }
-.sello { position: absolute; top: 7px; right: 8px; font-size: 9px; color: #C9A45C; }
+.sello { position: absolute; top: 44px; left: 20px; font-size: 9px; color: #C9A45C; z-index: 2; }
+.zona { position: absolute; background: repeating-linear-gradient(45deg, rgba(178,43,63,.16) 0 4px, transparent 4px 9px); pointer-events: none; }
 .lienzo.claro .sello { color: #8a6a2a; }
 .dice { font-family: "Instrument Serif", serif; font-size: 20px; line-height: 1.06; }
 .dice.grande { font-size: 27px; }
@@ -80,10 +81,19 @@ def cuadro(c, dia, claro):
         if b.get("toma"):
             partes.append(f'<div class="toma">[{html.escape(b["toma"])}]</div>')
         else:
-            clase = "dice grande" if b.get("grande") else "dice"
-            partes.append(f'<div class="{clase}">{con_oro(b["dice"], b.get("oro"))}</div>')
+            # El texto largo se achica para que entre en la zona segura: si a este tamaño no entra, tampoco va a entrar en el video
+            base = 27 if b.get("grande") else 20
+            tam = base if len(b["dice"]) <= 34 else max(13, round(base * (34 / len(b["dice"])) ** 0.6, 1))
+            partes.append(f'<div class="dice" style="font-size:{tam}px">{con_oro(b["dice"], b.get("oro"))}</div>')
     fondo = " claro" if c.get("claro", claro) else ""
-    return (f'<div class="cuadro"><div class="lienzo{fondo}"><div class="sello mono">Día {dia} de 30</div>{"".join(partes)}</div>'
+    # Zonas que tapa TikTok (las mismas de marca/efectos/efectos.js, SEGURA, a la escala del boceto): rayadas en rojo
+    # Zona segura común a TikTok, Reels (Instagram y Facebook) y Shorts: x 120–888, y 288–1248, y de y 840 para abajo hasta x 780
+    zonas = ('<div class="zona" style="left:0;right:0;top:0;height:15%"></div>'
+             '<div class="zona" style="left:0;right:0;bottom:0;height:35%"></div>'
+             '<div class="zona" style="left:0;top:15%;bottom:35%;width:11.1%"></div>'
+             '<div class="zona" style="right:0;top:15%;bottom:56.25%;width:17.8%"></div>'
+             '<div class="zona" style="right:0;top:43.75%;bottom:35%;width:27.8%"></div>')
+    return (f'<div class="cuadro"><div class="lienzo{fondo}">{zonas}<div class="sello mono">Día {dia} de 30</div>{"".join(partes)}</div>'
             f'<div class="t mono">{html.escape(c.get("t", ""))}</div></div>')
 
 

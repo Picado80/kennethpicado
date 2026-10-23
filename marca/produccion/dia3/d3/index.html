@@ -1,0 +1,140 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><title>D3 · El contador y lo que me salió mal</title></head>
+<body><div id="escenario" style="position:absolute;left:0;top:0;width:1080px;height:1920px;overflow:hidden"></div>
+<script type="module">
+// D3 · el contador del reto y lo que me salió mal en estos días (viernes 23-oct-2026, 19:00). Tres errores reales del
+// arranque: la voz clonada decía «ías», los primeros videos eran oscuros y le hablaba solo a dueños de negocio.
+// ?n=<seguidores del viernes, TikTok + Instagram> (se pone el viernes; el Día 1 eran 1.659). Cada efecto cae en la
+// palabra de la voz (voz/palabras.json).
+import * as F from './efectos.js';
+const { el, K, E, tramo, mezcla, miles, SEGURA, BOTONES } = F;
+const q = new URLSearchParams(location.search);
+const N0 = 1659, N = +(q.get('n') || N0), META = N0 + 1000;
+await F.instalar({ fondo: '#F7F4EC' });
+const esc = document.getElementById('escenario');
+const L = SEGURA.izquierda + 10;
+const T = await (await fetch('tiempos.json')).json();
+const fondo = r => el('div', { position: 'absolute', inset: '0', background: K.fondo, color: K.tinta, overflow: 'hidden' }, r);
+const numero = (r, n, color) => el('div', { position: 'absolute', left: `${L}px`, top: '372px', font: '900 120px/1 Archivo', color: color ?? K.resalte, zIndex: 40,
+  textShadow: '0 8px 0 rgba(0,0,0,.18)' }, r, n);
+const titulo = (r, txt, oro, color) => el('div', { position: 'absolute', left: `${L + 110}px`, right: `${SEGURA.derecha}px`, top: '392px', zIndex: 40,
+  font: '400 66px/1.02 "Instrument Serif"' }, r, F.conOro(txt, oro, color ?? K.oro));
+const rotulo = (r, txt, top) => { const e = el('div', { position: 'absolute', left: `${L}px`, top: `${top}px`, fontSize: '24px', color: K.tinta2, zIndex: 40 }, r, txt);
+  e.className = 'mono'; return e; };
+const entra = (e, t, a, dy = 40) => { const p = tramo(t, a, a + .32); e.style.opacity = p; e.style.transform = `translateY(${((1 - E.atras(p, 1.8)) * dy).toFixed(1)}px)`; };
+const donde = (span, x0, y0) => ({ x: x0 + span.offsetLeft, y: y0 + span.offsetTop, w: span.offsetWidth, h: span.offsetHeight });
+
+const S = F.secuencia(esc, [
+  // 1 · el contador: el número sube en «así va el contador» y la barra muestra cuánto falta para los 1.000 nuevos
+  { dur: T.dur[0], tema: 'papel', hacer: r => {
+    const a = fondo(r), b = F.brillo(a, { manchas: 2, z: 0 });
+    const dia = el('div', { position: 'absolute', left: `${L}px`, top: '420px', font: '400 92px/1 "Instrument Serif"' }, a, F.conOro('Día 3 de 30', '3', K.oro));
+    const rot = rotulo(a, 'Seguidores hoy · TikTok + IG', 560);
+    const num = el('div', { position: 'absolute', left: `${L - 6}px`, top: '600px', font: '900 200px/1 Archivo', letterSpacing: '-.045em',
+      fontVariantNumeric: 'tabular-nums', transformOrigin: '0 60%' }, a, miles(N0));
+    const barra = el('div', { position: 'absolute', left: `${L}px`, width: '650px', top: '850px', height: '34px', borderRadius: '99px',
+      background: K.blanco, border: `3px solid ${K.borde}`, overflow: 'hidden', boxSizing: 'border-box' }, a);
+    const lleno = el('div', { position: 'absolute', left: '0', top: '0', bottom: '0', width: '0', background: `linear-gradient(90deg, ${K.oro}, #FFD43B)` }, barra);
+    const meta = el('div', { position: 'absolute', left: `${L}px`, right: `${BOTONES.derecha}px`, top: '905px', font: '600 38px/1.2 Archivo' }, a,
+      `+${miles(N - N0)} de 1.000 nuevos · meta ${miles(META)}`);
+    return { pintar(t) { b.pintar(t); entra(dia, t, 0); rot.style.opacity = tramo(t, .4, .7);
+      const p = E.sale(tramo(t, 1.9, 2.9)); num.textContent = miles(Math.round(mezcla(N0, N, p)));
+      num.style.opacity = tramo(t, .3, .6); num.style.transform = `scale(${(1 + .05 * Math.sin(tramo(t, 2.9, 3.2) * Math.PI)).toFixed(3)})`;
+      barra.style.opacity = meta.style.opacity = tramo(t, 2.0, 2.3);
+      lleno.style.width = `${(Math.max(.012, (N - N0) / 1000) * 100 * E.sale(tramo(t, 2.1, 3.0))).toFixed(2)}%`; } };
+  } },
+  // 2 · el ritmo: sumamos, pero no alcanza; hay que ajustar en el camino (Kenneth, 23-oct). Las cuentas salen de ?n=
+  //     y de los días que pasaron (la meta pide unos 33 por día)
+  { dur: T.dur[1], tema: 'cielo', entra: { tipo: 'zoom' }, hacer: r => {
+    const a = fondo(r), b = F.brillo(a, { manchas: 2, z: 0, semilla: 3 });
+    const dias = 2, mas = N - N0, porDia = Math.max(0, Math.round(mas / dias)), pide = Math.round(1000 / 30);
+    const big = el('div', { position: 'absolute', left: `${L - 4}px`, top: '400px', font: '900 170px/1 Archivo', letterSpacing: '-.04em', color: K.oro, opacity: 0 }, a,
+      `+${miles(mas)}`);
+    const rb = rotulo(a, `seguidores nuevos en ${dias} días`, 585);
+    const fila = (txt, top) => { const f = el('div', { position: 'absolute', left: `${L}px`, top: `${top}px`, width: '650px', opacity: 0 }, a);
+      const t = el('div', { font: '600 34px/1.2 Archivo', marginBottom: '10px' }, f, txt);
+      const pista = el('div', { position: 'relative', height: '30px', borderRadius: '99px', background: K.blanco, border: `3px solid ${K.borde}`, overflow: 'hidden' }, f);
+      const lleno = el('div', { position: 'absolute', left: '0', top: '0', bottom: '0', width: '0' }, pista); return { f, t, lleno }; };
+    const f1 = fila(`Lo que necesito: <b>${pide} por día</b>`, 660), f2 = fila(`Lo que llevo: <b>${porDia} por día</b>`, 770);
+    f1.lleno.style.background = `linear-gradient(90deg, ${K.oro}, #FFD43B)`; f2.lleno.style.background = K.rojo;
+    const q = el('div', { position: 'absolute', left: `${L}px`, right: `${BOTONES.derecha}px`, top: '900px', font: '400 70px/1.04 "Instrument Serif"', opacity: 0 }, a,
+      'Para llegar a la meta, hay que <span style="white-space:nowrap">ajustar</span> en el camino.');
+    const sp = q.querySelector('span');
+    const m = F.marcador(a, { trazos: [{ tipo: 'subraya', x: L + sp.offsetLeft, y: 900 + sp.offsetTop + sp.offsetHeight - 6, w: sp.offsetWidth, h: 0, t0: 6.72, grosor: 10 }] });
+    return { pintar(t) { b.pintar(t);
+      const k = tramo(t, .05, .35); big.style.opacity = k; big.style.transform = `scale(${mezcla(1.3, 1, E.atras(k, 2)).toFixed(3)})`; rb.style.opacity = tramo(t, .4, .7);
+      entra(f1.f, t, 2.2, 30); f1.lleno.style.width = `${(100 * E.sale(tramo(t, 2.4, 3.0))).toFixed(1)}%`;
+      entra(f2.f, t, 2.8, 30); f2.lleno.style.width = `${(Math.max(2, 100 * porDia / pide) * E.sale(tramo(t, 3.0, 3.4))).toFixed(1)}%`;
+      entra(q, t, 5.0, 40); m.pintar(t); } };
+  } },
+  // 3 · lo que me salió mal (palabra por palabra; «mal» en rojo, con glitch)
+  { dur: T.dur[2], tema: 'noche', entra: { tipo: 'golpe' }, hacer: r => {
+    const a = fondo(r), b = F.brillo(a, { manchas: 2, z: 0, semilla: 5 });
+    const pal = [['Lo que', .5], ['me salió', 1.0], ['mal', 1.5]].map(([txt, t0], k) => ({ t0, e: el('div', { position: 'absolute', left: `${L}px`,
+      top: `${470 + k * 150}px`, font: `400 ${k === 2 ? 190 : 130}px/1 "Instrument Serif"`, color: k === 2 ? K.rojo : K.tinta }, a, txt) }));
+    const g = F.glitch(pal[2].e, { t0: 1.52, dur: .45, fuerza: 1.2 });
+    const sub = el('div', { position: 'absolute', left: `${L}px`, top: '1000px', font: '600 38px/1.2 Archivo', color: K.tinta2 }, a, 'en estos días');
+    return { pintar(t) { b.pintar(t); pal.forEach(({ e, t0 }) => entra(e, t, t0, 60)); g.pintar(t); sub.style.opacity = tramo(t, 2.1, 2.4); } };
+  } },
+  // 4 · uno: la voz clonada decía «ías» (efecto nuevo: la corrección)
+  { dur: T.dur[3], tema: 'menta', entra: { tipo: 'zoom' }, hacer: r => {
+    const a = fondo(r), b = F.brillo(a, { manchas: 2, z: 0, semilla: 6 });
+    const n = numero(a, '1', K.oro), ti = titulo(a, 'Mi voz clonada', 'clonada');
+    const r1 = rotulo(a, 'Lo que escribí:', 600), r2 = rotulo(a, 'Lo que decía:', 600);
+    const c = F.correccion(a, { x: L, y: 700, palabra: 'IA', mal: '«ías»', bien: 'inteligencia artificial', t0: 2.7, t1: 6.4, t2: 7.55, tam: 200 });
+    const ya = el('div', { position: 'absolute', left: `${L}px`, right: `${BOTONES.derecha}px`, top: '1010px', font: '700 38px/1.2 Archivo', color: '#0A1C40',
+      background: '#FFD43B', border: '3px solid #0A1C40', borderRadius: '14px', padding: '12px 18px', opacity: 0 }, a, 'Ahora lo dice completo');
+    return { pintar(t) { b.pintar(t); n.style.opacity = ti.style.opacity = tramo(t, 0, .3);
+      r1.style.opacity = tramo(t, 2.7, 3.0) * (1 - tramo(t, 6.2, 6.4)); r2.style.opacity = tramo(t, 6.4, 6.6) * (1 - tramo(t, 7.6, 7.8));
+      c.pintar(t); entra(ya, t, 7.9, 40); } };
+  } },
+  // 5 · dos: los primeros videos eran oscuros (efecto nuevo: antes y después, con el Día 1 real)
+  { dur: T.dur[4], tema: 'durazno', entra: { tipo: 'barrido' }, hacer: r => {
+    const a = fondo(r), b = F.brillo(a, { manchas: 2, z: 0, semilla: 7 });
+    const n = numero(a, '2', K.oro), ti = titulo(a, 'Los primeros videos', 'primeros');
+    const ad = F.antesDespues(a, { x: 330, y: 500, w: 420, h: 746, antes: 'antes.jpg', despues: 'ahora.jpg', t0: 3.6, dur: 1.0 });
+    // el sello va sobre la tarjeta oscura: aislado para que la mezcla no lo apague, y se va cuando entra «ahora»
+    const cs = el('div', { position: 'absolute', inset: '0', zIndex: 40, isolation: 'isolate' }, a);
+    const s = F.sello(cs, { texto: 'Muy oscuro', x: 350, y: 800, t0: 2.6, tam: 44, rot: -8, color: '#FFD43B' });
+    return { pintar(t) { b.pintar(t); n.style.opacity = ti.style.opacity = tramo(t, 0, .3); ad.pintar(t); s.pintar(t);
+      cs.style.opacity = 1 - tramo(t, 3.6, 3.9); } };
+  } },
+  // 6 · tres: le hablaba solo a dueños de negocio; la inteligencia artificial le sirve a cualquiera
+  { dur: T.dur[5], tema: 'oceano', entra: { tipo: 'gira' }, hacer: r => {
+    const a = fondo(r), b = F.brillo(a, { manchas: 3, z: 0, semilla: 8 });
+    const n = numero(a, '3'), ti = titulo(a, 'Le hablaba a:', 'hablaba', K.resalte);
+    const duenos = el('div', { position: 'absolute', left: `${L}px`, top: '540px', font: '700 50px/1 Archivo', color: '#16233F', background: '#FFFFFF',
+      padding: '18px 28px', borderRadius: '99px', border: `3px solid ${K.borde}`, opacity: 0 }, a, '<span>Dueños de negocio</span>');
+    const sp = duenos.querySelector('span');
+    let m = null;
+    const ch = F.fichas(a, { items: ['Si trabajás', 'Si estudiás', 'Si vendés', 'Si tenés familia', 'Si empezás algo'], inicio: 3.7, cada: .3,
+      estilo: { position: 'absolute', left: `${L}px`, right: `${SEGURA.derecha}px`, top: '690px' } });
+    const vos = el('div', { position: 'absolute', left: `${L}px`, top: '960px', font: '400 120px/1 "Instrument Serif"', opacity: 0, transformOrigin: '0 50%' }, a,
+      'Ahora, <span style="font-style:italic">a vos</span>.');
+    return { pintar(t) { b.pintar(t); n.style.opacity = ti.style.opacity = tramo(t, 0, .3); entra(duenos, t, 2.2);
+      if (!m) m = F.marcador(a, { trazos: [{ tipo: 'subraya', x: L + 28 + sp.offsetLeft - 8, y: 540 + 18 + sp.offsetHeight * .55, w: sp.offsetWidth + 16, h: 0, t0: 3.5, grosor: 10 }] });
+      m.pintar(t); duenos.style.opacity = tramo(t, 2.2, 2.5) * mezcla(1, .6, tramo(t, 3.7, 4.0)); ch.pintar(t);
+      const k = tramo(t, 6.35, 6.65); vos.style.opacity = k; vos.style.transform = `scale(${mezcla(1.25, 1, E.atras(k, 2.2)).toFixed(3)})`; } };
+  } },
+  // 7 · el cierre: qué querés que pruebe, la barra de comentarios y el contador de mañana
+  { dur: T.dur[6], tema: 'bosque', entra: { tipo: 'vidrio', dur: .9 }, hacer: r => {
+    const a = fondo(r), b = F.brillo(a, { manchas: 2, barrido: 1.0, z: 0, semilla: 9 });
+    const pq = el('div', { position: 'absolute', left: `${L}px`, right: `${SEGURA.derecha}px`, top: '420px', font: '400 96px/1.0 "Instrument Serif"' }, a,
+      F.conOro('¿Qué querés que pruebe la semana que viene?', 'pruebe', K.oro));
+    const com = F.comentario(a, { y: 900, t0: 2.1, corazon: 4.9 });
+    const sig = el('div', { position: 'absolute', left: `${L}px`, right: `${BOTONES.derecha}px`, top: '1080px', font: '800 36px/1.2 Archivo', color: '#0A1C40', zIndex: 40,
+      background: '#FFD43B', border: '3px solid #0A1C40', borderRadius: '16px', padding: '14px 22px', boxShadow: `0 12px 0 -3px ${K.cielo}`, opacity: 0 }, a,
+      'Mañana, el contador. Seguime.');
+    return { pintar(t) { b.pintar(t); pq.style.opacity = tramo(t, 0, .3); com.pintar(t);
+      const k2 = tramo(t, 3.55, 3.85); sig.style.opacity = k2; sig.style.transform = `translateY(${((1 - E.atras(k2, 1.8)) * 50).toFixed(1)}px) rotate(-1.5deg)`; } };
+  } },
+]);
+const sello = el('div', { position: 'absolute', left: `${L}px`, top: `${SEGURA.arriba + 12}px`, fontSize: '26px', color: '#16233F', zIndex: 120,
+  background: 'rgba(255,255,255,.95)', border: '2px solid #16233F', padding: '10px 18px', borderRadius: '99px' }, esc, 'Día 3 de 30 · Voz con IA');
+sello.className = 'mono';
+await S.listo;
+window.DUR = S.dur;
+const PULSO = 60 / T.bpm * 2;
+window.render = t => { S.pintar(t); esc.style.transform = `scale(${(1 + .009 * Math.exp(-(t % PULSO) / .09)).toFixed(5)})`; };
+S.pintar(1);
+window.READY = true;
+</script></body></html>

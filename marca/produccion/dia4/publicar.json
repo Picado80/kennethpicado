@@ -1,0 +1,36 @@
+{
+  "etiqueta": "dia-04",
+  "nota": "Día 4 (sábado 24-oct-2026), ya con la recalibración (marca/semanas/2026-S43-recalibracion.md). Se programa solo después del sí de Kenneth en la Sala, con python marca/scripts/publicar.py marca/produccion/dia4/publicar.json --enviar.",
+  "piezas": [
+    {
+      "codigo": "LP1",
+      "canales": ["tiktok", "instagram"],
+      "archivo": "marca/salidas/dia4/s1-dia4.mp4",
+      "tipo": "video",
+      "ia": true,
+      "cuando": "2026-10-24T12:00:00-06:00",
+      "instagram_tipo": "reel",
+      "texto": "Le pedí a 3 inteligencias artificiales que le cobraran ₡15.000 a un compa por WhatsApp. Una sonó a banco; la que ganó le habló en tico: «15 rojos, por SINPE y sin bronca». El truco: decile de dónde sos y cómo querés que suene. Mandáselo al compa que te debe 😅 Día 4 de 30. #inteligenciaartificial #ia #costarica #whatsapp"
+    },
+    {
+      "codigo": "AN1",
+      "canales": ["tiktok", "instagram"],
+      "archivo": "marca/salidas/dia4/s2-dia4.mp4",
+      "tipo": "video",
+      "ia": true,
+      "cuando": "2026-10-24T19:00:00-06:00",
+      "instagram_tipo": "reel",
+      "texto": "Costa Rica, en anime 🇨🇷 El Arenal, la catarata de La Fortuna, los puentes colgantes y el casado de la soda, hechos con inteligencia artificial. ¿Qué lugar sigue el sábado que viene? Comentalo: el más votado sale. Día 4 de 30. #costarica #anime #inteligenciaartificial #arenal #puravida"
+    },
+    {
+      "codigo": "IP1",
+      "canales": ["tiktok", "instagram"],
+      "archivo": "marca/salidas/dia4/s3-dia4.mp4",
+      "tipo": "video",
+      "ia": true,
+      "cuando": "2026-10-24T20:30:00-06:00",
+      "instagram_tipo": "reel",
+      "texto": "¿La inteligencia artificial puede hablar tico? Le hice el examen a 3: una me dijo «friend» y entendió que «se me fue la buseta» es que se me rompió la camioneta 😂 ¿Qué palabra tica no se sabría? Comentala y va al próximo examen. Día 4 de 30. #costarica #tico #inteligenciaartificial #ia #puravida"
+    }
+  ]
+}

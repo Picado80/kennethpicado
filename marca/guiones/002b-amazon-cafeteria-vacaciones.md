@@ -23,7 +23,7 @@ url:
 **Texto en pantalla:** `Nadie era indispensable. Ni el jefe.` (tipografía grande, a pantalla completa)
 
 ## Desarrollo
-1. `[CALMA]` «Trabajé catorce años en una operación que nunca se apagó. Ni un día.»
+1. `[CALMA]` «Trabajé en una operación que nunca se apagó. Ni un día.»   <!-- sin «catorce años» (Kenneth, 20-oct) -->
 2. `[CALMA]` «Son las 6:40. La cafetería abre a las 7, y la única persona que sabe calibrar la máquina sos vos.»
 3. «Si tu cafetería cierra el día que vos te enfermás, no tenés un negocio. Tenés un trabajo con máquina de espresso.»
 4. «Y casi siempre es por lo mismo: el estándar vive en tu cabeza. Cuántos gramos lleva el espresso, cómo se calienta la leche del capuchino, qué se hace si se acaba el pan a las 10.»
@@ -36,7 +36,7 @@ url:
 
 ## Cierre
 6. `[CALMA]` «Un negocio que te necesita todos los días no es un negocio. Es una dependencia. Guardá este video y
-   mañana hacé la hoja. Mañana te cuento qué va en ella.»
+   mañana hacé la hoja.»   <!-- fuera «mañana te cuento qué va en ella»: el día 3 no sale eso -->
 **Texto en pantalla:** `1 hoja · 1 número · 15 min los lunes` y el sello `Día N de 30` en una esquina, si el reto está en marcha.
 
 ## Pantalla y B-roll
@@ -55,7 +55,6 @@ Borrador: *Abriste la cafetería y ahora no podés faltar ni un día. 3 cosas pa
 ## Fuente de cada dato
 | Dato que se dice | Fuente |
 |---|---|
-| 14 años en Amazon | CV: julio 2010 a abril 2024 |
 | Operación que nunca se apagó | portafolio («Built inside an operation that never stopped running»); CV: «24/7 environment» |
 | «Nadie era indispensable» | portafolio, §The method; prueba de gancho del 002 |
 | «El estándar vive en tu cabeza» | portafolio, §The method |
