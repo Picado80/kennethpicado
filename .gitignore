@@ -19,3 +19,13 @@ __pycache__/
 .pytest_cache/
 *.pyc
 marca/radar/salidas/
+
+# El digest del día: cambia cada mañana y lo vuelve a generar. Los carpinterías
+# con fecha SI van al repo (esa es la memoria del sistema).
+marca/radar/hoy.md
+
+# Los scripts con fecha que escribe el agente cada mañana (dia_AAAA-MM-DD.py,
+# pruebas_AAAA-MM-DD.py): son de un día, no se versionan y no se acumulan. El motor
+# reusable vive en marca/radar/carpinterias/pruebas.py.
+marca/radar/carpinterias/dia_*.py
+marca/radar/carpinterias/pruebas_*.py
