@@ -1,10 +1,24 @@
 {
-  "_nota": "Cuentas sin @. Kenneth ajusta esta lista: tacha las que no sirvan, agrega las suyas. Verificadas con yt-dlp el 6-oct-2026 (existen y las lee el radar). yt-dlp NO devuelve n.o de seguidores, asi que ese filtro no se pudo comprobar a maquina. Los HASHTAGS estan vacios a proposito: el extractor de hashtags de TikTok esta roto en yt-dlp (devuelve 0). Candidatas que yt-dlp hoy no logra leer (probar mas adelante): iafacil.es, automatiza_tu_vida, ia_productividad, techconpaula, prompt_master. Reales pero inactivas (anos sin publicar): marketingconia, iaparatodos, ia_facil.",
-  "cuentas": ["dotcsv", "javadex", "iaempresa", "ia_hipster"],
+  "_nota": "Radar diario multi-red. Las cuentas de TikTok son las que ya estan verificadas y funcionan con yt-dlp (dotcsv, javadex, iaempresa, ia_hipster) mas machillo.puravida, que es la referencia tica de la marca. El extractor de hashtags de TikTok no sirve con esta version de yt-dlp: por eso hashtags queda vacio y no se usa. Instagram y X hoy no tienen ruta de captura estable (yt-dlp falla y el DOM publico no devuelve los posts), por eso el runner debe poder continuar sin ellas y anotarlas como 'omitida', nunca como una falla que tumbe la corrida. duracion_max_s: las piezas de la marca duran de 12 a 20 s, asi que un tutorial de dos minutos no sirve de carpinteria: se filtra antes de rankear. semillas: un video de cada cuenta de TikTok, para poder sacarle el 'secUid' (el id interno) cuando la pagina de perfil no lo entrega; con ese id la ruta 'tiktokuser:<secUid>' va directo a la API y no falla. Se agrega el 26-oct-2026: el canal de YouTube se llamaba 'rileybrown.ai' y da 404; el bueno es 'rileybrownai'.",
+  "redes": {
+    "tiktok":    {"cuentas": ["dotcsv", "javadex", "iaempresa", "ia_hipster", "machillo.puravida"], "urls": [], "min_vistas": 20000, "duracion_max_s": 60,
+                  "semillas": [
+                    "https://www.tiktok.com/@machillo.puravida/video/7699123654059117825",
+                    "https://www.tiktok.com/@javadex/video/7623140384767626529",
+                    "https://www.tiktok.com/@iaempresa/video/7699176191936236832"
+                  ]},
+    "instagram": {"cuentas": ["machillo.puravida"], "urls": [], "min_vistas": 5000, "duracion_max_s": 60},
+    "x":         {"cuentas": ["rourke"], "urls": [], "min_vistas": 10000, "duracion_max_s": 60},
+    "youtube":   {"cuentas": ["tiffintech", "rileybrownai"], "urls": [], "min_vistas": 5000, "duracion_max_s": 60}
+  },
   "hashtags": [],
   "urls": [],
   "dias": 7,
   "min_vistas": 20000,
   "top": 15,
-  "por_fuente": 30
+  "por_fuente": 30,
+  "duracion_max_s": 60,
+  "_cuentas_tiktok_antes": ["dotcsv", "javadex", "iaempresa", "ia_hipster"],
+  "_nota_tiktok": "Los hashtags de TikTok estan rotos en yt-dlp 2026.08.19 (devuelve 0); por eso no se usan.",
+  "_nota_duracion": "Se agrega el 25-oct-2026: la primera corrida real devolvio solo tutoriales de 96 a 145 s, que no se pueden tropicalizar a piezas de 12 a 20 s. Con el filtro de duracion salen los formatos cortos, que es lo que se busca copiar."
 }

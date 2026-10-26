@@ -1,0 +1,500 @@
+{
+  "_nota": "Las carpinterías de la marca. Ver CARPINTERIA.md. Una carpintería es un molde de formato, no un video.",
+  "version": 1,
+  "actualizado": "2026-10-26",
+  "carpinterias": [
+    {
+      "id": "C-001",
+      "nombre": "La lata que nunca vio una galleta",
+      "estado": "nuevo",
+      "creada": "2026-10-26",
+      "original": {
+        "url": "https://www.tiktok.com/@machillo.puravida/video/7699123654059117825",
+        "cuenta": "@machillo.puravida",
+        "red": "tiktok",
+        "fecha": "2026-10-21",
+        "vistas": 33400,
+        "likes": 1950,
+        "comentarios": 36,
+        "compartidos": 871,
+        "guardados": 112,
+        "duracion_s": 12,
+        "señal": 0.026077844311377246,
+        "señal_tipo": "compartidos",
+        "gancho_literal": "¡PÚCHICA, MAE! 😭🍪🐒 ¡De veras que en Costa Rica esa lata nunca ha conocido una galleta!",
+        "cuadros": [
+          "marca/radar/salidas/cuadros/2026-10-21/01-tiktok-https-www-tiktok-com-machillo-puravida-v.jpg",
+          "marca/radar/salidas/cuadros/2026-10-21/02-tiktok-https-www-tiktok-com-machillo-puravida-v.jpg",
+          "marca/radar/salidas/cuadros/2026-10-21/03-tiktok-https-www-tiktok-com-machillo-puravida-v.jpg"
+        ]
+      },
+      "gramatica": {
+        "tipo_gancho": "escena: un objeto y la reacción de quien lo mira",
+        "gancho_0_3s": "El personaje quieto en la mesa, mirando una lata azul de «Danish Cookies», con la boca abierta. El subtítulo dice «UY, PAPILLO, GALLETITAS» con GALLETITAS en cian.",
+        "re_gancho_s": 6,
+        "re_gancho": "Se abre la lata y adentro hay carretes de hilo en vez de galletitas: «VEZ ESTA CARAMBADA». La cara pasa de sorpresa a desconcierto.",
+        "estructura": [
+          "El personaje frente a un objeto que promete una cosa (la lata de galletitas)",
+          "Plano medio: la reacción y el objeto, sin explicar nada",
+          "Se abre el objeto y aparece lo que no debía (hilo)",
+          "La cara hace el remate",
+          "Corte a negro"
+        ],
+        "banda_duracion": "0-3 s gancho · 3-6 s se abre la lata · 6-12 s remate y negro",
+        "subtitulos": "Mayúsculas condensadas en blanco, UNA palabra en cian, tercio inferior, con contorno.",
+        "plano": "Plano medio fijo, cámara a la altura del personaje, fondo de sala con profundidad (cortina de encaje, plantas, alacena, foto de familia).",
+        "ritmo_cortes": 1,
+        "sonido": "No se pudo leer: los cuadros son JPG y no traen audio.",
+        "cierre": "ninguno: el cuadro del 90 % ya es negro (a los 10,8 s).",
+        "mecanica_comentarios": "El chiste es tico y citable («carambada»); cada quien responde con su propia lata."
+      },
+      "tropicalizacion": {
+        "encaja": true,
+        "serie": "¿La IA puede…?",
+        "pieza": "Le pedí un WhatsApp de dos líneas al casero por la gotera. ¿Puede una IA?",
+        "tarea_real": "Reportar al dueño de la casa que se le está metiendo agua en el cuarto por una gotera del techo.",
+        "prueba_real_ia": true,
+        "prueba_guardada": true,
+        "resultado_o_pregunta_3s": "«¿Puede una IA escribirle al casero por la gotera?» — la pregunta va en el segundo 0 al 3, sobre el cuadro del mensaje.",
+        "regla_lider": "Regla de líder #1: «Decile quién sos y cómo querés que suene».",
+        "cambios": [
+          {
+            "que": "El personaje",
+            "original": "Un mono con sombrero de lona y bandera de Costa Rica, marca de agua de Machillo en la esquina.",
+            "nuestro": "El gemelo de Kenneth (el look original) en el mismo cuarto de siempre.",
+            "porque": "La marca ya tiene una cara aprobada; la del original es de otro y además lleva su marca de agua."
+          },
+          {
+            "que": "El chiste",
+            "original": "Le pedís galletitas y te dan hilo: la carambada está en el contenido de la lata.",
+            "nuestro": "Le pedís un WhatsApp de dos líneas a una IA y te devuelve algo que no es un WhatsApp.",
+            "porque": "La carambada es el mecanismo, no el hilo: lo que se copia es el desnivel entre lo que se pidió y lo que llegó."
+          },
+          {
+            "que": "El remate",
+            "original": "La cara del mono: sorpresa que se vuelve desconcierto.",
+            "nuestro": "El rostro del gemelo, primero serio y después con la duda de «esto no era lo que pedí».",
+            "porque": "IDENTIDAD.md: el humor es seco y la energía tiene dos estados; la duda es lo que hace creíble que uno dirige IAs."
+          },
+          {
+            "que": "Los subtítulos",
+            "original": "Mayúsculas condensadas con UNA palabra en cian.",
+            "nuestro": "La misma: caja negra, letra blanca y sombra naranja (IDENTIDAD.md), con una palabra resaltada.",
+            "porque": "El resaltado de una palabra es lo que hace que se lea sin sonido; además es la firma de la casa."
+          },
+          {
+            "que": "La prueba",
+            "original": "No hay: el chiste es de caracterización: no hay nada que medir.",
+            "nuestro": "Prueba real con MiniMax-M3 (el caballo de carga de la oficina), guardada en pruebas/2026-10-26/C-001.md.",
+            "porque": "Sin la prueba real no hay examen; el chiste tiene que salir de algo que de verdad pasó."
+          },
+          {
+            "que": "El cierre",
+            "original": "Negro seco, sin nada.",
+            "nuestro": "Tarjeta «Regla de líder #1» y un segundo de «Picado · Dirigí la IA».",
+            "porque": "Toda pieza de la marca cierra con la regla de líder (IDENTIDAD.md)."
+          }
+        ],
+        "avisos": [
+          "La prueba real dio un resultado que PASA: MiniMax-M3 devolvió el WhatsApp de dos líneas, limpio y bien escrito. El chiste de la carambada no sale del fallo de la IA: sale del contraste con la prueba C-003, donde la misma IA contesta como manual si no le decís quién sos.",
+          "Con tres cuadros (10 %, 50 % y 90 %) el segundo exacto del remate no está medido: el 6 s es el cuadro del 50 %, donde el remate ya está pasando."
+        ]
+      },
+      "nuestro": {
+        "piezas": [],
+        "seguidores_por_1000": null,
+        "vistas_promedio": null,
+        "notas": ""
+      }
+    },
+    {
+      "id": "C-002",
+      "nombre": "La fila",
+      "estado": "nuevo",
+      "creada": "2026-10-26",
+      "original": {
+        "url": "https://www.tiktok.com/@machillo.puravida/video/7700360101940514068",
+        "cuenta": "@machillo.puravida",
+        "red": "tiktok",
+        "fecha": "2026-10-24",
+        "vistas": 37100,
+        "likes": 1647,
+        "comentarios": 36,
+        "compartidos": 581,
+        "guardados": 85,
+        "duracion_s": 18,
+        "señal": 0.015660377358490567,
+        "señal_tipo": "compartidos",
+        "gancho_literal": "¡Púchica, qué poco de gente, papillos! 😂🐒 Yo mejor hubiera traído una sillita y un cafecito chorreado.",
+        "cuadros": [
+          "marca/radar/salidas/cuadros/2026-10-24/01-tiktok-https-www-tiktok-com-machillo-puravida-v.jpg",
+          "marca/radar/salidas/cuadros/2026-10-24/02-tiktok-https-www-tiktok-com-machillo-puravida-v.jpg",
+          "marca/radar/salidas/cuadros/2026-10-24/03-tiktok-https-www-tiktok-com-machillo-puravida-v.jpg"
+        ]
+      },
+      "gramatica": {
+        "tipo_gancho": "escena: un personaje descolocado dentro de una situación real y masiva",
+        "gancho_0_3s": "El personaje en primer plano abre los brazos señalando la fila enorme que tiene detrás; «LA FILA PARA», con FILA en cian.",
+        "re_gancho_s": 9,
+        "re_gancho": "Plano más cerrado de la cara: resignación, y el subtítulo ya no está.",
+        "estructura": [
+          "El personaje en primer plano hace de presentador de la situación",
+          "Detrás, la situación real que lo desborda (la fila, los toldos, la gente)",
+          "El remate es la cara: resignación en vez de sorpresa",
+          "Corte a negro"
+        ],
+        "banda_duracion": "0-3 s gancho con el contexto atrás · 3-9 s la cara · 9-18 s negro",
+        "subtitulos": "Mismo sistema: mayúsculas condensadas, UNA palabra en cian, tercio inferior.",
+        "plano": "Plano medio corto del personaje con la fila desenfocada atrás; cámara al nivel de los ojos.",
+        "ritmo_cortes": 1,
+        "sonido": "No se pudo leer: los cuadros son JPG y no traen audio.",
+        "cierre": "ninguno: el cuadro del 90 % ya es negro (a los 16,2 s).",
+        "mecanica_comentarios": "La gente cuenta su propia fila y saluda al lugar (Guadalupe)."
+      },
+      "tropicalizacion": {
+        "encaja": true,
+        "serie": "La Oficina",
+        "pieza": "El reporte del lunes: le pedí el orden y me devolvió una oficina entera",
+        "tarea_real": "Armar y mandar el reporte semanal al equipo.",
+        "prueba_real_ia": true,
+        "prueba_guardada": true,
+        "resultado_o_pregunta_3s": "«Le pedí el orden del reporte. ¿Qué me devuelve?» — la pregunta en el segundo 0 al 3, sobre el pantallazo de las ocho secciones.",
+        "regla_lider": "Regla de líder #2: «Revisá lo que te da en la fuente».",
+        "cambios": [
+          {
+            "que": "La situación",
+            "original": "Una fila enorme de gente para un servicio cualquiera; el mono se queda atrás con su banquito y su café.",
+            "nuestro": "Un encargo de tres líneas que termina en ocho secciones, con responsables, riesgos y una plantilla con tabla.",
+            "porque": "Es el mismo movimiento: lo chico se vuelve cola. La fila es el molde y el trámite de la IA es la versión con IA."
+          },
+          {
+            "que": "El personaje",
+            "original": "El mono de Machillo con su marca de agua, abajo a la derecha.",
+            "nuestro": "Uno de los colaboradores (Kimi, «el más tico») esperando su turno, o el gemelo si la hace Kenneth.",
+            "porque": "La Oficina es la serie donde el chiste es del equipo: «La Oficina: mi equipo no es humano» (CANON.md)."
+          },
+          {
+            "que": "El remate",
+            "original": "Resignación: yo mejor hubiera traído una sillita.",
+            "nuestro": "«Yo mejor le hubiera dicho: son tres líneas».",
+            "porque": "El humor seco de un líder que ya dirigiría a personas; no el de alguien que se queja."
+          },
+          {
+            "que": "La prueba",
+            "original": "No hay.",
+            "nuestro": "Prueba real con MiniMax-M3: le pedí «qué tiene que ir y en qué orden» y devolvió ocho secciones más plantilla, guardada en pruebas/2026-10-26/C-002.md.",
+            "porque": "La fila tiene que ser real para que el chiste sea real; y el texto exacto es el que se muestra en pantalla."
+          },
+          {
+            "que": "El cierre",
+            "original": "Negro seco.",
+            "nuestro": "Tarjeta «Regla de líder #2» más «Picado · Dirigí la IA».",
+            "porque": "Toda pieza cierra con la regla de líder."
+          }
+        ],
+        "avisos": [
+          "La pieza original dura 18 s, la más larga del lote, y La Oficina es la serie semanal: el chiste necesita ese aire, pero no caben 18 s en el formato de 12 a 20 s si además entra la tabla del reporte.",
+          "La plantilla que devolvió la IA tiene una tabla con celdas vacías: en pantalla hay que recortar, o el remate se pierde."
+        ]
+      },
+      "nuestro": {
+        "piezas": [],
+        "seguidores_por_1000": null,
+        "vistas_promedio": null,
+        "notas": ""
+      }
+    },
+    {
+      "id": "C-003",
+      "nombre": "El chef internacional",
+      "estado": "nuevo",
+      "creada": "2026-10-26",
+      "original": {
+        "url": "https://www.tiktok.com/@machillo.puravida/video/7698465749131726100",
+        "cuenta": "@machillo.puravida",
+        "red": "tiktok",
+        "fecha": "2026-10-19",
+        "vistas": 36900,
+        "likes": 1954,
+        "comentarios": 36,
+        "compartidos": 501,
+        "guardados": 118,
+        "duracion_s": 12,
+        "señal": 0.013577235772357723,
+        "señal_tipo": "compartidos",
+        "gancho_literal": "Hoy me puse de chef internacional, papillo. ¡El cantonés lleva de todo, menos garantía!",
+        "cuadros": [
+          "marca/radar/salidas/cuadros/2026-10-19/01-tiktok-https-www-tiktok-com-machillo-puravida-v.jpg",
+          "marca/radar/salidas/cuadros/2026-10-19/02-tiktok-https-www-tiktok-com-machillo-puravida-v.jpg",
+          "marca/radar/salidas/cuadros/2026-10-19/03-tiktok-https-www-tiktok-com-machillo-puravida-v.jpg"
+        ]
+      },
+      "gramatica": {
+        "tipo_gancho": "personaje en su rol, con la contradicción puesta en el subtítulo",
+        "gancho_0_3s": "El personaje cocinando en el wok, en un restaurante chino, con cara de cansado; «SABE PREPARAR CANTONÉS», con SABE en cian.",
+        "re_gancho_s": 6,
+        "re_gancho": "Levanta la vista a cámara con los ojos abiertos y el wok en el aire; «PAPILLO EN UN», con PAPILLO en cian.",
+        "estructura": [
+          "El personaje en su puesto, en un lugar reconocible (restaurante chino, faroles rojos, el cartel con el ideograma 富, vapor)",
+          "El subtítulo afirma una competencia que la cara desmiente",
+          "El remate es el cambio de cara: de cansado a listo",
+          "Corte a negro"
+        ],
+        "banda_duracion": "0-3 s gancho · 3-6 s cambia la cara · 6-12 s negro",
+        "subtitulos": "Mayúsculas condensadas, UNA palabra en cian, tercio inferior.",
+        "plano": "Plano medio, cámara a la altura del pecho, cocina al fondo con faroles y vapor.",
+        "ritmo_cortes": 1,
+        "sonido": "No se pudo leer: los cuadros son JPG y no traen audio.",
+        "cierre": "ninguno: el cuadro del 90 % ya es negro (a los 10,8 s).",
+        "mecanica_comentarios": "El chiste es de rol: el que dice que sabe y no sabe; la gente lo aplica al que se cree."
+      },
+      "tropicalizacion": {
+        "encaja": true,
+        "serie": "Un truco en 12 s",
+        "pieza": "Decile quién sos: la receta cantonés, antes y después",
+        "tarea_real": "Pedir una receta de arroz cantonés para cuatro personas.",
+        "prueba_real_ia": true,
+        "prueba_guardada": true,
+        "resultado_o_pregunta_3s": "«Le pedí una receta. ¿Y si le digo quién soy?» — la pregunta en el segundo 0 al 3, con las dos respuestas en pantalla.",
+        "regla_lider": "Regla de líder #1: «Decile quién sos y cómo querés que suene».",
+        "cambios": [
+          {
+            "que": "El remate",
+            "original": "El cantonés «lleva de todo, menos garantía»: el chiste es de rol: presume y no sabe.",
+            "nuestro": "El mismo pedido dos veces: sin decir quién somos y diciendo que somos ticos.",
+            "porque": "Es el mecanismo exacto: el molde muestra a alguien que presume y no sabe; acá se muestra a una IA que responde como manual hasta que le decís quién sos."
+          },
+          {
+            "que": "El personaje",
+            "original": "El mono cocinando, con delantal y marca de agua de Machillo arriba a la derecha.",
+            "nuestro": "El gemelo de Kenneth en la cocina de la casa, con el delantal de siempre.",
+            "porque": "El escenario del original (la cocina) es el de la casa de Kenneth; lo que cambia es quién está en el cuadro."
+          },
+          {
+            "que": "La prueba",
+            "original": "No hay.",
+            "nuestro": "Dos pruebas reales con MiniMax-M3: el «antes» (C-003) y el «después» (C-003b), guardadas con el JSON crudo.",
+            "porque": "Sin las dos respuestas no hay truco: el truco se ve en la diferencia."
+          },
+          {
+            "que": "El texto",
+            "original": "Todo en mayúsculas y con una palabra en cian.",
+            "nuestro": "Igual, pero con la firma de la casa y la regla de líder al final.",
+            "porque": "IDENTIDAD.md: la firma visual se repite en todas las piezas."
+          },
+          {
+            "que": "El cierre",
+            "original": "Negro seco.",
+            "nuestro": "Tarjeta «Regla de líder #1» más «Picado · Dirigí la IA».",
+            "porque": "La regla de líder ES el truco del molde, entonces tiene que ir escrita."
+          }
+        ],
+        "avisos": [
+          "La receta del «después» no quedó limpia: además de tico (Mercado Central, «¡Pura vida!», char siu, cerdo lonza) se le colaron palabras en inglés y en chino («vegetables», «pork asado», «saltedada», «pork asado en中国特色社会主义»). Eso no es un problema: es material del remate, pero hay que revisar la respuesta antes de ponerla en pantalla.",
+          "La primera corrida de C-003b volvió vacía porque el modelo gastó todos los tokens razonando; la que está guardada es la segunda, con 2.500 tokens.",
+          "El original dura 12 s clavados y su gracia es puramente visual; meter las dos respuestas en 12 s es lo apretado de esta pieza. Si no cabe, es un «Un truco en 20 s»."
+        ]
+      },
+      "nuestro": {
+        "piezas": [],
+        "seguidores_por_1000": null,
+        "vistas_promedio": null,
+        "notas": ""
+      }
+    },
+    {
+      "id": "C-004",
+      "nombre": "La garantía del techo",
+      "estado": "nuevo",
+      "creada": "2026-10-26",
+      "original": {
+        "url": "https://www.tiktok.com/@machillo.puravida/video/7700628355695217941",
+        "cuenta": "@machillo.puravida",
+        "red": "tiktok",
+        "fecha": "2026-10-25",
+        "vistas": 32100,
+        "likes": 1140,
+        "comentarios": 24,
+        "compartidos": 406,
+        "guardados": 49,
+        "duracion_s": 12,
+        "señal": 0.01264797507788162,
+        "señal_tipo": "compartidos",
+        "gancho_literal": "¡La garantía era de verano, papillo! En invierno se cobra aparte.",
+        "cuadros": [
+          "marca/radar/salidas/cuadros/2026-10-25/01-tiktok-https-www-tiktok-com-machillo-puravida-v.jpg",
+          "marca/radar/salidas/cuadros/2026-10-25/02-tiktok-https-www-tiktok-com-machillo-puravida-v.jpg",
+          "marca/radar/salidas/cuadros/2026-10-25/03-tiktok-https-www-tiktok-com-machillo-puravida-v.jpg"
+        ]
+      },
+      "gramatica": {
+        "tipo_gancho": "escena de oficio, con la regla falsa escrita en el subtítulo",
+        "gancho_0_3s": "El personaje en una escalera de mano, martillo en la mano, lloviendo, con cara de resignado; «GARANTÍA DEL TECHO.», con GARANTÍA en cian.",
+        "re_gancho_s": 6,
+        "re_gancho": "El mismo plano, pero con la cara de sorpresa y la boca abierta; «DE VERANO, NO», con VERANO en cian.",
+        "estructura": [
+          "El personaje en su oficio, con la lluvia y el balde que ya no alcanza",
+          "El remate va escrito: una garantía que no cubre nada",
+          "La cara cambia dentro del mismo plano: de resignado a sorpresa",
+          "Corte a negro"
+        ],
+        "banda_duracion": "0-3 s gancho · 3-6 s cambia la cara · 6-12 s negro",
+        "subtitulos": "Mayúsculas condensadas, UNA palabra en cian, tercio inferior.",
+        "plano": "Plano medio completo, cámara a la altura del personaje, lluvia y techo al fondo.",
+        "ritmo_cortes": 1,
+        "sonido": "No se pudo leer: los cuadros son JPG y no traen audio.",
+        "cierre": "ninguno: el cuadro del 90 % ya es negro (a los 10,8 s).",
+        "mecanica_comentarios": "El chiste es de garantía: cada quien cuenta la garantía de su casa."
+      },
+      "tropicalizacion": {
+        "encaja": true,
+        "serie": "Lo probé por vos",
+        "pieza": "El informe de ventas: la cifra que venía con garantía",
+        "tarea_real": "Armar un informe de ventas del mes para el jefe, con la cifra de crecimiento.",
+        "prueba_real_ia": true,
+        "prueba_guardada": true,
+        "resultado_o_pregunta_3s": "«Le pedí una cifra que sonara firme. ¿Qué me dio?» — la pregunta en el segundo 0 al 3, sobre el párrafo con el hueco.",
+        "regla_lider": "Regla de líder #2: «Revisá lo que te da en la fuente».",
+        "cambios": [
+          {
+            "que": "La garantía",
+            "original": "La garantía era de verano: en invierno se cobra aparte.",
+            "nuestro": "La IA devuelve el párrafo «listo» con la cifra en blanco, un texto roto en la mitad y cero fuente.",
+            "porque": "La garantía que no cubre nada, acá es la promesa de la IA: suena firme y no se puede auditar."
+          },
+          {
+            "que": "El oficio",
+            "original": "El mono reparando un techo en lluvia, con balde y escalera.",
+            "nuestro": "Kenneth armando el informe del mes, con la pantalla y el documento al lado.",
+            "porque": "El molde es un oficio y una regla; en la marca el oficio es dirigir y la regla es la de líder."
+          },
+          {
+            "que": "El remate",
+            "original": "La cara: resignado que se vuelve sorpresa.",
+            "nuestro": "El gemelo leyendo la respuesta con cara de «esto se lo mando al jefe así».",
+            "porque": "IDENTIDAD.md: humor seco de alguien que ya vio de todo; la sorpresa va en la cara, no en la voz."
+          },
+          {
+            "que": "La prueba",
+            "original": "No hay.",
+            "nuestro": "Prueba real con MiniMax-M3, guardada con el JSON crudo en pruebas/2026-10-26/C-004.md.",
+            "porque": "Lo probé por vos: la pieza es el trabajo real y lo que se corrigió, no una opinión."
+          },
+          {
+            "que": "El cierre",
+            "original": "Negro seco.",
+            "nuestro": "Tarjeta «Regla de líder #2» más «Picado · Dirigí la IA».",
+            "porque": "La regla «revisá lo que te da en la fuente» es exactamente lo que pasó en la prueba."
+          }
+        ],
+        "avisos": [
+          "La IA NO inventó la cifra: pidió las dos ventas y dejó el hueco [X%] a propósito. El chiste de la garantía, entonces, no sale de que se la haya inventado de mentira: sale de que el párrafo con huecos y con un texto roto («un crecimiento intermensual de **[X%]**,驿站 Leave?») se vería perfecto en un correo al jefe si nadie lo leyera.",
+          "El artefacto raro del párrafo (caracteres chinos y «Leave?» en medio de un texto en español) sale del modelo y no del recorte: está en el JSON crudo, así que se puede verificar."
+        ]
+      },
+      "nuestro": {
+        "piezas": [],
+        "seguidores_por_1000": null,
+        "vistas_promedio": null,
+        "notas": ""
+      }
+    },
+    {
+      "id": "C-005",
+      "nombre": "El operativo por una fuga",
+      "estado": "nuevo",
+      "creada": "2026-10-26",
+      "original": {
+        "url": "https://www.tiktok.com/@machillo.puravida/video/7699884068158049557",
+        "cuenta": "@machillo.puravida",
+        "red": "tiktok",
+        "fecha": "2026-10-23",
+        "vistas": 30200,
+        "likes": 1570,
+        "comentarios": 24,
+        "compartidos": 361,
+        "guardados": 101,
+        "duracion_s": 13,
+        "señal": 0.011953642384105961,
+        "señal_tipo": "compartidos",
+        "gancho_literal": "Uno viene a arreglar una fuga y le arman un operativo, papillo.",
+        "cuadros": [
+          "marca/radar/salidas/cuadros/2026-10-23/01-tiktok-https-www-tiktok-com-machillo-puravida-v.jpg",
+          "marca/radar/salidas/cuadros/2026-10-23/02-tiktok-https-www-tiktok-com-machillo-puravida-v.jpg",
+          "marca/radar/salidas/cuadros/2026-10-23/03-tiktok-https-www-tiktok-com-machillo-puravida-v.jpg"
+        ]
+      },
+      "gramatica": {
+        "tipo_gancho": "escena con el contexto exagerado detrás del personaje",
+        "gancho_0_3s": "El personaje con una llave Still en la mano, cara de inocente, frente a un edificio enorme de «CONTROL DEL CRIMEN ORGANIZADO»; «ANDA HACIENDO AQUÍ», con HACIENDO en cian.",
+        "re_gancho_s": 7,
+        "re_gancho": "Levanta la mano como quien pregunta, más perdido; «UNA FUGA DE», con DE en cian.",
+        "estructura": [
+          "El personaje con su herramienta, en primer plano",
+          "El edificio oficial detrás, y la tarea mínima convertida en investigación",
+          "El remate es la cara: la de «yo solo venía a arreglar esto»",
+          "Corte a negro"
+        ],
+        "banda_duracion": "0-3 s gancho · 3-7 s el remate · 7-13 s negro",
+        "subtitulos": "Mayúsculas condensadas, UNA palabra en cian, tercio inferior.",
+        "plano": "Plano medio, cámara a la altura del pecho, el edificio grande atrás.",
+        "ritmo_cortes": 1,
+        "sonido": "No se pudo leer: los cuadros son JPG y no traen audio.",
+        "cierre": "ninguno: el cuadro del 90 % ya es negro (a los 11,7 s).",
+        "mecanica_comentarios": "La gente cuenta su propio operativo exagerado (la cita, el ticket, la restricción)."
+      },
+      "tropicalizacion": {
+        "encaja": true,
+        "serie": "¿La IA puede…?",
+        "pieza": "Le pregunté qué hago con la gotera. ¿Le confío eso?",
+        "tarea_real": "Reportar una gotera del techo del cuarto para que la arreglen.",
+        "prueba_real_ia": true,
+        "prueba_guardada": true,
+        "resultado_o_pregunta_3s": "«Le pregunté qué hago con la gotera. ¿Qué me devuelve?» — la pregunta en el segundo 0 al 3, sobre la lista de cinco pasos.",
+        "regla_lider": "Regla de líder #3: «Pedile que te lo explique como a un joven de 12».",
+        "cambios": [
+          {
+            "que": "El operativo",
+            "original": "A un plomero que viene a arreglar una fuga le arman un operativo policial.",
+            "nuestro": "A una IA que le preguntás qué hacer con una gotera le sale un manual de cinco pasos con seguridad, electricista y quién es el responsable legal.",
+            "porque": "Es el mismo movimiento: una tarea de una línea se convierte en un aparato. El aparato es la IA."
+          },
+          {
+            "que": "El edificio",
+            "original": "El CACCO y la bandera de Costa Rica: la amenaza legal, exagerada.",
+            "nuestro": "La pantalla con la respuesta de la IA ocupando todo el cuadro.",
+            "porque": "El contexto exagerado se traspasa del mundo al producto: el aparato es ahora el texto."
+          },
+          {
+            "que": "El personaje",
+            "original": "El mono con llaveStill y albornoz, marca de agua de Machillo.",
+            "nuestro": "El gemelo de Kenneth con la llave o el documento en la mano.",
+            "porque": "La marca solo usa el gemelo aprobado (CANON.md)."
+          },
+          {
+            "que": "La prueba",
+            "original": "No hay.",
+            "nuestro": "Prueba real con MiniMax-M3, guardada en pruebas/2026-10-26/C-005.md.",
+            "porque": "Sin la respuesta real no hay examen: la gracia es ver el manual de verdad."
+          },
+          {
+            "que": "El cierre",
+            "original": "Negro seco.",
+            "nuestro": "Tarjeta «Regla de líder #3» más «Picado · Dirigí la IA».",
+            "porque": "La regla de líder le pide a la IA que baje el tono; eso es exactamente lo que la IA no hizo."
+          }
+        ],
+        "avisos": [
+          "La respuesta de la IA tiene cinco pasos y se corta a la mitad («contacta con un specialize/roofer y,»). Esa frase cortada es el remate más honesto que hay: el que se ve, no el que se cuenta.",
+          "El original dura 13 s y es el más corto del lote, pero la respuesta real no cabe entera en 13 s: hay que leer en pantalla lo justo (los cinco títulos) y dejar el resto para la descripción."
+        ]
+      },
+      "nuestro": {
+        "piezas": [],
+        "seguidores_por_1000": null,
+        "vistas_promedio": null,
+        "notas": ""
+      }
+    }
+  ]
+}

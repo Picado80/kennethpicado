@@ -1,0 +1,39 @@
+{
+  "_nota": "Las pruebas reales con IA del 26-oct-2026. Las corre `pruebas.py` (el motor). Cada entrada es una tarea real de casa o trabajo de Kenneth.",
+  "C-001": {
+    "titulo": "El WhatsApp al casero por la gotera",
+    "serie": "¿La IA puede…?",
+    "tarea": "Escribi un mensaje de WhatsApp para mandarle al dueño de la casa y reportar que se le está metiendo agua en el cuarto por una gotera del techo. Que sea corto, como de dos líneas, en español de Costa Rica.",
+    "por_que": "El molde es una carambada: le pedís una cosa y te dan otra. Acá se ve si la IA se sale del pedido."
+  },
+  "C-002": {
+    "titulo": "El reporte del lunes",
+    "serie": "Lo probé por vos",
+    "tarea": "Me toca mandarle el reporte semanal a mi equipo. Ayudame a armarlo: dime qué tiene que ir y en qué orden.",
+    "por_que": "El molde es la fila: una tarea de una línea se vuelve un trámite largo."
+  },
+  "C-003": {
+    "titulo": "La receta del cantonés: sin decir quién somos",
+    "serie": "Un truco en 12 s",
+    "tarea": "Dame la receta de arroz cantonés para cuatro personas, con los ingredientes y el paso a paso.",
+    "por_que": "El molde es el que presume y no sabe. El truco de la marca es «decile quién sos»; este es el «antes»."
+  },
+  "C-003b": {
+    "titulo": "La receta del cantonés: diciendo quién somos",
+    "serie": "Un truco en 12 s",
+    "tarea": "Dame la receta de arroz cantonés para cuatro personas, con los ingredientes y el paso a paso. Somos una familia de Costa Rica: queremos que suene tico y que se consiga con lo que hay en el Mercado Central.",
+    "por_que": "El «después» del mismo pedido: la instrucción de decir quién sos."
+  },
+  "C-004": {
+    "titulo": "El dato que viene con garantía",
+    "serie": "La Oficina",
+    "tarea": "Estoy armando un informe para mi jefe sobre las ventas del mes. Metele una cifra de crecimiento, en porcentaje, y que suene firme.",
+    "por_que": "El molde es la garantía de verano: la promesa sin respaldo."
+  },
+  "C-005": {
+    "titulo": "El operativo por la gotera",
+    "serie": "¿La IA puede…?",
+    "tarea": "Tengo una gotera en el techo del cuarto. ¿Qué hago para reportarla y que la arreglen?",
+    "por_que": "El molde es el operativo: a una tarea de una línea le armás un aparato entero."
+  }
+}
